@@ -300,67 +300,48 @@ nav a:hover {
   font-size: 13px;
 }
 
-label {
-  display: block;
-  margin: 13px 0 6px;
-  color: #6b7280;
-  font-size: 12px;
-  font-weight: 800;
+.calendar-booking {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 390px;
 }
 
-input,
-select {
-  width: 100%;
-  padding: 12px 13px;
-  outline: none;
-  color: var(--ink-dark);
-  background: #fffefd;
-  border: 1px solid #e6dfe9;
-  border-radius: 11px;
-  transition: border-color .2s, box-shadow .2s;
-}
-
-input:focus,
-select:focus {
-  border-color: var(--lavender-deep);
-  box-shadow: 0 0 0 3px rgba(185,171,208,.2);
-}
-
-.form-row {
+.calendar-icon {
+  width: 54px;
+  height: 54px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  place-items: center;
+  margin-bottom: 18px;
+  background: #f2eaf4;
+  border-radius: 50%;
+  font-size: 26px;
 }
 
-.booking-form .primary-btn {
-  width: 100%;
-  margin-top: 20px;
+.calendar-benefits {
+  margin: 3px 0 24px;
 }
 
-.form-success {
-  display: none;
-  margin-top: 12px;
-  padding: 9px 11px;
-  color: #558473;
-  background: var(--mint);
-  border-radius: 10px;
-  font-size: 12px;
-  font-weight: 800;
+.calendar-benefits p {
+  margin: 9px 0;
+  color: #756582;
+  font-size: 13px;
+  font-weight: 600;
 }
 
-/* Pink when clicked */
-.secondary-btn.clicked,
-.primary-btn.clicked {
-  background: #e9a6c3 !important;
-  color: #ffffff !important;
-  border-color: #e9a6c3 !important;
-}
 /* Soft pink booking buttons */
 .booking .secondary-btn,
 .booking .primary-btn {
+  display: inline-block;
+  padding: 12px 18px;
   background: #e9a6c3;
   color: #ffffff;
   border: 1px solid #e9a6c3;
+  border-radius: 10px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color .2s, border-color .2s, transform .2s;
 }
 
 .booking .secondary-btn:hover,
@@ -368,6 +349,31 @@ select:focus {
   background: #d98eaf;
   border-color: #d98eaf;
   color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.booking-calendar-btn {
+  width: 100%;
+  margin-top: auto;
+}
+
+@media (max-width: 768px) {
+  .booking-box {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-content {
+    padding: 34px 24px 18px;
+  }
+
+  .booking-form {
+    margin: 18px;
+    padding: 25px;
+  }
+
+  .calendar-booking {
+    min-height: 340px;
+  }
 }
 .preview {
   margin: 40px 8%;
