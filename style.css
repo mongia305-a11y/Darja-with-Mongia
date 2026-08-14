@@ -1339,17 +1339,22 @@ button:hover {
   font-size: 12px;
   letter-spacing: 0.2px;
 }
-/* SPOTIFY PODCAST SECTION */
+/* ========================================
+   SPOTIFY PODCAST SECTION
+======================================== */
 
 .podcast-section {
-  padding: 90px 8%;
+  padding: 70px 8%;
   background: #f2eaf4;
   text-align: center;
 }
 
+
+/* PODCAST TITLE */
+
 .podcast-heading {
   max-width: 700px;
-  margin: 0 auto 38px;
+  margin: 0 auto 35px;
 }
 
 .podcast-label {
@@ -1379,146 +1384,162 @@ button:hover {
 }
 
 .podcast-heading p {
+  margin: 0;
   color: #6f7884;
   font-size: 16px;
   line-height: 1.7;
 }
 
-.podcast-player {
-  max-width: 850px;
-  margin: 0 auto 25px;
-  padding: 12px;
+
+/* LIST OF EPISODES */
+
+.podcast-episodes {
+  display: grid;
+  gap: 16px;
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+
+/* ONE EPISODE ROW */
+
+.podcast-episode {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(270px, 0.8fr);
+  align-items: stretch;
+  gap: 14px;
+}
+
+
+/* SMALL SPOTIFY PLAYER */
+
+.episode-audio {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  padding: 6px;
   background: #ffffff;
-  border-radius: 24px;
-  box-shadow: 0 15px 35px rgba(70, 62, 77, 0.1);
+  border: 1px solid #eadfe7;
+  border-radius: 16px;
+  box-shadow: 0 7px 18px rgba(70, 62, 77, 0.07);
 }
 
-.podcast-player iframe {
+.episode-audio iframe {
   display: block;
+  width: 100%;
+  height: 152px !important;
   border: none;
-  border-radius: 15px;
+  border-radius: 12px;
 }
 
-.spotify-button {
-  display: inline-block;
-  padding: 13px 24px;
-  color: #ffffff;
-  background: #e9a6c3;
-  border-radius: 25px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: 0.2s;
-}
 
-.spotify-button:hover {
-  color: #ffffff;
-  background: #d98eaf;
-  transform: translateY(-2px);
-}
-
-@media (max-width: 600px) {
-  .podcast-section {
-    padding: 70px 5%;
-  }
-
-  .podcast-player {
-    padding: 8px;
-  }
-}
-/* FREE PODCAST PDF */
+/* SMALL PDF CARD */
 
 .podcast-resource {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: 44px minmax(0, 1fr);
+  align-content: center;
   align-items: center;
-  gap: 20px;
-  max-width: 850px;
-  margin: 25px auto;
-  padding: 22px;
+  gap: 10px 12px;
+  min-width: 0;
+  margin: 0;
+  padding: 14px;
   background: #ffffff;
   border: 1px solid #eadfe7;
-  border-radius: 22px;
-  box-shadow: 0 12px 28px rgba(70, 62, 77, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 7px 18px rgba(70, 62, 77, 0.07);
   text-align: left;
 }
+
+
+/* PDF ICON */
 
 .resource-icon {
   display: grid;
   place-items: center;
-  width: 62px;
-  height: 62px;
+  width: 44px;
+  height: 44px;
   color: #ffffff;
   background: #e9a6c3;
-  border-radius: 18px;
-  font-size: 14px;
+  border-radius: 12px;
+  font-size: 11px;
   font-weight: 700;
 }
 
+
+/* PDF INFORMATION */
+
+.resource-information {
+  min-width: 0;
+  background: transparent;
+}
+
 .resource-information span {
-  color: #d98eaf;
-  font-size: 12px;
+  display: block;
+  color: #b65f85;
+  font-size: 9px;
   font-weight: 700;
+  letter-spacing: 0.4px;
   text-transform: uppercase;
 }
 
 .resource-information h3 {
-  margin: 5px 0;
+  margin: 3px 0 0;
   color: #3f4c4a;
-  font-size: 18px;
+  font-size: 14px;
+  line-height: 1.25;
 }
 
 .resource-information p {
-  margin: 0;
-  color: #6f7884;
-  font-size: 13px;
+  display: none;
 }
 
+
+/* PDF DOWNLOAD BUTTON */
+
 .pdf-download-button {
-  padding: 12px 18px;
+  grid-column: 1 / -1;
+  display: block;
+  padding: 9px 12px;
   color: #ffffff;
   background: #e9a6c3;
-  border-radius: 20px;
-  text-decoration: none;
+  border-radius: 12px;
+  font-size: 12px;
   font-weight: 600;
-  white-space: nowrap;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
 }
 
 .pdf-download-button:hover {
   color: #ffffff;
   background: #d98eaf;
+  transform: translateY(-1px);
 }
 
-@media (max-width: 700px) {
+
+/* TABLET AND PHONE */
+
+@media (max-width: 750px) {
+  .podcast-section {
+    padding: 60px 5%;
+  }
+
+  .podcast-heading {
+    margin-bottom: 28px;
+  }
+
+  .podcast-episode {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .episode-audio,
   .podcast-resource {
-    grid-template-columns: auto 1fr;
+    width: 100%;
   }
 
-  .pdf-download-button {
-    grid-column: 1 / -1;
-    text-align: center;
+  .episode-audio iframe {
+    height: 152px !important;
   }
-}
-/* Fix PDF resource colors */
-
-.podcast-resource .resource-icon {
-  width: 62px;
-  height: 62px;
-  color: #ffffff;
-  background: #e9a6c3;
-}
-
-.podcast-resource .resource-information {
-  background: transparent;
-}
-
-.podcast-resource .resource-information span {
-  color: #b65f85;
-}
-
-.podcast-resource .resource-information h3 {
-  color: #333333;
-}
-
-.podcast-resource .resource-information p {
-  color: #59636f;
 }
