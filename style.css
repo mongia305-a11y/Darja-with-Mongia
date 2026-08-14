@@ -71,13 +71,50 @@ nav a:hover {
   padding: 80px 8%;
 }
 
-.hero-text h1 {
-  font-size: 48px;
-  line-height: 1.2;
+.hero-title {
+  max-width: 570px;
+  margin: 0;
+  color: #3f4c4a;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 52px;
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -2px;
+}
+
+.hero-title em {
+  position: relative;
+  display: inline-block;
+  margin-top: 12px;
+  color: #e9a6c3;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 500;
+  line-height: 1.05;
+}
+
+/* Soft hand-drawn underline */
+.hero-title em::after {
+  content: "";
+  position: absolute;
+  left: 8%;
+  bottom: -10px;
+  width: 82%;
+  height: 4px;
+  background: #e9a6c3;
+  border-radius: 50%;
+  transform: rotate(-1.5deg);
+  opacity: 0.85;
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 42px;
+    letter-spacing: -1px;
+  }
 }
 
 .hero-text p {
-  margin-top: 15px;
+  margin-top: 35px;
   font-size: 18px;
   color: #666;
 }
@@ -813,6 +850,435 @@ button:hover {
     gap: 25px;
   }
 }
+
+/* ==================================================
+   POCKET DARJA INTERACTIVE PHRASES
+================================================== */
+
+[hidden] {
+  display: none !important;
+}
+
+.pocket-section {
+  padding: 90px 8%;
+  background: #f9f7ff;
+}
+
+.section-heading {
+  max-width: 720px;
+  margin: 0 auto 55px;
+  text-align: center;
+}
+
+.section-label {
+  display: inline-block;
+  padding: 7px 15px;
+  color: #755d70;
+  background: #f8dce8;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.section-heading h2 {
+  margin: 18px 0 12px;
+  color: #46505b;
+  font-family: Georgia, serif;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.section-heading h2 em {
+  color: #e9a6c3;
+  font-weight: 400;
+}
+
+.section-heading p {
+  color: #7b8494;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.pocket-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 310px;
+  gap: 40px;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.flip-scene {
+  perspective: 1400px;
+}
+
+.darja-flip-card {
+  position: relative;
+  width: 100%;
+  max-width: 590px;
+  min-height: 340px;
+  margin: 0 auto;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform .7s cubic-bezier(.2, .8, .25, 1);
+}
+
+.darja-flip-card.flipped {
+  transform: rotateY(180deg);
+}
+
+.darja-flip-card:focus-visible {
+  outline: 4px solid rgba(233, 166, 195, .45);
+  outline-offset: 6px;
+}
+
+.darja-card-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 38px;
+  border: 1px solid #eadfe7;
+  border-radius: 30px;
+  box-shadow: 0 16px 35px rgba(70, 62, 77, .09);
+  text-align: center;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.darja-card-front {
+  background: linear-gradient(145deg, #ffffff, #f2eaf4);
+}
+
+.darja-card-back {
+  background: linear-gradient(145deg, #ffffff, #f8dce8);
+  transform: rotateY(180deg);
+}
+
+.phrase-arabic {
+  color: #536577;
+  font-size: clamp(48px, 7vw, 72px);
+  line-height: 1.4;
+}
+
+.phrase-latin {
+  margin-top: 8px;
+  color: #9d6f87;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.phrase-meaning {
+  max-width: 430px;
+  color: #46505b;
+  font-family: Georgia, serif;
+  font-size: clamp(25px, 3vw, 34px);
+  line-height: 1.35;
+}
+
+.phrase-example {
+  margin-top: 20px;
+  padding: 10px 18px;
+  color: #8d6379;
+  background: #ffffff;
+  border: 1px dashed #e9a6c3;
+  border-radius: 14px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.phrase-hint {
+  margin-top: 24px;
+  color: #89919e;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.phrase-controls {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 25px;
+  flex-wrap: wrap;
+}
+
+.phrase-control {
+  padding: 11px 18px;
+  color: #ffffff;
+  background: #e9a6c3;
+  border: 1px solid #e9a6c3;
+  border-radius: 13px;
+  box-shadow: 0 7px 18px rgba(70, 62, 77, .07);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.phrase-control:hover {
+  color: #ffffff;
+  background: #d98eaf;
+  border-color: #d98eaf;
+}
+
+.phrase-menu {
+  padding: 22px;
+  background: #ffffff;
+  border: 1px solid #eadfe7;
+  border-radius: 25px;
+  box-shadow: 0 12px 28px rgba(70, 62, 77, .07);
+}
+
+.phrase-menu h3 {
+  margin-bottom: 15px;
+  color: #7b8494;
+  font-size: 12px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+.phrase-choice {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 10px 13px;
+  color: #536577;
+  background: #ffffff;
+  border: 1px solid #eadfe7;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: transform .2s, background .2s;
+}
+
+.phrase-choice:hover {
+  background: #f8dce8;
+  transform: translateX(4px);
+}
+
+.phrase-choice.active {
+  background: #e9a6c3;
+  border-color: #e9a6c3;
+}
+
+.phrase-choice span {
+  font-size: 17px;
+}
+
+.phrase-choice small {
+  color: #7b8494;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.phrase-choice.active span,
+.phrase-choice.active small {
+  color: #ffffff;
+}
+
+@media (max-width: 850px) {
+  .pocket-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .phrase-menu {
+    width: 100%;
+    max-width: 590px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .pocket-section {
+    padding: 70px 5%;
+  }
+
+  .darja-flip-card {
+    min-height: 310px;
+  }
+
+  .darja-card-face {
+    padding: 25px;
+  }
+
+  .phrase-control {
+    padding: 10px 13px;
+    font-size: 12px;
+  }
+}
+
+/* ==================================================
+   HERO PORTRAIT — REPLACES THE STICKER COLLAGE
+================================================== */
+
+.hero-portrait {
+  position: relative;
+  width: min(48vw, 560px);
+  min-width: 420px;
+  margin: 0 auto;
+  padding: 28px 22px 35px;
+}
+
+.portrait-shape {
+  width: 100%;
+  aspect-ratio: .88;
+  overflow: hidden;
+  background: #f2eaf4;
+  border: 8px solid rgba(255, 255, 255, .85);
+  border-radius: 48% 48% 46% 54% / 42% 44% 56% 58%;
+  box-shadow: 0 22px 50px rgba(71, 61, 80, .14);
+}
+
+.portrait-shape img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: 50% 28%;
+}
+
+.greeting-note {
+  position: absolute;
+  top: 0;
+  right: -8px;
+  min-width: 165px;
+  padding: 16px 20px;
+  background: #fff4dc;
+  border: 6px solid #ffffff;
+  border-radius: 25px 25px 7px 25px;
+  box-shadow: 0 14px 28px rgba(71, 61, 80, .13);
+  text-align: center;
+  transform: rotate(4deg);
+}
+
+.greeting-note strong {
+  display: block;
+  color: #526470;
+  font-size: 27px;
+  line-height: 1.2;
+}
+
+.greeting-note span {
+  display: block;
+  margin-top: 5px;
+  color: #7c8490;
+  font-family: Georgia, serif;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.teacher-note {
+  position: absolute;
+  left: -28px;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 300px;
+  padding: 17px 22px;
+  background: rgba(255, 255, 255, .96);
+  border: 1px solid #eadfe7;
+  border-radius: 25px;
+  box-shadow: 0 15px 32px rgba(71, 61, 80, .12);
+}
+
+.teacher-note-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 54px;
+  width: 54px;
+  height: 54px;
+  color: #ffffff;
+  background: #e9a6c3;
+  border-radius: 50%;
+  font-size: 20px;
+}
+
+.teacher-note strong,
+.teacher-note small {
+  display: block;
+}
+
+.teacher-note strong {
+  color: #4e5965;
+  font-size: 15px;
+}
+
+.teacher-note small {
+  margin-top: 5px;
+  color: #7b8494;
+  font-size: 12px;
+}
+
+.portrait-flower {
+  position: absolute;
+  left: 0;
+  top: 30%;
+  width: 58px;
+  height: 58px;
+  background: #e9e2f5;
+  border-radius: 50% 50% 48% 52%;
+  box-shadow: 18px 0 #e9e2f5, -18px 0 #e9e2f5,
+              0 18px #e9e2f5, 0 -18px #e9e2f5;
+}
+
+.portrait-flower span {
+  position: absolute;
+  inset: 17px;
+  z-index: 1;
+  background: #d98eaf;
+  border-radius: 50%;
+}
+
+@media (max-width: 980px) {
+  .hero {
+    flex-direction: column;
+    gap: 55px;
+    text-align: center;
+  }
+
+  .hero-portrait {
+    width: min(82vw, 540px);
+    min-width: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-portrait {
+    width: 92vw;
+    padding: 20px 15px 75px;
+  }
+
+  .greeting-note {
+    right: 2px;
+    min-width: 135px;
+    padding: 12px 14px;
+  }
+
+  .greeting-note strong {
+    font-size: 22px;
+  }
+
+  .teacher-note {
+    left: 50%;
+    bottom: 8px;
+    min-width: min(90vw, 310px);
+    transform: translateX(-50%);
+  }
+
+  .portrait-flower {
+    left: 5px;
+    top: 34%;
+    transform: scale(.72);
+  }
+}
 /* STATS SECTION */
 
 .stats {
@@ -844,5 +1310,191 @@ button:hover {
   .stats {
     flex-direction: column;
     gap: 25px;
+  }
+}
+.experience-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.experience-text strong {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  color: #4e5965;
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.experience-number {
+  color: #d98eaf;
+  font-family: Georgia, serif;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.experience-text small {
+  margin-top: 5px;
+  color: #7b8494;
+  font-size: 12px;
+  letter-spacing: 0.2px;
+}
+/* SPOTIFY PODCAST SECTION */
+
+.podcast-section {
+  padding: 90px 8%;
+  background: #f2eaf4;
+  text-align: center;
+}
+
+.podcast-heading {
+  max-width: 700px;
+  margin: 0 auto 38px;
+}
+
+.podcast-label {
+  display: inline-block;
+  padding: 7px 16px;
+  color: #755d70;
+  background: #ffffff;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.podcast-heading h2 {
+  margin: 18px 0 13px;
+  color: #3f4c4a;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.podcast-heading h2 em {
+  color: #e9a6c3;
+  font-weight: 500;
+}
+
+.podcast-heading p {
+  color: #6f7884;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.podcast-player {
+  max-width: 850px;
+  margin: 0 auto 25px;
+  padding: 12px;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 15px 35px rgba(70, 62, 77, 0.1);
+}
+
+.podcast-player iframe {
+  display: block;
+  border: none;
+  border-radius: 15px;
+}
+
+.spotify-button {
+  display: inline-block;
+  padding: 13px 24px;
+  color: #ffffff;
+  background: #e9a6c3;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.spotify-button:hover {
+  color: #ffffff;
+  background: #d98eaf;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+  .podcast-section {
+    padding: 70px 5%;
+  }
+
+  .podcast-player {
+    padding: 8px;
+  }
+}
+/* FREE PODCAST PDF */
+
+.podcast-resource {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 20px;
+  max-width: 850px;
+  margin: 25px auto;
+  padding: 22px;
+  background: #ffffff;
+  border: 1px solid #eadfe7;
+  border-radius: 22px;
+  box-shadow: 0 12px 28px rgba(70, 62, 77, 0.08);
+  text-align: left;
+}
+
+.resource-icon {
+  display: grid;
+  place-items: center;
+  width: 62px;
+  height: 62px;
+  color: #ffffff;
+  background: #e9a6c3;
+  border-radius: 18px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.resource-information span {
+  color: #d98eaf;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.resource-information h3 {
+  margin: 5px 0;
+  color: #3f4c4a;
+  font-size: 18px;
+}
+
+.resource-information p {
+  margin: 0;
+  color: #6f7884;
+  font-size: 13px;
+}
+
+.pdf-download-button {
+  padding: 12px 18px;
+  color: #ffffff;
+  background: #e9a6c3;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.pdf-download-button:hover {
+  color: #ffffff;
+  background: #d98eaf;
+}
+
+@media (max-width: 700px) {
+  .podcast-resource {
+    grid-template-columns: auto 1fr;
+  }
+
+  .pdf-download-button {
+    grid-column: 1 / -1;
+    text-align: center;
   }
 }

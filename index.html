@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Darja with Mongia</title>
-  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="stylesheet" href="style.css?v=6">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 
@@ -20,6 +20,7 @@
   <nav>
     <a href="#home">Home</a>
     <a href="#courses">Courses</a>
+     <a href="#podcast">Podcast</a>
     <a href="https://preply.in/MONGIA6EN878583110?ts=17806792" target="_blank">Private Lessons</a>
     <a href="#about">About</a>
   </nav>
@@ -35,22 +36,40 @@
 <section class="hero" id="home">
 
   <div class="hero-text">
-    <h1>Learn Tunisian Arabic with Confidence</h1>
-    <p>Step-by-step courses designed to help you speak naturally in real life.</p>
+    <h1 class="hero-title">
+  Speak Tunisian<br>
+  Arabic with <em>confidence.</em>
+</h1>
+    <p>Friendly, practical online classes that help you connect with Tunisians, understand everyday conversations, and feel at home in the culture.</p>
     <a href="https://preply.in/MONGIA6EN878583110?ts=17806792" target="_blank" class="main-btn">Start Learning</a>
   </div>
 
-  <div class="hero-stickers">
-  <img src="images/stickers/passport.png" class="sticker passport" alt="Tunisian passport">
-  <img src="images/stickers/harissa.png" class="sticker harissa" alt="Harissa">
-  <img src="images/stickers/blue_door.png" class="sticker blue-door" alt="Blue door">
-  <img src="images/stickers/flag.png" class="sticker flag" alt="Tunisian flag">
-  <img src="images/stickers/inshallah.png" class="sticker inshallah" alt="Inshallah">
-  <img src="images/stickers/pastries.png" class="sticker pastries" alt="Pastries">
-  <img src="images/stickers/radio.png" class="sticker radio" alt="Radio">
-  <img src="images/stickers/traditional_clothes.png" class="sticker clothes" alt="Traditional clothes">
-  <img src="images/stickers/tunisia_map.png" class="sticker map" alt="Tunisian map">
-</div>
+  <div class="hero-portrait">
+    <div class="portrait-shape">
+      <img
+        src="images/profile.JPG"
+        alt="Mongia, Tunisian Arabic teacher"
+      >
+    </div>
+
+
+
+    <div class="greeting-note">
+      <strong lang="ar" dir="rtl">عسلامة!</strong>
+      <span>Asslema — hello!</span>
+    </div>
+
+    <div class="teacher-note">
+ <span class="experience-text">
+  <strong>
+    <span class="experience-number">4+</span>
+    years
+  </strong>
+
+  <small>Teaching Tunisian Arabic with passion</small>
+</span>
+    </div>
+  </div>
 
 
 
@@ -114,7 +133,69 @@
   </div>
 </section>
 
-<section class="booking" id="book">
+<section class="pocket-section" id="phrases">
+  <div class="section-heading">
+    <span class="section-label phrase-label">Pocket Darja</span>
+    <h2>A little taste — <em>tap the card</em> to flip it</h2>
+    <p>Eight phrases Tunisians use every single day. Pick one from the list, or let the deck surprise you.</p>
+  </div>
+
+  <div class="pocket-layout">
+    <div>
+      <div class="flip-scene">
+        <div class="darja-flip-card" id="darjaFlipCard" role="button" tabindex="0" aria-label="Flip phrase card">
+          <div class="darja-card-face darja-card-front">
+            <div class="phrase-arabic" id="phraseArabic" lang="ar" dir="rtl">عسلامة</div>
+            <div class="phrase-latin" id="phraseLatin">asslema</div>
+            <div class="phrase-hint">Tap the card to see the meaning</div>
+          </div>
+          <div class="darja-card-face darja-card-back">
+            <div class="phrase-meaning" id="phraseMeaning">Hello — a warm Tunisian greeting</div>
+            <div class="phrase-example" id="phraseExample">“Asslema! Chniya a7welek?”</div>
+            <div class="phrase-hint">Tap again to flip back</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phrase-controls">
+        <button type="button" class="phrase-control" id="previousPhrase">← Previous</button>
+        <button type="button" class="phrase-control" id="randomPhrase">✦ Surprise me</button>
+        <button type="button" class="phrase-control" id="nextPhrase">Next →</button>
+      </div>
+    </div>
+
+    <div class="phrase-menu" id="phraseMenu">
+      <h3>Everyday phrases</h3>
+
+      <button type="button" class="phrase-choice active" data-index="0">
+        <span lang="ar" dir="rtl">عسلامة</span><small>asslema</small>
+      </button>
+      <button type="button" class="phrase-choice" data-index="1">
+        <span lang="ar" dir="rtl">لاباس؟</span><small>labas?</small>
+      </button>
+      <button type="button" class="phrase-choice" data-index="2">
+        <span lang="ar" dir="rtl">يعطيك الصحة</span><small>ya3tik e-ssé7a</small>
+      </button>
+      <button type="button" class="phrase-choice" data-index="3">
+        <span lang="ar" dir="rtl">باهي</span><small>behi</small>
+      </button>
+      <button type="button" class="phrase-choice" data-index="4">
+        <span lang="ar" dir="rtl">بنين</span><small>bnin</small>
+      </button>
+      <button type="button" class="phrase-choice" data-index="5">
+        <span lang="ar" dir="rtl">يزّي</span><small>yezzi</small>
+      </button>
+      <button type="button" class="phrase-choice" data-index="6">
+        <span lang="ar" dir="rtl">نحبّك</span><small>n7ebbek</small>
+      </button>
+      <button type="button" class="phrase-choice" data-index="7">
+        <span lang="ar" dir="rtl">بالله عليك</span><small>bellah 3lik</small>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="booking" id="book" hidden>
   <div class="container">
     <div class="booking-box">
 
@@ -177,7 +258,68 @@
   <button>Try Free Lesson</button>
 </section>
 -->
+<section class="podcast-section" id="podcast">
 
+  <div class="podcast-heading">
+    <span class="podcast-label">Learn anywhere</span>
+
+    <h2>
+      Listen to my
+      <em>Tunisian Arabic podcast</em>
+    </h2>
+
+    <p>
+      Practise Tunisian Arabic wherever you are with free,
+      beginner-friendly lessons on Spotify.
+    </p>
+  </div>
+
+  <div class="podcast-player">
+    <iframe
+      src="https://open.spotify.com/embed/show/4dMV2mNPZem28TFqm37qv8?utm_source=generator"
+      width="100%"
+      height="352"
+      frameborder="0"
+      allowfullscreen
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy">
+    </iframe>
+  </div>
+
+  <a
+    href="https://open.spotify.com/show/4dMV2mNPZem28TFqm37qv8"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="spotify-button"
+  >
+  <div class="podcast-resource">
+
+  <div class="resource-icon">PDF</div>
+
+  <div class="resource-information">
+    <span>Episode 3 • Free worksheet</span>
+
+    <h3>Introducing Yourself — The Basics</h3>
+
+    <p>
+      Download the episode transcription, useful expressions
+      and practice activities.
+    </p>
+  </div>
+
+  <a
+    href="resources/podcast/episode-3-introducing-yourself.pdf"
+    download
+    class="pdf-download-button"
+  >
+    Download PDF ↓
+  </a>
+
+</div>
+    Open podcast on Spotify →
+  </a>
+
+</section>
 <section class="testimonials">
 
   <h2>What My Students Say</h2>
@@ -222,7 +364,7 @@
 </section>
 
 
-<section class="faq">
+<section class="faq" id="faq">
 
   <h2>Frequently Asked Questions</h2>
 
@@ -282,20 +424,75 @@ Darja with Mongia was created to make Tunisian Arabic accessible through clear, 
 
 
 <footer class="footer">
-
   <h3>Darja with Mongia</h3>
-
   <p>Helping learners speak Tunisian Arabic with confidence.</p>
 
-  <div class="footer-links">
-    <a href="mailto:mongia305@gmail.com">Contact</a>
-   
-  </div>
+  <div class="footer-links"></div>
 
   <p class="copyright">
     © 2026 Darja with Mongia. All rights reserved.
   </p>
-
 </footer>
+
+<script>
+  const darjaPhrases = [
+    { ar: "عسلامة", latin: "asslema", meaning: "Hello — a warm Tunisian greeting", example: "Asslema! Chniya a7welek?" },
+    { ar: "لاباس؟", latin: "labas?", meaning: "How are you? / Are you well?", example: "Labas, el 7amdoullah!" },
+    { ar: "يعطيك الصحة", latin: "ya3tik e-ssé7a", meaning: "Thank you — may God give you health", example: "Ya3tik e-ssé7a!" },
+    { ar: "باهي", latin: "behi", meaning: "Good, fine or okay", example: "El jaw behi elyoum." },
+    { ar: "بنين", latin: "bnin", meaning: "Delicious", example: "El kosksi bnin!" },
+    { ar: "يزّي", latin: "yezzi", meaning: "That’s enough", example: "Yezzi, 3aychek." },
+    { ar: "نحبّك", latin: "n7ebbek", meaning: "I love you", example: "N7ebbek ya Tounes!" },
+    { ar: "بالله عليك", latin: "bellah 3lik", meaning: "Please / Come on", example: "Bellah 3lik, 3awenni." }
+  ];
+
+  const flipCard = document.getElementById("darjaFlipCard");
+  const phraseArabic = document.getElementById("phraseArabic");
+  const phraseLatin = document.getElementById("phraseLatin");
+  const phraseMeaning = document.getElementById("phraseMeaning");
+  const phraseExample = document.getElementById("phraseExample");
+  const phraseButtons = document.querySelectorAll(".phrase-choice");
+  let phraseIndex = 0;
+
+  function showPhrase(index) {
+    phraseIndex = (index + darjaPhrases.length) % darjaPhrases.length;
+    const phrase = darjaPhrases[phraseIndex];
+    flipCard.classList.remove("flipped");
+    phraseArabic.textContent = phrase.ar;
+    phraseLatin.textContent = phrase.latin;
+    phraseMeaning.textContent = phrase.meaning;
+    phraseExample.textContent = `“${phrase.example}”`;
+
+    phraseButtons.forEach((button, buttonIndex) => {
+      button.classList.toggle("active", buttonIndex === phraseIndex);
+    });
+  }
+
+  flipCard.addEventListener("click", () => flipCard.classList.toggle("flipped"));
+  flipCard.addEventListener("keydown", event => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      flipCard.classList.toggle("flipped");
+    }
+  });
+
+  phraseButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      showPhrase(Number(button.dataset.index));
+    });
+  });
+
+  document.getElementById("previousPhrase").addEventListener("click", () => showPhrase(phraseIndex - 1));
+  document.getElementById("nextPhrase").addEventListener("click", () => showPhrase(phraseIndex + 1));
+  document.getElementById("randomPhrase").addEventListener("click", () => {
+    let randomIndex;
+    do {
+      randomIndex = Math.floor(Math.random() * darjaPhrases.length);
+    } while (randomIndex === phraseIndex);
+    showPhrase(randomIndex);
+  });
+
+  showPhrase(0);
+</script>
 </body>
 </html>
