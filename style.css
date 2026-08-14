@@ -1498,3 +1498,27 @@ button:hover {
     text-align: center;
   }
 }
+/* Fix PDF resource colors */
+
+.podcast-resource .resource-icon {
+  width: 62px;
+  height: 62px;
+  color: #ffffff;
+  background: #e9a6c3;
+}
+
+.podcast-resource .resource-information {
+  background: transparent;
+}
+
+.podcast-resource .resource-information span {
+  color: #b65f85;
+}
+
+.podcast-resource .resource-information h3 {
+  color: #333333;
+}
+
+.podcast-resource .resource-information p {
+  color: #59636f;
+}
