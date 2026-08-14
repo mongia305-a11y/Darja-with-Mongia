@@ -1543,3 +1543,41 @@ button:hover {
     height: 152px !important;
   }
 }
+/* LANGUAGE SELECTOR */
+
+.language-switcher {
+  margin-left: 15px;
+}
+
+.language-switcher select {
+  padding: 9px 32px 9px 13px;
+  color: #3f4c4a;
+  background-color: #ffffff;
+  border: 1px solid #eadfe7;
+  border-radius: 20px;
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+}
+
+.language-switcher select:hover,
+.language-switcher select:focus {
+  border-color: #e9a6c3;
+}
+
+
+/* LANGUAGE SELECTOR ON PHONE */
+
+@media (max-width: 750px) {
+  .language-switcher {
+    width: 100%;
+    margin: 12px 0 0;
+    text-align: center;
+  }
+
+  .language-switcher select {
+    width: auto;
+  }
+}
