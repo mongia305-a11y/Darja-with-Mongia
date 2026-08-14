@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Darja Academy</title>
+  <title>Darja with Mongia</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
@@ -13,8 +13,7 @@
 <header class="navbar">
   
   <div class="logo">
-    <img src="images/logo.png" alt="logo">
-    <h2>Darja Academy</h2>
+    <img src="images/logo.png" alt="logo">    <h2>Darja with Mongia</h2>
   </div>
 
   <nav>
@@ -81,29 +80,17 @@
   <div class="course-grid">
 
     <div class="card">
-      <img src="images/course1.png">
+      <img src="images/course1.png" style="width: 200px; height: auto;"> 
       <h3>Basic Vocabulary</h3>
       <p>Coming Soon</p>
     </div>
 
-    <div class="card">
-      <img src="images/course2.png">
-      <h3>Conversations in Context</h3>
-      <p>Coming Soon</p>
-    </div>
-
-    <div class="card">
-      <img src="images/course3.png">
-      <h3>Grammar for Beginners</h3>
-      <p>Coming Soon</p>
-    </div>
-
-  </div>
+    
 
 </section>
 
 <section class="benefits">
-  <h2>Why Learn With Darja Academy?</h2>
+  <h2>Why Learn With Darja with Mongia?</h2>
 
   <div class="benefit-grid">
     <div class="benefit-card">
@@ -126,6 +113,144 @@
   </div>
 </section>
 
+<section class="booking" id="book">
+  <div class="container">
+    <div class="booking-box">
+
+      <div class="booking-content">
+        <div class="section-kicker">Your first step</div>
+
+        <h2>
+          Ready to say <span class="ar">عسلامة</span> to Dârja?
+        </h2>
+
+        <p>
+          Book a relaxed introductory class with Mongia. Tell us a little about your goals, and we’ll find a time that works beautifully for you.
+        </p>
+
+        <div class="booking-list">
+          <span>✓ 30-minute intro class</span>
+          <span>✓ Live on Google Meet</span>
+          <span>✓ No pressure, just practice</span>
+        </div>
+
+        <a href="#classes" class="secondary-btn">
+          See all class options
+        </a>
+      </div>
+
+
+      <form
+        class="booking-form"
+        id="bookingForm"
+        action="https://api.web3forms.com/submit"
+        method="POST"
+      >
+
+        <!-- Web3Forms connection -->
+        <input
+          type="hidden"
+          name="access_key"
+          value="406db2c7-2d3b-43b3-8385-ee24dc310d2f"
+        >
+
+        <!-- Email subject -->
+        <input
+          type="hidden"
+          name="subject"
+          value="New Dârja Academy Intro Class Request"
+        >
+
+
+        <h3>Let’s learn together</h3>
+
+        <p>
+          Send your details and Mongia will be in touch with available times.
+        </p>
+
+
+        <div class="form-row">
+
+          <div>
+            <label for="name">Your name</label>
+
+            <input
+              id="name"
+              name="name"
+              type="text"
+              placeholder="e.g. Amira"
+              required
+            />
+          </div>
+
+
+          <div>
+            <label for="email">Email address</label>
+
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="you@example.com"
+              required
+            />
+          </div>
+
+        </div>
+
+
+        <label for="level">
+          Your current level
+        </label>
+
+        <select
+          id="level"
+          name="level"
+          required
+        >
+          <option value="" selected disabled>
+            Choose your level
+          </option>
+
+          <option>Complete beginner</option>
+          <option>I know a few words</option>
+          <option>Intermediate speaker</option>
+          <option>Advanced speaker</option>
+        </select>
+
+
+        <label for="goal">
+          What would you love to learn?
+        </label>
+
+        <input
+          id="goal"
+          name="goal"
+          type="text"
+          placeholder="Travel, family, conversation..."
+        />
+
+
+        <button
+          type="submit"
+          class="primary-btn"
+        >
+          Request my intro class <span>→</span>
+        </button>
+
+
+        <div
+          class="form-success"
+          id="formSuccess"
+        >
+          Shukran! Your request is on its way to Mongia. ✦
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</section>
 <!--
 <section class="preview">
   <h2>Start With a Free Lesson</h2>
@@ -194,7 +319,7 @@
     <details>
       <summary>Is this Tunisian Darja or Standard Arabic?</summary>
       <p>
-        Darja Academy focuses on Tunisian Arabic (Darja), the language spoken in everyday life in Tunisia.
+        Darja with Mongia focuses on Tunisian Arabic (Darja), the language spoken in everyday life in Tunisia.
       </p>
     </details>
 
@@ -215,7 +340,7 @@
   <div class="about-box">
 
     <div class="about-text">
-      <h2>About the Academy</h2>
+      <h2>About Darja with Mongia</h2>
 
       <p>
        Hello, I'm Mongia, a native Tunisian Arabic tutor with several years of online teaching experience.
@@ -224,12 +349,12 @@ I help learners speak Tunisian Arabic with confidence through structured lessons
 
 Whether you're learning for family, travel, relationships, or personal interest, my goal is to help you communicate naturally and understand Tunisian culture along the way.
 
-Darja Academy was created to make Tunisian Arabic accessible through clear, step-by-step learning.
+Darja with Mongia was created to make Tunisian Arabic accessible through clear, step-by-step learning.
       </p>
     </div>
 
     <div class="about-image">
-      <img src="images/profile.JPG" alt="Mongia, the founder of Darja Academy">
+      <img src="images/profile.JPG" alt="Mongia, the founder of Darja with Mongia">
     </div>
 
   </div>
@@ -239,7 +364,7 @@ Darja Academy was created to make Tunisian Arabic accessible through clear, step
 
 <footer class="footer">
 
-  <h3>Darja Academy</h3>
+  <h3>Darja with Mongia</h3>
 
   <p>Helping learners speak Tunisian Arabic with confidence.</p>
 
@@ -249,9 +374,68 @@ Darja Academy was created to make Tunisian Arabic accessible through clear, step
   </div>
 
   <p class="copyright">
-    © 2026 Darja Academy. All rights reserved.
+    © 2026 Darja with Mongia. All rights reserved.
   </p>
 
 </footer>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const form = document.getElementById("bookingForm");
+  const successMessage = document.getElementById("formSuccess");
+
+  form.addEventListener("submit", async function (event) {
+
+    event.preventDefault();
+
+    const button = form.querySelector(".primary-btn");
+
+    button.disabled = true;
+    button.innerHTML = "Sending...";
+
+    const formData = new FormData(form);
+
+    try {
+
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          "Accept": "application/json"
+        }
+      });
+
+      if (response.ok) {
+
+        form.reset();
+
+        successMessage.style.display = "block";
+
+        button.innerHTML = "Request sent ✓";
+        button.style.background = "#e9a6c3";
+        button.style.color = "#ffffff";
+
+      } else {
+
+        button.disabled = false;
+        button.innerHTML = "Request my intro class <span>→</span>";
+
+        alert("Something went wrong. Please try again.");
+
+      }
+
+    } catch (error) {
+
+      button.disabled = false;
+      button.innerHTML = "Request my intro class <span>→</span>";
+
+      alert("Something went wrong. Please check your internet connection.");
+
+    }
+
+  });
+
+});
+</script>
 </body>
 </html>

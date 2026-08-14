@@ -1,5 +1,5 @@
 * {
-  margin: 0;
+  margin: 1px;
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
@@ -109,37 +109,67 @@ nav a:hover {
 
 .course-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 280px));
+  gap: 20px;
+  justify-content: center;
 }
 
 .card {
   background: white;
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-8px);
+  padding: 15px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
 .card img {
-  width: 100%;
+  width: 160px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto 12px;
 }
 
 .card h3 {
-  padding: 15px;
-  font-size: 16px;
-  font-weight: 500;
-}
-.card p {
-  color: #ff7aa2;
-  font-weight: 600;
-  padding-bottom: 15px;
+  margin: 8px 0;
+  font-size: 18px;
 }
 
+.card p {
+  margin: 5px 0;
+  color: #ff6b9a;
+  font-weight: bold;
+}
+<section class="courses" id="classes">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-kicker">Find your starting point</div>
+          <h2>Classes that fit your life and your goals</h2>
+          <p>Choose a lesson style that feels right for you. Every class is live, personal, and full of practical Tunisian Arabic.</p>
+        </div>
+
+        <div class="course-grid">
+          <article class="course-card">
+            <div class="course-symbol">🌱</div>
+            <h3>Dârja for Beginners</h3>
+            <p>Start with the sounds, greetings, and phrases you need to introduce yourself and enjoy simple daily exchanges.</p>
+            <div class="course-meta"><span>Absolute beginners</span><span>1:1 online</span></div>
+            <a href="#book" class="course-link">Discover this class <span>→</span></a>
+          </article>
+
+          <article class="course-card">
+            <div class="course-symbol">🗣️</div>
+            <h3>Conversation Club</h3>
+            <p>Build fluency through guided conversation around Tunisian culture, travel, family, food, and everyday life.</p>
+            <div class="course-meta"><span>Intermediate+</span><span>Small groups</span></div>
+            <a href="#book" class="course-link">Coming soon 
+          </article>
+
+        
+        </div>
+      </div>
+    </section>
 /* ABOUT */
 .about {
   padding: 80px 8%;
@@ -234,6 +264,126 @@ nav a:hover {
   color: #666;
 }
 
+.booking {
+  padding-top: 45px;
+}
+
+.booking-box {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  overflow: hidden;
+  background: #f2eaf4;
+  border-radius: 30px;
+  box-shadow: var(--shadow);
+}
+
+.booking-content {
+  padding: 52px;
+}
+
+.booking-content .section-kicker {
+  color: #927fa5;
+}
+
+.booking-content h2 {
+  max-width: 450px;
+}
+
+.booking-content p {
+  max-width: 470px;
+  color: #6f7884;
+}
+
+.booking-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 11px;
+  margin: 25px 0 28px;
+}
+
+.booking-list span {
+  padding: 7px 11px;
+  background: rgba(255,255,255,.63);
+  border-radius: 999px;
+  color: #756582;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.booking-form {
+  margin: 27px;
+  padding: 28px;
+  background: rgba(255,255,255,.88);
+  border-radius: 23px;
+}
+
+.booking-form h3 {
+  margin-bottom: 4px;
+  color: var(--ink-dark);
+  font-size: 21px;
+}
+
+.booking-form > p {
+  margin-bottom: 20px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+label {
+  display: block;
+  margin: 13px 0 6px;
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 12px 13px;
+  outline: none;
+  color: var(--ink-dark);
+  background: #fffefd;
+  border: 1px solid #e6dfe9;
+  border-radius: 11px;
+  transition: border-color .2s, box-shadow .2s;
+}
+
+input:focus,
+select:focus {
+  border-color: var(--lavender-deep);
+  box-shadow: 0 0 0 3px rgba(185,171,208,.2);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.booking-form .primary-btn {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.form-success {
+  display: none;
+  margin-top: 12px;
+  padding: 9px 11px;
+  color: #558473;
+  background: var(--mint);
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+/* Pink when clicked */
+.secondary-btn.clicked,
+.primary-btn.clicked {
+  background: #e9a6c3 !important;
+  color: #ffffff !important;
+  border-color: #e9a6c3 !important;
+}
 .preview {
   margin: 40px 8%;
   padding: 70px;
