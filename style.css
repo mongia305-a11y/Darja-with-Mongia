@@ -141,35 +141,6 @@ nav a:hover {
   color: #ff6b9a;
   font-weight: bold;
 }
-<section class="courses" id="classes">
-      <div class="container">
-        <div class="section-heading">
-          <div class="section-kicker">Find your starting point</div>
-          <h2>Classes that fit your life and your goals</h2>
-          <p>Choose a lesson style that feels right for you. Every class is live, personal, and full of practical Tunisian Arabic.</p>
-        </div>
-
-        <div class="course-grid">
-          <article class="course-card">
-            <div class="course-symbol">🌱</div>
-            <h3>Dârja for Beginners</h3>
-            <p>Start with the sounds, greetings, and phrases you need to introduce yourself and enjoy simple daily exchanges.</p>
-            <div class="course-meta"><span>Absolute beginners</span><span>1:1 online</span></div>
-            <a href="#book" class="course-link">Discover this class <span>→</span></a>
-          </article>
-
-          <article class="course-card">
-            <div class="course-symbol">🗣️</div>
-            <h3>Conversation Club</h3>
-            <p>Build fluency through guided conversation around Tunisian culture, travel, family, food, and everyday life.</p>
-            <div class="course-meta"><span>Intermediate+</span><span>Small groups</span></div>
-            <a href="#book" class="course-link">Coming soon 
-          </article>
-
-        
-        </div>
-      </div>
-    </section>
 /* ABOUT */
 .about {
   padding: 80px 8%;
@@ -383,6 +354,20 @@ select:focus {
   background: #e9a6c3 !important;
   color: #ffffff !important;
   border-color: #e9a6c3 !important;
+}
+/* Soft pink booking buttons */
+.booking .secondary-btn,
+.booking .primary-btn {
+  background: #e9a6c3;
+  color: #ffffff;
+  border: 1px solid #e9a6c3;
+}
+
+.booking .secondary-btn:hover,
+.booking .primary-btn:hover {
+  background: #d98eaf;
+  border-color: #d98eaf;
+  color: #ffffff;
 }
 .preview {
   margin: 40px 8%;
