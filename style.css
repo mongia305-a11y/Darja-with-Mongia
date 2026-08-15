@@ -1762,3 +1762,28 @@ button:hover {
     max-height: 280px;
   }
 }
+/* Full navbar logo */
+
+.logo-only {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo-only img {
+  width: 260px;
+  height: auto;
+  max-height: 85px;
+  object-fit: contain;
+}
+
+@media (max-width: 700px) {
+  .logo-only img {
+    width: 100px;
+    max-height: 65px;
+  }
+}
+.logo-only {
+  position: relative;
+  left: -20px;
+}
