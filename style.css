@@ -1779,7 +1779,7 @@ button:hover {
 
 @media (max-width: 700px) {
   .logo-only img {
-    width: 100px;
+    width: 150px;
     max-height: 65px;
   }
 }
