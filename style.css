@@ -1581,3 +1581,184 @@ button:hover {
     width: auto;
   }
 }
+/* ========================================
+   TESTIMONIALS — SOFT CARD DESIGN
+======================================== */
+
+.quotes-band {
+  background: #f7f2f8;
+}
+
+.quotes-band section {
+  padding: 75px 0 !important;
+}
+
+.quotes-band .container {
+  width: min(1180px, 90%);
+  margin: 0 auto;
+}
+
+
+/* SECTION TITLE */
+
+.quotes-band .section-head {
+  max-width: 720px;
+  margin: 0 auto 38px;
+  text-align: center;
+}
+
+.quotes-band .kicker {
+  display: inline-block;
+  padding: 7px 16px;
+  color: #557068;
+  background: #dcefe9;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+.quotes-band .section-head h2 {
+  margin: 17px 0 0;
+  color: #3f4c4a;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(30px, 4vw, 46px);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.quotes-band .section-head h2 em {
+  color: #e9a6c3;
+  font-weight: 500;
+}
+
+
+/* TESTIMONIAL GRID */
+
+.quotes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  align-items: stretch;
+}
+
+
+/* TESTIMONIAL CARD */
+
+.quote {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 28px;
+  background: #fffaf6;
+  border: 1px solid #eadfd8;
+  border-radius: 28px;
+  box-shadow: 0 10px 30px rgba(70, 62, 77, 0.05);
+  text-align: left;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.quote:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 38px rgba(70, 62, 77, 0.1);
+}
+
+
+/* STARS */
+
+.quotes-band .stars {
+  margin-bottom: 20px;
+  color: #d9aa50;
+  font-size: 17px;
+  letter-spacing: 2px;
+  text-align: center
+}
+
+
+/* REVIEW TEXT */
+
+.quote > p {
+  flex: 1;
+  max-height: 250px;
+  margin: 0 0 25px;
+  padding-right: 8px;
+  overflow-y: auto;
+  color: #657080;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+/* Soft scrollbar for longer reviews */
+
+.quote > p::-webkit-scrollbar {
+  width: 5px;
+}
+
+.quote > p::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.quote > p::-webkit-scrollbar-thumb {
+  background: #ead2dd;
+  border-radius: 20px;
+}
+
+
+/* REVIEWER INFORMATION */
+
+.quote-person {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-top: auto;
+}
+
+
+
+.q-name {
+  color: #3f4c4a;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.q-role {
+  margin-top: 3px;
+  color: #87909c;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+
+/* TABLET */
+
+@media (max-width: 950px) {
+  .quotes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+/* PHONE */
+
+@media (max-width: 650px) {
+  .quotes-band section {
+    padding: 60px 0 !important;
+  }
+
+  .quotes {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .quote {
+    padding: 23px;
+    border-radius: 22px;
+  }
+
+  .quote > p {
+    max-height: 280px;
+  }
+}
