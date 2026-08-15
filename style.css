@@ -1901,3 +1901,8 @@ button:hover {
     text-align: center;
   }
 }
+/* Soft pink testimonial stars */
+
+.quotes .stars {
+  color: #e5a0bd;
+}
