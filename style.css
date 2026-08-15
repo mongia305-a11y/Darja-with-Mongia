@@ -1906,3 +1906,18 @@ button:hover {
 .quotes .stars {
   color: #e5a0bd;
 }
+/* Smooth movement between website sections */
+
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-margin-top: 90px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
