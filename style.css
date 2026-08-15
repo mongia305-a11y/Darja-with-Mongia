@@ -1921,3 +1921,17 @@ section {
     scroll-behavior: auto;
   }
 }
+/* Keep footer email clear on desktop */
+
+.footer-contact a {
+  direction: ltr;
+  white-space: nowrap;
+  font-size: 13px;
+}
+
+@media (max-width: 600px) {
+  .footer-contact a {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+}
