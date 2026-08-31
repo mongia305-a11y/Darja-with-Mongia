@@ -1936,3 +1936,9 @@ section {
     overflow-wrap: anywhere;
   }
 }
+
+.podcast-nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
