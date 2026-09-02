@@ -1,7 +1,9 @@
 <!DOCTYPE html>
+<!-- Darja listening test: final celebration version, 2026-09-02 -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="darja-test-version" content="celebration-v2">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Take a free 16-question Tunisian Arabic listening test and receive an instant estimated listening level from Pre-A1 to B2.">
   <link rel="canonical" href="https://darjawithmongia.com/placement-test.html">
@@ -81,9 +83,9 @@
     .site-header {
       position: relative;
       z-index: 20;
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
       align-items: center;
-      justify-content: space-between;
       gap: 32px;
       min-height: 104px;
       padding: 12px clamp(24px, 7vw, 118px);
@@ -106,6 +108,7 @@
     }
 
     .site-nav {
+      grid-column: 2;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -586,6 +589,28 @@
       font-size: 1.05rem;
     }
 
+    .result-encouragement {
+      max-width: 640px;
+      margin: 0 auto 22px;
+      padding: 16px 20px;
+      color: #74314d;
+      background: linear-gradient(135deg, var(--pink-soft), #fff8fb);
+      border: 1px solid #f7cada;
+      border-radius: 16px;
+    }
+
+    .result-encouragement strong,
+    .result-encouragement span {
+      display: block;
+    }
+
+    .result-encouragement strong {
+      margin-bottom: 4px;
+      color: var(--pink-dark);
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 1.2rem;
+    }
+
     .next-step {
       max-width: 640px;
       margin: 0 auto 28px;
@@ -609,32 +634,181 @@
       gap: 12px;
     }
 
-    .confetti-layer {
-      position: absolute;
-      inset: -50px 0 auto;
-      height: 260px;
+    .booking-note {
+      margin: 0 auto 14px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .result-reveal {
+      animation: result-reveal 0.85s cubic-bezier(0.2, 0.85, 0.3, 1.15) both;
+    }
+
+    .preply-button.celebrate-cta {
+      animation: cta-glow 1.05s ease-in-out 2.6s 3;
+    }
+
+    .celebration-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
       overflow: hidden;
       pointer-events: none;
+      background: radial-gradient(circle at 50% 44%, rgba(255, 255, 255, 0.38), transparent 42%);
+    }
+
+    .celebration-overlay[hidden] {
+      display: none;
+    }
+
+    .celebration-confetti {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    .celebration-halo {
+      position: absolute;
+      top: 46%;
+      left: 50%;
+      width: min(72vw, 660px);
+      aspect-ratio: 1;
+      border: 4px solid rgba(240, 111, 156, 0.32);
+      border-radius: 50%;
+      transform: translate(-50%, -50%) scale(0.15);
+      animation: halo-burst 1.5s ease-out 0.2s both;
+    }
+
+    .celebration-message {
+      position: absolute;
+      top: 44%;
+      left: 50%;
+      width: min(calc(100% - 36px), 620px);
+      padding: clamp(22px, 5vw, 38px);
+      color: var(--ink);
+      text-align: center;
+      background: rgba(255, 255, 255, 0.96);
+      border: 2px solid rgba(240, 111, 156, 0.38);
+      border-radius: 26px;
+      box-shadow: 0 28px 90px rgba(29, 75, 72, 0.24);
+      animation: congratulations-pop 3.35s cubic-bezier(0.2, 0.9, 0.28, 1.15) both;
+    }
+
+    .celebration-stars {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--gold);
+      font-size: 1.45rem;
+      letter-spacing: 0.42em;
+    }
+
+    .celebration-message strong {
+      display: block;
+      color: var(--pink-dark);
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(2.35rem, 8vw, 4.8rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .celebration-message small {
+      display: block;
+      margin-top: 9px;
+      color: var(--teal-dark);
+      font-size: clamp(0.9rem, 2vw, 1.08rem);
+      font-weight: 700;
     }
 
     .confetti-piece {
       position: absolute;
-      top: -24px;
-      width: 10px;
-      height: 18px;
-      border-radius: 3px;
+      top: -12vh;
+      width: var(--piece-width, 10px);
+      height: var(--piece-height, 20px);
+      border-radius: 2px;
       opacity: 0;
-      animation: confetti-fall 1.8s ease-out forwards;
+      animation: confetti-screen-fall var(--fall-duration) linear var(--fall-delay) forwards;
     }
 
-    @keyframes confetti-fall {
+    .confetti-piece.is-circle {
+      border-radius: 50%;
+    }
+
+    .confetti-piece.is-ribbon {
+      width: 7px;
+      height: 34px;
+      border-radius: 999px;
+    }
+
+    @keyframes confetti-screen-fall {
       0% {
+        opacity: 0;
+        transform: translate3d(0, -12vh, 0) rotate(0deg);
+      }
+      8% {
         opacity: 1;
-        transform: translate3d(0, -20px, 0) rotate(0deg);
+      }
+      100% {
+        opacity: 0.95;
+        transform: translate3d(var(--drift), 118vh, 0) rotate(var(--spin));
+      }
+    }
+
+    @keyframes congratulations-pop {
+      0% {
+        opacity: 0;
+        transform: translate(-50%, -175%) scale(0.58) rotate(-4deg);
+      }
+      20% {
+        opacity: 1;
+        transform: translate(-50%, -48%) scale(1.08) rotate(1deg);
+      }
+      31% {
+        transform: translate(-50%, -50%) scale(1) rotate(0deg);
+      }
+      78% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
       }
       100% {
         opacity: 0;
-        transform: translate3d(var(--drift), 270px, 0) rotate(620deg);
+        transform: translate(-50%, -82%) scale(0.94);
+      }
+    }
+
+    @keyframes halo-burst {
+      0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.15);
+      }
+      28% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1.18);
+      }
+    }
+
+    @keyframes result-reveal {
+      0% {
+        opacity: 0;
+        transform: translateY(34px) scale(0.97);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes cta-glow {
+      0%,
+      100% {
+        transform: translateY(0) scale(1);
+        box-shadow: 0 12px 28px rgba(216, 82, 130, 0.25);
+      }
+      50% {
+        transform: translateY(-3px) scale(1.035);
+        box-shadow: 0 18px 42px rgba(216, 82, 130, 0.48);
       }
     }
 
@@ -652,6 +826,7 @@
 
     @media (max-width: 760px) {
       .site-header {
+        display: flex;
         flex-direction: column;
         gap: 8px;
         min-height: auto;
@@ -758,7 +933,7 @@
 
   <header class="site-header">
     <a class="brand-link" href="index.html" aria-label="Darja with Mongia home">
-      <img src="images/logo.png" alt="Darja with Mongia">
+      <img src="images/full-logo.png" alt="Darja with Mongia">
     </a>
 
     <nav class="site-nav" aria-label="Primary navigation">
@@ -789,7 +964,7 @@
             <strong>Before you begin</strong>
             <ul>
               <li>Choose one answer before moving to the next question.</li>
-              <li>You may replay each recording once.</li>
+              <li>You can listen to each recording as many times as you need.</li>
               <li>There is no penalty for choosing “I don’t know.”</li>
               <li>Your result appears only after Question 16.</li>
             </ul>
@@ -818,7 +993,7 @@
             <span class="audio-icon" aria-hidden="true">▶</span>
             <div class="audio-copy">
               <strong>Listen carefully</strong>
-              <span id="replay-status">You can play this recording twice.</span>
+              <span id="replay-status">Listen as many times as you need.</span>
             </div>
             <audio id="question-audio" controls preload="metadata" controlslist="nodownload" aria-label="Question audio recording"></audio>
             <p class="audio-error" id="audio-error" role="alert" hidden>
@@ -850,20 +1025,25 @@
 
     <section class="screen" id="result-screen" aria-labelledby="result-title" hidden>
       <div class="result-card">
-        <div class="confetti-layer" id="confetti-layer" aria-hidden="true"></div>
         <div class="result-content">
           <p class="result-kicker">Estimated Tunisian Arabic listening level</p>
           <h1 id="result-title" tabindex="-1"><span class="result-level" id="result-level">A1</span> · <span id="result-name">Beginner</span></h1>
           <div class="result-score"><strong id="result-score">0/16</strong><span>correct</span></div>
           <p class="result-description" id="result-description"></p>
 
+          <div class="result-encouragement">
+            <strong>Congratulations—you completed all 16 questions!</strong>
+            <span id="result-encouragement"></span>
+          </div>
+
           <div class="next-step">
             <strong>Recommended next step</strong>
             <span id="result-next-step"></span>
           </div>
 
+          <p class="booking-note">Ready to turn your listening into real conversation? Learn with Mongia in a lesson personalized to your level and goals.</p>
           <div class="result-actions">
-            <a class="preply-button" href="https://preply.in/MONGIA6EN878583110?ts=17806792" target="_blank" rel="noopener noreferrer">Book a Lesson on Preply</a>
+            <a class="preply-button" id="preply-button" href="https://preply.in/MONGIA6EN878583110?ts=17806792" target="_blank" rel="noopener noreferrer">Continue Learning with Mongia on Preply</a>
             <button class="secondary-button" id="restart-button" type="button">Retake the Test</button>
           </div>
 
@@ -874,6 +1054,16 @@
       </div>
     </section>
   </main>
+
+  <div class="celebration-overlay" id="celebration-overlay" aria-hidden="true" hidden>
+    <div class="celebration-confetti" id="celebration-confetti"></div>
+    <div class="celebration-halo"></div>
+    <div class="celebration-message">
+      <span class="celebration-stars">✦ ✧ ✦</span>
+      <strong>Congratulations!</strong>
+      <small>You completed the Tunisian Arabic listening test</small>
+    </div>
+  </div>
 
   <footer class="site-footer">© 2026 Darja with Mongia · Tunisian Arabic made practical</footer>
 
@@ -942,7 +1132,7 @@
       {
         prompt: "What does the customer want?",
         audio: "resources/placement-test/audio/Q11.mp3",
-        answers: ["A spicy meal", "A meal without spicy sauce", "Only a drink", "I don’t know"],
+        answers: ["A spicy meal", "A chicken sandwich without spicy sauce", "Only a drink", "I don’t know"],
         correct: 1
       },
       {
@@ -983,6 +1173,7 @@
         level: "Pre-A1",
         name: "Starter",
         description: "You are at the very beginning of Tunisian Arabic listening. You may recognize a few familiar words, greetings, or numbers.",
+        encouragement: "This is your starting point, not your limit. With regular practice, every sound and phrase will become more familiar.",
         nextStep: "Start with essential greetings, sounds, numbers, and survival vocabulary."
       },
       {
@@ -990,6 +1181,7 @@
         level: "A1",
         name: "Beginner",
         description: "You can understand some familiar words, basic expressions, and very simple everyday messages when speech is clear.",
+        encouragement: "You already have a foundation. Guided practice can turn familiar words into confident everyday understanding.",
         nextStep: "Build confidence with short dialogues, common verbs, questions, and everyday vocabulary."
       },
       {
@@ -997,6 +1189,7 @@
         level: "A2",
         name: "Elementary",
         description: "You can understand the main point of short, clear everyday sentences and pick out familiar details.",
+        encouragement: "You are making real progress. Keep listening and speaking regularly to follow conversations with more ease.",
         nextStep: "Practise longer everyday exchanges and improve your ability to follow details at natural speed."
       },
       {
@@ -1004,6 +1197,7 @@
         level: "B1",
         name: "Intermediate",
         description: "You can follow the main ideas of many everyday conversations and understand important details when the topic is familiar.",
+        encouragement: "Your listening skills are strong. Conversation practice can help you respond more naturally and confidently.",
         nextStep: "Work on natural speed, connected speech, implied meaning, and a wider range of everyday topics."
       },
       {
@@ -1011,6 +1205,7 @@
         level: "B2",
         name: "Upper-Intermediate",
         description: "You can understand natural Tunisian Arabic on familiar topics, follow detail, and often identify attitude or implied meaning.",
+        encouragement: "Excellent work. You are ready to refine fast speech, idioms, and spontaneous conversation with a native tutor.",
         nextStep: "Refine fast listening, idiomatic expressions, regional variation, and more spontaneous conversation."
       }
     ];
@@ -1035,11 +1230,14 @@
     const audioPlayer = document.getElementById("question-audio");
     const audioError = document.getElementById("audio-error");
     const replayStatus = document.getElementById("replay-status");
+    const resultCard = document.querySelector(".result-card");
+    const preplyButton = document.getElementById("preply-button");
+    const celebrationOverlay = document.getElementById("celebration-overlay");
+    const celebrationConfetti = document.getElementById("celebration-confetti");
 
     let currentQuestion = 0;
     let selectedAnswers = new Array(questions.length).fill(null);
-    let playCount = 0;
-    let playbackRunActive = false;
+    let celebrationTimer;
 
     function showScreen(name) {
       Object.entries(screens).forEach(([screenName, element]) => {
@@ -1061,9 +1259,7 @@
       audioPlayer.src = question.audio;
       audioPlayer.load();
       audioError.hidden = true;
-      playCount = 0;
-      playbackRunActive = false;
-      replayStatus.textContent = "You can play this recording twice.";
+      replayStatus.textContent = "Listen as many times as you need.";
 
       answerList.replaceChildren();
       const letters = ["A", "B", "C", "D"];
@@ -1105,28 +1301,6 @@
       answerHint.textContent = "Answer selected.";
     });
 
-    audioPlayer.addEventListener("play", () => {
-      if (playbackRunActive) return;
-
-      if (playCount >= 2) {
-        audioPlayer.pause();
-        audioPlayer.currentTime = 0;
-        replayStatus.textContent = "Playback limit reached for this question.";
-        return;
-      }
-
-      playCount += 1;
-      playbackRunActive = true;
-      replayStatus.textContent = playCount === 1 ? "One replay remaining." : "This is your final play.";
-    });
-
-    audioPlayer.addEventListener("ended", () => {
-      playbackRunActive = false;
-      if (playCount >= 2) {
-        replayStatus.textContent = "Playback limit reached for this question.";
-      }
-    });
-
     audioPlayer.addEventListener("error", () => {
       audioError.hidden = false;
     });
@@ -1152,10 +1326,12 @@
     resultButton.addEventListener("click", showResult);
 
     restartButton.addEventListener("click", () => {
+      window.clearTimeout(celebrationTimer);
+      celebrationOverlay.hidden = true;
+      resultCard.classList.remove("result-reveal");
+      preplyButton.classList.remove("celebrate-cta");
       currentQuestion = 0;
       selectedAnswers = new Array(questions.length).fill(null);
-      playCount = 0;
-      playbackRunActive = false;
       showScreen("welcome");
       startButton.focus({ preventScroll: true });
     });
@@ -1171,29 +1347,52 @@
       document.getElementById("result-name").textContent = result.name;
       document.getElementById("result-score").textContent = `${score}/${questions.length}`;
       document.getElementById("result-description").textContent = result.description;
+      document.getElementById("result-encouragement").textContent = result.encouragement;
       document.getElementById("result-next-step").textContent = result.nextStep;
 
       showScreen("result");
-      createConfetti();
+      resultCard.classList.remove("result-reveal");
+      preplyButton.classList.remove("celebrate-cta");
+      void resultCard.offsetWidth;
+      resultCard.classList.add("result-reveal");
+      preplyButton.classList.add("celebrate-cta");
+      startCelebration();
       document.getElementById("result-title").focus({ preventScroll: true });
     }
 
-    function createConfetti() {
-      const layer = document.getElementById("confetti-layer");
+    function startCelebration() {
       const colors = ["#f06f9c", "#1a7771", "#e1a43b", "#70b8b1", "#ef9fbd"];
-      layer.replaceChildren();
+      celebrationConfetti.replaceChildren();
+      window.clearTimeout(celebrationTimer);
 
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        celebrationOverlay.hidden = true;
+        return;
+      }
 
-      for (let index = 0; index < 34; index += 1) {
+      celebrationOverlay.hidden = true;
+      void celebrationOverlay.offsetWidth;
+      celebrationOverlay.hidden = false;
+
+      for (let index = 0; index < 82; index += 1) {
         const piece = document.createElement("span");
         piece.className = "confetti-piece";
+        if (index % 5 === 0) piece.classList.add("is-circle");
+        if (index % 11 === 0) piece.classList.add("is-ribbon");
         piece.style.left = `${Math.random() * 100}%`;
         piece.style.background = colors[index % colors.length];
-        piece.style.animationDelay = `${Math.random() * 0.45}s`;
-        piece.style.setProperty("--drift", `${Math.random() * 150 - 75}px`);
-        layer.append(piece);
+        piece.style.setProperty("--fall-delay", `${Math.random() * 0.85}s`);
+        piece.style.setProperty("--fall-duration", `${2.7 + Math.random() * 1.8}s`);
+        piece.style.setProperty("--drift", `${Math.random() * 240 - 120}px`);
+        piece.style.setProperty("--spin", `${Math.random() * 1440 - 720}deg`);
+        piece.style.setProperty("--piece-width", `${7 + Math.random() * 8}px`);
+        piece.style.setProperty("--piece-height", `${12 + Math.random() * 15}px`);
+        celebrationConfetti.append(piece);
       }
+
+      celebrationTimer = window.setTimeout(() => {
+        celebrationOverlay.hidden = true;
+      }, 5200);
     }
   </script>
 </body>
