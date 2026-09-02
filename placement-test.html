@@ -960,10 +960,11 @@ max-height: 55px;
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background: var(--spark);
-      box-shadow: 0 0 18px 5px var(--spark);
-      opacity: 0;
-      animation: firework-core 1.45s ease-out var(--delay) 3 both;
+     
+      background: transparent;
+box-shadow: none;
+opacity: 1;
+animation: none;
     }
 
     .firework::before,
@@ -1224,6 +1225,13 @@ max-height: 55px;
   </main>
 
   <div class="celebration-overlay" id="celebration-overlay" aria-hidden="true" hidden>
+        <div class="fireworks-layer" aria-hidden="true">
+      <span class="firework firework-one"></span>
+      <span class="firework firework-two"></span>
+      <span class="firework firework-three"></span>
+      <span class="firework firework-four"></span>
+      <span class="firework firework-five"></span>
+    </div>
     <canvas class="fireworks-canvas" id="fireworks-canvas" aria-hidden="true"></canvas>
     <div class="celebration-confetti" id="celebration-confetti"></div>
     <div class="celebration-halo"></div>
