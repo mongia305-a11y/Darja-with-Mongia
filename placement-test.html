@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<!-- Darja listening test: final celebration version, 2026-09-02 -->
+<!-- Darja listening test: fireworks celebration version, 2026-09-02 -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="darja-test-version" content="celebration-v2">
+  <meta name="darja-test-version" content="fireworks-v4">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Take a free 16-question Tunisian Arabic listening test and receive an instant estimated listening level from Pre-A1 to B2.">
   <link rel="canonical" href="https://darjawithmongia.com/placement-test.html">
@@ -664,11 +664,21 @@
     .celebration-confetti {
       position: absolute;
       inset: 0;
+      z-index: 1;
       overflow: hidden;
+    }
+
+    .fireworks-canvas {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
     }
 
     .celebration-halo {
       position: absolute;
+      z-index: 2;
       top: 46%;
       left: 50%;
       width: min(72vw, 660px);
@@ -681,6 +691,7 @@
 
     .celebration-message {
       position: absolute;
+      z-index: 3;
       top: 44%;
       left: 50%;
       width: min(calc(100% - 36px), 620px);
@@ -1056,6 +1067,7 @@
   </main>
 
   <div class="celebration-overlay" id="celebration-overlay" aria-hidden="true" hidden>
+    <canvas class="fireworks-canvas" id="fireworks-canvas" aria-hidden="true"></canvas>
     <div class="celebration-confetti" id="celebration-confetti"></div>
     <div class="celebration-halo"></div>
     <div class="celebration-message">
@@ -1234,10 +1246,15 @@
     const preplyButton = document.getElementById("preply-button");
     const celebrationOverlay = document.getElementById("celebration-overlay");
     const celebrationConfetti = document.getElementById("celebration-confetti");
+    const fireworksCanvas = document.getElementById("fireworks-canvas");
+    const fireworksContext = fireworksCanvas.getContext("2d");
 
     let currentQuestion = 0;
     let selectedAnswers = new Array(questions.length).fill(null);
     let celebrationTimer;
+    let fireworksAnimationFrame;
+    let fireworksRockets = [];
+    let fireworksParticles = [];
 
     function showScreen(name) {
       Object.entries(screens).forEach(([screenName, element]) => {
@@ -1327,6 +1344,7 @@
 
     restartButton.addEventListener("click", () => {
       window.clearTimeout(celebrationTimer);
+      stopFireworks();
       celebrationOverlay.hidden = true;
       resultCard.classList.remove("result-reveal");
       preplyButton.classList.remove("celebrate-cta");
@@ -1364,6 +1382,7 @@
       const colors = ["#f06f9c", "#1a7771", "#e1a43b", "#70b8b1", "#ef9fbd"];
       celebrationConfetti.replaceChildren();
       window.clearTimeout(celebrationTimer);
+      stopFireworks();
 
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
         celebrationOverlay.hidden = true;
@@ -1373,6 +1392,7 @@
       celebrationOverlay.hidden = true;
       void celebrationOverlay.offsetWidth;
       celebrationOverlay.hidden = false;
+      startFireworks();
 
       for (let index = 0; index < 82; index += 1) {
         const piece = document.createElement("span");
@@ -1391,8 +1411,170 @@
       }
 
       celebrationTimer = window.setTimeout(() => {
+        stopFireworks();
         celebrationOverlay.hidden = true;
       }, 5200);
+    }
+
+    function stopFireworks() {
+      window.cancelAnimationFrame(fireworksAnimationFrame);
+      fireworksRockets = [];
+      fireworksParticles = [];
+
+      if (fireworksContext) {
+        fireworksContext.clearRect(0, 0, fireworksCanvas.width, fireworksCanvas.height);
+      }
+    }
+
+    function startFireworks() {
+      if (!fireworksContext) return;
+
+      const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+
+      fireworksCanvas.width = Math.round(width * pixelRatio);
+      fireworksCanvas.height = Math.round(height * pixelRatio);
+      fireworksCanvas.style.width = `${width}px`;
+      fireworksCanvas.style.height = `${height}px`;
+      fireworksContext.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+
+      const fireworkColors = ["#f06f9c", "#1a7771", "#e1a43b", "#70b8b1", "#ef9fbd", "#ffffff"];
+      const launchPlan = [
+        { at: 0, x: 0.16, y: 0.25 },
+        { at: 260, x: 0.82, y: 0.22 },
+        { at: 560, x: 0.34, y: 0.16 },
+        { at: 880, x: 0.67, y: 0.30 },
+        { at: 1210, x: 0.50, y: 0.12 },
+        { at: 1570, x: 0.12, y: 0.42 },
+        { at: 1910, x: 0.88, y: 0.39 },
+        { at: 2280, x: 0.44, y: 0.27 },
+        { at: 2610, x: 0.72, y: 0.16 }
+      ];
+
+      let animationStart;
+      let previousTime;
+      let nextLaunch = 0;
+
+      function launchFirework(plan, index) {
+        const targetX = width * plan.x;
+        const targetY = height * plan.y;
+        const startX = targetX + (Math.random() * 180 - 90);
+
+        fireworksRockets.push({
+          startX,
+          startY: height + 24,
+          x: startX,
+          y: height + 24,
+          previousX: startX,
+          previousY: height + 24,
+          targetX,
+          targetY,
+          progress: 0,
+          duration: 620 + Math.random() * 230,
+          color: fireworkColors[index % (fireworkColors.length - 1)]
+        });
+      }
+
+      function burstFirework(rocket) {
+        const particleCount = width < 600 ? 30 : 42;
+
+        for (let index = 0; index < particleCount; index += 1) {
+          const angle = (Math.PI * 2 * index) / particleCount + Math.random() * 0.13;
+          const speed = 2.1 + Math.random() * 4.4;
+
+          fireworksParticles.push({
+            x: rocket.targetX,
+            y: rocket.targetY,
+            previousX: rocket.targetX,
+            previousY: rocket.targetY,
+            velocityX: Math.cos(angle) * speed,
+            velocityY: Math.sin(angle) * speed,
+            gravity: 0.045 + Math.random() * 0.035,
+            drag: 0.986 + Math.random() * 0.007,
+            life: 1,
+            fade: 0.011 + Math.random() * 0.009,
+            size: 1.4 + Math.random() * 2.1,
+            color: Math.random() > 0.18 ? rocket.color : fireworkColors[Math.floor(Math.random() * fireworkColors.length)]
+          });
+        }
+      }
+
+      function drawFrame(time) {
+        if (!animationStart) {
+          animationStart = time;
+          previousTime = time;
+        }
+
+        const elapsed = time - animationStart;
+        const frameScale = Math.min((time - previousTime) / (1000 / 60), 2.2);
+        previousTime = time;
+
+        fireworksContext.clearRect(0, 0, width, height);
+        fireworksContext.save();
+        fireworksContext.globalCompositeOperation = "lighter";
+
+        while (nextLaunch < launchPlan.length && elapsed >= launchPlan[nextLaunch].at) {
+          launchFirework(launchPlan[nextLaunch], nextLaunch);
+          nextLaunch += 1;
+        }
+
+        fireworksRockets = fireworksRockets.filter((rocket) => {
+          rocket.previousX = rocket.x;
+          rocket.previousY = rocket.y;
+          rocket.progress = Math.min(rocket.progress + ((16.67 * frameScale) / rocket.duration), 1);
+          const easedProgress = 1 - Math.pow(1 - rocket.progress, 3);
+          rocket.x = rocket.startX + (rocket.targetX - rocket.startX) * easedProgress;
+          rocket.y = rocket.startY + (rocket.targetY - rocket.startY) * easedProgress;
+
+          fireworksContext.beginPath();
+          fireworksContext.moveTo(rocket.previousX, rocket.previousY + 13);
+          fireworksContext.lineTo(rocket.x, rocket.y);
+          fireworksContext.strokeStyle = rocket.color;
+          fireworksContext.lineWidth = 3;
+          fireworksContext.shadowColor = rocket.color;
+          fireworksContext.shadowBlur = 12;
+          fireworksContext.stroke();
+
+          if (rocket.progress >= 1) {
+            burstFirework(rocket);
+            return false;
+          }
+
+          return true;
+        });
+
+        fireworksParticles = fireworksParticles.filter((particle) => {
+          particle.previousX = particle.x;
+          particle.previousY = particle.y;
+          particle.velocityX *= Math.pow(particle.drag, frameScale);
+          particle.velocityY = particle.velocityY * Math.pow(particle.drag, frameScale) + particle.gravity * frameScale;
+          particle.x += particle.velocityX * frameScale;
+          particle.y += particle.velocityY * frameScale;
+          particle.life -= particle.fade * frameScale;
+
+          if (particle.life <= 0) return false;
+
+          fireworksContext.globalAlpha = Math.max(particle.life, 0);
+          fireworksContext.beginPath();
+          fireworksContext.moveTo(particle.previousX, particle.previousY);
+          fireworksContext.lineTo(particle.x, particle.y);
+          fireworksContext.strokeStyle = particle.color;
+          fireworksContext.lineWidth = particle.size;
+          fireworksContext.shadowColor = particle.color;
+          fireworksContext.shadowBlur = 9;
+          fireworksContext.stroke();
+          return true;
+        });
+
+        fireworksContext.restore();
+
+        if (elapsed < 4300 || fireworksRockets.length || fireworksParticles.length) {
+          fireworksAnimationFrame = window.requestAnimationFrame(drawFrame);
+        }
+      }
+
+      fireworksAnimationFrame = window.requestAnimationFrame(drawFrame);
     }
   </script>
 </body>
