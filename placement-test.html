@@ -755,36 +755,28 @@ max-height: 60px;
         opacity: 0;
         transform: translate3d(0, -12vh, 0) rotate(0deg);
       }
-      8% {
-        opacity: 1;
-      }
-      100% {
-        opacity: 0.95;
-        transform: translate3d(var(--drift), 118vh, 0) rotate(var(--spin));
-      }
-    }
+@keyframes congratulations-pop {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.94);
+  }
 
-    @keyframes congratulations-pop {
-      0% {
-        opacity: 0;
-        transform: translate(-50%, -175%) scale(0.58) rotate(-4deg);
-      }
-      20% {
-        opacity: 1;
-        transform: translate(-50%, -48%) scale(1.08) rotate(1deg);
-      }
-      31% {
-        transform: translate(-50%, -50%) scale(1) rotate(0deg);
-      }
-      78% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
-      }
-      100% {
-        opacity: 0;
-        transform: translate(-50%, -82%) scale(0.94);
-      }
-    }
+  15% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  82% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.98);
+  }
+}
+    
 
     @keyframes halo-burst {
       0% {
