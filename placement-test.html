@@ -755,7 +755,16 @@ max-height: 60px;
         opacity: 0;
         transform: translate3d(0, -12vh, 0) rotate(0deg);
       }
-@keyframes congratulations-pop {
+8% {
+  opacity: 1;
+}
+
+100% {
+  opacity: 0;
+  transform: translate3d(var(--drift), 118vh, 0) rotate(var(--spin));
+}
+      }
+    @keyframes congratulations-pop {
   0% {
     opacity: 0;
     transform: translate(-50%, -50%) scale(0.94);
