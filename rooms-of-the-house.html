@@ -572,6 +572,101 @@ button:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline-color
   .hero{padding-top:38px}
   .hero h1{font-size:clamp(40px,13vw,56px)}
 }
+  /* SHARED DARJA WITH MONGIA HEADER */
+.navbar,
+.site-header {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+  width: 100% !important;
+  max-width: none !important;
+  min-height: 76px !important;
+  margin: 0 !important;
+  padding: 5px 22px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0 !important;
+  background: #ffffff !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+}
+
+.brand-logo,
+.brand-link {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.brand-logo img,
+.brand-link img {
+  width: 153px !important;
+  height: auto !important;
+  max-height: 56px !important;
+  object-fit: contain !important;
+}
+
+.site-nav {
+  position: absolute !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 23px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.site-nav a {
+  padding: 8px 0 !important;
+  color: #444 !important;
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  white-space: nowrap !important;
+  text-decoration: none !important;
+}
+
+.site-nav a:hover,
+.site-nav a.active {
+  color: #ff7aa2 !important;
+}
+
+@media (max-width: 760px) {
+  .navbar,
+  .site-header {
+    min-height: auto !important;
+    padding: 12px 18px 16px !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+  }
+
+  .brand-logo img,
+  .brand-link img {
+    width: 140px !important;
+    max-height: 55px !important;
+  }
+
+  .site-nav {
+    position: static !important;
+    width: 100% !important;
+    transform: none !important;
+    justify-content: flex-start !important;
+    gap: 10px 20px !important;
+    padding: 5px 2px !important;
+    overflow-x: auto !important;
+  }
+
+  .site-nav a {
+    font-size: 14px !important;
+  }
+
+  .hamburger,
+  .mobile-menu {
+    display: none !important;
+  }
+}
 </style>
 </head>
 <body>
