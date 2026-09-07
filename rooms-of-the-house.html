@@ -632,6 +632,50 @@ button:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline-color
   color: #ff7aa2 !important;
 }
 
+/* Lesson 01 corrections */
+.poster-img img{
+  width:100%;
+  height:auto!important;
+  aspect-ratio:2/3;
+  object-fit:contain;
+  object-position:center;
+}
+.hotspot{
+  transform:translate(-50%,-50%);
+}
+.hotspot:hover{
+  transform:translate(-50%,-50%) scale(1.08);
+}
+.vactions{flex-wrap:wrap}
+.vactions .icobtn{min-width:105px}
+.sentence-preview{
+  margin:14px 0 12px;
+  padding:12px;
+  border:1px solid #eadfe7;
+  border-radius:14px;
+  background:#fff;
+  color:#536577;
+  font-size:14px;
+  line-height:1.6;
+}
+.next-step-title{display:block;margin:18px 0 4px;font-size:17px}
+.next-step-copy{margin:0 0 13px;color:#6f7783;font-size:14px;line-height:1.6}
+.next-actions{display:grid;gap:10px}
+.next-action{
+  display:block;
+  padding:12px 15px;
+  border:1px solid #e9a6c3;
+  border-radius:14px;
+  color:#9b5575;
+  background:#fff;
+  font-size:14px;
+  font-weight:600;
+  text-align:center;
+}
+.next-action.primary{border-color:#d98eaf;background:#e9a6c3;color:#fff}
+.next-action:hover{background:#f8dce8;color:#8e4c6a}
+.next-action.primary:hover{background:#d98eaf;color:#fff}
+
 @media (max-width: 760px) {
   .navbar,
   .site-header {
@@ -666,6 +710,8 @@ button:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline-color
   .mobile-menu {
     display: none !important;
   }
+
+  .poster-img img{height:auto!important}
 }
 </style>
 </head>
@@ -726,11 +772,11 @@ button:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline-color
       </div>
       <div class="poster-img">
         <img src="https://dvxrhkgloakisnvqoxgl.supabase.co/storage/v1/object/sign/images/inputs/1788715310546_pwahi3t4l.png?token=eyJraWQiOiI0NWE1YWU1ZS0xNzg4LTRiMWYtYWM5OC1hMjgwNmQ2OTM4ZWMiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbWFnZXMvaW5wdXRzLzE3ODg3MTUzMTA1NDZfcHdhaGkzdDRsLnBuZyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODg3MTUzMTgsImV4cCI6MTgyMDI1MTMxOH0.cRdJmf0ZK-XIM54RopGKw_vw-tGbMhvdTRcKKqKLXW8" alt="Ghoraf Ed-Dar poster">
-        <button class="hotspot" aria-label="Jump to dar, house" style="top:26%;right:16%" onclick="jumpWord(1,this)">1<span class="tip">دار • dar • house</span></button>
-        <button class="hotspot" aria-label="Jump to bit el-bano, bathroom" style="top:44%;left:18%;border-color:#5E8CA3;color:#5E8CA3" onclick="jumpWord(2,this)">2<span class="tip">بيت البانو • bathroom</span></button>
-        <button class="hotspot" aria-label="Jump to bit en-noum, bedroom" style="top:44%;right:18%;border-color:#A68A4A;color:#A68A4A" onclick="jumpWord(3,this)">3<span class="tip">بيت النوم • bedroom</span></button>
-        <button class="hotspot" aria-label="Jump to koujina, kitchen" style="top:69%;left:18%;border-color:#5F8074;color:#5F8074" onclick="jumpWord(4,this)">4<span class="tip">كوجينة • kitchen</span></button>
-        <button class="hotspot" aria-label="Jump to issala, living room" style="top:69%;right:18%" onclick="jumpWord(5,this)">5<span class="tip">الصالة • living room</span></button>
+        <button class="hotspot" aria-label="Jump to dar, house" style="top:21.5%;left:83.2%" onclick="jumpWord(1,this)">1<span class="tip">دار • dar • house</span></button>
+        <button class="hotspot" aria-label="Jump to bit el-bano, bathroom" style="top:60%;left:8.5%;border-color:#5E8CA3;color:#5E8CA3" onclick="jumpWord(2,this)">2<span class="tip">بيت البانو • bathroom</span></button>
+        <button class="hotspot" aria-label="Jump to bit en-noum, bedroom" style="top:60%;left:55.8%;border-color:#A68A4A;color:#A68A4A" onclick="jumpWord(3,this)">3<span class="tip">بيت النوم • bedroom</span></button>
+        <button class="hotspot" aria-label="Jump to koujina, kitchen" style="top:89.2%;left:8.5%;border-color:#5F8074;color:#5F8074" onclick="jumpWord(4,this)">4<span class="tip">كوجينة • kitchen</span></button>
+        <button class="hotspot" aria-label="Jump to issala, living room" style="top:89.2%;left:55.8%" onclick="jumpWord(5,this)">5<span class="tip">الصالة • living room</span></button>
       </div>
       <div class="poster-foot">💡 First, study the picture. Then continue to the word cards and practise. <a href="#vocab" style="text-decoration:underline;font-weight:900">Learn the words ↓</a></div>
     </div>
@@ -813,7 +859,8 @@ button:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline-color
           <hr style="border:none;border-top:2px dashed #EADFD0;margin:14px 0">
           <b style="font-size:14px">💡 How Tunisians say it</b>
           <p style="font-size:13.5px;line-height:1.6;color:var(--ink-soft);font-weight:600">• <b>bit</b> = room<br>• <b>el-bano</b> comes from French <i>bain</i><br>• <b>koujina</b> comes from Italian <i>cucina</i><br>• Say <b>issala</b> for the living room</p>
-          <button class="btn btn-sage" style="width:100%;justify-content:center" onclick="playPhrase('full-sentence')">🔊 Hear a full sentence</button>
+          <div class="sentence-preview" id="currentSentencePreview"><span class="ar">دارنا كبيرة و ضاوية</span><br>Darna kbira w dhawya.</div>
+          <button class="btn btn-sage" id="sentenceButton" style="width:100%;justify-content:center" onclick="playCurrentSentence(this)">🔊 Hear a full sentence</button>
         </div>
       </aside>
     </div>
@@ -834,7 +881,16 @@ button:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline-color
 <section class="sec" id="finish">
   <div class="free reveal">
     <div><div class="pill" style="background:#F9E8A8;border-color:#E8D48A">Lesson complete</div><h2 style="font-size:clamp(28px,4vw,42px);margin:12px 0;letter-spacing:-.8px">Bravo! <span class="hand" style="color:#F9E8A8;font-size:1.3em">You finished Lesson 01.</span></h2><p style="opacity:.9;line-height:1.7;font-weight:600">Review any difficult cards, then try the quiz again without looking at the vocabulary.</p><div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap"><button class="btn" style="background:#F9E8A8;color:#2E3D38" onclick="scrollToId('vocab')">Review the words 📚</button><button class="btn btn-ghost" style="color:#fff;border-color:#6B7E77" onclick="scrollToId('lab');setTimeout(()=>showTab('quiz'),400)">Try the quiz ✏️</button></div></div>
-    <div style="background:#FFFDF8;border-radius:22px;padding:22px;color:var(--ink)"><b>Before you continue</b><div style="background:var(--cream);border:2px solid #EDE2D1;border-radius:16px;padding:14px;margin-top:12px;font-weight:700;line-height:1.7">Can you name five rooms or objects without looking?<br>Can you use one word in a complete sentence?<br>Can you understand the words when you hear them?</div></div>
+    <div style="background:#FFFDF8;border-radius:22px;padding:22px;color:var(--ink)">
+      <b>Before you continue</b>
+      <div style="background:var(--cream);border:2px solid #EDE2D1;border-radius:16px;padding:14px;margin-top:12px;font-weight:700;line-height:1.7">Can you name five rooms or objects without looking?<br>Can you use one word in a complete sentence?<br>Can you understand the words when you hear them?</div>
+      <strong class="next-step-title">Want to keep learning Tunisian Arabic?</strong>
+      <p class="next-step-copy">Continue your learning with Mongia or discover your current level.</p>
+      <div class="next-actions">
+        <a class="next-action primary" href="placement-test.html">Test Your Tunisian Arabic Level — Free</a>
+        <a class="next-action" href="https://preply.com/en/tutor/2654132" target="_blank" rel="noopener noreferrer">Book a Lesson with Mongia</a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -877,9 +933,9 @@ const WORDS=[
 {id:3,ar:"بيت النوم",tr:"bit en-noum",en:"bedroom",cat:"rooms",accent:"#C39A4A",soft:"#F9EED3",emoji:"🛏️",img:IMGS[3],exAr:"بيت النوم فيها فرش كبير",exTr:"Bit en-noum fiha farch kbir.",exEn:"The bedroom has a big bed.",phon:["bit","en","noum"],tip:"Noum means sleep, so bit en-noum literally means “the room of sleep.”"},
 {id:4,ar:"كوجينة",tr:"koujina",en:"kitchen",cat:"rooms",accent:"#6FA287",soft:"#E6EDE3",emoji:"🍳",img:IMGS[4],exAr:"في الكوجينة ريحة الملوخية تفوّح",exTr:"Fi el-koujina ri7et el-mloukhiya tfou7.",exEn:"In the kitchen, the mloukhiya smells wonderful.",phon:["kou","ji","na"],tip:"Koujina comes from the Italian word cucina."},
 {id:5,ar:"الصالة",tr:"issala",en:"living room",cat:"rooms",accent:"#D96A6A",soft:"#FDE3DE",emoji:"🛋️",img:IMGS[5],exAr:"اقعد في الصالة و ارتاح",exTr:"O93od fi issala w erta7.",exEn:"Sit in the living room and relax.",phon:["is","sa","la"],tip:"Issala is the room where family members sit together and guests are often welcomed."},
-{id:6,ar:"باب",tr:"bab",en:"door",cat:"furniture",accent:"#8AA8C8",soft:"#E2EDF6",emoji:"🚪",img:IMGS[6],exAr:"سكّر الباب بالشوية",exTr:"Sakker el-bab beshwaya.",exEn:"Close the door gently.",phon:["bab","one syllable"],tip:"The plural of bab is biben (بيبان). El-bab ma7loul means “the door is open.”"},
-{id:7,ar:"شباك",tr:"chebbek",en:"window",cat:"furniture",accent:"#9AB7A0",soft:"#E6EDE3",emoji:"🪟",img:IMGS[7],exAr:"حل الشباك، يدخل الهواء",exTr:"7ell ech-chebbek, yodkhol el-hwa.",exEn:"Open the window and let the air in.",phon:["cheb","bek"],tip:"The ch sound is like the beginning of the English word chair."},
-{id:8,ar:"سرير",tr:"srir",en:"bed",cat:"furniture",accent:"#C4A484",soft:"#F3E8D6",emoji:"🛌",img:IMGS[8],exAr:"السرير مريح برشا",exTr:"Es-srir mri7 barsha.",exEn:"The bed is very comfortable.",phon:["srir","soft rolled r"],tip:"Barsha means a lot or very, depending on the sentence."},
+{id:6,ar:"شبّاك",tr:"chebbek",en:"window",cat:"furniture",accent:"#9AB7A0",soft:"#E6EDE3",emoji:"🪟",img:IMGS[6],exAr:"حل الشبّاك، يدخل الهواء",exTr:"7ell ech-chebbek, yodkhol el-hwa.",exEn:"Open the window and let the air in.",phon:["cheb","bek"],tip:"The ch sound is like the beginning of the English word chair."},
+{id:7,ar:"باب",tr:"bab",en:"door",cat:"furniture",accent:"#8AA8C8",soft:"#E2EDF6",emoji:"🚪",img:IMGS[7],exAr:"سكّر الباب بالشوية",exTr:"Sakker el-bab beshwaya.",exEn:"Close the door gently.",phon:["bab","one syllable"],tip:"The plural of bab is biben (بيبان). El-bab ma7loul means “the door is open.”"},
+{id:8,ar:"فرش",tr:"farch",en:"bed",cat:"furniture",accent:"#C4A484",soft:"#F3E8D6",emoji:"🛌",img:IMGS[8],exAr:"الفرش مرتاح برشا",exTr:"El-farch merta7 barcha.",exEn:"The bed is very comfortable.",phon:["farch","one syllable"],tip:"Barsha means a lot or very, depending on the sentence."},
 {id:9,ar:"طاولة",tr:"tawla",en:"table",cat:"furniture",accent:"#B9977B",soft:"#F3E8D6",emoji:"🍽️",img:IMGS[9],exAr:"الطاولة حاضرة، إيجا تاكل",exTr:"Et-tawla 7adhra, ija tekel.",exEn:"The table is ready. Come and eat.",phon:["taw","la"],tip:"A low traditional dining table may also be called a mida."},
 {id:10,ar:"كرسي",tr:"korsi",en:"chair",cat:"furniture",accent:"#A89BC0",soft:"#E9E3F2",emoji:"🪑",img:IMGS[10],exAr:"أقعد على الكرسي",exTr:"O93od 3al-korsi.",exEn:"Sit on the chair.",phon:["kor","si"],tip:"The plural is krasi (كراسي)."}
 ];
@@ -894,9 +950,9 @@ const WORD_AUDIO={
   3:"audio/lesson-01/bit-en-noum.mp3",
   4:"audio/lesson-01/koujina.mp3",
   5:"audio/lesson-01/issala.mp3",
-  6:"audio/lesson-01/bab.mp3",
-  7:"audio/lesson-01/chebbek.mp3",
-  8:"audio/lesson-01/srir.mp3",
+  6:"audio/lesson-01/chebbek.mp3",
+  7:"audio/lesson-01/bab.mp3",
+  8:"audio/lesson-01/farch.mp3",
   9:"audio/lesson-01/tawla.mp3",
   10:"audio/lesson-01/korsi.mp3"
 };
@@ -905,6 +961,18 @@ const PHRASE_AUDIO={
   "blue-door":"audio/lesson-01/blue-door.mp3",
   "sit-down":"audio/lesson-01/sit-down.mp3",
   "courtyard":"audio/lesson-01/courtyard.mp3"
+};
+const SENTENCE_AUDIO={
+  1:"audio/lesson-01/full-sentence.mp3",
+  2:"audio/lesson-01/bit-el-bano-sentence.mp3",
+  3:"audio/lesson-01/bit-en-noum-sentence.mp3",
+  4:"audio/lesson-01/koujina-sentence.mp3",
+  5:"audio/lesson-01/issala-sentence.mp3",
+  6:"audio/lesson-01/chebbek-sentence.mp3",
+  7:"audio/lesson-01/bab-sentence.mp3",
+  8:"audio/lesson-01/farch-sentence.mp3",
+  9:"audio/lesson-01/tawla-sentence.mp3",
+  10:"audio/lesson-01/korsi-sentence.mp3"
 };
 
 function save(){localStorage.setItem('dwm_known',JSON.stringify([...known]));}
@@ -919,6 +987,8 @@ function playRecording(src,label,btn){
 }
 function playWord(id,btn){const w=WORDS.find(x=>x.id===id);playRecording(WORD_AUDIO[id],`${w.tr} • ${w.en}`,btn);}
 function playPhrase(id){playRecording(PHRASE_AUDIO[id],'Tunisian Arabic phrase');}
+function playSentence(id,btn){const w=WORDS.find(x=>x.id===id);playRecording(SENTENCE_AUDIO[id],w.exTr,btn);}
+function playCurrentSentence(btn){playSentence(currentWord().id,btn);}
 function jumpWord(id,target){document.querySelectorAll('.hotspot').forEach(h=>h.classList.remove('show'));target.classList.add('show');setTimeout(()=>target.classList.remove('show'),1800);setTimeout(()=>{document.getElementById('card-'+id)?.scrollIntoView({behavior:'smooth',block:'center'});const c=document.getElementById('card-'+id);if(c){c.style.transform='scale(1.03)';c.style.boxShadow='0 0 0 4px #FFE27A, 0 12px 32px rgba(0,0,0,.15)';setTimeout(()=>{c.style.transform='';c.style.boxShadow=''},1400);}},300);}
 
 function renderVocab(){
@@ -930,7 +1000,7 @@ function renderVocab(){
     el.style.setProperty('--accent',w.accent);el.style.setProperty('--accent-soft',w.soft);
     el.innerHTML=`
       <div class="vimg"><span class="num">${w.id}</span><img loading="lazy" src="${w.img}" alt="${w.en}"><span style="position:absolute;bottom:10px;left:12px;background:rgba(255,255,255,.92);padding:6px 12px;border-radius:99px;font-weight:900;font-size:12px;z-index:2">${w.emoji} ${w.en}</span></div>
-      <div class="vbody"><div class="ar">${w.ar}</div><div class="vtrans">${w.tr} <small>${w.en} • Tap 🔊 to hear</small></div><div class="divider"></div><div class="ex"><b class="ar">${w.exAr}</b><br><i>${w.exTr}</i> — ${w.exEn}</div><div class="vactions"><button class="icobtn accent" onclick="playWord(${w.id},this)"><span class="wave"><i style="height:6px"></i><i style="height:10px"></i><i style="height:7px"></i></span> Hear</button><button class="icobtn primary" onclick="openModal(${w.id})">Details →</button></div></div>`;
+      <div class="vbody"><div class="ar">${w.ar}</div><div class="vtrans">${w.tr} <small>${w.en} • Tap 🔊 to hear</small></div><div class="divider"></div><div class="ex"><b class="ar">${w.exAr}</b><br><i>${w.exTr}</i> — ${w.exEn}</div><div class="vactions"><button class="icobtn accent" onclick="playWord(${w.id},this)"><span class="wave"><i style="height:6px"></i><i style="height:10px"></i><i style="height:7px"></i></span> Hear word</button><button class="icobtn" onclick="playSentence(${w.id},this)">🔊 Sentence</button><button class="icobtn primary" onclick="openModal(${w.id})">Details →</button></div></div>`;
     grid.appendChild(el);
   });
   updateProgress();
@@ -949,7 +1019,7 @@ function showTab(name){document.querySelectorAll('.lab-tab').forEach(b=>b.classL
 // flashcards
 let deck=[...WORDS.map(w=>w.id)],fIdx=0;
 function currentWord(){return WORDS.find(w=>w.id===deck[fIdx]);}
-function renderFlash(){const w=currentWord();const card=document.getElementById('fcard');card.classList.remove('flipped');setTimeout(()=>{document.getElementById('fAr').textContent=w.ar;document.getElementById('fTr').textContent=w.tr;document.getElementById('fEn').textContent=w.en;document.getElementById('fEmoji').textContent=w.emoji;document.getElementById('fEx').textContent=w.exAr;document.getElementById('fExEn').textContent=w.exTr+' — '+w.exEn;document.getElementById('fpos').textContent=`${fIdx+1} / ${deck.length}`;},120);}
+function renderFlash(){const w=currentWord();const card=document.getElementById('fcard');card.classList.remove('flipped');setTimeout(()=>{document.getElementById('fAr').textContent=w.ar;document.getElementById('fTr').textContent=w.tr;document.getElementById('fEn').textContent=w.en;document.getElementById('fEmoji').textContent=w.emoji;document.getElementById('fEx').textContent=w.exAr;document.getElementById('fExEn').textContent=w.exTr+' — '+w.exEn;document.getElementById('fpos').textContent=`${fIdx+1} / ${deck.length}`;document.getElementById('currentSentencePreview').innerHTML=`<span class="ar">${w.exAr}</span><br>${w.exTr}`;document.getElementById('sentenceButton').setAttribute('aria-label','Hear full sentence for '+w.tr);},120);}
 function flipFlash(){document.getElementById('fcard').classList.toggle('flipped');}
 function moveFlash(d){fIdx=(fIdx+d+deck.length)%deck.length;renderFlash();}
 function speakCurrent(){playWord(currentWord().id);}
