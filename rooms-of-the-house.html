@@ -646,6 +646,14 @@ button:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline-color
 .hotspot:hover{
   transform:translate(-50%,-50%) scale(1.08);
 }
+.hotspot.tip-right .tip{
+  left:-8px;
+  transform:translateX(0) translateY(6px);
+}
+.hotspot.tip-right:hover .tip,
+.hotspot.tip-right.show .tip{
+  transform:translateX(0) translateY(0);
+}
 .vactions{flex-wrap:wrap}
 .vactions .icobtn{min-width:105px}
 .sentence-preview{
@@ -773,9 +781,9 @@ button:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline-color
       <div class="poster-img">
         <img src="https://dvxrhkgloakisnvqoxgl.supabase.co/storage/v1/object/sign/images/inputs/1788715310546_pwahi3t4l.png?token=eyJraWQiOiI0NWE1YWU1ZS0xNzg4LTRiMWYtYWM5OC1hMjgwNmQ2OTM4ZWMiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbWFnZXMvaW5wdXRzLzE3ODg3MTUzMTA1NDZfcHdhaGkzdDRsLnBuZyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODg3MTUzMTgsImV4cCI6MTgyMDI1MTMxOH0.cRdJmf0ZK-XIM54RopGKw_vw-tGbMhvdTRcKKqKLXW8" alt="Ghoraf Ed-Dar poster">
         <button class="hotspot" aria-label="Jump to dar, house" style="top:21.5%;left:83.2%" onclick="jumpWord(1,this)">1<span class="tip">دار • dar • house</span></button>
-        <button class="hotspot" aria-label="Jump to bit el-bano, bathroom" style="top:60%;left:8.5%;border-color:#5E8CA3;color:#5E8CA3" onclick="jumpWord(2,this)">2<span class="tip">بيت البانو • bathroom</span></button>
+        <button class="hotspot tip-right" aria-label="Jump to bit el-bano, bathroom" style="top:60%;left:8.5%;border-color:#5E8CA3;color:#5E8CA3" onclick="jumpWord(2,this)">2<span class="tip">بيت البانو • bathroom</span></button>
         <button class="hotspot" aria-label="Jump to bit en-noum, bedroom" style="top:60%;left:55.8%;border-color:#A68A4A;color:#A68A4A" onclick="jumpWord(3,this)">3<span class="tip">بيت النوم • bedroom</span></button>
-        <button class="hotspot" aria-label="Jump to koujina, kitchen" style="top:89.2%;left:8.5%;border-color:#5F8074;color:#5F8074" onclick="jumpWord(4,this)">4<span class="tip">كوجينة • kitchen</span></button>
+        <button class="hotspot tip-right" aria-label="Jump to koujina, kitchen" style="top:89.2%;left:8.5%;border-color:#5F8074;color:#5F8074" onclick="jumpWord(4,this)">4<span class="tip">كوجينة • kitchen</span></button>
         <button class="hotspot" aria-label="Jump to issala, living room" style="top:89.2%;left:55.8%" onclick="jumpWord(5,this)">5<span class="tip">الصالة • living room</span></button>
       </div>
       <div class="poster-foot">💡 First, study the picture. Then continue to the word cards and practise. <a href="#vocab" style="text-decoration:underline;font-weight:900">Learn the words ↓</a></div>
@@ -936,7 +944,7 @@ const WORDS=[
 {id:6,ar:"شبّاك",tr:"chebbek",en:"window",cat:"furniture",accent:"#9AB7A0",soft:"#E6EDE3",emoji:"🪟",img:IMGS[6],exAr:"حل الشبّاك، يدخل الهواء",exTr:"7ell ech-chebbek, yodkhol el-hwa.",exEn:"Open the window and let the air in.",phon:["cheb","bek"],tip:"The ch sound is like the beginning of the English word chair."},
 {id:7,ar:"باب",tr:"bab",en:"door",cat:"furniture",accent:"#8AA8C8",soft:"#E2EDF6",emoji:"🚪",img:IMGS[7],exAr:"سكّر الباب بالشوية",exTr:"Sakker el-bab beshwaya.",exEn:"Close the door gently.",phon:["bab","one syllable"],tip:"The plural of bab is biben (بيبان). El-bab ma7loul means “the door is open.”"},
 {id:8,ar:"فرش",tr:"farch",en:"bed",cat:"furniture",accent:"#C4A484",soft:"#F3E8D6",emoji:"🛌",img:IMGS[8],exAr:"الفرش مرتاح برشا",exTr:"El-farch merta7 barcha.",exEn:"The bed is very comfortable.",phon:["farch","one syllable"],tip:"Barsha means a lot or very, depending on the sentence."},
-{id:9,ar:"طاولة",tr:"tawla",en:"table",cat:"furniture",accent:"#B9977B",soft:"#F3E8D6",emoji:"🍽️",img:IMGS[9],exAr:"الطاولة حاضرة، إيجا تاكل",exTr:"Et-tawla 7adhra, ija tekel.",exEn:"The table is ready. Come and eat.",phon:["taw","la"],tip:"A low traditional dining table may also be called a mida."},
+{id:9,ar:"طاولة",tr:"tawla",en:"table",cat:"furniture",accent:"#B9977B",soft:"#F3E8D6",emoji:"🍽️",img:IMGS[9],exAr:"الطاولة حاضرة، إيجا كول",exTr:"Et-tawla 7adhra, ija koul.",exEn:"The table is ready. Come and eat.",phon:["taw","la"],tip:"A low traditional dining table may also be called a mida."},
 {id:10,ar:"كرسي",tr:"korsi",en:"chair",cat:"furniture",accent:"#A89BC0",soft:"#E9E3F2",emoji:"🪑",img:IMGS[10],exAr:"أقعد على الكرسي",exTr:"O93od 3al-korsi.",exEn:"Sit on the chair.",phon:["kor","si"],tip:"The plural is krasi (كراسي)."}
 ];
 let known=new Set(JSON.parse(localStorage.getItem('dwm_known')||'[]'));
