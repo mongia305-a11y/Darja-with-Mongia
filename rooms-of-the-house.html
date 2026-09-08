@@ -684,6 +684,52 @@ button:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline-color
 .next-action:hover{background:#f8dce8;color:#8e4c6a}
 .next-action.primary:hover{background:#d98eaf;color:#fff}
 
+/* Keep the lesson menu from covering content while scrolling. */
+.lessonbar{
+  position:relative;
+  top:auto;
+  z-index:20;
+  backdrop-filter:none;
+}
+
+/* More compact lesson poster and vocabulary cards. */
+.hero-grid{
+  grid-template-columns:minmax(0,1fr) minmax(320px,420px);
+  gap:34px;
+}
+.poster-wrap{
+  width:100%;
+  max-width:420px;
+  justify-self:center;
+}
+.vgrid{gap:15px}
+.vcard.feat{
+  grid-column:span 1;
+  flex-direction:column;
+}
+.vimg,
+.vcard.feat .vimg{
+  width:100%;
+  height:180px;
+  min-height:0;
+}
+.vbody{padding:15px 15px 14px}
+.vbody > .ar{font-size:33px}
+.ex .ar{
+  display:block;
+  direction:rtl;
+  text-align:right;
+  font-size:22px;
+  font-weight:600;
+  line-height:1.45;
+}
+.ex{font-size:13px}
+
+@media (max-width: 1020px) {
+  .hero-grid{grid-template-columns:1fr}
+  .poster-wrap{max-width:400px}
+}
+
 @media (max-width: 760px) {
   .navbar,
   .site-header {
@@ -719,6 +765,11 @@ button:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline-color
     display: none !important;
   }
 
+  .hero-grid{grid-template-columns:1fr}
+  .poster-wrap{max-width:360px}
+  .vimg,
+  .vcard.feat .vimg{height:165px}
+  .ex .ar{font-size:20px}
   .poster-img img{height:auto!important}
 }
 </style>
