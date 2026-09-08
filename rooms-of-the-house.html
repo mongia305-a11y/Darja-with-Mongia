@@ -867,7 +867,7 @@ button:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline-color
         <!-- FLASH -->
         <div id="tab-flash">
           <div class="flash-stage">
-            <div class="fcard" id="fcard" role="button" tabindex="0" aria-label="Flip flashcard" onclick="flipFlash()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();flipFlash()}"><div class="finner"><div class="fface ffront"><small style="font-weight:900;letter-spacing:2px;color:var(--muted)">TAP TO FLIP • <span id="fpos">1 / 10</span></small><div class="ar" id="fAr" style="font-size:64px">دار</div><div style="font-weight:900;font-size:20px" id="fTr">dar</div><div style="font-size:13px;font-weight:800;color:var(--ink-soft)">What does it mean?</div></div><div class="fface fback"><div style="font-size:44px" id="fEmoji">🏡</div><div style="font-weight:900;font-size:26px" id="fEn">house / home</div><div class="ar" id="fEx" style="font-size:18px;opacity:.9;text-align:center">دارنا كبيرة و ضاوية</div><small id="fExEn" style="opacity:.7;font-weight:700">Our house is big and bright.</small></div></div></div>
+            <div class="fcard" id="fcard" role="button" tabindex="0" aria-label="Flip flashcard" onclick="flipFlash()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();flipFlash()}"><div class="finner"><div class="fface ffront"><small style="font-weight:900;letter-spacing:2px;color:var(--muted)">TAP TO FLIP • <span id="fpos">1 / 10</span></small><div class="ar" id="fAr" style="font-size:64px">دار</div><div style="font-weight:900;font-size:20px" id="fTr">dar</div><div style="font-size:13px;font-weight:800;color:var(--ink-soft)">What does it mean?</div></div><div class="fface fback"><div style="font-size:44px" id="fEmoji">🏡</div><div style="font-weight:900;font-size:26px" id="fEn">house / home</div><div class="ar" id="fEx" style="font-size:18px;opacity:.9;text-align:center">الدار كبيرة</div><small id="fExEn" style="opacity:.7;font-weight:700">The house is big.</small></div></div></div>
             <div class="fcontrols">
               <button class="kbtn nav" onclick="moveFlash(-1)">← Prev</button>
               <button class="kbtn dont" onclick="markFlash(false)">✕ Still learning</button>
@@ -918,7 +918,7 @@ button:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline-color
           <hr style="border:none;border-top:2px dashed #EADFD0;margin:14px 0">
           <b style="font-size:14px">💡 How Tunisians say it</b>
           <p style="font-size:13.5px;line-height:1.6;color:var(--ink-soft);font-weight:600">• <b>bit</b> = room<br>• <b>el-bano</b> comes from French <i>bain</i><br>• <b>koujina</b> comes from Italian <i>cucina</i><br>• Say <b>issala</b> for the living room</p>
-          <div class="sentence-preview" id="currentSentencePreview"><span class="ar">دارنا كبيرة و ضاوية</span><br>Darna kbira w dhawya.</div>
+          <div class="sentence-preview" id="currentSentencePreview"><span class="ar">الدار كبيرة</span><br>Ed-dar kbira.</div>
           <button class="btn btn-sage" id="sentenceButton" style="width:100%;justify-content:center" onclick="playCurrentSentence(this)">🔊 Hear a full sentence</button>
         </div>
       </aside>
@@ -987,7 +987,7 @@ const IMGS={
 10:"https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=900&q=70"
 };
 const WORDS=[
-{id:1,ar:"دار",tr:"dar",en:"house / home",cat:"rooms",accent:"#D98A7A",soft:"#FDE9DF",emoji:"🏡",img:IMGS[1],exAr:"دارنا كبيرة و ضاوية",exTr:"Darna kbira w dhawya.",exEn:"Our house is big and bright.",phon:["dar","one syllable","soft rolled r"],tip:"Dar can mean both house and home. The plural is dyar (ديار)."},
+{id:1,ar:"دار",tr:"dar",en:"house / home",cat:"rooms",accent:"#D98A7A",soft:"#FDE9DF",emoji:"🏡",img:IMGS[1],exAr:"الدار كبيرة",exTr:"Ed-dar kbira.",exEn:"The house is big.",phon:["dar","one syllable","soft rolled r"],tip:"Dar can mean both house and home. The plural is dyar (ديار)."},
 {id:2,ar:"بيت البانو",tr:"bit el-bano",en:"bathroom",cat:"rooms",accent:"#6BA3BE",soft:"#DDEAF0",emoji:"🛁",img:IMGS[2],exAr:"وين بيت البانو؟",exTr:"Win bit el-bano?",exEn:"Where is the bathroom?",phon:["bit","el","ba-no"],tip:"El-bano comes from the French word bain. You may also hear toilette in everyday speech."},
 {id:3,ar:"بيت النوم",tr:"bit en-noum",en:"bedroom",cat:"rooms",accent:"#C39A4A",soft:"#F9EED3",emoji:"🛏️",img:IMGS[3],exAr:"بيت النوم فيها فرش كبير",exTr:"Bit en-noum fiha farch kbir.",exEn:"The bedroom has a big bed.",phon:["bit","en","noum"],tip:"Noum means sleep, so bit en-noum literally means “the room of sleep.”"},
 {id:4,ar:"كوجينة",tr:"koujina",en:"kitchen",cat:"rooms",accent:"#6FA287",soft:"#E6EDE3",emoji:"🍳",img:IMGS[4],exAr:"في الكوجينة ريحة الملوخية تفوّح",exTr:"Fi el-koujina ri7et el-mloukhiya tfou7.",exEn:"In the kitchen, the mloukhiya smells wonderful.",phon:["kou","ji","na"],tip:"Koujina comes from the Italian word cucina."},
