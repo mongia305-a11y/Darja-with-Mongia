@@ -1,230 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Tunisian Arabic Podcast | Darja with Mongia</title>
 
-  <meta name="description" content="Listen to the Speak Tunisian Arabic podcast by Darja with Mongia. Learn Tunisian Arabic through short practical episodes, audio practice and free transcripts.">
+  <meta name="description" content="Listen to the Speak Tunisian Arabic podcast by Darja with Mongia. Learn Tunisian Arabic through short practical episodes, free transcripts and short exercises.">
 <link rel="canonical" href="https://darjawithmongia.com/podcast.html">
 <link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Page-specific styles: the existing logo and shared stylesheet are retained. */
+    body.podcast-page { margin: 0; font-family: 'Poppins', sans-serif; color: #352d3c; }
+    body.podcast-page > .navbar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    body.podcast-page > .navbar > .podcast-nav { margin-left: auto; display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 24px; }
+    body.podcast-page .podcast-nav a { text-decoration: none; color: #352d3c; }
+    body.podcast-page .podcast-nav a[aria-current="page"] { color: #9b3565; text-decoration: underline; text-underline-offset: 7px; }
+    body.podcast-page .transcript-page { background: #f3ebf5; padding: 44px 24px 56px; }
+    body.podcast-page .transcript-page *, body.podcast-page .transcript-page *::before, body.podcast-page .transcript-page *::after { box-sizing: border-box; }
+    body.podcast-page .transcript-hero { max-width: 760px; margin: 0 auto 32px; text-align: center; }
+    body.podcast-page .transcript-label { display: inline-block; background: #fff; border-radius: 30px; padding: 6px 13px; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; color: #86536e; }
+    body.podcast-page .transcript-hero h1 { font-size: clamp(26px, 4vw, 38px); line-height: 1.25; margin: 14px 0; color: #352d3c; }
+    body.podcast-page .transcript-hero h1 em { color: #9b3565; }
+    body.podcast-page .transcript-hero p { max-width: 600px; margin: 0 auto 22px; font-size: 14px; line-height: 1.8; color: #746779; }
+    body.podcast-page .transcript-library { max-width: 960px; margin: auto; }
+    body.podcast-page .transcript-library-heading { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px; margin-bottom: 20px; border-top: 1px solid #e2d5e6; padding-top: 24px; }
+    body.podcast-page .transcript-library-heading h2 { font-size: 23px; margin: 0; color: #352d3c; }
+    body.podcast-page .transcript-library-heading p { font-size: 12px; color: #746779; margin: 0; }
+    body.podcast-page .transcript-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+    body.podcast-page .transcript-card { background: #fff; border: 1px solid #eadfe9; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 16px; min-width: 0; box-shadow: 0 5px 16px #39213906; }
+    body.podcast-page .transcript-card-heading { display: flex; align-items: center; gap: 16px; }
+    body.podcast-page .transcript-cover { width: 58px; height: 76px; flex-shrink: 0; border-left: 4px solid #a03b6a; border-radius: 4px 9px 9px 4px; background: #f6eaf2; color: #99325f; display: flex; flex-direction: column; justify-content: space-between; padding: 10px; }
+    body.podcast-page .transcript-cover span { font-size: 10px; letter-spacing: 1px; }
+    body.podcast-page .transcript-cover strong { font-size: 24px; font-weight: 500; }
+    body.podcast-page .transcript-kicker { font-size: 11px; color: #8a5572; }
+    body.podcast-page .transcript-card h3 { font-size: 18px; line-height: 1.45; margin: 5px 0 0; color: #352d3c; }
+    body.podcast-page .transcript-description { color: #746779; font-size: 13px; line-height: 1.8; margin: 0; }
+    body.podcast-page .transcript-included { font-size: 12px; color: #8a5572; }
+    body.podcast-page .transcript-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; }
+    body.podcast-page .transcript-actions a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 16px; border-radius: 8px; text-decoration: none; font-size: 13px; font-weight: 500; }
+    body.podcast-page .transcript-view { color: #fff; background: #9b3565; border: 1px solid #9b3565; }
+    body.podcast-page .transcript-download { color: #873459; background: #fff; border: 1px solid #dfc8d6; }
+    body.podcast-page .transcript-actions a:hover { filter: brightness(.95); }
+    body.podcast-page .transcript-listen { border-top: 1px solid #eee4ed; padding-top: 12px; }
+    body.podcast-page .transcript-listen a { display: inline-block; padding: 5px 0; font-size: 12px; color: #91345f; text-decoration: none; }
+    body.podcast-page .transcript-listen a:hover { text-decoration: underline; }
+    body.podcast-page a:focus-visible { outline: 3px solid #724589; outline-offset: 4px; }
+    /* Fallback only. Unlayered rules in your existing style.css retain the original platform colors. */
+    @layer podcast-platform-fallback {
+      .podcast-page .podcast-platforms { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px; }
+      .podcast-page .podcast-platforms a { display: inline-block; border-radius: 28px; padding: 12px 18px; color: #fff; font-size: 12px; font-weight: 600; text-decoration: none; box-shadow: 0 4px 10px #0001; }
+      .podcast-page .podcast-platforms a:nth-child(1) { background: #1db954; }
+      .podcast-page .podcast-platforms a:nth-child(2) { background: #8726c7; }
+      .podcast-page .podcast-platforms a:nth-child(3) { background: #00a8d5; }
+    }
+    @media (max-width: 640px) {
+      body.podcast-page .transcript-page { padding: 28px 16px 36px; }
+      body.podcast-page .transcript-grid { grid-template-columns: minmax(0, 1fr); }
+      body.podcast-page .transcript-card { padding: 20px; }
+      body.podcast-page > .navbar > .podcast-nav { gap: 16px; font-size: 13px; }
+      body.podcast-page .transcript-library-heading { align-items: flex-start; flex-direction: column; }
+    }
+  </style>
 </head>
-
-
-<body>
-
-  <header class="navbar">
+<body class="podcast-page">
+<header class="navbar">
     <a href="index.html" class="logo logo-only">
       <img src="images/full-logo.png" alt="Darja with Mongia">
     </a>
 
-    <nav class="podcast-nav">
+    <nav class="podcast-nav" aria-label="Main navigation">
       <a href="index.html">Home</a>
       <a href="free-lessons.html">Free Lessons</a>
-      <a href="podcast.html">Podcast</a>
+      <a href="podcast.html" aria-current="page">Podcast</a>
   
       <a href="index.html#about">About</a>
     </nav>
   </header>
-
-  <main>
-
-    <section class="podcast-section">
-
-      <div class="podcast-heading">
-        <span class="podcast-label">Learn anywhere</span>
-
-        <h1>
-          Speak Tunisian Arabic
-          <em>Podcast</em>
-        </h1>
-
-        <p>
-          Learn Tunisian Arabic with Darja with Mongia through short,
-          practical podcast episodes and free learning resources.
-        </p>
-        <div class="podcast-platforms">
+  <main class="transcript-page">
+    <section class="transcript-hero" aria-labelledby="podcast-title">
+      <span class="transcript-label">Listen. Read. Practise.</span>
+      <h1 id="podcast-title">Speak Tunisian Arabic <em>Podcast</em></h1>
+      <p>Listen on your favourite podcast platform. Read along with the free episode transcripts and practise with short exercises.</p>
+<div class="podcast-platforms">
   <a href="https://open.spotify.com/show/4dMV2mNPZem28TFqm37qv8" target="_blank" rel="noopener">Listen on Spotify</a>
 
   <a href="https://podcasts.apple.com/us/podcast/speak-tunisian-arabic-%D8%A3%D8%AD-%D9%83-%D9%8A-%D8%AA-%D9%88%D9%86-%D8%B3-%D9%8A/id6806558997" target="_blank" rel="noopener">Listen on Apple Podcasts</a>
 
   <a href="https://music.amazon.com/es-us/podcasts/5fe6acfb-1e4b-41e1-8868-54cf8701b0f0/speak-tunisian-arabic--%D8%A3%D8%AD%D9%92%D9%83%D9%90%D9%8A-%D8%AA%D9%8F%D9%88%D9%86%D9%92%D8%B3%D9%90%D9%8A" target="_blank" rel="noopener">Listen on Amazon Music</a>
       </div>
-       </div> 
-<div class="podcast-episodes">
-
-    <!-- EPISODE 1 -->
-    <div class="podcast-episode">
-
-      <div class="episode-audio">
-        <iframe
-          src="https://open.spotify.com/embed/episode/1iL7ZnNOyxeLbAdFVcvH8d?utm_source=generator"
-          width="100%"
-          height="232"
-          frameborder="0"
-          allowfullscreen
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy">
-        </iframe>
-      </div>
-
-      <div class="podcast-resource">
-
-        <div class="resource-icon">PDF</div>
-
-        <div class="resource-information">
-          <span>Episode 1 • Free transcription</span>
-
-          <h3>Why Tunisian Arabic?</h3>
-
-          <p>
-            Discover why learning Tunisian Arabic is a wonderful way to
-            connect with Tunisians and communicate naturally.
-          </p>
-        </div>
-
-        <a
-          href="resources/podcast/episode-1-why-tunisian-arabic.pdf"
-          download
-          class="pdf-download-button">
-          Download PDF ↓
-        </a>
-
-      </div>
-    </div>
-
-
-    <!-- EPISODE 2 -->
-    <div class="podcast-episode">
-
-      <div class="episode-audio">
-        <iframe
-          src="https://open.spotify.com/embed/episode/13p6pJhpot9F5yDNYGXFrf?utm_source=generator"
-          width="100%"
-          height="232"
-          frameborder="0"
-          allowfullscreen
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy">
-        </iframe>
-      </div>
-
-      <div class="podcast-resource">
-
-        <div class="resource-icon">PDF</div>
-
-        <div class="resource-information">
-          <span>Episode 2 • Free transcription</span>
-
-          <h3>Greetings in Tunisian Arabic</h3>
-
-          <p>
-            Learn common Tunisian greetings, how to ask “how are you?”
-            and how to reply politely and naturally.
-          </p>
-        </div>
-
-        <a
-          href="resources/podcast/episode-2-greetings-in-tunisian-arabic.pdf"
-          download
-          class="pdf-download-button">
-          Download PDF ↓
-        </a>
-
-      </div>
-    </div>
-
-
-    <!-- EPISODE 3 -->
-    <div class="podcast-episode">
-
-      <div class="episode-audio">
-        <iframe
-          src="https://open.spotify.com/embed/episode/4dVN5DDuA1r8RdNwgkc1Us?utm_source=generator"
-          width="100%"
-          height="232"
-          frameborder="0"
-          allowfullscreen
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy">
-        </iframe>
-      </div>
-
-      <div class="podcast-resource">
-
-        <div class="resource-icon">PDF</div>
-
-        <div class="resource-information">
-          <span>Episode 3 • Free transcription</span>
-
-          <h3>Introducing Yourself — The Basics</h3>
-
-          <p>
-            Download the episode transcription and practise
-            introducing yourself in Tunisian Arabic.
-          </p>
-        </div>
-
-        <a
-          href="resources/podcast/episode-3-introducing-yourself.pdf"
-          download
-          class="pdf-download-button">
-          Download PDF ↓
-        </a>
-
-      </div>
-    </div>
-
-    <!-- EPISODE 4 -->
-    <div class="podcast-episode" >
-
-      <div class="episode-audio">
-        <iframe
-          src="https://open.spotify.com/embed/episode/7aQ69DT1amgH6hyhndpyIs?utm_source=generator"
-          width="100%"
-          height="232"
-          frameborder="0"
-          allowfullscreen
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy">
-        </iframe>
-      </div>
-
-      <div class="podcast-resource">
-
-        <div class="resource-icon">PDF</div>
-
-        <div class="resource-information">
-          <span>Episode 4 • Free transcription</span>
-
-          <h3>Numbers 1 to 10</h3>
-
-          <p>
-            Download the episode transcription and practise
-            counting in Tunisian Arabic.
-          </p>
-        </div>
-
-         <a
-          href="resources/podcast/Episode_4_Numbers_1_to_10.pdf"
-          download
-          class="pdf-download-button">
-          Download PDF ↓
-        </a>
-
-      </div> <!-- closes podcast-resource -->
-
-    </div> <!-- closes Episode 4 -->
-
-  </div> <!-- closes all podcast episodes -->
-  
-      
     </section>
-
+    <section class="transcript-library" aria-labelledby="transcripts-title">
+      <div class="transcript-library-heading"><h2 id="transcripts-title">Transcripts &amp; practice</h2><p>Free PDFs · Short exercises included</p></div>
+      <div class="transcript-grid">
+      <article class="transcript-card" aria-labelledby="episode-1-title">
+        <div class="transcript-card-heading">
+          <div class="transcript-cover" aria-hidden="true"><span>PDF</span><strong>01</strong></div>
+          <div><span class="transcript-kicker">Episode 01 · Free transcript</span><h3 id="episode-1-title">Why Tunisian Arabic?</h3></div>
+        </div>
+        <p class="transcript-description">Discover why learning Tunisian Arabic is a wonderful way to connect with Tunisians and communicate naturally.</p>
+        <span class="transcript-included">Transcript + short exercises</span>
+        <div class="transcript-actions">
+          <a class="transcript-view" href="resources/podcast/episode-1-why-tunisian-arabic.pdf" target="_blank" rel="noopener" aria-label="View PDF: Why Tunisian Arabic? (opens in a new tab)">View PDF ↗</a>
+          <a class="transcript-download" href="resources/podcast/episode-1-why-tunisian-arabic.pdf" download aria-label="Download PDF: Why Tunisian Arabic?">Download PDF ↓</a>
+        </div>
+        <div class="transcript-listen"><a href="https://open.spotify.com/episode/1iL7ZnNOyxeLbAdFVcvH8d" target="_blank" rel="noopener" aria-label="Listen to episode 1 on Spotify (opens in a new tab)">Listen to episode on Spotify ↗</a></div>
+      </article>
+      <article class="transcript-card" aria-labelledby="episode-2-title">
+        <div class="transcript-card-heading">
+          <div class="transcript-cover" aria-hidden="true"><span>PDF</span><strong>02</strong></div>
+          <div><span class="transcript-kicker">Episode 02 · Free transcript</span><h3 id="episode-2-title">Greetings in Tunisian Arabic</h3></div>
+        </div>
+        <p class="transcript-description">Learn common Tunisian greetings, how to ask “how are you?” and how to reply politely and naturally.</p>
+        <span class="transcript-included">Transcript + short exercises</span>
+        <div class="transcript-actions">
+          <a class="transcript-view" href="resources/podcast/episode-2-greetings-in-tunisian-arabic.pdf" target="_blank" rel="noopener" aria-label="View PDF: Greetings in Tunisian Arabic (opens in a new tab)">View PDF ↗</a>
+          <a class="transcript-download" href="resources/podcast/episode-2-greetings-in-tunisian-arabic.pdf" download aria-label="Download PDF: Greetings in Tunisian Arabic">Download PDF ↓</a>
+        </div>
+        <div class="transcript-listen"><a href="https://open.spotify.com/episode/13p6pJhpot9F5yDNYGXFrf" target="_blank" rel="noopener" aria-label="Listen to episode 2 on Spotify (opens in a new tab)">Listen to episode on Spotify ↗</a></div>
+      </article>
+      <article class="transcript-card" aria-labelledby="episode-3-title">
+        <div class="transcript-card-heading">
+          <div class="transcript-cover" aria-hidden="true"><span>PDF</span><strong>03</strong></div>
+          <div><span class="transcript-kicker">Episode 03 · Free transcript</span><h3 id="episode-3-title">Introducing Yourself — The Basics</h3></div>
+        </div>
+        <p class="transcript-description">Download the episode transcription and practise introducing yourself in Tunisian Arabic.</p>
+        <span class="transcript-included">Transcript + short exercises</span>
+        <div class="transcript-actions">
+          <a class="transcript-view" href="resources/podcast/episode-3-introducing-yourself.pdf" target="_blank" rel="noopener" aria-label="View PDF: Introducing Yourself — The Basics (opens in a new tab)">View PDF ↗</a>
+          <a class="transcript-download" href="resources/podcast/episode-3-introducing-yourself.pdf" download aria-label="Download PDF: Introducing Yourself — The Basics">Download PDF ↓</a>
+        </div>
+        <div class="transcript-listen"><a href="https://open.spotify.com/episode/4dVN5DDuA1r8RdNwgkc1Us" target="_blank" rel="noopener" aria-label="Listen to episode 3 on Spotify (opens in a new tab)">Listen to episode on Spotify ↗</a></div>
+      </article>
+      <article class="transcript-card" aria-labelledby="episode-4-title">
+        <div class="transcript-card-heading">
+          <div class="transcript-cover" aria-hidden="true"><span>PDF</span><strong>04</strong></div>
+          <div><span class="transcript-kicker">Episode 04 · Free transcript</span><h3 id="episode-4-title">Numbers 1 to 10</h3></div>
+        </div>
+        <p class="transcript-description">Download the episode transcription and practise counting in Tunisian Arabic.</p>
+        <span class="transcript-included">Transcript + short exercises</span>
+        <div class="transcript-actions">
+          <a class="transcript-view" href="resources/podcast/Episode_4_Numbers_1_to_10.pdf" target="_blank" rel="noopener" aria-label="View PDF: Numbers 1 to 10 (opens in a new tab)">View PDF ↗</a>
+          <a class="transcript-download" href="resources/podcast/Episode_4_Numbers_1_to_10.pdf" download aria-label="Download PDF: Numbers 1 to 10">Download PDF ↓</a>
+        </div>
+        <div class="transcript-listen"><a href="https://open.spotify.com/episode/7aQ69DT1amgH6hyhndpyIs" target="_blank" rel="noopener" aria-label="Listen to episode 4 on Spotify (opens in a new tab)">Listen to episode on Spotify ↗</a></div>
+      </article>
+      </div>
+    </section>
   </main>
-
 </body>
 </html>
