@@ -60,15 +60,18 @@
     .card-body{padding:23px 24px 25px}
     .meta{display:flex;align-items:center;gap:8px;margin-bottom:11px;color:#bb6a8f;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px}
     .meta span+span::before{content:'•';margin-right:8px;color:#c9aabb}
-    .free-badge {
-  padding: 4px 9px;
+   .free-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 2;
+  padding: 6px 12px;
   border-radius: 999px;
   background: #35a853;
   color: white;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.7px;
-  line-height: 1;
 }
 
 .free-badge::before {
@@ -235,15 +238,13 @@
       <div class="grid" id="lessonGrid">
         <a class="lesson-card" href="rooms-of-the-house.html" data-category="vocabulary" aria-label="Open Rooms of the House lesson">
           <div class="card-image">
-            <img src="https://dvxrhkgloakisnvqoxgl.supabase.co/storage/v1/object/sign/images/inputs/1788715310546_pwahi3t4l.png?token=eyJraWQiOiI0NWE1YWU1ZS0xNzg4LTRiMWYtYWM5OC1hMjgwNmQ2OTM4ZWMiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbWFnZXMvaW5wdXRzLzE3ODg3MTUzMTA1NDZfcHdhaGkzdDRsLnBuZyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODg3MTUzMTgsImV4cCI6MTgyMDI1MTMxOH0.cRdJmf0ZK-XIM54RopGKw_vw-tGbMhvdTRcKKqKLXW8" alt="Illustrated Rooms of the House lesson poster">
+           
+          <img src="https://dvxrhkgloakisnvqoxgl.supabase.co/storage/v1/object/sign/images/inputs/1788715310546_pwahi3t4l.png?token=eyJraWQiOiI0NWE1YWU1ZS0xNzg4LTRiMWYtYWM5OC1hMjgwNmQ2OTM4ZWMiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbWFnZXMvaW5wdXRzLzE3ODg3MTUzMTA1NDZfcHdhaGkzdDRsLnBuZyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODg3MTUzMTgsImV4cCI6MTgyMDI1MTMxOH0.cRdJmf0ZK-XIM54RopGKw_vw-tGbMhvdTRcKKqKLXW8" alt="Illustrated Rooms of the House lesson poster">
+           <span class="free-badge">FREE</span>
             <span class="number">LESSON 01</span>
           </div>
           <div class="card-body">
-            <div class="meta">
-  <span>Vocabulary</span>
-  <span>Beginner</span>
-  <span class="free-badge">FREE</span>
-</div>
+           <div class="meta"><span>Vocabulary</span><span>Beginner</span></div>
             <h3>Rooms of the House</h3>
             <div class="arabic" lang="ar" dir="rtl">غرف الدار</div>
             <p class="description">Learn essential Tunisian Arabic words for rooms and objects in the home.</p>
