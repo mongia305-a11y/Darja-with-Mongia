@@ -60,6 +60,20 @@
     .card-body{padding:23px 24px 25px}
     .meta{display:flex;align-items:center;gap:8px;margin-bottom:11px;color:#bb6a8f;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px}
     .meta span+span::before{content:'•';margin-right:8px;color:#c9aabb}
+    .free-badge {
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: #35a853;
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+  line-height: 1;
+}
+
+.free-badge::before {
+  display: none;
+}
     .card-body h3{margin:0;font-family:Georgia,'Times New Roman',serif;font-size:27px;font-weight:600}
     .arabic{margin:4px 0 9px;color:#69768a;font-family:'Noto Naskh Arabic',serif;font-size:26px;line-height:1.45}
     .description{margin:0 0 20px;color:var(--muted);font-size:14px;line-height:1.7}
@@ -225,7 +239,11 @@
             <span class="number">LESSON 01</span>
           </div>
           <div class="card-body">
-            <div class="meta"><span>Vocabulary</span><span>Beginner</span></div>
+            <div class="meta">
+  <span>Vocabulary</span>
+  <span>Beginner</span>
+  <span class="free-badge">FREE</span>
+</div>
             <h3>Rooms of the House</h3>
             <div class="arabic" lang="ar" dir="rtl">غرف الدار</div>
             <p class="description">Learn essential Tunisian Arabic words for rooms and objects in the home.</p>
