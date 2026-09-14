@@ -839,7 +839,7 @@ button:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline-color
         <div style="background:#FFE27A;border-radius:999px;padding:6px 12px;font-weight:900;font-size:12px">LESSON 03 ✦</div>
       </div>
       <div class="poster-img">
-        <img src="images/lesson-03/farm-animals-poster.png" alt="Tunisian Arabic Farm Animals poster">
+        <img src="images/farm-animals-poster.png" alt="Tunisian Arabic Farm Animals poster">
       </div>
       <div class="poster-foot">💡 First, study the poster. Then continue to the animal cards and practise. <a href="#vocab" style="text-decoration:underline;font-weight:900">Learn the words ↓</a></div>
     </div>
@@ -979,15 +979,15 @@ button:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline-color
 
 <script>
 const IMGS={
-1:"images/lesson-03/01-bagra-cow.jpg",
-2:"images/lesson-03/02-7san-horse.jpg",
-3:"images/lesson-03/03-djeja-chicken.jpg",
-4:"images/lesson-03/04-arneb-rabbit.jpg",
-5:"images/lesson-03/05-3allouch-sheep.jpg",
-6:"images/lesson-03/06-batta-duck.jpg",
-7:"images/lesson-03/07-3allouf-pig.jpg",
-8:"images/lesson-03/08-me3za-goat.jpg",
-9:"images/lesson-03/09-9attous-cat.jpg"
+1:"images/01-bagra-cow.jpg",
+2:"images/02-7san-horse.jpg",
+3:"images/03-djeja-chicken.jpg",
+4:"images/04-arneb-rabbit.jpg",
+5:"images/05-3allouch-sheep.jpg",
+6:"images/06-batta-duck.jpg",
+7:"images/07-3allouf-pig.jpg",
+8:"images/08-me3za-goat.jpg",
+9:"images/09-9attous-cat.jpg"
 };
 const WORDS=[
 {id:1,ar:"بقرة",tr:"bagra",en:"cow",cat:"animals",accent:"#D98A7A",soft:"#FDE9DF",emoji:"🐄",img:IMGS[1],exAr:"البقرة في الفيرمة",exTr:"El-bagra fi el-ferma.",exEn:"The cow is on the farm.",phon:["bag","ra"],tip:"Bagra means cow in Tunisian Arabic."},
@@ -1006,30 +1006,30 @@ let currentAudio=null;
 
 // Upload the recordings with these exact filenames.
 const WORD_AUDIO={
-  1:"audio/lesson-03/bagra.mp3",
-  2:"audio/lesson-03/7san.mp3",
-  3:"audio/lesson-03/djeja.mp3",
-  4:"audio/lesson-03/arneb.mp3",
-  5:"audio/lesson-03/3allouch.mp3",
-  6:"audio/lesson-03/batta.mp3",
-  7:"audio/lesson-03/3allouf.mp3",
-  8:"audio/lesson-03/me3za.mp3",
-  9:"audio/lesson-03/9attous.mp3"
+  1:"audio/bagra.mp3",
+  2:"audio/7san.mp3",
+  3:"audio/djeja.mp3",
+  4:"audio/arneb.mp3",
+  5:"audio/3allouch.mp3",
+  6:"audio/batta.mp3",
+  7:"audio/3allouf.mp3",
+  8:"audio/me3za.mp3",
+  9:"audio/9attous.mp3"
 };
 const PHRASE_AUDIO={
-  "eid-sheep":"audio/lesson-03/culture-eid-sheep.mp3",
-  "pork-islam":"audio/lesson-03/culture-pork-islam.mp3"
+  "eid-sheep":"audio/culture-eid-sheep.mp3",
+  "pork-islam":"audio/culture-pork-islam.mp3"
 };
 const SENTENCE_AUDIO={
-  1:"audio/lesson-03/bagra-sentence.mp3",
-  2:"audio/lesson-03/7san-sentence.mp3",
-  3:"audio/lesson-03/djeja-sentence.mp3",
-  4:"audio/lesson-03/arneb-sentence.mp3",
-  5:"audio/lesson-03/3allouch-sentence.mp3",
-  6:"audio/lesson-03/batta-sentence.mp3",
-  7:"audio/lesson-03/3allouf-sentence.mp3",
-  8:"audio/lesson-03/me3za-sentence.mp3",
-  9:"audio/lesson-03/9attous-sentence.mp3"
+  1:"audio/bagra-sentence.mp3",
+  2:"audio/7san-sentence.mp3",
+  3:"audio/djeja-sentence.mp3",
+  4:"audio/arneb-sentence.mp3",
+  5:"audio/3allouch-sentence.mp3",
+  6:"audio/batta-sentence.mp3",
+  7:"audio/3allouf-sentence.mp3",
+  8:"audio/me3za-sentence.mp3",
+  9:"audio/9attous-sentence.mp3"
 };
 
 function save(){localStorage.setItem('dwm_known_lesson03',JSON.stringify([...known]));}
