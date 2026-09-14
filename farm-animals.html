@@ -719,8 +719,20 @@ button:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline-color
 .vimg,
 .vcard.feat .vimg{
   width:100%;
-  height:180px;
+  height:210px;
   min-height:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#fffaf6;
+}
+.vimg img,
+.vcard.feat .vimg img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center;
+  padding:8px;
 }
 .vbody{padding:15px 15px 14px}
 .vbody > .ar{font-size:33px}
@@ -777,7 +789,7 @@ button:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline-color
   .hero-grid{grid-template-columns:1fr}
   .poster-wrap{max-width:360px}
   .vimg,
-  .vcard.feat .vimg{height:165px}
+  .vcard.feat .vimg{height:180px}
   .ex .ar{font-size:20px}
   .poster-img img{height:auto!important}
 }
@@ -871,7 +883,7 @@ button:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline-color
         <!-- FLASH -->
         <div id="tab-flash">
           <div class="flash-stage">
-            <div class="fcard" id="fcard" role="button" tabindex="0" aria-label="Flip flashcard" onclick="flipFlash()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();flipFlash()}"><div class="finner"><div class="fface ffront"><small style="font-weight:900;letter-spacing:2px;color:var(--muted)">TAP TO FLIP • <span id="fpos">1 / 10</span></small><div class="ar" id="fAr" style="font-size:64px">دار</div><div style="font-weight:900;font-size:20px" id="fTr">dar</div><div style="font-size:13px;font-weight:800;color:var(--ink-soft)">What does it mean?</div></div><div class="fface fback"><div style="font-size:44px" id="fEmoji">🏡</div><div style="font-weight:900;font-size:26px" id="fEn">house / home</div><div class="ar" id="fEx" style="font-size:18px;opacity:.9;text-align:center">الدار كبيرة</div><small id="fExEn" style="opacity:.7;font-weight:700">The house is big.</small></div></div></div>
+            <div class="fcard" id="fcard" role="button" tabindex="0" aria-label="Flip flashcard" onclick="flipFlash()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();flipFlash()}"><div class="finner"><div class="fface ffront"><small style="font-weight:900;letter-spacing:2px;color:var(--muted)">TAP TO FLIP • <span id="fpos">1 / 9</span></small><div class="ar" id="fAr" style="font-size:64px">بڨرة</div><div style="font-weight:900;font-size:20px" id="fTr">bagra</div><div style="font-size:13px;font-weight:800;color:var(--ink-soft)">What does it mean?</div></div><div class="fface fback"><div style="font-size:44px" id="fEmoji">🐄</div><div style="font-weight:900;font-size:26px" id="fEn">cow</div><div class="ar" id="fEx" style="font-size:18px;opacity:.9;text-align:center">جدي عنده بڨرة في الفيرمة</div><small id="fExEn" style="opacity:.7;font-weight:700">My grandfather has a cow on the farm.</small></div></div></div>
             <div class="fcontrols">
               <button class="kbtn nav" onclick="moveFlash(-1)">← Prev</button>
               <button class="kbtn dont" onclick="markFlash(false)">✕ Still learning</button>
@@ -916,13 +928,13 @@ button:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline-color
       <aside>
         <div class="progress">
           <b>🌱 Your garden of words</b>
-          <p style="font-size:13.5px;color:var(--ink-soft);font-weight:600;margin:6px 0">Every “I know it” plants a seed. Master all 10 to bloom.</p>
+          <p style="font-size:13.5px;color:var(--ink-soft);font-weight:600;margin:6px 0">Every “I know it” plants a seed. Master all 9 to bloom.</p>
           <div class="pbar"><i id="masterBar"></i></div>
           <div style="font-weight:900;font-size:13px" id="masterTxt">0% grown</div>
           <hr style="border:none;border-top:2px dashed #EADFD0;margin:14px 0">
-          <b style="font-size:14px">💡 How Tunisians say it</b>
-          <p style="font-size:13.5px;line-height:1.6;color:var(--ink-soft);font-weight:600">• <b>bit</b> = room<br>• <b>el-bano</b> comes from French <i>bain</i><br>• <b>koujina</b> comes from Italian <i>cucina</i><br>• Say <b>issala</b> for the living room</p>
-          <div class="sentence-preview" id="currentSentencePreview"><span class="ar">الدار كبيرة</span><br>Ed-dar kbira.</div>
+          <b style="font-size:14px">💡 Farm Animals in Tunisian Arabic</b>
+          <p style="font-size:13.5px;line-height:1.6;color:var(--ink-soft);font-weight:600">Listen to the word and sentence recordings, then practise using each animal in a complete sentence.</p>
+          <div class="sentence-preview" id="currentSentencePreview"><span class="ar">جدي عنده بڨرة في الفيرمة</span><br>Jeddi 3andou bagra fil-ferma.</div>
           <button class="btn btn-sage" id="sentenceButton" style="width:100%;justify-content:center" onclick="playCurrentSentence(this)">🔊 Hear a full sentence</button>
         </div>
       </aside>
@@ -934,8 +946,8 @@ button:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline-color
 <section class="sec" id="culture">
   <div class="sec-head reveal"><div><div class="pill">Language and culture</div><h2>Animals in <em>Tunisian life</em></h2><p>Listen to Mongia’s cultural notes and learn how these animals connect with everyday life and traditions in Tunisia.</p></div></div>
   <div class="cgrid">
-    <div class="ccard reveal"><div class="eicon" style="background:#F9EED3">🐑</div><h4>Sheep & Eid — <span class="ar">العلّوش و العيد</span></h4><p>Sheep have an important cultural connection with Eid al-Adha in Tunisia. Listen to Mongia’s note for the cultural context.</p><button class="icobtn" style="margin-top:12px" onclick="playPhrase('eid-sheep')">🔊 Listen to Mongia</button></div>
-    <div class="ccard reveal"><div class="eicon" style="background:#FDE9DF">🐖</div><h4>Pork & Islam — <span class="ar">العلّوف</span></h4><p>Pork is not eaten by observant Muslims. Listen to Mongia’s note for the Tunisian cultural context.</p><button class="icobtn" style="margin-top:12px" onclick="playPhrase('pork-islam')">🔊 Listen to Mongia</button></div>
+    <div class="ccard reveal"><div class="eicon" style="background:#F9EED3">🐑</div><h4>Sheep & Eid — <span class="ar">العلّوش و العيد</span></h4><p><span class="ar">المسلمين في العيد الكبير يذبحوا علوش</span><br>Muslims slaughter a sheep for Eid al-Adha.</p><button class="icobtn" style="margin-top:12px" onclick="playPhrase('eid-sheep')">🔊 Listen to Mongia</button></div>
+    <div class="ccard reveal"><div class="eicon" style="background:#FDE9DF">🐖</div><h4>Pork & Islam — <span class="ar">الحلوف</span></h4><p><span class="ar">المسلمين مايكلوش الحلوف خاطر حرام في الاسلام</span><br>Muslims do not eat pork because it is forbidden in Islam.</p><button class="icobtn" style="margin-top:12px" onclick="playPhrase('pork-islam')">🔊 Listen to Mongia</button></div>
     <div class="ccard reveal"><div class="eicon" style="background:#E6EDE3">🌾</div><h4>On the farm — <span class="ar">في الفيرمة</span></h4><p>Use the animal words from this lesson to describe what you can see on a farm and practise making your own short sentences.</p></div>
   </div>
 </section>
@@ -957,7 +969,7 @@ button:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline-color
   </div>
 </section>
 
-<footer class="site-footer"><img src="images/full-logo.png" alt="Darja with Mongia"><small>Free Tunisian Arabic • Lesson 01: Farm Animals</small><button class="btn btn-cream" onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to top</button></footer>
+<footer class="site-footer"><img src="images/full-logo.png" alt="Darja with Mongia"><small>Free Tunisian Arabic • Lesson 03: Farm Animals</small><button class="btn btn-cream" onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to top</button></footer>
 </div>
 
 <button id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
@@ -967,7 +979,7 @@ button:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline-color
   <div class="modal">
     <div class="modal-top"><img id="mImg" src="" alt=""><button class="close" onclick="closeModal()">✕</button><div class="num" id="mNum" style="top:auto;bottom:14px;left:14px">1</div></div>
     <div class="modal-body">
-      <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:start"><div><div class="ar" id="mAr" style="font-size:46px;line-height:1">دار</div><div style="font-weight:900;font-size:20px" id="mTr">dar • house</div></div><button class="icobtn accent" id="mHear" style="padding:12px 18px">🔊 Listen</button></div>
+      <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:start"><div><div class="ar" id="mAr" style="font-size:46px;line-height:1">بڨرة</div><div style="font-weight:900;font-size:20px" id="mTr">bagra • cow</div></div><button class="icobtn accent" id="mHear" style="padding:12px 18px">🔊 Listen</button></div>
       <div class="phon" id="mPhon"></div>
       <div class="ex" id="mEx"></div>
       <div style="background:#fff;border:2px solid #EDE2D1;border-radius:16px;padding:14px"><b>🌿 Cultural note</b><p id="mTip" style="margin:6px 0 0;color:var(--ink-soft);font-weight:600;line-height:1.6"></p></div>
@@ -990,15 +1002,15 @@ const IMGS={
 9:"images/09-9attous-cat.jpg"
 };
 const WORDS=[
-{id:1,ar:"بقرة",tr:"bagra",en:"cow",cat:"animals",accent:"#D98A7A",soft:"#FDE9DF",emoji:"🐄",img:IMGS[1],exAr:"البقرة في الفيرمة",exTr:"El-bagra fi el-ferma.",exEn:"The cow is on the farm.",phon:["bag","ra"],tip:"Bagra means cow in Tunisian Arabic."},
-{id:2,ar:"حصان",tr:"7san",en:"horse",cat:"animals",accent:"#6BA3BE",soft:"#DDEAF0",emoji:"🐎",img:IMGS[2],exAr:"الحصان يجري",exTr:"El-7san yejri.",exEn:"The horse runs.",phon:["7san","one syllable"],tip:"The number 7 represents the Arabic sound ح."},
-{id:3,ar:"دجاجة",tr:"djeja",en:"chicken",cat:"animals",accent:"#C39A4A",soft:"#F9EED3",emoji:"🐔",img:IMGS[3],exAr:"الدجاجة تبيض",exTr:"Ed-djeja tbidh.",exEn:"The chicken lays eggs.",phon:["dje","ja"],tip:"Djeja is a common Tunisian Arabic word for chicken."},
-{id:4,ar:"أرنب",tr:"arneb",en:"rabbit",cat:"animals",accent:"#6FA287",soft:"#E6EDE3",emoji:"🐇",img:IMGS[4],exAr:"الأرنب صغير",exTr:"El-arneb sghir.",exEn:"The rabbit is small.",phon:["ar","neb"],tip:"Arneb means rabbit."},
-{id:5,ar:"علّوش",tr:"3allouch",en:"sheep",cat:"animals",accent:"#D96A6A",soft:"#FDE3DE",emoji:"🐑",img:IMGS[5],exAr:"العلّوش في الفيرمة",exTr:"El-3allouch fi el-ferma.",exEn:"The sheep is on the farm.",phon:["3al","louch"],tip:"The number 3 represents the Arabic sound ع. 3allouch is strongly associated with Eid al-Adha in Tunisia."},
-{id:6,ar:"بطّة",tr:"batta",en:"duck",cat:"animals",accent:"#9AB7A0",soft:"#E6EDE3",emoji:"🦆",img:IMGS[6],exAr:"البطّة تعوم",exTr:"El-batta t3oum.",exEn:"The duck swims.",phon:["bat","ta"],tip:"Batta means duck."},
-{id:7,ar:"علّوف",tr:"3allouf",en:"pig",cat:"animals",accent:"#8AA8C8",soft:"#E2EDF6",emoji:"🐖",img:IMGS[7],exAr:"هذا علّوف",exTr:"Hedha 3allouf.",exEn:"This is a pig.",phon:["3al","louf"],tip:"3allouf means pig in Tunisian Arabic."},
-{id:8,ar:"معزة",tr:"me3za",en:"goat",cat:"animals",accent:"#C4A484",soft:"#F3E8D6",emoji:"🐐",img:IMGS[8],exAr:"المعزة تاكل",exTr:"El-me3za tekel.",exEn:"The goat eats.",phon:["me3","za"],tip:"Me3za means goat."},
-{id:9,ar:"قطّوس",tr:"9attous",en:"cat",cat:"animals",accent:"#A89BC0",soft:"#E9E3F2",emoji:"🐈",img:IMGS[9],exAr:"القطّوس في الدار",exTr:"El-9attous fi ed-dar.",exEn:"The cat is in the house.",phon:["9at","tous"],tip:"The number 9 represents the Arabic sound ق in this transliteration system."}
+{id:1,ar:"بڨرة",tr:"bagra",en:"cow",cat:"animals",accent:"#D98A7A",soft:"#FDE9DF",emoji:"🐄",img:IMGS[1],exAr:"جدي عنده بڨرة في الفيرمة",exTr:"Jeddi 3andou bagra fil-ferma.",exEn:"My grandfather has a cow on the farm.",phon:["bag","ra"],tip:"Bagra means cow in Tunisian Arabic."},
+{id:2,ar:"حصان",tr:"7san",en:"horse",cat:"animals",accent:"#6BA3BE",soft:"#DDEAF0",emoji:"🐎",img:IMGS[2],exAr:"الحصان حيوان ذكي برشا",exTr:"El-7san 7ayawan dheki barcha.",exEn:"The horse is a very intelligent animal.",phon:["7san","one syllable"],tip:"The number 7 represents the Arabic sound ح."},
+{id:3,ar:"دجاجة",tr:"djeja",en:"chicken",cat:"animals",accent:"#C39A4A",soft:"#F9EED3",emoji:"🐔",img:IMGS[3],exAr:"شريت دجاجة من السوق",exTr:"Chrit djeja men essou9.",exEn:"I bought a chicken from the market.",phon:["dje","ja"],tip:"Djeja is a common Tunisian Arabic word for chicken."},
+{id:4,ar:"أرنب",tr:"arneb",en:"rabbit",cat:"animals",accent:"#6FA287",soft:"#E6EDE3",emoji:"🐇",img:IMGS[4],exAr:"أختي عندها أرنب في الجنينة",exTr:"Okhti 3andha arneb fil-jnina.",exEn:"My sister has a rabbit in the garden.",phon:["ar","neb"],tip:"Arneb means rabbit."},
+{id:5,ar:"علوش",tr:"3allouch",en:"sheep",cat:"animals",accent:"#D96A6A",soft:"#FDE3DE",emoji:"🐑",img:IMGS[5],exAr:"علوش العيد كبير",exTr:"3allouch el-3id kbir.",exEn:"The Eid sheep is big.",phon:["3al","louch"],tip:"The number 3 represents the Arabic sound ع."},
+{id:6,ar:"بطة",tr:"batta",en:"duck",cat:"animals",accent:"#9AB7A0",soft:"#E6EDE3",emoji:"🦆",img:IMGS[6],exAr:"بطة تحب الماء",exTr:"Batta t7eb el-ma.",exEn:"A duck likes water.",phon:["bat","ta"],tip:"Batta means duck."},
+{id:7,ar:"حلوف",tr:"7allouf",en:"pig",cat:"animals",accent:"#8AA8C8",soft:"#E2EDF6",emoji:"🐖",img:IMGS[7],exAr:"المسلمين ما يأكلوش الحلوف",exTr:"El-moselmin ma yeklouch el-7allouf.",exEn:"Muslims do not eat pork.",phon:["7al","louf"],tip:"7allouf means pig in Tunisian Arabic."},
+{id:8,ar:"معزة",tr:"me3za",en:"goat",cat:"animals",accent:"#C4A484",soft:"#F3E8D6",emoji:"🐐",img:IMGS[8],exAr:"هذي معزة صغيرة",exTr:"Hedhi me3za sghira.",exEn:"This is a small goat.",phon:["me3","za"],tip:"Me3za means goat."},
+{id:9,ar:"قطوس",tr:"9attous",en:"cat",cat:"animals",accent:"#A89BC0",soft:"#E9E3F2",emoji:"🐈",img:IMGS[9],exAr:"عندي قطوس في الدار",exTr:"3andi 9attous fid-dar.",exEn:"I have a cat at home.",phon:["9at","tous"],tip:"The number 9 represents the Arabic sound ق in this transliteration system."}
 ];
 let known=new Set(JSON.parse(localStorage.getItem('dwm_known_lesson03')||'[]'));
 let modalId=1;
