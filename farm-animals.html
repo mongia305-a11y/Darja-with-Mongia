@@ -161,6 +161,11 @@ nav.mainnav a.active{background:var(--ink);color:#fff}
 .poster-top small{display:block;font-size:12px;color:var(--ink-soft);font-weight:700}
 .poster-img{position:relative;background:#F6EEE1}
 .poster-img img{width:100%;height:440px;object-fit:cover;object-position:top center;filter:saturate(.92) sepia(.06)}
+.poster-name-grid{position:absolute;inset:0;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr);z-index:3}
+.poster-animal{position:relative;border:0;background:transparent;cursor:pointer;padding:0}
+.poster-animal .tip{position:absolute;left:50%;top:50%;transform:translate(-50%,-42%);min-width:max-content;padding:7px 10px;border-radius:12px;background:rgba(46,61,56,.94);color:#fff;font-size:12px;font-weight:800;line-height:1.35;text-align:center;opacity:0;pointer-events:none;transition:.18s;box-shadow:0 5px 14px rgba(0,0,0,.22)}
+.poster-animal:hover .tip,.poster-animal:focus-visible .tip,.poster-animal.show .tip{opacity:1;transform:translate(-50%,-50%)}
+.poster-animal:focus-visible{outline:3px solid #fff;outline-offset:-5px}
 .hotspot{
   position:absolute;width:34px;height:34px;border-radius:50%;
   background:#fff;border:3px solid var(--peach-d);color:var(--peach-d);
@@ -258,7 +263,7 @@ nav.mainnav a.active{background:var(--ink);color:#fff}
 @keyframes shake{25%{transform:translateX(-5px)}50%{transform:translateX(5px)}75%{transform:translateX(-3px)}}
 
 /* CULTURE */
-.cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.cgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
 .ccard{background:#fff;border:2px solid #EDE2D1;border-radius:22px;padding:22px;box-shadow:var(--shadow-sm)}
 .ccard h4{margin:10px 0 8px}
 .ccard p{color:var(--ink-soft);line-height:1.6;font-size:14.5px;margin:0}
@@ -277,8 +282,8 @@ footer small{color:var(--ink-soft);font-weight:700}
 .overlay.open{display:grid}
 .modal{background:#FFFBF3;border-radius:28px;max-width:760px;width:100%;overflow:hidden;border:3px solid #EDE2D1;box-shadow:0 30px 80px rgba(0,0,0,.25);max-height:92vh;overflow-y:auto;animation:pop .35s cubic-bezier(.2,1.2,.3,1)}
 @keyframes pop{from{transform:scale(.92) translateY(16px);opacity:0}}
-.modal-top{position:relative;height:260px}
-.modal-top img{width:100%;height:100%;object-fit:cover}
+.modal-top{position:relative;min-height:220px;max-height:360px;background:#fffaf6;display:flex;align-items:center;justify-content:center}
+.modal-top img{width:100%;height:auto;max-height:360px;object-fit:contain;object-position:center;padding:12px}
 .modal-top button.close{position:absolute;top:14px;right:14px;width:42px;height:42px;border-radius:50%;border:none;background:#fff;font-size:18px;cursor:pointer;font-weight:900}
 .modal-body{padding:24px}
 .phon{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
@@ -831,8 +836,8 @@ button:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline-color
   <div class="hero-card reveal visible">
     <div class="pill"><span class="dot"></span> Free beginner lesson • Tunisian Arabic</div>
     <h1>Farm Animals <span class="script">in Tunisian Arabic</span></h1>
-    <div class="hero-ar">حيوانات المزرعة</div>
-    <p class="sub"><b>7ayawanet el-farma — Farm animals.</b> Learn 9 common animal words, hear Mongia’s recordings, study them in short sentences, and practise until you can remember them without help.</p>
+    <div class="hero-ar">حيوانات الفيرمة</div>
+    <p class="sub"><b>7ayawanet el-ferma — Farm animals.</b> Learn 9 common animal words, hear Mongia’s recordings, study them in short sentences, and practise until you can remember them without help.</p>
     <div class="hero-cta">
       <button class="btn btn-dark" onclick="scrollToId('vocab')">📖 Learn the Words</button>
       <button class="btn btn-peach" onclick="scrollToId('lab')">▶ Start Practice</button>
@@ -852,6 +857,17 @@ button:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline-color
       </div>
       <div class="poster-img">
         <img src="images/farm-animals-poster.png" alt="Tunisian Arabic Farm Animals poster">
+        <div class="poster-name-grid" aria-label="Interactive animal names">
+          <button class="poster-animal" type="button" aria-label="بڨرة, bagra, cow" onclick="togglePosterName(this)"><span class="tip"><span class="ar">بڨرة</span><br>bagra • cow</span></button>
+          <button class="poster-animal" type="button" aria-label="حصان, 7san, horse" onclick="togglePosterName(this)"><span class="tip"><span class="ar">حصان</span><br>7san • horse</span></button>
+          <button class="poster-animal" type="button" aria-label="دجاجة, djeja, chicken" onclick="togglePosterName(this)"><span class="tip"><span class="ar">دجاجة</span><br>djeja • chicken</span></button>
+          <button class="poster-animal" type="button" aria-label="أرنب, arneb, rabbit" onclick="togglePosterName(this)"><span class="tip"><span class="ar">أرنب</span><br>arneb • rabbit</span></button>
+          <button class="poster-animal" type="button" aria-label="علوش, 3allouch, sheep" onclick="togglePosterName(this)"><span class="tip"><span class="ar">علوش</span><br>3allouch • sheep</span></button>
+          <button class="poster-animal" type="button" aria-label="بطة, batta, duck" onclick="togglePosterName(this)"><span class="tip"><span class="ar">بطة</span><br>batta • duck</span></button>
+          <button class="poster-animal" type="button" aria-label="حلوف, 7allouf, pig" onclick="togglePosterName(this)"><span class="tip"><span class="ar">حلوف</span><br>7allouf • pig</span></button>
+          <button class="poster-animal" type="button" aria-label="معزة, me3za, goat" onclick="togglePosterName(this)"><span class="tip"><span class="ar">معزة</span><br>me3za • goat</span></button>
+          <button class="poster-animal" type="button" aria-label="قطوس, 9attous, cat" onclick="togglePosterName(this)"><span class="tip"><span class="ar">قطوس</span><br>9attous • cat</span></button>
+        </div>
       </div>
       <div class="poster-foot">💡 First, study the poster. Then continue to the animal cards and practise. <a href="#vocab" style="text-decoration:underline;font-weight:900">Learn the words ↓</a></div>
     </div>
@@ -934,7 +950,7 @@ button:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline-color
           <hr style="border:none;border-top:2px dashed #EADFD0;margin:14px 0">
           <b style="font-size:14px">💡 Farm Animals in Tunisian Arabic</b>
           <p style="font-size:13.5px;line-height:1.6;color:var(--ink-soft);font-weight:600">Listen to the word and sentence recordings, then practise using each animal in a complete sentence.</p>
-          <div class="sentence-preview" id="currentSentencePreview"><span class="ar">جدي عنده بڨرة في الفيرمة</span><br>Jeddi 3andou bagra fil-ferma.</div>
+          <div class="sentence-preview" id="currentSentencePreview"><span class="ar">جدي عنده بڨرة في الفيرمة</span><br>Jaddi 3andou bagra fi el-ferma.</div>
           <button class="btn btn-sage" id="sentenceButton" style="width:100%;justify-content:center" onclick="playCurrentSentence(this)">🔊 Hear a full sentence</button>
         </div>
       </aside>
@@ -946,9 +962,8 @@ button:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline-color
 <section class="sec" id="culture">
   <div class="sec-head reveal"><div><div class="pill">Language and culture</div><h2>Animals in <em>Tunisian life</em></h2><p>Listen to Mongia’s cultural notes and learn how these animals connect with everyday life and traditions in Tunisia.</p></div></div>
   <div class="cgrid">
-    <div class="ccard reveal"><div class="eicon" style="background:#F9EED3">🐑</div><h4>Sheep & Eid — <span class="ar">العلّوش و العيد</span></h4><p><span class="ar">المسلمين في العيد الكبير يذبحوا علوش</span><br>Muslims slaughter a sheep for Eid al-Adha.</p><button class="icobtn" style="margin-top:12px" onclick="playPhrase('eid-sheep')">🔊 Listen to Mongia</button></div>
-    <div class="ccard reveal"><div class="eicon" style="background:#FDE9DF">🐖</div><h4>Pork & Islam — <span class="ar">الحلوف</span></h4><p><span class="ar">المسلمين مايكلوش الحلوف خاطر حرام في الاسلام</span><br>Muslims do not eat pork because it is forbidden in Islam.</p><button class="icobtn" style="margin-top:12px" onclick="playPhrase('pork-islam')">🔊 Listen to Mongia</button></div>
-    <div class="ccard reveal"><div class="eicon" style="background:#E6EDE3">🌾</div><h4>On the farm — <span class="ar">في الفيرمة</span></h4><p>Use the animal words from this lesson to describe what you can see on a farm and practise making your own short sentences.</p></div>
+    <div class="ccard reveal"><div class="eicon" style="background:#F9EED3">🐑</div><h4>Sheep & Eid — <span class="ar">العلّوش و العيد</span></h4><p><span class="ar">المسلمين في العيد الكبير يذبحوا علوش</span><br>Muslims slaughter a sheep for Eid al-Adha.</p><button class="icobtn" style="margin-top:12px" onclick="playPhrase('eid-sheep',this)">🔊 Listen</button></div>
+    <div class="ccard reveal"><div class="eicon" style="background:#FDE9DF">🐖</div><h4>Pork & Islam — <span class="ar">الحلوف</span></h4><p><span class="ar">المسلمين مايكلوش الحلوف خاطر حرام في الاسلام</span><br>Muslims do not eat pork because it is forbidden in Islam.</p><button class="icobtn" style="margin-top:12px" onclick="playPhrase('pork-islam',this)">🔊 Listen</button></div>
   </div>
 </section>
 
@@ -982,7 +997,7 @@ button:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline-color
       <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:start"><div><div class="ar" id="mAr" style="font-size:46px;line-height:1">بڨرة</div><div style="font-weight:900;font-size:20px" id="mTr">bagra • cow</div></div><button class="icobtn accent" id="mHear" style="padding:12px 18px">🔊 Listen</button></div>
       <div class="phon" id="mPhon"></div>
       <div class="ex" id="mEx"></div>
-      <div style="background:#fff;border:2px solid #EDE2D1;border-radius:16px;padding:14px"><b>🌿 Cultural note</b><p id="mTip" style="margin:6px 0 0;color:var(--ink-soft);font-weight:600;line-height:1.6"></p></div>
+      <div style="background:#fff;border:2px solid #EDE2D1;border-radius:16px;padding:14px"><b id="mNoteTitle">Vocabulary note</b><p id="mTip" style="margin:6px 0 0;color:var(--ink-soft);font-weight:600;line-height:1.6"></p></div>
       <div style="display:flex;gap:10px;margin-top:16px"><button class="btn btn-cream" onclick="stepModal(-1)">← Prev word</button><button class="btn btn-dark" onclick="stepModal(1)">Next word →</button></div>
     </div>
   </div>
@@ -1002,15 +1017,15 @@ const IMGS={
 9:"images/09-9attous-cat.jpg"
 };
 const WORDS=[
-{id:1,ar:"بڨرة",tr:"bagra",en:"cow",cat:"animals",accent:"#D98A7A",soft:"#FDE9DF",emoji:"🐄",img:IMGS[1],exAr:"جدي عنده بڨرة في الفيرمة",exTr:"Jeddi 3andou bagra fil-ferma.",exEn:"My grandfather has a cow on the farm.",phon:["bag","ra"],tip:"Bagra means cow in Tunisian Arabic."},
-{id:2,ar:"حصان",tr:"7san",en:"horse",cat:"animals",accent:"#6BA3BE",soft:"#DDEAF0",emoji:"🐎",img:IMGS[2],exAr:"الحصان حيوان ذكي برشا",exTr:"El-7san 7ayawan dheki barcha.",exEn:"The horse is a very intelligent animal.",phon:["7san","one syllable"],tip:"The number 7 represents the Arabic sound ح."},
-{id:3,ar:"دجاجة",tr:"djeja",en:"chicken",cat:"animals",accent:"#C39A4A",soft:"#F9EED3",emoji:"🐔",img:IMGS[3],exAr:"شريت دجاجة من السوق",exTr:"Chrit djeja men essou9.",exEn:"I bought a chicken from the market.",phon:["dje","ja"],tip:"Djeja is a common Tunisian Arabic word for chicken."},
-{id:4,ar:"أرنب",tr:"arneb",en:"rabbit",cat:"animals",accent:"#6FA287",soft:"#E6EDE3",emoji:"🐇",img:IMGS[4],exAr:"أختي عندها أرنب في الجنينة",exTr:"Okhti 3andha arneb fil-jnina.",exEn:"My sister has a rabbit in the garden.",phon:["ar","neb"],tip:"Arneb means rabbit."},
-{id:5,ar:"علوش",tr:"3allouch",en:"sheep",cat:"animals",accent:"#D96A6A",soft:"#FDE3DE",emoji:"🐑",img:IMGS[5],exAr:"علوش العيد كبير",exTr:"3allouch el-3id kbir.",exEn:"The Eid sheep is big.",phon:["3al","louch"],tip:"The number 3 represents the Arabic sound ع."},
-{id:6,ar:"بطة",tr:"batta",en:"duck",cat:"animals",accent:"#9AB7A0",soft:"#E6EDE3",emoji:"🦆",img:IMGS[6],exAr:"بطة تحب الماء",exTr:"Batta t7eb el-ma.",exEn:"A duck likes water.",phon:["bat","ta"],tip:"Batta means duck."},
-{id:7,ar:"حلوف",tr:"7allouf",en:"pig",cat:"animals",accent:"#8AA8C8",soft:"#E2EDF6",emoji:"🐖",img:IMGS[7],exAr:"المسلمين ما يأكلوش الحلوف",exTr:"El-moselmin ma yeklouch el-7allouf.",exEn:"Muslims do not eat pork.",phon:["7al","louf"],tip:"7allouf means pig in Tunisian Arabic."},
-{id:8,ar:"معزة",tr:"me3za",en:"goat",cat:"animals",accent:"#C4A484",soft:"#F3E8D6",emoji:"🐐",img:IMGS[8],exAr:"هذي معزة صغيرة",exTr:"Hedhi me3za sghira.",exEn:"This is a small goat.",phon:["me3","za"],tip:"Me3za means goat."},
-{id:9,ar:"قطوس",tr:"9attous",en:"cat",cat:"animals",accent:"#A89BC0",soft:"#E9E3F2",emoji:"🐈",img:IMGS[9],exAr:"عندي قطوس في الدار",exTr:"3andi 9attous fid-dar.",exEn:"I have a cat at home.",phon:["9at","tous"],tip:"The number 9 represents the Arabic sound ق in this transliteration system."}
+{id:1,ar:"بڨرة",tr:"bagra",en:"cow",cat:"animals",accent:"#D98A7A",soft:"#FDE9DF",emoji:"🐄",img:IMGS[1],exAr:"جدي عنده بڨرة في الفيرمة",exTr:"Jaddi 3andou bagra fi el-ferma.",exEn:"My grandfather has a cow on the farm.",phon:["bag","ra"],noteType:"Vocabulary note",tip:"Bagra is the Tunisian Arabic word for cow."},
+{id:2,ar:"حصان",tr:"7san",en:"horse",cat:"animals",accent:"#6BA3BE",soft:"#DDEAF0",emoji:"🐎",img:IMGS[2],exAr:"الحصان حيوان ذكي برشا",exTr:"El-7san 7ayawan dheki barcha.",exEn:"The horse is a very intelligent animal.",phon:["7san","one syllable"],noteType:"Pronunciation note",tip:"The number 7 represents the Arabic sound ح."},
+{id:3,ar:"دجاجة",tr:"djeja",en:"chicken",cat:"animals",accent:"#C39A4A",soft:"#F9EED3",emoji:"🐔",img:IMGS[3],exAr:"شريت دجاجة من السوق",exTr:"Chrit djeja men essou9.",exEn:"I bought a chicken from the market.",phon:["dje","ja"],noteType:"Pronunciation note",tip:"The letter ج is pronounced like the j sound in “job” in Tunisian Arabic."},
+{id:4,ar:"أرنب",tr:"arneb",en:"rabbit",cat:"animals",accent:"#6FA287",soft:"#E6EDE3",emoji:"🐇",img:IMGS[4],exAr:"أختي عندها أرنب في الجنينة",exTr:"Okhti 3andha arneb fi jnina.",exEn:"My sister has a rabbit in the garden.",phon:["ar","neb"],noteType:"Vocabulary note",tip:"Arneb is the Tunisian Arabic word for rabbit."},
+{id:5,ar:"علوش",tr:"3allouch",en:"sheep",cat:"animals",accent:"#D96A6A",soft:"#FDE3DE",emoji:"🐑",img:IMGS[5],exAr:"علوش العيد كبير",exTr:"3allouch el-3id kbir.",exEn:"The Eid sheep is big.",phon:["3al","louch"],noteType:"Pronunciation note",tip:"The number 3 represents the Arabic sound ع."},
+{id:6,ar:"بطة",tr:"batta",en:"duck",cat:"animals",accent:"#9AB7A0",soft:"#E6EDE3",emoji:"🦆",img:IMGS[6],exAr:"بطة تحب الماء",exTr:"Batta t7eb el-ma.",exEn:"A duck likes water.",phon:["bat","ta"],noteType:"Pronunciation note",tip:"Pronounce the double t in batta clearly."},
+{id:7,ar:"حلوف",tr:"7allouf",en:"pig",cat:"animals",accent:"#8AA8C8",soft:"#E2EDF6",emoji:"🐖",img:IMGS[7],exAr:"المسلمين ما يأكلوش الحلوف",exTr:"El-moselmin ma yeklouch el-7allouf.",exEn:"Muslims do not eat pork.",phon:["7al","louf"],noteType:"Vocabulary note",tip:"7allouf is the Tunisian Arabic word for pig."},
+{id:8,ar:"معزة",tr:"me3za",en:"goat",cat:"animals",accent:"#C4A484",soft:"#F3E8D6",emoji:"🐐",img:IMGS[8],exAr:"هذي معزة صغيرة",exTr:"Hedhi me3za sghira.",exEn:"This is a small goat.",phon:["me3","za"],noteType:"Pronunciation note",tip:"The number 3 represents the Arabic sound ع."},
+{id:9,ar:"قطوس",tr:"9attous",en:"cat",cat:"animals",accent:"#A89BC0",soft:"#E9E3F2",emoji:"🐈",img:IMGS[9],exAr:"عندي قطوس في الدار",exTr:"3andi 9attous fi eddar.",exEn:"I have a cat at home.",phon:["9at","tous"],noteType:"Pronunciation note",tip:"The number 9 represents the Tunisian ق sound in this transliteration system."}
 ];
 let known=new Set(JSON.parse(localStorage.getItem('dwm_known_lesson03')||'[]'));
 let modalId=1;
@@ -1035,7 +1050,7 @@ const PHRASE_AUDIO={
 const SENTENCE_AUDIO={
   1:"audio/bagra-sentence.mp3",
   2:"audio/7san-sentence.mp3",
-  3:"audio/djeja-sentence.mp3",
+  3:null, // Uploaded file duplicates the horse recording.
   4:"audio/arneb-sentence.mp3",
   5:"audio/3allouch-sentence.mp3",
   6:"audio/batta-sentence.mp3",
@@ -1055,9 +1070,10 @@ function playRecording(src,label,btn){
   currentAudio.play().then(()=>toast(`🔊 ${label}`)).catch(()=>toast('Audio is not available yet.'));
 }
 function playWord(id,btn){const w=WORDS.find(x=>x.id===id);playRecording(WORD_AUDIO[id],`${w.tr} • ${w.en}`,btn);}
-function playPhrase(id){playRecording(PHRASE_AUDIO[id],'Tunisian Arabic phrase');}
+function playPhrase(id,btn){playRecording(PHRASE_AUDIO[id],'Tunisian Arabic cultural note',btn);}
 function playSentence(id,btn){const w=WORDS.find(x=>x.id===id);playRecording(SENTENCE_AUDIO[id],w.exTr,btn);}
 function playCurrentSentence(btn){playSentence(currentWord().id,btn);}
+function togglePosterName(target){document.querySelectorAll('.poster-animal').forEach(el=>{if(el!==target)el.classList.remove('show');});target.classList.toggle('show');}
 function jumpWord(id,target){document.querySelectorAll('.hotspot').forEach(h=>h.classList.remove('show'));target.classList.add('show');setTimeout(()=>target.classList.remove('show'),1800);setTimeout(()=>{document.getElementById('card-'+id)?.scrollIntoView({behavior:'smooth',block:'center'});const c=document.getElementById('card-'+id);if(c){c.style.transform='scale(1.03)';c.style.boxShadow='0 0 0 4px #FFE27A, 0 12px 32px rgba(0,0,0,.15)';setTimeout(()=>{c.style.transform='';c.style.boxShadow=''},1400);}},300);}
 
 function renderVocab(){
@@ -1069,14 +1085,14 @@ function renderVocab(){
     el.style.setProperty('--accent',w.accent);el.style.setProperty('--accent-soft',w.soft);
     el.innerHTML=`
       <div class="vimg"><span class="num">${w.id}</span><img loading="lazy" src="${w.img}" alt="${w.en}"><span style="position:absolute;bottom:10px;left:12px;background:rgba(255,255,255,.92);padding:6px 12px;border-radius:99px;font-weight:900;font-size:12px;z-index:2">${w.emoji} ${w.en}</span></div>
-      <div class="vbody"><div class="ar">${w.ar}</div><div class="vtrans">${w.tr} <small>${w.en} • Tap 🔊 to hear</small></div><div class="divider"></div><div class="ex"><b class="ar">${w.exAr}</b><br><i>${w.exTr}</i> — ${w.exEn}</div><div class="vactions"><button class="icobtn accent" onclick="playWord(${w.id},this)"><span class="wave"><i style="height:6px"></i><i style="height:10px"></i><i style="height:7px"></i></span> Hear word</button><button class="icobtn" onclick="playSentence(${w.id},this)">🔊 Sentence</button><button class="icobtn primary" onclick="openModal(${w.id})">Details →</button></div></div>`;
+      <div class="vbody"><div class="ar">${w.ar}</div><div class="vtrans">${w.tr} <small>${w.en} • Tap 🔊 to hear</small></div><div class="divider"></div><div class="ex"><b class="ar">${w.exAr}</b><br><i>${w.exTr}</i> — ${w.exEn}</div><div class="vactions"><button class="icobtn accent" onclick="playWord(${w.id},this)"><span class="wave"><i style="height:6px"></i><i style="height:10px"></i><i style="height:7px"></i></span> Hear word</button><button class="icobtn" onclick="playSentence(${w.id},this)" ${SENTENCE_AUDIO[w.id]?'':'disabled title="The correct sentence recording is not available yet"'}>${SENTENCE_AUDIO[w.id]?'🔊 Sentence':'Sentence audio unavailable'}</button><button class="icobtn primary" onclick="openModal(${w.id})">Details →</button></div></div>`;
     grid.appendChild(el);
   });
   updateProgress();
 }
 
 // modal
-function openModal(id){modalId=id;const w=WORDS.find(x=>x.id===id);document.getElementById('mImg').src=w.img;document.getElementById('mNum').textContent=w.id;document.getElementById('mNum').style.background=w.accent;document.getElementById('mAr').textContent=w.ar;document.getElementById('mTr').textContent=`${w.tr} • ${w.en}`;document.getElementById('mPhon').innerHTML=w.phon.map(p=>`<span>🔈 ${p}</span>`).join('');document.getElementById('mEx').innerHTML=`<b class="ar" style="font-size:17px">${w.exAr}</b><br><b>${w.exTr}</b><br>${w.exEn}`;document.getElementById('mTip').textContent=w.tip;document.getElementById('mHear').onclick=(e)=>playWord(id,e.currentTarget);document.getElementById('overlay').classList.add('open');document.body.style.overflow='hidden';}
+function openModal(id){modalId=id;const w=WORDS.find(x=>x.id===id);document.getElementById('mImg').src=w.img;document.getElementById('mNum').textContent=w.id;document.getElementById('mNum').style.background=w.accent;document.getElementById('mAr').textContent=w.ar;document.getElementById('mTr').textContent=`${w.tr} • ${w.en}`;document.getElementById('mPhon').innerHTML=w.phon.map(p=>`<span>🔈 ${p}</span>`).join('');document.getElementById('mEx').innerHTML=`<b class="ar" style="font-size:17px">${w.exAr}</b><br><b>${w.exTr}</b><br>${w.exEn}`;document.getElementById('mNoteTitle').textContent=w.noteType;document.getElementById('mTip').textContent=w.tip;document.getElementById('mHear').onclick=(e)=>playWord(id,e.currentTarget);document.getElementById('overlay').classList.add('open');document.body.style.overflow='hidden';}
 function closeModal(){document.getElementById('overlay').classList.remove('open');document.body.style.overflow='';}
 function stepModal(d){let idx=WORDS.findIndex(w=>w.id===modalId);idx=(idx+d+WORDS.length)%WORDS.length;openModal(WORDS[idx].id);}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();if(document.getElementById('overlay').classList.contains('open')){if(e.key==='ArrowRight')stepModal(1);if(e.key==='ArrowLeft')stepModal(-1);}});
@@ -1088,24 +1104,24 @@ function showTab(name){document.querySelectorAll('.lab-tab').forEach(b=>b.classL
 // flashcards
 let deck=[...WORDS.map(w=>w.id)],fIdx=0;
 function currentWord(){return WORDS.find(w=>w.id===deck[fIdx]);}
-function renderFlash(){const w=currentWord();const card=document.getElementById('fcard');card.classList.remove('flipped');setTimeout(()=>{document.getElementById('fAr').textContent=w.ar;document.getElementById('fTr').textContent=w.tr;document.getElementById('fEn').textContent=w.en;document.getElementById('fEmoji').textContent=w.emoji;document.getElementById('fEx').textContent=w.exAr;document.getElementById('fExEn').textContent=w.exTr+' — '+w.exEn;document.getElementById('fpos').textContent=`${fIdx+1} / ${deck.length}`;document.getElementById('currentSentencePreview').innerHTML=`<span class="ar">${w.exAr}</span><br>${w.exTr}`;document.getElementById('sentenceButton').setAttribute('aria-label','Hear full sentence for '+w.tr);},120);}
+function renderFlash(){const w=currentWord();const card=document.getElementById('fcard');card.classList.remove('flipped');setTimeout(()=>{document.getElementById('fAr').textContent=w.ar;document.getElementById('fTr').textContent=w.tr;document.getElementById('fEn').textContent=w.en;document.getElementById('fEmoji').textContent=w.emoji;document.getElementById('fEx').textContent=w.exAr;document.getElementById('fExEn').textContent=w.exTr+' — '+w.exEn;document.getElementById('fpos').textContent=`${fIdx+1} / ${deck.length}`;document.getElementById('currentSentencePreview').innerHTML=`<span class="ar">${w.exAr}</span><br>${w.exTr}`;const sentenceButton=document.getElementById('sentenceButton');sentenceButton.disabled=!SENTENCE_AUDIO[w.id];sentenceButton.textContent=SENTENCE_AUDIO[w.id]?'🔊 Hear a full sentence':'Sentence audio unavailable';sentenceButton.setAttribute('aria-label',SENTENCE_AUDIO[w.id]?'Hear full sentence for '+w.tr:'Sentence audio unavailable for '+w.tr);},120);}
 function flipFlash(){document.getElementById('fcard').classList.toggle('flipped');}
 function moveFlash(d){fIdx=(fIdx+d+deck.length)%deck.length;renderFlash();}
 function speakCurrent(){playWord(currentWord().id);}
 function shuffleFlash(){for(let i=deck.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[deck[i],deck[j]]=[deck[j],deck[i]];}fIdx=0;renderFlash();toast('🔀 Shuffled!');}
 function resetFlash(){deck=[...WORDS.map(w=>w.id)];fIdx=0;renderFlash();}
 function markFlash(knowIt){const id=currentWord().id;if(knowIt){known.add(id);toast('🌱 Bravo! Mastered: '+currentWord().tr);}else{known.delete(id);toast('💪 Keep going — repetition is magic');}save();updateProgress();moveFlash(1);}
-function updateProgress(){const pct=Math.round(known.size/WORDS.length*100);document.getElementById('masterBar').style.width=pct+'%';document.getElementById('masterTxt').textContent=pct+'% grown • '+known.size+'/10 mastered';document.getElementById('masterCount').textContent=known.size;document.getElementById('best').textContent=(localStorage.getItem('dwm_best_lesson03')||'0')+'/10';}
+function updateProgress(){const pct=Math.round(known.size/WORDS.length*100);document.getElementById('masterBar').style.width=pct+'%';document.getElementById('masterTxt').textContent=pct+'% grown • '+known.size+'/'+WORDS.length+' mastered';document.getElementById('masterCount').textContent=known.size;document.getElementById('best').textContent=(localStorage.getItem('dwm_best_lesson03')||'0')+'/'+WORDS.length;}
 
 // quiz
 let Qs=[],qi=0,qscore=0,qTimer=null,qTime=60,qUntimed=false;
 function makeQs(){const pool=[...WORDS].sort(()=>Math.random()-.5);const qs=[];for(let i=0;i<pool.length;i++){const w=pool[i];const type=['ar2en','en2ar','tr2ar'][Math.floor(Math.random()*3)];let prompt='',answer='',opts=[];if(type==='ar2en'){prompt=`What does <span class="ar" style="font-size:28px">${w.ar}</span> (${w.tr}) mean?`;answer=w.en;opts=[w.en];while(opts.length<4){const o=WORDS[Math.floor(Math.random()*WORDS.length)].en;if(!opts.includes(o))opts.push(o);}}else if(type==='en2ar'){prompt=`How do you say <b>“${w.en}”</b> in Tunisian?`;answer=w.ar;opts=[w.ar];while(opts.length<4){const o=WORDS[Math.floor(Math.random()*WORDS.length)].ar;if(!opts.includes(o))opts.push(o);}}else{prompt=`Which Arabic matches <b>“${w.tr}”</b> (${w.en})?`;answer=w.ar;opts=[w.ar];while(opts.length<4){const o=WORDS[Math.floor(Math.random()*WORDS.length)].ar;if(!opts.includes(o))opts.push(o);}}opts.sort(()=>Math.random()-.5);qs.push({w,prompt,answer,opts,type});}return qs;}
 function startQuiz(untimed){qUntimed=!!untimed;Qs=makeQs();qi=0;qscore=0;qTime=60;document.getElementById('quizStart').style.display='none';document.getElementById('quizEnd').style.display='none';document.getElementById('quizPlay').style.display='block';if(qTimer)clearInterval(qTimer);if(!qUntimed){qTimer=setInterval(()=>{qTime--;document.getElementById('qtimer').textContent='⏱ '+qTime+'s';if(qTime<=0){endQuiz();}},1000);}else document.getElementById('qtimer').textContent='🌿 practice';renderQ();}
-function renderQ(){const q=Qs[qi];document.getElementById('qpos').textContent=`Q ${qi+1}/10`;document.getElementById('qscore').textContent='Score: '+qscore;document.getElementById('qbar').style.width=(qi/10*100)+'%';document.getElementById('qprompt').innerHTML=q.prompt;document.getElementById('qfeed').textContent='';document.getElementById('qNext').disabled=true;const box=document.getElementById('qopts');box.innerHTML='';q.opts.forEach(o=>{const b=document.createElement('button');b.className='opt';b.innerHTML=(/[\u0600-\u06FF]/.test(o)?`<span class="ar" style="font-size:20px">${o}</span>`:`${o}`);b.onclick=()=>answerQ(b,o);box.appendChild(b);});}
+function renderQ(){const q=Qs[qi];document.getElementById('qpos').textContent=`Q ${qi+1}/${Qs.length}`;document.getElementById('qscore').textContent='Score: '+qscore;document.getElementById('qbar').style.width=(qi/Qs.length*100)+'%';document.getElementById('qprompt').innerHTML=q.prompt;document.getElementById('qfeed').textContent='';document.getElementById('qNext').disabled=true;const box=document.getElementById('qopts');box.innerHTML='';q.opts.forEach(o=>{const b=document.createElement('button');b.className='opt';b.innerHTML=(/[\u0600-\u06FF]/.test(o)?`<span class="ar" style="font-size:20px">${o}</span>`:`${o}`);b.onclick=()=>answerQ(b,o);box.appendChild(b);});}
 function hearQuiz(){const q=Qs[qi];playWord(q.w.id);}
-function answerQ(btn,val){const q=Qs[qi];const all=[...document.querySelectorAll('#qopts .opt')];all.forEach(b=>b.disabled=true);if(val===q.answer){btn.classList.add('correct');qscore++;document.getElementById('qfeed').textContent='✅ Sa77it! Correct — '+q.w.tr+' • '+q.w.en;}else{btn.classList.add('wrong');all.find(b=>b.textContent.trim()===q.answer||b.innerHTML.includes(q.answer))?.classList.add('correct');document.getElementById('qfeed').textContent=`❌ Not quite — answer: ${q.w.ar} (${q.w.tr})`;}document.getElementById('qscore').textContent='Score: '+qscore;document.getElementById('qNext').disabled=false;document.getElementById('qbar').style.width=((qi+1)/10*100)+'%';}
+function answerQ(btn,val){const q=Qs[qi];const all=[...document.querySelectorAll('#qopts .opt')];all.forEach(b=>b.disabled=true);if(val===q.answer){btn.classList.add('correct');qscore++;document.getElementById('qfeed').textContent='✅ Sa77it! Correct — '+q.w.tr+' • '+q.w.en;}else{btn.classList.add('wrong');all.find(b=>b.textContent.trim()===q.answer||b.innerHTML.includes(q.answer))?.classList.add('correct');document.getElementById('qfeed').textContent=`❌ Not quite — answer: ${q.w.ar} (${q.w.tr})`;}document.getElementById('qscore').textContent='Score: '+qscore;document.getElementById('qNext').disabled=false;document.getElementById('qbar').style.width=((qi+1)/Qs.length*100)+'%';}
 function nextQ(){qi++;if(qi>=Qs.length)endQuiz();else renderQ();}
-function endQuiz(){if(qTimer)clearInterval(qTimer);document.getElementById('quizPlay').style.display='none';document.getElementById('quizEnd').style.display='block';const best=parseInt(localStorage.getItem('dwm_best_lesson03')||'0');if(qscore>best)localStorage.setItem('dwm_best_lesson03',qscore);let msg=qscore>=9?'🏆 Excellent! You know these words!':qscore>=7?'🎉 Bravo! Good work!':qscore>=5?'🌱 Good start — review and try again.':'💪 Beshwaya beshwaya — review the flashcards.';document.getElementById('qResult').textContent=`${msg} — ${qscore}/10`;document.getElementById('qReview').textContent=qUntimed?'Practice mode — take your time.':'Finished in '+(60-qTime)+' seconds. Best: '+localStorage.getItem('dwm_best_lesson03')+'/10';document.getElementById('qList').innerHTML=Qs.map((q,i)=>`<div style="background:var(--cream);border:2px solid #EDE2D1;border-radius:12px;padding:10px 12px;margin:6px 0;font-size:14px;font-weight:700"><span class="ar">${q.w.ar}</span> • ${q.w.tr} = ${q.w.en}</div>`).join('');updateProgress();if(qscore>=7)confetti();else toast(`Quiz finished: ${qscore}/10`);}
+function endQuiz(){if(qTimer)clearInterval(qTimer);document.getElementById('quizPlay').style.display='none';document.getElementById('quizEnd').style.display='block';const best=parseInt(localStorage.getItem('dwm_best_lesson03')||'0');if(qscore>best)localStorage.setItem('dwm_best_lesson03',qscore);let msg=qscore>=8?'🏆 Excellent! You know these words!':qscore>=6?'🎉 Bravo! Good work!':qscore>=4?'🌱 Good start — review and try again.':'💪 Beshwaya beshwaya — review the flashcards.';document.getElementById('qResult').textContent=`${msg} — ${qscore}/${Qs.length}`;document.getElementById('qReview').textContent=qUntimed?'Practice mode — take your time.':'Finished in '+(60-qTime)+' seconds. Best: '+localStorage.getItem('dwm_best_lesson03')+'/'+WORDS.length;document.getElementById('qList').innerHTML=Qs.map((q,i)=>`<div style="background:var(--cream);border:2px solid #EDE2D1;border-radius:12px;padding:10px 12px;margin:6px 0;font-size:14px;font-weight:700"><span class="ar">${q.w.ar}</span> • ${q.w.tr} = ${q.w.en}</div>`).join('');updateProgress();if(qscore>=6)confetti();else toast(`Quiz finished: ${qscore}/${Qs.length}`);}
 function confetti(){const c=document.getElementById('conf'),x=c.getContext('2d');let p=[];for(let i=0;i<40;i++)p.push({x:Math.random()*400,y:Math.random()*-60,v:3+Math.random()*3,s:4+Math.random()*4,c:['#E9A89A','#9DB8A2','#F9E8A8','#9ABED1','#C39A4A'][i%5],r:Math.random()*6});let f=0;function anim(){x.clearRect(0,0,400,120);p.forEach(o=>{o.y+=o.v;o.r+=.14;x.save();x.translate(o.x,o.y);x.rotate(o.r);x.fillStyle=o.c;x.fillRect(-o.s/2,-o.s/2,o.s,o.s*0.6);x.restore();});if(f++<55)requestAnimationFrame(anim);}anim();toast('🎉 Mabrouk! Excellent score!');}
 
 // match game
