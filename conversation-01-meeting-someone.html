@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conversation 01: Meeting Someone for the First Time — نتعارفوا</title>
+  <!-- Google Fonts: Cairo for Arabic & Plus Jakarta Sans for English -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            linen: '#F9F7FF',
+            sand: {
+              50: '#FCFAFD',
+              100: '#F4EDF7',
+              200: '#EADFEB',
+              300: '#DCCBDF',
+              600: '#8B718A'
+            },
+            terracotta: {
+              50: '#FFF2F7',
+              100: '#FBE0EC',
+              200: '#F4BDD4',
+              400: '#E7A0BF',
+              500: '#D98EAF',
+              600: '#BA668D'
+            },
+            sage: {
+              50: '#F3F9F7',
+              100: '#E2F2ED',
+              200: '#BFE1D7',
+              400: '#82BDAE',
+              500: '#5A9C8C',
+              600: '#427A6D'
+            },
+            azure: {
+              50: '#F4F1FA',
+              100: '#EAE3F6',
+              200: '#D8C9EE',
+              400: '#B39AD8',
+              500: '#8D72BB'
+            },
+            ink: {
+              900: '#3F4C4A',
+              700: '#56615F',
+              500: '#737B89',
+              300: '#A9A6B1',
+              100: '#E7E3EB'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            arabic: ['"Cairo"', 'sans-serif']
+          },
+          borderRadius: {
+            '2xl': '1.25rem',
+            '3xl': '1.75rem',
+            '4xl': '2.25rem'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #F9F7FF;
+      color: #3F4C4A;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .font-ar {
+      font-family: 'Cairo', sans-serif;
+    }
+    /* Subtle soundwave animation */
+    @keyframes wave-bounce {
+      0%, 100% { height: 6px; }
+      50% { height: 22px; }
+    }
+    .wave-bar {
+      animation: wave-bounce 1s ease-in-out infinite;
+    }
+    .wave-bar:nth-child(2) { animation-delay: 0.15s; }
+    .wave-bar:nth-child(3) { animation-delay: 0.3s; }
+    .wave-bar:nth-child(4) { animation-delay: 0.45s; }
+    .wave-bar:nth-child(5) { animation-delay: 0.2s; }
+
+    /* Custom smooth transition */
+    .smooth-transition {
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    /* Hide scrollbar for tabs */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      min-height: 76px;
+      padding: 8px clamp(18px,4vw,48px);
+      display: flex;
+      align-items: center;
+      background: rgba(255,255,255,.97);
+      border-bottom: 1px solid #EADFEB;
+      box-shadow: 0 4px 20px rgba(70,62,77,.05);
+      backdrop-filter: blur(12px);
+    }
+    .brand-logo img { width: 153px; max-height: 56px; object-fit: contain; }
+    .site-nav { position:absolute; left:50%; transform:translateX(-50%); display:flex; gap:23px; }
+    .site-nav a { color:#444; font-size:18px; font-weight:400; white-space:nowrap; }
+    .site-nav a:hover,.site-nav a.active { color:#ff7aa2; }
+    .lesson-subnav { background:#F9F7FF; border-bottom:1px solid #EADFEB; }
+    @media(max-width:760px){
+      .site-header{position:relative;flex-direction:column;align-items:flex-start;gap:10px;padding:12px 18px 14px}
+      .brand-logo img{width:140px}
+      .site-nav{position:static;transform:none;width:100%;gap:10px 20px;overflow-x:auto;padding:3px 2px}
+      .site-nav a{font-size:14px}
+    }
+  </style>
+</head>
+<body class="min-h-screen pb-24 text-ink-900 selection:bg-terracotta-100 selection:text-terracotta-600">
+
+  <header class="site-header">
+    <a class="brand-logo" href="index.html#home" aria-label="Darja with Mongia home">
+      <img src="images/full-logo.png" alt="Darja with Mongia">
+    </a>
+    <nav class="site-nav" aria-label="Main website navigation">
+      <a href="index.html#home">Home</a>
+      <a href="free-lessons.html" class="active">Free Lessons</a>
+      <a href="podcast.html">Podcast</a>
+      <a href="index.html#about">About</a>
+    </nav>
+  </header>
+  <div class="lesson-subnav">
+    <div class="max-w-4xl mx-auto px-5 py-3 flex items-center justify-between gap-3">
+      <a href="free-lessons.html" class="text-xs font-semibold text-terracotta-600 hover:text-terracotta-500">← Back to Free Lessons</a>
+      <div class="text-right">
+        <span class="text-[10px] uppercase tracking-wider font-semibold text-terracotta-500">Conversation · Lesson 01</span>
+        <div class="font-ar font-bold text-base text-ink-700">نتعارفوا <span class="font-sans text-xs font-normal text-ink-500">· Net3arfou</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Container -->
+  <main class="max-w-3xl mx-auto px-4 sm:px-6 pt-6 space-y-10">
+
+    <!-- Hero / Goal Card -->
+    <div class="relative overflow-hidden bg-white/90 rounded-3xl border border-sand-200 p-6 sm:p-8 shadow-sm">
+      <div class="absolute -right-12 -top-12 w-48 h-48 rounded-full bg-terracotta-50/70 pointer-events-none"></div>
+      <div class="absolute -left-12 -bottom-12 w-44 h-44 rounded-full bg-azure-50/60 pointer-events-none"></div>
+      
+      <div class="relative z-10 space-y-3">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-terracotta-50 border border-terracotta-100 text-terracotta-600 text-xs font-semibold">
+          <span>🤝 First Encounters</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-ink-900 tracking-tight">
+          Meeting Someone for the First Time
+        </h2>
+        <p class="text-ink-500 text-sm sm:text-base leading-relaxed">
+          Learn how to answer politely, introduce yourself, ask someone’s name and country, and close a first meeting naturally in Tunisian Arabic.
+        </p>
+
+        <!-- Dynamic Step Checklist -->
+        <div class="pt-3 grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-medium text-ink-500">
+          <div class="flex items-center gap-1.5 bg-sand-50 py-1.5 px-2.5 rounded-xl border border-sand-100">
+            <span class="w-1.5 h-1.5 rounded-full bg-terracotta-400"></span>
+            <span>1. Listen first</span>
+          </div>
+          <div class="flex items-center gap-1.5 bg-sand-50 py-1.5 px-2.5 rounded-xl border border-sand-100">
+            <span class="w-1.5 h-1.5 rounded-full bg-sage-400"></span>
+            <span>2. Reusable chunks</span>
+          </div>
+          <div class="flex items-center gap-1.5 bg-sand-50 py-1.5 px-2.5 rounded-xl border border-sand-100">
+            <span class="w-1.5 h-1.5 rounded-full bg-azure-400"></span>
+            <span>3. Quick react</span>
+          </div>
+          <div class="flex items-center gap-1.5 bg-sand-50 py-1.5 px-2.5 rounded-xl border border-sand-100">
+            <span class="w-1.5 h-1.5 rounded-full bg-sand-600"></span>
+            <span>4. Live role-play</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 1 & 2: The Situation & Listen First Mini-Dialogue -->
+    <section class="space-y-4">
+      <div class="flex items-center justify-between">
+        <div>
+          <span class="text-xs uppercase font-bold tracking-wider text-terracotta-500">Step 01 & 02</span>
+          <h3 class="text-lg font-bold text-ink-900">The Mini-Dialogue</h3>
+        </div>
+        <span class="text-xs text-ink-500 bg-sand-100 px-3 py-1 rounded-full">9 dialogue lines</span>
+      </div>
+
+      <!-- Listen First Player Card -->
+      <div class="bg-gradient-to-br from-white via-white to-sand-50 rounded-3xl border border-sand-200/90 p-5 sm:p-7 shadow-sm space-y-6">
+        
+        <div class="bg-azure-50/70 border border-azure-100/90 rounded-2xl p-4 flex items-start gap-3.5">
+          <div class="w-8 h-8 rounded-full bg-azure-200/60 text-azure-600 flex items-center justify-center shrink-0 mt-0.5">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <p class="text-xs sm:text-sm text-ink-700 leading-relaxed">
+            <strong class="font-semibold text-azure-600">Pedagogical Rule:</strong> Listen <em>before</em> reading! Trust your ears to catch tone, rhythm, and familiar sounds before unlocking the text.
+          </p>
+        </div>
+
+        <!-- Master Player Controls -->
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 rounded-2xl bg-sand-100/60 border border-sand-200/80">
+          <div class="flex items-center gap-3 w-full sm:w-auto">
+            <button id="masterPlayBtn" onclick="playFullDialogue(1.0)" class="flex-1 sm:flex-none px-5 py-3 rounded-2xl bg-terracotta-500 hover:bg-terracotta-600 text-white font-medium text-sm shadow-sm hover:shadow flex items-center justify-center gap-2.5 transition active:scale-95">
+              <svg id="masterPlayIcon" class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/></svg>
+              <span id="masterPlayText">▶ Listen Normally</span>
+            </button>
+            <button id="masterPlaySlowBtn" onclick="playFullDialogue(0.72)" class="px-4 py-3 rounded-2xl bg-white hover:bg-sand-50 border border-sand-200 text-ink-700 text-sm font-medium flex items-center justify-center gap-2 transition active:scale-95 shadow-2xs">
+              <span>🐢 Slowly</span>
+            </button>
+          </div>
+
+          <!-- Soundwave Animation Indicator -->
+          <div id="playingWave" class="hidden items-center gap-1 h-6 px-3 py-1 bg-terracotta-50 rounded-full border border-terracotta-100">
+            <span class="text-xs font-semibold text-terracotta-500 mr-1.5">Playing audio</span>
+            <span class="w-1 bg-terracotta-400 rounded-full wave-bar"></span>
+            <span class="w-1 bg-terracotta-400 rounded-full wave-bar"></span>
+            <span class="w-1 bg-terracotta-400 rounded-full wave-bar"></span>
+            <span class="w-1 bg-terracotta-400 rounded-full wave-bar"></span>
+            <span class="w-1 bg-terracotta-400 rounded-full wave-bar"></span>
+          </div>
+
+          <!-- Transcript reveal button -->
+          <button id="toggleTranscriptBtn" onclick="toggleTranscript()" class="w-full sm:w-auto text-xs font-semibold px-4 py-2.5 rounded-xl border border-sand-300 bg-white text-ink-700 hover:bg-sand-50 transition flex items-center justify-center gap-1.5">
+            <svg class="w-3.5 h-3.5 text-sand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+            <span id="toggleTranscriptLabel">Show transcript</span>
+          </button>
+        </div>
+
+        <!-- Dialogue Container (Hidden or Blurred Initially) -->
+        <div id="dialogueContainer" class="space-y-3 pt-2">
+          <!-- Dialogue exchanges will be populated with highlight states -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 3: Break into Useful Chunks (Expression Cards) -->
+    <section class="space-y-4">
+      <div class="flex items-center justify-between">
+        <div>
+          <span class="text-xs uppercase font-bold tracking-wider text-sage-500">Step 03</span>
+          <h3 class="text-lg font-bold text-ink-900">Useful Chunks (Ready-to-Use)</h3>
+        </div>
+        <span class="text-xs text-ink-500">Click to listen & repeat</span>
+      </div>
+
+      <p class="text-xs sm:text-sm text-ink-500 leading-relaxed -mt-1">
+        We don't get bogged down in isolated grammar. Master these complete expressions you can reuse directly in Tunisia today.
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="chunksGrid">
+        <!-- Chunks injected dynamically for interactive state & audio -->
+      </div>
+    </section>
+
+    <!-- SECTION 4: Conversation Pattern (Substitution Cards) -->
+    <section class="space-y-4">
+      <div class="flex items-center justify-between">
+        <div>
+          <span class="text-xs uppercase font-bold tracking-wider text-azure-500">Step 04</span>
+          <h3 class="text-lg font-bold text-ink-900">Conversation Patterns</h3>
+        </div>
+        <span class="text-xs text-ink-500">Plug & Play Formulas</span>
+      </div>
+
+      <div class="bg-white rounded-3xl border border-sand-200 p-5 sm:p-7 shadow-sm space-y-6">
+        <p class="text-sm text-ink-700">
+          Notice the predictable question-and-answer patterns. Test plugging in your real name and country:
+        </p>
+
+        <!-- Interactive Formula 1: Name -->
+        <div class="p-4 rounded-2xl bg-sand-50 border border-sand-200/80 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-terracotta-100 text-terracotta-600">Pattern 01 • Names</span>
+            <button onclick="speakText('شنوة اسمك؟', 1)" class="text-xs text-terracotta-600 hover:text-terracotta-700 flex items-center gap-1">
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"/></svg>
+              <span>Pattern Demo</span>
+            </button>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-3 items-center">
+            <div class="bg-white p-3 rounded-xl border border-sand-200">
+              <span class="text-[11px] text-ink-400 block mb-0.5 font-medium">Question:</span>
+              <div class="flex items-center justify-between">
+                <span class="font-ar font-bold text-lg text-ink-900">شنوة اسمك؟</span>
+                <span class="text-xs text-ink-500 italic">chnouwa ismek?</span>
+              </div>
+            </div>
+
+            <div class="bg-white p-3 rounded-xl border border-terracotta-200/80 bg-terracotta-50/20">
+              <span class="text-[11px] text-terracotta-600 block mb-0.5 font-medium">Your answer:</span>
+              <div class="flex items-center gap-2">
+                <span class="font-ar font-bold text-lg text-ink-900">...اسمي</span>
+                <input id="userNameInput" type="text" placeholder="Your name (e.g. Adam)" value="Adam" oninput="updatePatternAnswers()" class="flex-1 bg-white text-sm font-semibold px-3 py-1 border border-sand-300 rounded-lg focus:outline-none focus:border-terracotta-400">
+                <button onclick="playCustomNameAnswer()" class="p-2 rounded-lg bg-terracotta-500 text-white hover:bg-terracotta-600 shrink-0" title="Practice your custom answer aloud">
+                  <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Formula 2: Origin -->
+        <div class="p-4 rounded-2xl bg-sand-50 border border-sand-200/80 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-azure-100 text-azure-600">Pattern 02 • Origin</span>
+            <button onclick="speakText('منين إنتي؟ أنا من تونس', 0.9)" class="text-xs text-azure-600 hover:text-azure-700 flex items-center gap-1">
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"/></svg>
+              <span>Pattern Demo</span>
+            </button>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-3 items-center">
+            <div class="bg-white p-3 rounded-xl border border-sand-200">
+              <span class="text-[11px] text-ink-400 block mb-0.5 font-medium">Question:</span>
+              <div class="flex items-center justify-between">
+                <span class="font-ar font-bold text-lg text-ink-900">منين إنتي؟</span>
+                <span class="text-xs text-ink-500 italic">mnin enti?</span>
+              </div>
+            </div>
+
+            <div class="bg-white p-3 rounded-xl border border-azure-200/80 bg-azure-50/20">
+              <span class="text-[11px] text-azure-600 block mb-0.5 font-medium">Your answer:</span>
+              <div class="flex items-center gap-2">
+                <span class="font-ar font-bold text-lg text-ink-900">...أنا من</span>
+                <select id="userOriginSelect" onchange="updatePatternAnswers()" class="flex-1 bg-white text-sm font-semibold px-2 py-1.5 border border-sand-300 rounded-lg focus:outline-none focus:border-azure-400">
+                  <option value="فرنسا" data-phonetic="Fransa">فرنسا (France)</option>
+                  <option value="إنڨلترا" data-phonetic="Inguelterra">إنڨلترا (England)</option>
+                  <option value="أمريكا" data-phonetic="Amrika">أمريكا (USA)</option>
+                  <option value="كندا" data-phonetic="Kanada">كندا (Canada)</option>
+                  <option value="ألمانيا" data-phonetic="Almania">ألمانيا (Germany)</option>
+                  <option value="إيطاليا" data-phonetic="Italia" selected>إيطاليا (Italy)</option>
+                  <option value="تونس" data-phonetic="Tounes">تونس (Tunisia)</option>
+                </select>
+                <button onclick="playCustomOriginAnswer()" class="p-2 rounded-lg bg-azure-500 text-white hover:bg-azure-600 shrink-0" title="Practice your custom answer aloud">
+                  <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pattern 3: How are you -->
+        <div class="p-4 rounded-2xl bg-sand-50 border border-sand-200/80 flex items-center justify-between flex-wrap gap-3">
+          <div class="flex items-center gap-3">
+            <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-sage-100 text-sage-600">Pattern 03</span>
+            <div class="font-ar font-bold text-base text-ink-800">
+              لاباس؟ <span class="font-sans text-ink-400 mx-1">→</span> عسلامة، لاباس. عيشك.
+            </div>
+          </div>
+          <button onclick="speakText('لاباس؟', 1)" class="text-xs font-medium px-3 py-1.5 rounded-xl bg-white border border-sand-200 hover:bg-sand-100/70 text-ink-700 flex items-center gap-1.5 shadow-2xs">
+            <svg class="w-3 h-3 text-sage-500 fill-current" viewBox="0 0 20 20"><path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/></svg>
+            <span>Listen pattern</span>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 5: Listen & Choose (Reaction Training) -->
+    <section class="space-y-4">
+      <div class="flex items-center justify-between">
+        <div>
+          <span class="text-xs uppercase font-bold tracking-wider text-terracotta-500">Step 05</span>
+          <h3 class="text-lg font-bold text-ink-900">Listen & Choose: Train Conversational Reaction</h3>
+        </div>
+        <span class="text-xs text-ink-500">Active Ear Training</span>
+      </div>
+
+      <div class="space-y-4" id="reactionQuizContainer">
+        <!-- Quiz questions rendered here -->
+      </div>
+    </section>
+
+    <!-- SECTION 6: "What Would You Say?" (Prompt Recall) -->
+    <section class="space-y-4">
+      <div class="flex items-center justify-between">
+        <div>
+          <span class="text-xs uppercase font-bold tracking-wider text-sage-500">Step 06</span>
+          <h3 class="text-lg font-bold text-ink-900">What Would You Say?</h3>
+        </div>
+        <span class="text-xs text-ink-500">No multiple choice</span>
+      </div>
+
+      <div class="bg-white rounded-3xl border border-sand-200 p-5 sm:p-7 shadow-sm space-y-6">
+        <p class="text-xs sm:text-sm text-ink-500">
+          Now there are no options to click. Read or listen to what they ask, whisper your reply out loud, then click to reveal the natural model response.
+        </p>
+
+        <!-- Prompt Card 1 -->
+        <div class="p-4 sm:p-5 rounded-2xl bg-sand-50/70 border border-sand-200 space-y-4">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="w-7 h-7 rounded-full bg-sand-200/70 text-ink-700 flex items-center justify-center text-xs font-bold">1</span>
+              <span class="text-xs font-semibold text-ink-600">Someone warmly asks you:</span>
+            </div>
+            <button onclick="speakText('شنوة اسمك؟', 1)" class="px-2.5 py-1 rounded-lg bg-white border border-sand-200 text-xs text-terracotta-600 flex items-center gap-1 hover:bg-sand-50">
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/></svg>
+              <span>Play audio</span>
+            </button>
+          </div>
+          
+          <div class="font-ar font-bold text-2xl text-ink-900 text-right py-1">
+            شنوة اسمك؟
+          </div>
+
+          <div class="pt-1 flex flex-col sm:flex-row items-center gap-3">
+            <button onclick="toggleModelAnswer('model1')" class="w-full sm:w-auto px-4 py-2 bg-white hover:bg-sand-100 border border-sand-300 rounded-xl text-xs font-medium text-ink-700 transition">
+              Reveal Model Answer
+            </button>
+            <div id="model1" class="hidden flex-1 p-3 rounded-xl bg-sage-50 border border-sage-200 text-sm text-ink-800 flex items-center justify-between">
+              <div>
+                <span class="font-ar font-bold text-base text-sage-600 ml-1.5">اسمي [اسمك]. وإنتي؟</span>
+                <span class="text-xs text-ink-500 italic">(ismi [your name]. W enti?)</span>
+              </div>
+              <button onclick="speakText('اسمي سارة، وإنتي؟', 0.9)" class="text-xs text-sage-600 p-1 hover:text-sage-700">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Prompt Card 2 -->
+        <div class="p-4 sm:p-5 rounded-2xl bg-sand-50/70 border border-sand-200 space-y-4">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="w-7 h-7 rounded-full bg-sand-200/70 text-ink-700 flex items-center justify-center text-xs font-bold">2</span>
+              <span class="text-xs font-semibold text-ink-600">Then they follow up with:</span>
+            </div>
+            <button onclick="speakText('منين إنتي؟', 0.9)" class="px-2.5 py-1 rounded-lg bg-white border border-sand-200 text-xs text-terracotta-600 flex items-center gap-1 hover:bg-sand-50">
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/></svg>
+              <span>Play audio</span>
+            </button>
+          </div>
+          
+          <div class="font-ar font-bold text-2xl text-ink-900 text-right py-1">
+            منين إنتي؟
+          </div>
+
+          <div class="pt-1 flex flex-col sm:flex-row items-center gap-3">
+            <button onclick="toggleModelAnswer('model2')" class="w-full sm:w-auto px-4 py-2 bg-white hover:bg-sand-100 border border-sand-300 rounded-xl text-xs font-medium text-ink-700 transition">
+              Reveal Model Answer
+            </button>
+            <div id="model2" class="hidden flex-1 p-3 rounded-xl bg-sage-50 border border-sage-200 text-sm text-ink-800 flex items-center justify-between">
+              <div>
+                <span class="font-ar font-bold text-base text-sage-600 ml-1.5">أنا من [بلادك]. وإنتي؟</span>
+                <span class="text-xs text-ink-500 italic">(ena men [country]. W enti?)</span>
+              </div>
+              <button onclick="speakText('أنا من إيطاليا، وإنتي؟', 0.9)" class="text-xs text-sage-600 p-1 hover:text-sage-700">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 7: Conversation Builder (Scramble Puzzle) -->
+    <section class="space-y-4">
+      <div class="flex items-center justify-between">
+        <div>
+          <span class="text-xs uppercase font-bold tracking-wider text-azure-500">Step 07</span>
+          <h3 class="text-lg font-bold text-ink-900">Conversation Builder</h3>
+        </div>
+        <span class="text-xs text-ink-500">Arrange in natural order</span>
+      </div>
+
+      <div class="bg-white rounded-3xl border border-sand-200 p-5 sm:p-7 shadow-sm space-y-6">
+        <p class="text-xs sm:text-sm text-ink-500 leading-relaxed">
+          Click the pieces below in the order a natural Tunisian conversation flows from greeting to polite closing.
+        </p>
+
+        <!-- Slots Target -->
+        <div class="space-y-2">
+          <label class="text-xs font-semibold uppercase tracking-wider text-ink-400">Your Sequence:</label>
+          <div id="builderSequence" class="min-h-[64px] p-3 rounded-2xl bg-sand-50 border-2 border-dashed border-sand-200 flex flex-wrap gap-2 items-center">
+            <span id="builderEmptyPrompt" class="text-xs text-ink-400 italic">Click pieces below to assemble your conversation...</span>
+          </div>
+        </div>
+
+        <!-- Available Pieces (Shuffled) -->
+        <div class="space-y-2">
+          <div class="flex items-center justify-between">
+            <label class="text-xs font-semibold uppercase tracking-wider text-ink-400">Available expressions:</label>
+            <button onclick="resetConversationBuilder()" class="text-xs text-ink-500 hover:text-terracotta-600 underline">Reset</button>
+          </div>
+          <div id="builderPieces" class="flex flex-wrap gap-2 pt-1">
+            <!-- Pieces injected via JS -->
+          </div>
+        </div>
+
+        <!-- Check / Result notification -->
+        <div id="builderFeedback" class="hidden p-4 rounded-2xl border transition">
+          <!-- Dynamic success or encouragement -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 8: Interactive Role-Play (The Final Challenge) -->
+    <section class="space-y-4">
+      <div class="flex items-center justify-between">
+        <div>
+          <span class="text-xs uppercase font-bold tracking-wider text-terracotta-500">Step 08</span>
+          <h3 class="text-lg font-bold text-ink-900">Role-Play: Your Turn!</h3>
+        </div>
+        <span class="text-xs font-semibold bg-terracotta-50 text-terracotta-600 px-3 py-1 rounded-full border border-terracotta-100">Final Challenge</span>
+      </div>
+
+      <div class="bg-gradient-to-br from-white via-white to-terracotta-50/20 rounded-3xl border border-sand-200 p-5 sm:p-7 shadow-sm space-y-6">
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-terracotta-100 border border-terracotta-200 flex items-center justify-center text-xl shrink-0">
+            🇹🇳
+          </div>
+          <div>
+            <h4 class="font-bold text-ink-900">Virtual Encounter with Maryem (مريم)</h4>
+            <p class="text-xs sm:text-sm text-ink-500 mt-0.5">
+              Maryem will guide the conversation. Look at your prompt objective and respond to her directly!
+            </p>
+          </div>
+        </div>
+
+        <!-- Roleplay Chat Canvas -->
+        <div id="roleplayBox" class="p-4 rounded-2xl bg-sand-50/80 border border-sand-200/90 space-y-4 max-h-[460px] overflow-y-auto">
+          <!-- Maryem initial message -->
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 rounded-full bg-sand-200 text-xs font-bold text-ink-700 flex items-center justify-center shrink-0">
+              M
+            </div>
+            <div class="bg-white p-3.5 rounded-2xl rounded-tl-sm border border-sand-200/90 shadow-2xs max-w-sm space-y-1">
+              <span class="text-[11px] font-semibold text-terracotta-500 block">Maryem</span>
+              <p class="font-ar font-bold text-lg text-ink-900">عسلامة، لاباس؟</p>
+              <p class="text-xs text-ink-400 italic">3asslema, lebes?</p>
+            </div>
+            <button onclick="speakText('عسلامة، لاباس؟', 1.0)" class="mt-2 text-ink-400 hover:text-terracotta-500">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/></svg>
+            </button>
+          </div>
+
+          <!-- Dynamic messages appear here -->
+          <div id="roleplayThread" class="space-y-4"></div>
+        </div>
+
+        <!-- User Roleplay Mission Controller -->
+        <div id="roleplayController" class="p-4 rounded-2xl bg-white border border-sand-200 shadow-sm space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-semibold uppercase tracking-wider text-terracotta-600">Your Objective:</span>
+            <span id="roleplayStepCount" class="text-xs font-medium text-ink-400">Step 1 of 4</span>
+          </div>
+          <p id="roleplayPromptText" class="text-sm font-semibold text-ink-800">
+            👉 Greet Maryem, say you are fine, and thank her.
+          </p>
+          <div class="flex flex-wrap items-center gap-2 pt-1">
+            <button id="roleplaySpeakAction" onclick="submitRoleplayStep()" class="px-5 py-2.5 rounded-xl bg-terracotta-500 hover:bg-terracotta-600 text-white text-xs font-semibold shadow-sm flex items-center gap-2 transition active:scale-95">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/></svg>
+              <span>Play Model Response</span>
+            </button>
+            <button onclick="toggleRoleplayHint()" class="px-3.5 py-2.5 rounded-xl bg-sand-100 hover:bg-sand-200/70 text-ink-700 text-xs font-medium transition">
+              💡 Need a hint?
+            </button>
+          </div>
+          <div id="roleplayHintBox" class="hidden text-xs text-ink-600 p-2.5 rounded-xl bg-sand-50 border border-sand-200">
+            <!-- Hint dynamically populated -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 9: Tiny Cultural Note -->
+    <section class="space-y-4">
+      <div class="bg-sand-100/70 border border-sand-200/90 rounded-3xl p-6 sm:p-7 space-y-4">
+        <div class="flex items-center gap-3">
+          <span class="text-2xl">🇹🇳</span>
+          <div>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-terracotta-600">Cultural Insight</span>
+            <h4 class="font-bold text-ink-900 text-base">Tunisian Everyday Greetings</h4>
+          </div>
+        </div>
+        <p class="text-xs sm:text-sm text-ink-700 leading-relaxed">
+          In Tunisia, <strong class="text-ink-900 font-ar text-base">عسلامة</strong> (<em>3asslema</em>) is universally loved and heard dozens of times daily in shops, streets, and homes. You may also frequently hear <strong class="text-ink-900 font-ar text-base">السلام عليكم</strong> (<em>es-salamu 3alaykom</em>), which is more formal and traditional. Placing your right hand gently on your chest after greeting is a warm gesture of heartfelt respect.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 10: Curricular Roadmap Footer -->
+    <footer class="pt-6 space-y-6">
+      <div class="border-t border-sand-200 pt-8">
+        <div class="text-center max-w-md mx-auto space-y-2 mb-8">
+          <span class="text-xs uppercase font-bold tracking-widest text-ink-400">Curriculum Structure</span>
+          <h4 class="text-xl font-bold text-ink-900">Your Conversation Journey</h4>
+          <p class="text-xs text-ink-500">Every lesson is built to give you real speaking capability in under 10 minutes.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Vocabulary Lessons Column -->
+          <div class="bg-white p-5 rounded-2xl border border-sand-200 space-y-3">
+            <div class="flex items-center justify-between border-b border-sand-100 pb-2.5">
+              <span class="text-xs font-bold text-sage-600 tracking-wider">VOCABULARY TRACK</span>
+              <span class="text-[11px] text-ink-400">Picture → Recall</span>
+            </div>
+            <ul class="text-xs space-y-2 text-ink-600">
+              <li class="flex items-center justify-between p-2 rounded-xl bg-sand-50">
+                <span>Lesson 01 — Rooms of the House</span>
+                <span class="text-sage-500 font-medium">Available</span>
+              </li>
+              <li class="flex items-center justify-between p-2 rounded-xl">
+                <span>Lesson 02 — Furniture of the House</span>
+                <span class="text-ink-300">Next</span>
+              </li>
+              <li class="flex items-center justify-between p-2 rounded-xl">
+                <span>Lesson 03 — Farm Animals</span>
+                <span class="text-ink-300">Next</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Conversation Lessons Column -->
+          <div class="bg-white p-5 rounded-2xl border border-terracotta-200/90 shadow-2xs space-y-3">
+            <div class="flex items-center justify-between border-b border-terracotta-100 pb-2.5">
+              <span class="text-xs font-bold text-terracotta-600 tracking-wider">CONVERSATION TRACK</span>
+              <span class="text-[11px] text-terracotta-500 font-medium">Listen → Respond → Role-play</span>
+            </div>
+            <ul class="text-xs space-y-2 text-ink-600">
+              <li class="flex items-center justify-between p-2 rounded-xl bg-terracotta-50 text-terracotta-700 font-semibold border border-terracotta-100">
+                <span>Lesson 01 — Meeting Someone</span>
+                <span>Active 🟢</span>
+              </li>
+              <li class="flex items-center justify-between p-2 rounded-xl text-ink-500">
+                <span>Lesson 02 — At a Café (fi el-9ahwa)</span>
+                <span class="text-ink-300">Soon</span>
+              </li>
+              <li class="flex items-center justify-between p-2 rounded-xl text-ink-500">
+                <span>Lesson 03 — Visiting Someone's Home</span>
+                <span class="text-ink-300">Soon</span>
+              </li>
+              <li class="flex items-center justify-between p-2 rounded-xl text-ink-500">
+                <span>Lesson 04 — Shopping at the Market</span>
+                <span class="text-ink-300">Soon</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="text-center pt-8 text-xs text-ink-400">
+          Designed with ❤️ for authentic Tunisian Arabic fluency (Darja).
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- Sound notification Toast -->
+  <div id="audioToast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none bg-ink-900 text-white px-4 py-2.5 rounded-2xl text-xs flex items-center gap-2 shadow-lg">
+    <span class="w-2 h-2 rounded-full bg-sage-400"></span>
+    <span id="toastMsg">Audio playing...</span>
+  </div>
+
+  <script>
+    /* =========================================================================
+       1. DATA STRUCTURES
+       ========================================================================= */
+
+    const dialogueLines = [
+      { speaker: "Maryem (A)", textAr: "عسلامة، لاباس؟", textLat: "3asslema, lebes?", textEn: "Hello, how are you?", role: "A", audio: "audio/conversation-01/dialogue-01-maryem.mp3" },
+      { speaker: "Sarah (B)", textAr: "عسلامة، لاباس. عيشك.", textLat: "3asslema, lebes. 3aychek.", textEn: "Hello, I’m fine. Thank you.", role: "B", audio: "audio/conversation-01/dialogue-02-sarah.mp3" },
+      { speaker: "Maryem (A)", textAr: "شنوة اسمك؟", textLat: "Chnouwa ismek?", textEn: "What’s your name?", role: "A", audio: "audio/conversation-01/dialogue-03-maryem.mp3" },
+      { speaker: "Sarah (B)", textAr: "اسمي سارة، وإنتي؟", textLat: "Ismi Sarah, w enti?", textEn: "My name is Sarah, and you?", role: "B", audio: "audio/conversation-01/dialogue-04-sarah.mp3" },
+      { speaker: "Maryem (A)", textAr: "اسمي مريم. منين إنتي؟", textLat: "Ismi Maryem. Mnin enti?", textEn: "My name is Maryem. Where are you from?", role: "A", audio: "audio/conversation-01/dialogue-05-maryem.mp3" },
+      { speaker: "Sarah (B)", textAr: "أنا من إيطاليا، وإنتي؟", textLat: "Ena men Italia, w enti?", textEn: "I’m from Italy, and you?", role: "B", audio: "audio/conversation-01/dialogue-06-sarah.mp3" },
+      { speaker: "Maryem (A)", textAr: "أنا من تونس.", textLat: "Ena men Tounes.", textEn: "I’m from Tunisia.", role: "A", audio: "audio/conversation-01/dialogue-07-maryem.mp3" },
+      { speaker: "Sarah (B)", textAr: "نتشرفو.", textLat: "Netcharfou.", textEn: "Nice to meet you.", role: "B", audio: "audio/conversation-01/dialogue-08-sarah.mp3" },
+      { speaker: "Maryem (A)", textAr: "وبيك أكثر.", textLat: "W bik akther.", textEn: "Nice to meet you too.", role: "A", audio: "audio/conversation-01/dialogue-09-maryem.mp3" }
+    ];
+
+    const chunks = [
+      { ar: "عسلامة", lat: "3asslema", en: "Hello", note: "The most common everyday greeting in Tunisia", audio: "audio/conversation-01/chunk-01-3asslema.mp3" },
+      { ar: "لاباس؟", lat: "lebes?", en: "How are you?", note: "Literally asks whether everything is fine", audio: "audio/conversation-01/chunk-02-lebes.mp3" },
+      { ar: "عيشك", lat: "3aychek", en: "Thank you", note: "A very common Tunisian reply", audio: "audio/conversation-01/chunk-03-3aychek.mp3" },
+      { ar: "شنوة اسمك؟", lat: "chnouwa ismek?", en: "What’s your name?", note: "Used here when speaking to a woman", audio: "audio/conversation-01/chunk-04-chnouwa-ismek.mp3" },
+      { ar: "اسمي...", lat: "ismi...", en: "My name is...", note: "Add your name after ismi", audio: "audio/conversation-01/chunk-05-ismi.mp3" },
+      { ar: "وإنتي؟", lat: "w enti?", en: "And you? (to a woman)", note: "Use it to return the same question", audio: "audio/conversation-01/chunk-06-w-enti.mp3" },
+      { ar: "منين إنتي؟", lat: "mnin enti?", en: "Where are you from?", note: "Question addressed to a woman", audio: "audio/conversation-01/chunk-07-mnin-enti.mp3" },
+      { ar: "أنا من...", lat: "ena men...", en: "I’m from...", note: "Add your country or city", audio: "audio/conversation-01/chunk-08-ena-men.mp3" },
+      { ar: "نتشرفو", lat: "netcharfou", en: "Nice to meet you", note: "A polite expression at a first meeting", audio: "audio/conversation-01/chunk-09-netcharfou.mp3" },
+      { ar: "وبيك أكثر", lat: "w bik akther", en: "Nice to meet you too", note: "The natural reply to netcharfou", audio: "audio/conversation-01/chunk-10-w-bik-akther.mp3" }
+    ];
+
+    const quizQuestions = [
+      {
+        promptText: "شنوة اسمك؟",
+        promptLat: "chnouwa ismek? (What's your name?)",
+        options: [
+          { ar: "اسمي سارة.", lat: "Ismi Sarah.", en: "My name is Sarah.", correct: true },
+          { ar: "أنا من فرنسا.", lat: "Ena men Fransa.", en: "I'm from France.", correct: false },
+          { ar: "أنا لاباس، الحمد لله.", lat: "Ena lebes, el-7amdoulillah.", en: "I’m fine, thank God.", correct: false }
+        ]
+      },
+      {
+        promptText: "منين إنتي؟",
+        promptLat: "mnin enti? (Where are you from?)",
+        options: [
+          { ar: "أنا لاباس، الحمد لله.", lat: "Ena lebes, el-7amdoulillah.", en: "I’m fine, thank God.", correct: false },
+          { ar: "أنا من إيطاليا.", lat: "Ena men Italia.", en: "I’m from Italy.", correct: true },
+          { ar: "اسمي مريم.", lat: "Ismi Maryem.", en: "My name is Maryem.", correct: false }
+        ]
+      }
+    ];
+
+    const builderItems = dialogueLines.map((line, index) => ({
+      id: String(index + 1), ar: line.textAr, lat: line.textLat, step: index + 1
+    }));
+
+    const roleplaySteps = [
+      {
+        prompt: "👉 Greet Maryem, say you are fine, and thank her.",
+        hint: "Say: عسلامة، لاباس. عيشك. (3asslema, lebes. 3aychek.)",
+        userReplyAr: "عسلامة، لاباس. عيشك.",
+        userReplyLat: "3asslema, lebes. 3aychek.",
+        maryemNextAr: "شنوة اسمك؟",
+        maryemNextLat: "Chnouwa ismek? (What’s your name?)"
+      },
+      {
+        prompt: "👉 Tell Maryem your name (Sarah) and ask for hers!",
+        hint: "Say: اسمي سارة. وإنتي؟ (Ismi Sarah. W enti?)",
+        userReplyAr: "اسمي سارة. وإنتي؟",
+        userReplyLat: "Ismi Sarah. W enti?",
+        maryemNextAr: "اسمي مريم. منين إنتي؟",
+        maryemNextLat: "Ismi Maryem. Mnin enti? (My name is Maryem. Where are you from?)"
+      },
+      {
+        prompt: "👉 Tell her you are from Italy and ask where she is from.",
+        hint: "Say: أنا من إيطاليا، وإنتي؟ (Ena men Italia, w enti?)",
+        userReplyAr: "أنا من إيطاليا، وإنتي؟",
+        userReplyLat: "Ena men Italia, w enti?",
+        maryemNextAr: "أنا من تونس.",
+        maryemNextLat: "Ena men Tounes. (I’m from Tunisia.)"
+      },
+      {
+        prompt: "👉 Tell Maryem that it is nice to meet her.",
+        hint: "Say: نتشرفو. (Netcharfou.)",
+        userReplyAr: "نتشرفو.",
+        userReplyLat: "Netcharfou.",
+        maryemNextAr: "وبيك أكثر.",
+        maryemNextLat: "W bik akther. (Nice to meet you too.)"
+      }
+    ];
+
+    let currentRoleplayIndex = 0;
+    let transcriptVisible = false;
+    let isPlayingFull = false;
+    let userBuilderSequence = [];
+
+    /* =========================================================================
+       2. RECORDED AUDIO PLAYER & FEEDBACK SOUNDS
+       ========================================================================= */
+
+    // Subtle audio effects using Web Audio API so it's 100% self-contained
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+    function playTone(freq, type = 'sine', duration = 0.12) {
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = type;
+      osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+      gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start();
+      osc.stop(audioCtx.currentTime + duration);
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('audioToast');
+      const text = document.getElementById('toastMsg');
+      text.textContent = msg;
+      toast.classList.remove('opacity-0', 'translate-y-20');
+      toast.classList.add('opacity-100', 'translate-y-0');
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-20');
+        toast.classList.remove('opacity-100', 'translate-y-0');
+      }, 1800);
+    }
+
+    let currentAudio = null;
+
+    function normalizedArabic(text) {
+      return String(text).replace(/[،.!؟?]/g, '').replace(/\s+/g, ' ').trim();
+    }
+
+    function findRecordedAudio(text) {
+      const key = normalizedArabic(text);
+      const dialogue = dialogueLines.find(line => normalizedArabic(line.textAr) === key);
+      if (dialogue) return { src: dialogue.audio, label: dialogue.textLat };
+      const chunk = chunks.find(item => normalizedArabic(item.ar) === key);
+      if (chunk) return { src: chunk.audio, label: chunk.lat };
+      return null;
+    }
+
+    function playRecording(src, label = 'Tunisian Arabic audio', rate = 1) {
+      if (!src) {
+        showToast('This recording will be added soon.');
+        return Promise.reject(new Error('Missing audio source'));
+      }
+      if (currentAudio) currentAudio.pause();
+      currentAudio = new Audio(src);
+      currentAudio.playbackRate = rate;
+      showToast(`🔊 ${label}`);
+      return currentAudio.play().catch(error => {
+        showToast('Recording not uploaded yet.');
+        throw error;
+      });
+    }
+
+    function playRecordingToEnd(src, label, rate = 1) {
+      return new Promise(resolve => {
+        if (currentAudio) currentAudio.pause();
+        currentAudio = new Audio(src);
+        currentAudio.playbackRate = rate;
+        currentAudio.addEventListener('ended', resolve, { once: true });
+        currentAudio.addEventListener('error', resolve, { once: true });
+        showToast(`🔊 ${label}`);
+        currentAudio.play().catch(resolve);
+      });
+    }
+
+    function speakText(text, rate = 1) {
+      const recording = findRecordedAudio(text);
+      if (!recording) {
+        showToast('Say this answer aloud using your own name or country.');
+        return;
+      }
+      playRecording(recording.src, recording.label, rate).catch(() => {});
+    }
+
+    /* =========================================================================
+       3. DIALOGUE LOGIC & TRANSCRIPT
+       ========================================================================= */
+
+    function renderDialogue() {
+      const container = document.getElementById('dialogueContainer');
+      container.innerHTML = dialogueLines.map((line, idx) => `
+        <div id="dialogue-line-${idx}" class="p-3.5 sm:p-4 rounded-2xl border ${line.role === 'A' ? 'bg-sand-50/60 border-sand-200/70' : 'bg-white border-sand-200'} transition-all duration-200 flex items-start justify-between gap-3 ${!transcriptVisible ? 'filter blur-[4.5px] select-none opacity-40' : ''}">
+          <div class="space-y-1 flex-1">
+            <div class="flex items-center gap-2">
+              <span class="text-[11px] font-bold ${line.role === 'A' ? 'text-terracotta-600 bg-terracotta-50' : 'text-azure-600 bg-azure-50'} px-2 py-0.5 rounded-full border border-current/20">
+                ${line.speaker}
+              </span>
+              <span class="text-xs text-ink-400 italic">${line.textLat}</span>
+            </div>
+            <div class="font-ar font-bold text-lg text-ink-900 pr-1 text-right sm:text-left">
+              ${line.textAr}
+            </div>
+            <div class="text-xs text-ink-500">
+              ${line.textEn}
+            </div>
+          </div>
+          <button onclick="playRecording('${line.audio}', '${line.textLat.replace(/'/g, "\\'")}', 1).catch(() => {}); highlightDialogueLine(${idx});" class="p-2 rounded-xl text-ink-400 hover:text-terracotta-600 hover:bg-white transition shrink-0" title="Listen line">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/></svg>
+          </button>
+        </div>
+      `).join('');
+    }
+
+    function toggleTranscript() {
+      transcriptVisible = !transcriptVisible;
+      const btnLabel = document.getElementById('toggleTranscriptLabel');
+      btnLabel.textContent = transcriptVisible ? "Hide transcript" : "Show transcript";
+      renderDialogue();
+      playTone(550, 'sine', 0.08);
+    }
+
+    function highlightDialogueLine(index) {
+      dialogueLines.forEach((_, i) => {
+        const el = document.getElementById(`dialogue-line-${i}`);
+        if (!el) return;
+        if (i === index) {
+          el.classList.add('ring-2', 'ring-terracotta-400', 'bg-terracotta-50/50');
+        } else {
+          el.classList.remove('ring-2', 'ring-terracotta-400', 'bg-terracotta-50/50');
+        }
+      });
+    }
+
+    async function playFullDialogue(speed = 1.0) {
+      if (isPlayingFull) return;
+      isPlayingFull = true;
+
+      const wave = document.getElementById('playingWave');
+      const mainBtnText = document.getElementById('masterPlayText');
+      wave.classList.remove('hidden');
+      wave.classList.add('flex');
+      mainBtnText.textContent = "Playing...";
+
+      for (let i = 0; i < dialogueLines.length; i++) {
+        highlightDialogueLine(i);
+        await playRecordingToEnd(dialogueLines[i].audio, dialogueLines[i].textLat, speed);
+        await new Promise(r => setTimeout(r, 350));
+      }
+
+      // Reset states
+      highlightDialogueLine(-1);
+      wave.classList.add('hidden');
+      wave.classList.remove('flex');
+      mainBtnText.textContent = "▶ Listen Normally";
+      isPlayingFull = false;
+      playTone(660, 'sine', 0.15);
+    }
+
+    /* =========================================================================
+       4. USEFUL CHUNKS CARDS
+       ========================================================================= */
+
+    function renderChunks() {
+      const grid = document.getElementById('chunksGrid');
+      grid.innerHTML = chunks.map((c) => `
+        <div class="bg-white p-4 rounded-2xl border border-sand-200 hover:border-sand-300 transition-shadow hover:shadow-sm flex items-center justify-between gap-3 group">
+          <div class="space-y-0.5">
+            <div class="flex items-center gap-2">
+              <span class="font-ar font-bold text-xl text-ink-900 group-hover:text-terracotta-600 transition-colors">${c.ar}</span>
+              <span class="text-xs text-ink-400 font-medium">${c.lat}</span>
+            </div>
+            <div class="text-xs font-semibold text-ink-700">${c.en}</div>
+            <div class="text-[11px] text-ink-400">${c.note}</div>
+          </div>
+          <button onclick="playRecording('${c.audio}', '${c.lat.replace(/'/g, "\\'")}', 1).catch(() => {})" class="w-10 h-10 rounded-xl bg-sand-50 hover:bg-terracotta-50 text-terracotta-600 flex items-center justify-center transition border border-sand-200/80 active:scale-95 shrink-0" title="Listen">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/></svg>
+          </button>
+        </div>
+      `).join('');
+    }
+
+    /* =========================================================================
+       5. CONVERSATION PATTERNS
+       ========================================================================= */
+
+    function updatePatternAnswers() {
+      // Just keeps the dynamic interaction reactive
+    }
+
+    function playCustomNameAnswer() {
+      showToast('Say your answer aloud: اسمي + your name');
+    }
+
+    function playCustomOriginAnswer() {
+      showToast('Say your answer aloud: أنا من + your country');
+    }
+
+    /* =========================================================================
+       6. LISTEN & CHOOSE (REACTION TRAINING)
+       ========================================================================= */
+
+    function renderQuiz() {
+      const container = document.getElementById('reactionQuizContainer');
+      container.innerHTML = quizQuestions.map((q, qIdx) => `
+        <div class="bg-white rounded-3xl border border-sand-200 p-5 sm:p-6 shadow-sm space-y-4">
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-0.5 rounded-full bg-sand-100 text-xs font-bold text-ink-600">Question ${qIdx + 1}</span>
+              <span class="text-xs text-ink-500">Listen to the prompt and choose the natural response:</span>
+            </div>
+            <button onclick="speakText('${q.promptText}', 0.9)" class="px-3 py-1.5 rounded-xl bg-terracotta-50 hover:bg-terracotta-100 text-terracotta-600 text-xs font-semibold flex items-center gap-1.5 transition">
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/></svg>
+              <span>Play Prompt</span>
+            </button>
+          </div>
+
+          <div class="p-3 bg-sand-50 rounded-2xl flex items-center justify-between">
+            <span class="font-ar font-bold text-xl text-ink-900">${q.promptText}</span>
+            <span class="text-xs text-ink-400 italic">${q.promptLat}</span>
+          </div>
+
+          <div class="grid sm:grid-cols-3 gap-2.5" id="q-options-${qIdx}">
+            ${q.options.map((opt, optIdx) => `
+              <button onclick="handleQuizAnswer(${qIdx}, ${optIdx}, ${opt.correct})" class="text-left p-3.5 rounded-2xl border border-sand-200 hover:border-sand-300 hover:bg-sand-50/70 transition flex flex-col justify-between gap-1 group">
+                <div class="flex items-center justify-between w-full">
+                  <span class="font-ar font-bold text-base text-ink-900 group-hover:text-terracotta-600 transition-colors">${opt.ar}</span>
+                  <span id="q-icon-${qIdx}-${optIdx}" class="w-4 h-4 rounded-full border border-sand-300 flex items-center justify-center text-[10px]"></span>
+                </div>
+                <span class="text-[11px] text-ink-400 italic">${opt.lat}</span>
+                <span class="text-[11px] text-ink-600 font-medium mt-1">${opt.en}</span>
+              </button>
+            `).join('')}
+          </div>
+          <div id="q-feedback-${qIdx}" class="hidden text-xs p-3 rounded-xl"></div>
+        </div>
+      `).join('');
+    }
+
+    function handleQuizAnswer(qIdx, optIdx, isCorrect) {
+      const feedback = document.getElementById(`q-feedback-${qIdx}`);
+      const icon = document.getElementById(`q-icon-${qIdx}-${optIdx}`);
+      feedback.classList.remove('hidden', 'bg-sage-50', 'text-sage-700', 'border-sage-200', 'bg-terracotta-50', 'text-terracotta-700', 'border-terracotta-200');
+
+      if (isCorrect) {
+        playTone(660, 'sine', 0.15);
+        setTimeout(() => playTone(880, 'sine', 0.2), 120);
+        feedback.className = "text-xs p-3 rounded-xl bg-sage-50 border border-sage-200 text-sage-800 flex items-center gap-2";
+        feedback.innerHTML = `<span>✅ <strong>Excellent response!</strong> That is the direct, conversational reply a Tunisian person expects.</span>`;
+        icon.className = "w-4 h-4 rounded-full bg-sage-500 text-white flex items-center justify-center text-[10px] font-bold";
+        icon.textContent = "✓";
+      } else {
+        playTone(240, 'triangle', 0.15);
+        feedback.className = "text-xs p-3 rounded-xl bg-terracotta-50 border border-terracotta-200 text-terracotta-800 flex items-center gap-2";
+        feedback.innerHTML = `<span>Try again: this doesn't answer the specific question asked above.</span>`;
+        icon.className = "w-4 h-4 rounded-full bg-terracotta-500 text-white flex items-center justify-center text-[10px] font-bold";
+        icon.textContent = "✕";
+      }
+    }
+
+    /* =========================================================================
+       7. ACTIVE RECALL ("WHAT WOULD YOU SAY?")
+       ========================================================================= */
+
+    function toggleModelAnswer(id) {
+      const el = document.getElementById(id);
+      el.classList.toggle('hidden');
+      playTone(500, 'sine', 0.05);
+    }
+
+    /* =========================================================================
+       8. CONVERSATION BUILDER
+       ========================================================================= */
+
+    function renderBuilder() {
+      const piecesContainer = document.getElementById('builderPieces');
+      const shuffled = [...builderItems].sort(() => 0.5 - Math.random());
+      piecesContainer.innerHTML = shuffled.map(item => `
+        <button id="builder-item-${item.id}" onclick="addBuilderPiece('${item.id}')" class="px-3.5 py-2 rounded-xl bg-sand-100 hover:bg-sand-200 border border-sand-200 text-ink-800 font-ar font-bold text-base flex items-center gap-2 transition active:scale-95">
+          <span>${item.ar}</span>
+          <span class="text-xs font-sans font-normal text-ink-500">(${item.lat})</span>
+        </button>
+      `).join('');
+      updateBuilderUI();
+    }
+
+    function addBuilderPiece(id) {
+      if (userBuilderSequence.includes(id)) return;
+      userBuilderSequence.push(id);
+      playTone(520, 'sine', 0.08);
+
+      const pieceBtn = document.getElementById(`builder-item-${id}`);
+      if (pieceBtn) pieceBtn.classList.add('opacity-30', 'pointer-events-none');
+
+      updateBuilderUI();
+      checkBuilderProgress();
+    }
+
+    function removeBuilderPiece(id) {
+      userBuilderSequence = userBuilderSequence.filter(item => item !== id);
+      playTone(400, 'sine', 0.05);
+
+      const pieceBtn = document.getElementById(`builder-item-${id}`);
+      if (pieceBtn) pieceBtn.classList.remove('opacity-30', 'pointer-events-none');
+
+      updateBuilderUI();
+      checkBuilderProgress();
+    }
+
+    function updateBuilderUI() {
+      const target = document.getElementById('builderSequence');
+      const emptyPrompt = document.getElementById('builderEmptyPrompt');
+
+      if (userBuilderSequence.length === 0) {
+        target.innerHTML = `<span id="builderEmptyPrompt" class="text-xs text-ink-400 italic">Click pieces below to assemble your conversation...</span>`;
+      } else {
+        target.innerHTML = userBuilderSequence.map((id, index) => {
+          const item = builderItems.find(i => i.id === id);
+          return `
+            <div class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white rounded-xl border border-sand-300 shadow-2xs font-ar font-bold text-ink-900 text-sm">
+              <span class="text-[10px] text-ink-400 font-sans">${index + 1}.</span>
+              <span>${item.ar}</span>
+              <button onclick="removeBuilderPiece('${id}')" class="ml-1 text-ink-300 hover:text-terracotta-500 font-sans font-normal text-xs" title="Remove">✕</button>
+            </div>
+          `;
+        }).join('');
+      }
+    }
+
+    function resetConversationBuilder() {
+      userBuilderSequence = [];
+      const feedback = document.getElementById('builderFeedback');
+      feedback.className = "hidden";
+      renderBuilder();
+    }
+
+    function checkBuilderProgress() {
+      const feedback = document.getElementById('builderFeedback');
+      if (userBuilderSequence.length === builderItems.length) {
+        // Verify sequence order 1, 2, 3, 4, 5
+        const isCorrect = userBuilderSequence.every((id, idx) => id === String(idx + 1));
+        feedback.classList.remove('hidden');
+
+        if (isCorrect) {
+          playTone(660, 'sine', 0.15);
+          setTimeout(() => playTone(880, 'sine', 0.25), 120);
+          feedback.className = "p-4 rounded-2xl bg-sage-50 border border-sage-200 text-xs sm:text-sm text-sage-800 space-y-2";
+          feedback.innerHTML = `
+            <div class="font-bold flex items-center gap-2">
+              <span>🎉 Perfect Conversation Flow!</span>
+            </div>
+            <p>You arranged the dialogue in the most authentic order: Greeting → Well-being check → Name introduction → Origin inquiry → Polite parting.</p>
+            <button onclick="playBuilderAudio()" class="mt-1 px-4 py-1.5 bg-sage-600 hover:bg-sage-700 text-white rounded-xl text-xs font-semibold flex items-center gap-1.5 transition">
+              <span>▶ Play full sequence audio</span>
+            </button>
+          `;
+        } else {
+          feedback.className = "p-4 rounded-2xl bg-terracotta-50 border border-terracotta-200 text-xs sm:text-sm text-terracotta-800";
+          feedback.innerHTML = `Almost there! The order isn't quite natural yet. Think: Do you introduce your name before you ask how they are? Click <strong>Reset</strong> and give it one more shot!`;
+        }
+      } else {
+        feedback.className = "hidden";
+      }
+    }
+
+    function playBuilderAudio() {
+      playFullDialogue(1);
+    }
+
+    /* =========================================================================
+       9. LIVE ROLE-PLAY FINAL CHALLENGE
+       ========================================================================= */
+
+    function toggleRoleplayHint() {
+      const box = document.getElementById('roleplayHintBox');
+      const step = roleplaySteps[currentRoleplayIndex];
+      box.textContent = step.hint;
+      box.classList.toggle('hidden');
+    }
+
+    function submitRoleplayStep() {
+      if (currentRoleplayIndex >= roleplaySteps.length) return;
+
+      const current = roleplaySteps[currentRoleplayIndex];
+      const thread = document.getElementById('roleplayThread');
+
+      // 1. Append User's Turn
+      const userBubble = document.createElement('div');
+      userBubble.className = "flex items-start justify-end gap-3";
+      userBubble.innerHTML = `
+        <div class="bg-terracotta-500 text-white p-3.5 rounded-2xl rounded-tr-sm shadow-2xs max-w-sm space-y-1 text-right">
+          <span class="text-[11px] font-semibold text-terracotta-100 block">You</span>
+          <p class="font-ar font-bold text-lg text-white">${current.userReplyAr}</p>
+          <p class="text-xs text-terracotta-100 italic">${current.userReplyLat}</p>
+        </div>
+        <div class="w-8 h-8 rounded-full bg-terracotta-200 text-xs font-bold text-terracotta-700 flex items-center justify-center shrink-0">
+          You
+        </div>
+      `;
+      thread.appendChild(userBubble);
+      speakText(current.userReplyAr, 0.9);
+
+      // Scroll box
+      const box = document.getElementById('roleplayBox');
+      box.scrollTop = box.scrollHeight;
+
+      // 2. Maryem Replies after short pause
+      setTimeout(() => {
+        const maryemBubble = document.createElement('div');
+        maryemBubble.className = "flex items-start gap-3";
+        maryemBubble.innerHTML = `
+          <div class="w-8 h-8 rounded-full bg-sand-200 text-xs font-bold text-ink-700 flex items-center justify-center shrink-0">
+            M
+          </div>
+          <div class="bg-white p-3.5 rounded-2xl rounded-tl-sm border border-sand-200 shadow-2xs max-w-sm space-y-1">
+            <span class="text-[11px] font-semibold text-terracotta-500 block">Maryem</span>
+            <p class="font-ar font-bold text-lg text-ink-900">${current.maryemNextAr}</p>
+            <p class="text-xs text-ink-400 italic">${current.maryemNextLat}</p>
+          </div>
+          <button onclick="speakText('${current.maryemNextAr.replace(/'/g, "\\'")}', 0.9)" class="mt-2 text-ink-400 hover:text-terracotta-500">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/></svg>
+          </button>
+        `;
+        thread.appendChild(maryemBubble);
+        speakText(current.maryemNextAr, 0.9);
+        box.scrollTop = box.scrollHeight;
+
+        currentRoleplayIndex++;
+        advanceRoleplayController();
+      }, 1000);
+    }
+
+    function advanceRoleplayController() {
+      const hintBox = document.getElementById('roleplayHintBox');
+      hintBox.classList.add('hidden');
+
+      if (currentRoleplayIndex < roleplaySteps.length) {
+        document.getElementById('roleplayStepCount').textContent = `Step ${currentRoleplayIndex + 1} of 4`;
+        document.getElementById('roleplayPromptText').textContent = roleplaySteps[currentRoleplayIndex].prompt;
+      } else {
+        // Complete!
+        document.getElementById('roleplayStepCount').textContent = `Completed! 🎉`;
+        document.getElementById('roleplayPromptText').innerHTML = `
+          <span class="text-sage-600 font-bold">Mabrouk! You just completed your first full Tunisian conversation without looking at a script!</span>
+        `;
+        const speakBtn = document.getElementById('roleplaySpeakAction');
+        speakBtn.textContent = "Restart Role-Play";
+        speakBtn.onclick = resetRoleplay;
+      }
+    }
+
+    function resetRoleplay() {
+      currentRoleplayIndex = 0;
+      document.getElementById('roleplayThread').innerHTML = '';
+      document.getElementById('roleplayStepCount').textContent = "Step 1 of 4";
+      document.getElementById('roleplayPromptText').textContent = roleplaySteps[0].prompt;
+      const speakBtn = document.getElementById('roleplaySpeakAction');
+      speakBtn.innerHTML = `
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/></svg>
+        <span>Play Model Response</span>
+      `;
+      speakBtn.onclick = submitRoleplayStep;
+      document.getElementById('roleplayHintBox').classList.add('hidden');
+    }
+
+    /* =========================================================================
+       INITIALIZATION
+       ========================================================================= */
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderDialogue();
+      renderChunks();
+      renderQuiz();
+      renderBuilder();
+      
+    });
+  </script>
+</body>
+</html>
