@@ -83,7 +83,7 @@
     settingsButton.hidden = true;
 
     document.body.appendChild(banner);
-    document.body.appendChild(settingsButton);
+    (document.querySelector("footer") || document.body).appendChild(settingsButton);
 
     function showBanner() {
       banner.hidden = false;
