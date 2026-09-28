@@ -78,12 +78,17 @@
     const settingsButton = document.createElement("button");
     settingsButton.type = "button";
     settingsButton.className = "cookie-settings-button";
-    settingsButton.textContent = "Cookie settings";
+    settingsButton.textContent = "Privacy & cookies";
     settingsButton.setAttribute("aria-controls", "cookieConsent");
     settingsButton.hidden = true;
 
     document.body.appendChild(banner);
-    (document.querySelector("footer") || document.body).appendChild(settingsButton);
+    const privacyBar = document.createElement("div");
+    privacyBar.className = "cookie-privacy-bar";
+    privacyBar.appendChild(settingsButton);
+    const header = document.querySelector("header");
+    if (header) header.insertAdjacentElement("afterend", privacyBar);
+    else document.body.insertBefore(privacyBar, document.body.firstChild);
 
     function showBanner() {
       banner.hidden = false;
