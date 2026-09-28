@@ -1,6 +1,11 @@
 .cookie-consent {
   position: fixed;
-  inset: auto 16px 16px 16px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% - 32px);
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
   z-index: 10000;
   max-width: 720px;
   margin: 0 auto;
@@ -13,8 +18,9 @@
   font-family: "Poppins", sans-serif;
 }
 
-.cookie-consent[hidden] {
-  display: none;
+.cookie-consent[hidden],
+.cookie-settings-button[hidden] {
+  display: none !important;
 }
 
 .cookie-consent h2 {
@@ -63,10 +69,10 @@
 }
 
 .cookie-settings-button {
-  position: fixed;
-  right: 14px;
-  bottom: 14px;
-  z-index: 9999;
+  position: static;
+  display: block;
+  margin: 20px auto;
+  width: fit-content;
   min-height: 38px;
   padding: 8px 13px;
   color: #6f2944;
@@ -77,7 +83,7 @@
 
 @media (max-width: 520px) {
   .cookie-consent {
-    inset: auto 10px 10px 10px;
+    width: calc(100% - 20px);
     padding: 17px;
   }
 
