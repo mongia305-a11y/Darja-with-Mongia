@@ -9,9 +9,12 @@
   window["ga-disable-" + measurementId] = true;
 
   function loadAnalytics() {
+    window["ga-disable-" + measurementId] = false;
+    if (typeof window.gtag === "function") {
+      window.gtag("consent", "update", { analytics_storage: "granted" });
+    }
     if (analyticsLoaded) return;
     analyticsLoaded = true;
-    window["ga-disable-" + measurementId] = false;
 
     window.dataLayer = window.dataLayer || [];
     window.gtag = window.gtag || function () {
@@ -60,7 +63,7 @@
   }
 
   function createControls() {
-    const banner = document.createElement("section");
+    const banner = document.createElement("dialog");
     banner.className = "cookie-consent";
     banner.id = "cookieConsent";
     banner.setAttribute("role", "dialog");
@@ -92,11 +95,13 @@
 
     function showBanner() {
       banner.hidden = false;
+      if (!banner.open) banner.showModal();
       settingsButton.hidden = true;
       banner.querySelector("button").focus();
     }
 
     function hideBanner() {
+      banner.close();
       banner.hidden = true;
       settingsButton.hidden = false;
     }
@@ -115,9 +120,13 @@
       hideBanner();
     });
 
+    banner.addEventListener("cancel", function (event) {
+      event.preventDefault();
+    });
     settingsButton.addEventListener("click", showBanner);
 
     const consent = readConsent();
+    const openPrivacy = new URLSearchParams(window.location.search).get("privacy") === "open";
     if (consent === "accepted") {
       loadAnalytics();
       settingsButton.hidden = false;
@@ -126,6 +135,7 @@
     } else {
       showBanner();
     }
+    if (openPrivacy) showBanner();
   }
 
   if (document.readyState === "loading") {
