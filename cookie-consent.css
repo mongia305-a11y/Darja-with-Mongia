@@ -1,14 +1,13 @@
 .cookie-consent {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  inset: 0;
+  box-sizing: border-box;
   width: calc(100% - 32px);
   max-height: calc(100dvh - 32px);
   overflow-y: auto;
   z-index: 10000;
   max-width: 720px;
-  margin: 0 auto;
+  margin: auto;
   padding: 20px;
   color: #2f2430;
   background: #fffaf7;
@@ -101,3 +100,5 @@
 .cookie-privacy-bar { display: flex; justify-content: center; padding: 8px 16px; background: #f9f7ff; }
 .cookie-privacy-bar .cookie-settings-button { position: static; margin: 0; min-height: 38px; }
 .cookie-privacy-bar:has(.cookie-settings-button[hidden]) { display: none; }
+
+.cookie-consent::backdrop { background: rgba(47, 36, 48, 0.45); }
