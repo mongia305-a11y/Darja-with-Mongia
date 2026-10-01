@@ -52,6 +52,12 @@
 .darja-newsletter-close:hover { background: #f8dce8; transform: none; opacity: 1; }
 .darja-newsletter-close:focus-visible { outline: 3px solid #8e526d; outline-offset: 3px; }
 .darja-newsletter-slot { margin: 0; }
+.darja-newsletter-fallback { padding: 28px 32px 8px; }
+.darja-newsletter-fallback[hidden] { display: none; }
+.darja-newsletter-fallback h2 { margin: 0 0 16px; font: 500 30px/1.2 Georgia, "Times New Roman", serif; }
+.darja-newsletter-fallback p { margin: 0; font-size: 16px; }
+.darja-newsletter-help { margin: 0; padding: 16px 24px; text-align: center; font-size: 14px; }
+.darja-newsletter-help a { color: #78465f; text-decoration: underline; }
 .darja-newsletter-dialog .formkit-form[data-uid="bcbed786bc"],
 #newsletter .formkit-form[data-uid="bcbed786bc"] { width: 100%; max-width: 1000px; margin: 0 auto; overflow: hidden; }
 .darja-newsletter-dialog .formkit-form[data-uid="bcbed786bc"] { border: 0; border-radius: 0 !important; }
