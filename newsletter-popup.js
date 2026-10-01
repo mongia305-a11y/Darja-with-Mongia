@@ -6,7 +6,10 @@
   const uid = 'bcbed786bc';
   const key = 'darjaNewsletterPreference';
   const week = 7 * 24 * 60 * 60 * 1000;
-  const selector = 'form[data-uid="' + uid + '"]';
+  const selector = 'form[data-darja-signup]';
+  // Local markup remains visible even if Kit's scripts are blocked by a browser.
+  const formHTML = "<form class=\"darja-signup\" data-darja-signup data-sv-form=\"9978820\" data-uid=\"bcbed786bc\" data-format=\"inline\" data-version=\"5\" data-options='{\"settings\":{\"after_subscribe\":{\"action\":\"message\",\"success_message\":\"Success! Now check your email to confirm your subscription.\"},\"recaptcha\":{\"enabled\":false},\"return_visitor\":{\"action\":\"show\"}}}' action=\"https://app.kit.com/forms/9978820/subscriptions\" method=\"post\">\n  <div class=\"darja-signup-layout\">\n    <div class=\"darja-signup-picture\" aria-hidden=\"true\"></div>\n    <div class=\"darja-signup-content\">\n      <h2>Keep learning Tunisian Arabic!</h2>\n      <ul class=\"darja-signup-errors\" data-element=\"errors\" role=\"alert\"></ul>\n      <div class=\"darja-signup-fields\" data-element=\"fields\">\n        <label>Email Address\n          <input name=\"email_address\" type=\"email\" autocomplete=\"email\" inputmode=\"email\" placeholder=\"Email Address\" required>\n        </label>\n        <button type=\"submit\" data-element=\"submit\"><span>Keep me updated</span></button>\n      </div>\n      <p>Get email updates from Darja with Mongia about new lessons.</p>\n      <p>We respect your privacy. Unsubscribe at any time.</p>\n      <a class=\"darja-signup-provider\" href=\"https://kit.com/\" target=\"_blank\" rel=\"noopener\">Built with Kit</a>\n    </div>\n  </div>\n</form>";
+  let clientLoading = false;
   let timer, retry, dialog, slot, fallback, form, origin, nextSibling, previousFocus;
   let dismissed = false;
   let subscribed = false;
@@ -34,7 +37,7 @@
 
   function privacyReady() {
     const privacy = document.getElementById('cookieConsent');
-    return !!privacy && privacy.hidden && !privacy.open;
+    return !privacy || privacy.hidden && !privacy.open;
   }
 
   function busy() {
@@ -115,33 +118,47 @@
   function loadForm() {
     if (loading) return;
     loading = true;
-    // The homepage already owns a Kit embed. Reuse it rather than duplicating fields.
-    if (document.querySelector('script[data-uid="' + uid + '"]')) return;
+    if (document.querySelector(selector)) return;
     const host = document.createElement('div');
     host.hidden = true;
     host.id = 'darjaNewsletterSource';
-    const script = document.createElement('script');
-    script.async = true;
-    script.dataset.uid = uid;
-    script.src = 'https://darja-with-mongia.kit.com/' + uid + '/index.js?v=20261001';
-    host.appendChild(script);
+    host.innerHTML = formHTML;
     document.body.appendChild(host);
   }
 
-  function attemptOpen() {
-    if (suppressed() || !privacyReady()) return;
-    if (busy()) { retry = setTimeout(attemptOpen, 2000); return; }
+  function loadClient() {
+    if (clientLoading || !document.querySelector(selector)) return;
+    clientLoading = true;
+    // Optional enhancement handles Kit's confirmations. HTML POST still works
+    // without this script; the script never creates or controls the form layout.
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://f.convertkit.com/ckjs/ck.5.js';
+    document.body.appendChild(script);
+  }
+
+  function attemptOpen(manual) {
+    if ((!manual && suppressed()) || !privacyReady()) return false;
+    if (dialog && dialog.open) return true;
+    if (typeof HTMLDialogElement === 'undefined') return false;
+    if (busy()) {
+      if (!manual) retry = setTimeout(() => attemptOpen(false), 2000);
+      return false;
+    }
     form = document.querySelector(selector);
     if (!usableForm(form)) {
       loadForm();
-      if (loadAttempts++ < 20) { retry = setTimeout(attemptOpen, 1000); return; }
+      form = document.querySelector(selector);
+    }
+    if (!usableForm(form)) {
+      if (loadAttempts++ < 20) { retry = setTimeout(() => attemptOpen(manual), 1000); return false; }
       // Never open a header-only popup if an embed is blocked, stale or incomplete.
       form = null;
     }
     if (form) enhanceForm(form);
     // Do not interrupt a visitor who has already reached the inline signup form.
     const bounds = form && form.getBoundingClientRect();
-    if (bounds && bounds.height > 0 && bounds.top < window.innerHeight && bounds.bottom > 0) return;
+    if (!manual && bounds && bounds.height > 0 && bounds.top < window.innerHeight && bounds.bottom > 0) return false;
     if (!dialog) createDialog();
     origin = form && form.parentNode;
     nextSibling = form && form.nextSibling;
@@ -150,6 +167,8 @@
     dialog.showModal();
     updateFallback();
     document.documentElement.classList.add('darja-newsletter-open');
+    loadClient();
+    return true;
   }
 
   function schedule() {
@@ -160,14 +179,21 @@
       closePopup(false);
       return;
     }
+    loadClient();
     if (suppressed() || /placement-test\.html$/.test(location.pathname)) return;
     timer = setTimeout(() => { elapsed = true; attemptOpen(); }, 15000);
   }
 
   function init() {
     const privacy = document.getElementById('cookieConsent');
-    if (!privacy) return;
-    new MutationObserver(schedule).observe(privacy, { attributes: true, attributeFilter: ['open', 'hidden'] });
+    if (privacy) new MutationObserver(schedule).observe(privacy, { attributes: true, attributeFilter: ['open', 'hidden'] });
+    document.addEventListener('click', event => {
+      const link = event.target.closest('a[href]');
+      if (!link || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button) return;
+      const url = new URL(link.href, location.href);
+      if (url.origin !== location.origin || url.hash !== '#newsletter' || !privacyReady()) return;
+      if (attemptOpen(true)) event.preventDefault();
+    });
     const forms = new MutationObserver(() => {
       const candidate = document.querySelector(selector);
       if (candidate) { enhanceForm(candidate); forms.disconnect(); }
@@ -178,7 +204,7 @@
     document.addEventListener('visibilitychange', () => {
       if (elapsed && document.visibilityState === 'visible' && !(dialog && dialog.open)) {
         clearTimeout(retry);
-        attemptOpen();
+        attemptOpen(false);
       }
     });
     window.addEventListener('storage', event => {

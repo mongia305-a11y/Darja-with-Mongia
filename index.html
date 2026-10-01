@@ -14,15 +14,15 @@
   <style>
     .newsletter-section { padding: 64px 5%; scroll-margin-top: 180px; }
     .newsletter-inner { max-width: 1000px; margin: 0 auto; }
-    .newsletter-inner .formkit-form { width: 100%; margin: 0 auto; }
+    .newsletter-inner .darja-signup { width: 100%; margin: 0 auto; }
     .newsletter-help { margin: 18px 0 0; text-align: center; font-size: 14px; color: #595959; }
     .newsletter-help a, .hero-newsletter-link { color: #69475a; text-underline-offset: 4px; }
     .hero-newsletter-link { display: inline-block; margin-top: 18px; font-size: 15px; font-weight: 600; }
     .hero-newsletter-link:focus-visible, .newsletter-help a:focus-visible { outline: 3px solid #69475a; outline-offset: 4px; }
     @media (max-width: 600px) { .newsletter-section { padding: 44px 5%; } }
   </style>
-  <link rel="stylesheet" href="newsletter-popup.css?v=2">
-  <script src="newsletter-popup.js?v=2" defer></script>
+  <link rel="stylesheet" href="newsletter-popup.css?v=3">
+  <script src="newsletter-popup.js?v=3" defer></script>
 </head>
 
 <body>
@@ -291,7 +291,24 @@ with <em>Darja with Mongia.</em>
 
 <section class="newsletter-section" id="newsletter" aria-label="Email updates from Darja with Mongia">
   <div class="newsletter-inner">
-    <script async data-uid="bcbed786bc" src="https://darja-with-mongia.kit.com/bcbed786bc/index.js?v=20261001"></script>
+    <form class="darja-signup" data-darja-signup data-sv-form="9978820" data-uid="bcbed786bc" data-format="inline" data-version="5" data-options='{"settings":{"after_subscribe":{"action":"message","success_message":"Success! Now check your email to confirm your subscription."},"recaptcha":{"enabled":false},"return_visitor":{"action":"show"}}}' action="https://app.kit.com/forms/9978820/subscriptions" method="post">
+      <div class="darja-signup-layout">
+        <div class="darja-signup-picture" aria-hidden="true"></div>
+        <div class="darja-signup-content">
+          <h2>Keep learning Tunisian Arabic!</h2>
+          <ul class="darja-signup-errors" data-element="errors" role="alert"></ul>
+          <div class="darja-signup-fields" data-element="fields">
+            <label>Email Address
+              <input name="email_address" type="email" autocomplete="email" inputmode="email" placeholder="Email Address" required>
+            </label>
+            <button type="submit" data-element="submit"><span>Keep me updated</span></button>
+          </div>
+          <p>Get email updates from Darja with Mongia about new lessons.</p>
+          <p>We respect your privacy. Unsubscribe at any time.</p>
+          <a class="darja-signup-provider" href="https://kit.com/" target="_blank" rel="noopener">Built with Kit</a>
+        </div>
+      </div>
+    </form>
     <p class="newsletter-help">Can't see the form? <a href="https://darja-with-mongia.kit.com/bcbed786bc">Subscribe to email updates here</a>.</p>
   </div>
 </section>
@@ -543,4 +560,3 @@ Darja with Mongia was created to make Tunisian Arabic accessible through clear, 
 </script>
 </body>
 </html>
-
