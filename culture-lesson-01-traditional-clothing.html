@@ -232,12 +232,6 @@
 
   /* Only one recording plays at a time. No synthetic pronunciation fallback. */
   .toast { position:fixed; z-index:150; left:50%; bottom:22px; transform:translateX(-50%); padding:13px 18px; max-width:calc(100% - 32px); width:max-content; background:var(--ink); color:#fff; border-radius:14px; box-shadow:var(--shadow); font-size:12px; text-align:center; }
-  .audio-dock { position:fixed; z-index:130; right:22px; bottom:20px; display:flex; align-items:center; gap:16px; width:min(490px,calc(100% - 32px)); padding:12px 14px; border:1px solid var(--line); border-radius:20px; background:#fff; box-shadow:0 10px 34px rgba(63,50,70,.18); }
-  .audio-title { min-width:90px; color:var(--rose-deep); font-size:11px; }
-  .audio-title .ar { display:block; font-size:22px; }
-  .audio-dock audio { min-width:0; width:100%; height:40px; }
-  .audio-close { border:0; flex-shrink:0; background:var(--cream); width:44px; height:44px; border-radius:50%; font-size:22px; }
-  body.audio-open { padding-bottom:105px; }
 
   @media (max-width:1000px) {
     .hero-grid { gap:30px; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); }
@@ -323,18 +317,13 @@
     .review-table td { font-size:11px; }
     .review-table .ar { font-size:23px; }
     .self-check { padding:25px 22px; }
-    .audio-dock { right:16px; bottom:16px; flex-wrap:wrap; gap:7px; padding:10px 13px; }
-    .audio-title { flex:1; }
-    .audio-title .ar { display:inline; margin-inline-end:9px; }
-    .audio-dock audio { order:3; flex-basis:100%; height:36px; }
-    body.audio-open { padding-bottom:140px; }
   }
   @media (prefers-reduced-motion:reduce) {
     html { scroll-behavior:auto; }
     *,*::before,*::after { transition:none!important; animation:none!important; }
   }
   @media print {
-    .navbar,.lessonbar,.back-link,.hero-cta,.listen-btn,.quiz-next,.toast,.audio-dock,.sources,.site-footer { display:none!important; }
+    .navbar,.lessonbar,.back-link,.hero-cta,.listen-btn,.quiz-next,.toast,.sources,.site-footer { display:none!important; }
     body { background:#fff; font-size:11pt; }
     .wrap { width:100%; }
     .section { padding:16px 0; }
@@ -567,11 +556,7 @@
   </main>
   <footer class="site-footer"><div class="wrap footer-inner"><p>© Darja with Mongia · Culture Lesson 01</p><p>Learn the language. Discover the culture.</p><a href="#top">Back to top ↑</a></div></footer>
   <div class="toast" id="audioNotice" role="status" aria-live="polite" hidden></div>
-  <aside class="audio-dock" id="audioDock" aria-label="Lesson audio player" hidden>
-    <div class="audio-title"><span class="ar" id="audioTitle" lang="ar" dir="rtl"></span><span id="audioLatin" lang="ar-Latn"></span></div>
-    <audio id="lessonAudio" controls preload="none" aria-label="Tunisian Arabic pronunciation recording"></audio>
-    <button class="audio-close" id="closeAudio" type="button" aria-label="Close audio player">×</button>
-  </aside>
+  <audio id="lessonAudio" preload="none" hidden aria-hidden="true"></audio>
   <script type="application/json" id="audioAssets">[{"id": "jebba", "text": "الجُبّة", "latin": "ej-jebba", "file": "audio/culture-lesson-01/jebba.mp3"}, {"id": "tabdila", "text": "التبديلة", "latin": "et-tabdila", "file": "audio/culture-lesson-01/tabdila.mp3"}, {"id": "sefsari", "text": "السفساري", "latin": "es-sefsari", "file": "audio/culture-lesson-01/sefsari.mp3"}, {"id": "chechia", "text": "الشاشية", "latin": "ech-chechia", "file": "audio/culture-lesson-01/chechia.mp3"}, {"id": "farmla", "text": "الفرملة", "latin": "el-farmla", "file": "audio/culture-lesson-01/farmla.mp3"}, {"id": "barnous", "text": "البرنوس", "latin": "el-barnous", "file": "audio/culture-lesson-01/barnous.mp3"}, {"id": "hedhi-chechia", "text": "هاذي شاشية.", "latin": "Hedhi chechia.", "file": "audio/culture-lesson-01/hedhi-chechia.mp3"}, {"id": "hedha-barnous", "text": "هذا برنوس.", "latin": "Hedha barnous.", "file": "audio/culture-lesson-01/hedha-barnous.mp3"}, {"id": "ma7leha-el-lebsa", "text": "محلاها اللبسة!", "latin": "Ma7leha el-lebsa!", "file": "audio/culture-lesson-01/ma7leha-el-lebsa.mp3"}]</script>
   <script>
   (() => {
@@ -610,11 +595,10 @@
     const audioAssets = JSON.parse(document.getElementById('audioAssets').textContent);
     const audioMap = new Map(audioAssets.map(item => [item.id, item]));
     const audio = document.getElementById('lessonAudio');
-    const dock = document.getElementById('audioDock');
     const notice = document.getElementById('audioNotice');
     const playIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 10 7-10 7z" fill="currentColor"/></svg>';
     const pauseIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zm6 0h4v14h-4z" fill="currentColor"/></svg>';
-    let audioKey = null, requestVersion = 0, noticeTimer = null, lastAudioButton = null;
+    let audioKey = null, requestVersion = 0, noticeTimer = null;
     const syncButtons = () => {
       document.querySelectorAll('[data-audio]').forEach(button => {
         const item = audioMap.get(button.dataset.audio);
@@ -631,20 +615,17 @@
       notice.hidden = false;
       noticeTimer = setTimeout(() => { notice.hidden = true; }, 4800);
     };
-    const closePlayer = () => {
+    const pauseAudio = () => {
       requestVersion++;
       audio.pause();
-      dock.hidden = true;
-      document.body.classList.remove('audio-open');
       syncButtons();
     };
     for (const button of document.querySelectorAll('[data-audio]')) {
       button.dataset.originalLabel = button.querySelector('span').textContent;
       button.addEventListener('click', async () => {
-        lastAudioButton = button;
         const item = audioMap.get(button.dataset.audio);
         if (audioKey === item.id && !audio.paused && !audio.ended) {
-          audio.pause();
+          pauseAudio();
           return;
         }
         const version = ++requestVersion;
@@ -652,8 +633,6 @@
         if (audioKey !== item.id) {
           audioKey = item.id;
           audio.src = item.file;
-          document.getElementById('audioTitle').textContent = item.text;
-          document.getElementById('audioLatin').textContent = item.latin;
         } else if (audio.ended) {
           audio.currentTime = 0;
         }
@@ -661,30 +640,18 @@
           await audio.play();
           if (version !== requestVersion) return;
           notice.hidden = true;
-          dock.hidden = false;
-          document.body.classList.add('audio-open');
           syncButtons();
         } catch (error) {
           if (version !== requestVersion || error.name === 'AbortError') return;
-          dock.hidden = true;
-          document.body.classList.remove('audio-open');
-          showNotice(`Recording coming soon: ${item.latin}`);
+          showNotice(`Could not play ${item.latin}. Please try again.`);
           syncButtons();
         }
       });
     }
     ['play','pause','ended'].forEach(eventName => audio.addEventListener(eventName,syncButtons));
-    audio.addEventListener('error', () => {
-      dock.hidden = true;
-      document.body.classList.remove('audio-open');
-      syncButtons();
-    });
-    document.getElementById('closeAudio').addEventListener('click', () => {
-      closePlayer();
-      if (lastAudioButton) lastAudioButton.focus();
-    });
+    audio.addEventListener('error', syncButtons);
     document.addEventListener('keydown', event => {
-      if (event.key === 'Escape' && !dock.hidden) closePlayer();
+      if (event.key === 'Escape' && !audio.paused) pauseAudio();
     });
     document.addEventListener('visibilitychange', () => { if (document.hidden) audio.pause(); });
 
