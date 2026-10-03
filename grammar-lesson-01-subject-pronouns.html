@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f9f7ff">
+  <title>Grammar Lesson 01 — Subject Pronouns | Darja with Mongia</title>
+  <meta name="description" content="Learn seven Tunisian Arabic subject pronouns, build simple sentences, practise a short conversation and try an interactive beginner quiz with Darja with Mongia.">
+  <link rel="canonical" href="https://darjawithmongia.com/grammar-lesson-01-subject-pronouns.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&amp;family=Noto+Naskh+Arabic:wght@400;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="cookie-consent.css?v=1"><script src="cookie-consent.js?v=1" defer></script>
+  <style>
+  
+  /* Page-specific styles adapted from the current Darja with Mongia lesson theme. */
+  :root {
+    --cream:#f9f7ff; --cream2:#f2eaf4; --paper:#fff;
+    --ink:#3f4c4a; --body:#46505b; --muted:#68717d; --arabic:#536577;
+    --rose:#e9a6c3; --rose-soft:#f8dce8; --rose-deep:#8f4b6a;
+    --rose-hover:#dfa0bd; --line:#eadfe7;
+    --mint:#e8f0eb; --peach:#f9e9e2; --sand:#f6efdf; --sky:#e8eef4;
+    --shadow:0 12px 28px rgba(70,62,77,.07);
+    --radius:24px; --header-height:76px;
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; scroll-padding-top:calc(var(--header-height) + 22px); }
+  body { margin:0; color:var(--body); background:var(--cream); font-family:'Poppins',system-ui,sans-serif; font-size:15px; line-height:1.75; }
+  button, input, audio { font:inherit; }
+  button { color:inherit; cursor:pointer; }
+  button:disabled { cursor:default; }
+  a { color:inherit; text-decoration:none; }
+  img { max-width:100%; display:block; }
+  svg { flex-shrink:0; }
+  h1,h2,h3,p,figure { margin:0; }
+  h1,h2 { color:var(--ink); font-family:Georgia,'Times New Roman',serif; font-weight:500; }
+  h2 { font-size:clamp(30px,3.3vw,42px); line-height:1.18; letter-spacing:-.8px; }
+  h2 em { color:var(--rose-deep); font-weight:400; }
+  .ar { color:var(--arabic); font-family:'Noto Naskh Arabic',Georgia,serif; font-weight:600; line-height:1.6; letter-spacing:0; }
+  [hidden] { display:none!important; }
+  :focus-visible { outline:3px solid var(--rose-deep); outline-offset:4px; }
+  ::selection { background:var(--rose-soft); color:var(--ink); }
+  .wrap { width:min(1120px,calc(100% - 48px)); margin-inline:auto; }
+  .skip-link { position:fixed; left:16px; top:12px; z-index:2000; background:white; padding:10px 18px; border:2px solid var(--rose-deep); border-radius:12px; transform:translateY(-170%); }
+  .skip-link:focus { transform:none; }
+  .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+
+  /* Existing website navigation and its visible mobile layout. */
+  .navbar { position:sticky; top:0; z-index:100; min-height:76px; padding:5px 22px; display:flex; align-items:center; background:#fff; box-shadow:0 4px 20px rgba(0,0,0,.05); }
+  .brand-logo { display:flex; align-items:center; }
+  .brand-logo img { width:153px; height:56px; object-fit:contain; }
+  .site-nav { position:absolute; left:50%; transform:translateX(-50%); display:flex; align-items:center; gap:23px; }
+  .site-nav a { padding:8px 0; font-size:18px; font-weight:500; color:#444; white-space:nowrap; }
+  .site-nav a:hover { color:var(--rose-deep); }
+  .site-nav .active { color:var(--rose-deep); }
+  .lessonbar { background:var(--cream); border-bottom:1px solid var(--line); }
+  .lesson-nav { min-height:55px; display:flex; gap:8px; align-items:center; overflow-x:auto; scrollbar-width:thin; }
+  .lesson-nav a { white-space:nowrap; padding:7px 14px; border-radius:999px; color:var(--muted); font-size:12px; font-weight:500; }
+  .lesson-nav a:hover,.lesson-nav .is-current { background:#fff; color:var(--rose-deep); }
+  .lesson-nav .lesson-quiz { margin-left:auto; background:var(--rose-soft); color:var(--rose-deep); }
+  .back-link { display:inline-flex; gap:7px; align-items:center; margin-top:25px; font-size:12px; color:var(--muted); }
+  .back-link svg { width:16px; height:16px; }
+  .back-link:hover { color:var(--rose-deep); }
+
+  /* Buttons keep the site's rose palette with readable text contrast. */
+  .btn { min-height:46px; display:inline-flex; align-items:center; justify-content:center; gap:9px; padding:12px 23px; border:1px solid transparent; border-radius:25px; background:var(--rose); color:#503343; font-size:13px; font-weight:600; line-height:1.5; transition:background .15s; }
+  .btn:hover { background:var(--rose-hover); }
+  .btn svg { width:18px; height:18px; }
+  .btn-secondary { background:#fff; border-color:var(--line); color:var(--rose-deep); }
+  .btn-secondary:hover { background:var(--rose-soft); }
+  .btn:disabled { background:#eee9ed; color:#747079; border-color:#eee9ed; }
+  .pill { display:inline-flex; padding:6px 12px; border-radius:999px; color:#75536b; background:var(--rose-soft); text-transform:uppercase; letter-spacing:1.3px; font-size:10px; font-weight:600; }
+  .eyebrow { display:block; color:var(--rose-deep); font-size:10px; font-weight:600; letter-spacing:1.8px; text-transform:uppercase; }
+
+  /* A compact introduction with the same split layout as the other lessons. */
+  .hero { padding:30px 0 49px; }
+  .hero-grid { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,.9fr); gap:62px; align-items:center; }
+  .hero-meta { display:flex; align-items:center; flex-wrap:wrap; gap:13px; }
+  .hero-meta>span:last-child { color:var(--muted); font-size:11px; }
+  .hero h1 { margin:20px 0 12px; font-size:clamp(42px,4.6vw,61px); letter-spacing:-1.8px; line-height:1.06; }
+  .hero h1 em { display:block; margin-top:4px; color:#b46b90; font-weight:400; }
+  .hero-ar { font-size:clamp(27px,2.7vw,36px); text-align:left; }
+  .hero-trans { color:var(--rose-deep); font-size:12px; margin-top:2px; }
+  .hero-copy { color:var(--muted); margin-top:18px; max-width:47ch; font-size:14px; line-height:1.9; }
+  .hero-cta { display:flex; gap:10px; flex-wrap:wrap; margin-top:23px; }
+  .hero-objective { display:flex; align-items:center; gap:8px; color:var(--muted); font-size:11px; margin-top:20px; }
+  .hero-objective svg { width:17px; height:17px; color:var(--rose-deep); }
+  .hero-board { border:1px solid var(--line); border-radius:30px; background:#fff; padding:19px; box-shadow:var(--shadow); }
+  .board-head { display:flex; align-items:center; justify-content:space-between; margin-bottom:13px; }
+  .board-head p { color:var(--ink); font-family:Georgia,serif; font-size:19px; }
+  .board-head>span { color:var(--rose-deep); font-size:9px; letter-spacing:1.2px; text-transform:uppercase; }
+  .hero-gallery { display:grid; grid-template-columns:1fr 1fr; gap:11px; }
+  .hero-tile { background:var(--cream); border-radius:18px; overflow:hidden; }
+  .hero-tile .garment-picture { height:200px; aspect-ratio:auto; border-radius:0; }
+  .hero-tile .garment-picture img { padding:17px; }
+  .hero-label { padding:8px 13px 12px; }
+  .hero-label .ar { font-size:24px; display:block; }
+  .hero-label .latin { display:block; color:var(--rose-deep); font-size:11px; margin-top:-5px; }
+  .hero-detail { grid-column:1/-1; background:var(--rose-soft); border-radius:16px; display:flex; align-items:center; gap:14px; min-height:96px; padding:8px 15px 8px 8px; }
+  .hero-detail .garment-picture { height:78px; width:110px; flex-shrink:0; aspect-ratio:auto; border-radius:11px; background:rgba(255,255,255,.65); }
+  .hero-detail .garment-picture img { padding:5px; }
+  .hero-detail .illustration-tag { display:none; }
+  .hero-detail .ar { font-size:26px; }
+  .hero-detail .latin { color:var(--rose-deep); font-size:11px; }
+  .hero-detail .detail-text { font-size:11px; color:#6c5363; }
+  .board-foot { padding-top:12px; text-align:center; font-size:10px; color:var(--muted); }
+
+  .section { padding:44px 0; scroll-margin-top:calc(var(--header-height) + 22px); }
+  .section-head { display:flex; align-items:end; justify-content:space-between; gap:24px; margin-bottom:25px; }
+  .section-head h2 { margin-top:6px; }
+  .section-head p { color:var(--muted); margin-top:11px; font-size:14px; max-width:58ch; }
+  .section-hint { color:var(--muted); font-size:11px; white-space:nowrap; padding-bottom:3px; }
+
+  /* A short introduction within the existing lesson layout. */
+  .intro-panel { border:1px solid var(--line); border-radius:24px; background:#fff; display:grid; grid-template-columns:.75fr 1.25fr; gap:40px; padding:28px 32px; align-items:center; }
+  .intro-panel h2 { font-size:32px; margin-top:6px; }
+  .intro-panel p { font-size:14px; color:var(--muted); line-height:1.95; }
+  .intro-tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+  .intro-tags span { padding:4px 10px; border-radius:999px; font-size:10px; color:#685d73; background:var(--cream2); }
+  .intro-tags span:nth-child(2) { background:var(--peach); }
+  .intro-tags span:nth-child(3) { background:var(--mint); }
+
+  /* Keep the complete garment visible inside each consistent 4:3 image. */
+  .garment-picture { position:relative; background:var(--cream2); width:100%; aspect-ratio:4/3; overflow:hidden; }
+  .garment-picture img { width:100%; height:100%; object-fit:contain; padding:17px 28px; }
+  .garment-picture.is-photo { background:#fff; }
+  .garment-picture.is-photo img { padding:0; }
+  .illustration-tag { position:absolute; left:12px; bottom:10px; background:rgba(255,255,255,.88); color:#6a6270; padding:2px 8px; border-radius:999px; font-size:9px; }
+  .peach { background:var(--peach); }
+  .lavender { background:var(--cream2); }
+  .sand { background:var(--sand); }
+  .rose { background:#f7e5ed; }
+  .mint { background:var(--mint); }
+  .sky { background:var(--sky); }
+  .vgrid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:19px; }
+  .vcard { border:1px solid var(--line); background:#fff; border-radius:24px; box-shadow:var(--shadow); overflow:hidden; }
+  .vbody { padding:19px 21px 21px; }
+  .card-meta { display:flex; align-items:center; justify-content:space-between; color:var(--muted); font-size:9px; text-transform:uppercase; letter-spacing:.9px; }
+  .word-number { color:#887081; }
+  .word-heading { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:7px; }
+  .word-heading h3 { font-size:34px; line-height:1.45; }
+  .vtrans { color:var(--rose-deep); font-size:13px; font-weight:500; }
+  .word-meaning { font-size:12px; color:var(--muted); margin-top:2px; }
+  .description { font-size:13px; line-height:1.85; margin-top:13px; color:var(--body); }
+  .card-note { padding-top:10px; margin-top:13px; border-top:1px solid var(--line); font-size:11px; color:var(--muted); }
+  .listen-btn { display:inline-flex; align-items:center; justify-content:center; gap:6px; min-height:44px; padding:8px 12px; border:1px solid var(--line); border-radius:999px; background:#fff; color:var(--rose-deep); font-weight:500; font-size:11px; line-height:1.5; white-space:nowrap; }
+  .listen-btn svg { width:17px; height:17px; }
+  .listen-btn:hover { background:var(--rose-soft); }
+  .listen-btn[aria-pressed="true"] { background:var(--rose-soft); border-color:var(--rose); }
+  .pronunciation-tip { display:flex; align-items:start; gap:10px; font-size:11px; color:var(--muted); margin-top:18px; padding:13px 17px; border:1px solid var(--line); border-radius:15px; background:#fff; }
+  .pronunciation-tip>svg { width:19px; height:19px; color:var(--rose-deep); margin-top:1px; }
+  .pronunciation-tip strong { color:var(--body); font-weight:500; }
+  .culture-notes { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:21px; }
+  .culture-note { padding:19px 21px; background:var(--cream2); border-radius:19px; }
+  .culture-note:last-child { background:var(--mint); }
+  .culture-note h3 { font-size:12px; color:var(--ink); font-weight:600; }
+  .culture-note p { font-size:12px; color:var(--muted); margin-top:6px; line-height:1.9; }
+
+  .phrase-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:19px; }
+  .phrase-card { border:1px solid var(--line); border-radius:22px; background:#fff; padding:24px 21px; }
+  .phrase-context { font-size:10px; color:var(--muted); }
+  .phrase-card .ar { font-size:30px; text-align:left; margin-top:13px; }
+  .phrase-card .vtrans { margin-top:2px; }
+  .phrase-card>p:last-of-type { color:var(--muted); font-size:12px; margin-top:5px; }
+  .phrase-card .listen-btn { margin-top:18px; }
+  .speaking-prompt { font-size:11px; color:var(--muted); margin-top:17px; }
+  .speaking-prompt b { color:var(--rose-deep); font-weight:500; }
+
+  /* One untimed activity; answer text is not shown before a choice. */
+  .practice-layout { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.5fr); gap:40px; align-items:start; }
+  .practice-intro { padding-top:17px; }
+  .practice-intro h2 { margin-top:8px; }
+  .practice-intro>p { color:var(--muted); font-size:13px; margin-top:13px; max-width:31ch; }
+  .practice-note { margin-top:21px; border-left:3px solid var(--rose); padding:2px 0 2px 15px; color:var(--muted); font-size:11px; }
+  .quiz-panel { background:#fff; border:1px solid var(--line); border-radius:26px; padding:27px; box-shadow:var(--shadow); }
+  .quiz-top { display:flex; justify-content:space-between; align-items:center; gap:15px; color:var(--muted); font-size:11px; }
+  .quiz-top .quiz-tag { color:var(--rose-deep); font-size:9px; letter-spacing:1.2px; text-transform:uppercase; }
+  .quiz-progress { margin:13px 0 21px; width:100%; height:5px; border:0; border-radius:999px; background:var(--cream2); appearance:none; }
+  .quiz-progress::-webkit-progress-bar { background:var(--cream2); border-radius:999px; }
+  .quiz-progress::-webkit-progress-value { background:var(--rose); border-radius:999px; }
+  .quiz-progress::-moz-progress-bar { background:var(--rose); border-radius:999px; }
+  .question-visual { float:right; width:91px; height:84px; border-radius:15px; background:var(--rose-soft); margin:0 0 10px 13px; }
+  .question-visual img { object-fit:contain; width:100%; height:100%; padding:4px; }
+  .quiz-question { color:var(--ink); font-size:17px; font-weight:500; line-height:1.65; min-height:70px; }
+  .quiz-question:focus { outline-offset:5px; }
+  .quiz-options { clear:both; display:grid; gap:9px; margin-top:18px; }
+  .quiz-option { display:flex; align-items:center; gap:13px; min-height:65px; padding:10px 15px; background:#fff; border:1px solid var(--line); border-radius:15px; text-align:left; }
+  .quiz-option:not(:disabled):hover { background:var(--cream); border-color:#bb83a1; }
+  .option-letter { flex-shrink:0; display:grid; place-items:center; width:29px; height:29px; background:var(--cream); color:var(--muted); border-radius:50%; font-size:11px; }
+  .option-text { display:flex; gap:12px; align-items:center; justify-content:space-between; width:100%; min-width:0; }
+  .option-text .ar { font-size:24px; line-height:1.5; }
+  .option-text .latin { font-size:11px; color:var(--rose-deep); }
+  .quiz-option.correct { background:#edf5ef; border-color:#688671; }
+  .quiz-option.incorrect { background:#fff3ef; border-color:#b87b62; }
+  .quiz-option[aria-disabled="true"] { cursor:default; }
+  .quiz-feedback { font-size:12px; margin-top:13px; min-height:27px; color:var(--muted); }
+  .quiz-feedback.success { color:#3d674b; }
+  .quiz-feedback.retry { color:#8a503b; }
+  .quiz-next { margin-top:9px; display:flex; justify-content:flex-end; }
+  .quiz-next .btn { min-width:148px; }
+  .quiz-result { text-align:center; padding:9px 5px; }
+  .result-mark { display:grid; place-items:center; margin:0 auto 15px; width:57px; height:57px; border-radius:50%; background:var(--mint); color:#456c51; }
+  .result-mark svg { width:27px; height:27px; }
+  .quiz-result h3 { font-family:Georgia,serif; font-weight:500; color:var(--ink); font-size:30px; }
+  .quiz-result .ar { margin-top:5px; font-size:28px; }
+  .quiz-result p { color:var(--muted); font-size:12px; margin-top:10px; }
+  .result-score { margin-top:20px; padding:12px; border-radius:14px; background:var(--cream); }
+  .result-score strong { color:var(--rose-deep); font-size:22px; font-weight:500; }
+  .result-score span { display:block; font-size:10px; color:var(--muted); }
+  .result-actions { display:flex; justify-content:center; flex-wrap:wrap; gap:9px; margin-top:22px; }
+
+  .review-panel { display:grid; grid-template-columns:minmax(0,1.18fr) minmax(0,1fr); border:1px solid var(--line); border-radius:26px; background:#fff; overflow:hidden; }
+  .review-table-wrap { padding:24px 28px; }
+  .review-table { width:100%; border-collapse:collapse; text-align:left; }
+  .review-table th { padding:0 7px 11px; color:var(--muted); font-size:10px; font-weight:500; border-bottom:1px solid var(--line); }
+  .review-table td { font-size:12px; padding:9px 7px; border-bottom:1px solid #f0ebef; vertical-align:middle; }
+  .review-table tr:last-child td { border-bottom:0; }
+  .review-table .ar { font-size:24px; text-align:left; }
+  .review-table td:nth-child(2) { color:var(--rose-deep); white-space:nowrap; }
+  .self-check { padding:28px; background:linear-gradient(130deg,#fcfafc,var(--cream2)); }
+  .self-check h3 { color:var(--ink); font-family:Georgia,serif; font-size:24px; font-weight:500; }
+  .self-check>p { color:var(--muted); font-size:12px; margin:9px 0 20px; }
+  .check-label { display:flex; gap:11px; align-items:start; margin:12px 0; color:var(--body); font-size:12px; cursor:pointer; }
+  .check-label input { margin:4px 0 0; width:19px; height:19px; flex-shrink:0; accent-color:var(--rose-deep); }
+  .check-label span { padding-top:1px; }
+  .self-check .btn { margin-top:15px; }
+  .sources { margin-top:19px; font-size:11px; color:var(--muted); }
+  .sources summary { display:inline-list-item; cursor:pointer; padding:7px 0; }
+  .sources ul { margin:8px 0 0; padding-left:18px; }
+  .sources li { margin:8px 0; }
+  .sources a { color:var(--rose-deep); text-decoration:underline; text-underline-offset:3px; }
+  .site-footer { margin-top:32px; padding:24px 0; border-top:1px solid var(--line); background:#fffdfb; }
+  .footer-inner { display:flex; align-items:center; justify-content:space-between; gap:20px; }
+  .footer-inner p { color:var(--muted); font-size:11px; }
+  .footer-inner a { font-size:11px; color:var(--rose-deep); }
+
+  /* Only one recording plays at a time. No synthetic pronunciation fallback. */
+  .toast { position:fixed; z-index:150; left:50%; bottom:22px; transform:translateX(-50%); padding:13px 18px; max-width:calc(100% - 32px); width:max-content; background:var(--ink); color:#fff; border-radius:14px; box-shadow:var(--shadow); font-size:12px; text-align:center; }
+
+  @media (max-width:1000px) {
+    .hero-grid { gap:30px; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); }
+    .hero h1 { font-size:47px; }
+    .hero-tile .garment-picture { height:175px; }
+    .vgrid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .section-hint { display:none; }
+    .phrase-card { padding:21px 17px; }
+    .phrase-card .ar { font-size:28px; }
+    .practice-layout { gap:26px; grid-template-columns:1fr 1.5fr; }
+  }
+  @media (max-width:760px) {
+    :root { --header-height:112px; }
+    .wrap { width:calc(100% - 36px); }
+    .navbar { flex-wrap:wrap; gap:4px; padding:8px 18px 9px; min-height:106px; }
+    .brand-logo img { height:50px; }
+    .site-nav { position:static; left:auto; transform:none; width:100%; gap:19px; justify-content:flex-start; }
+    .site-nav a { font-size:13px; padding:4px 0; }
+    .lesson-nav { min-height:50px; gap:1px; }
+    .lesson-nav a { font-size:10px; padding:7px 10px; }
+    .lesson-nav .lesson-quiz { margin-left:0; }
+    .back-link { margin-top:21px; }
+    .hero { padding:26px 0 32px; }
+    .hero-grid { grid-template-columns:1fr; gap:30px; }
+    .hero h1 { font-size:clamp(40px,8.4vw,54px); }
+    .hero h1 em { display:inline; }
+    .hero-copy { max-width:51ch; }
+    .hero-board { max-width:520px; width:100%; margin-inline:auto; }
+    .hero-tile .garment-picture { height:180px; }
+    .intro-panel { grid-template-columns:1fr; gap:16px; padding:25px; }
+    .intro-panel h2 { font-size:31px; }
+    .section { padding:32px 0; }
+    .section-head { margin-bottom:22px; }
+    .culture-notes { gap:13px; }
+    .phrase-grid { grid-template-columns:1fr; gap:12px; }
+    .phrase-card { display:grid; grid-template-columns:1fr auto; gap:0 12px; padding:19px 21px; }
+    .phrase-context,.phrase-card h3,.phrase-card p { grid-column:1; }
+    .phrase-card h3 { margin-top:5px; }
+    .phrase-card .listen-btn { grid-column:2; grid-row:2/5; align-self:center; margin-top:0; }
+    .practice-layout { grid-template-columns:1fr; gap:23px; }
+    .practice-intro { padding-top:0; }
+    .practice-intro>p { max-width:49ch; }
+    .practice-note { margin-top:14px; }
+    .review-panel { grid-template-columns:1fr; }
+    .footer-inner { flex-direction:column; align-items:start; gap:9px; }
+  }
+  @media (max-width:500px) {
+    .hero-meta { gap:10px; }
+    .hero-meta>span:last-child { font-size:10px; }
+    .hero h1 { font-size:43px; letter-spacing:-1.4px; }
+    .hero h1 em { display:block; }
+    .hero-ar { font-size:27px; }
+    .hero-trans { font-size:11px; }
+    .hero-copy { font-size:13px; }
+    .hero-cta .btn { font-size:12px; padding:11px 17px; }
+    .hero-board { padding:14px; border-radius:24px; }
+    .board-head p { font-size:17px; }
+    .board-head>span { font-size:8px; }
+    .hero-tile .garment-picture { height:153px; }
+    .hero-tile .garment-picture img { padding:11px; }
+    .hero-label { padding:7px 12px 10px; }
+    .hero-label .ar { font-size:23px; }
+    .hero-detail { gap:10px; }
+    .hero-detail .garment-picture { width:95px; }
+    .vgrid { grid-template-columns:1fr; gap:18px; }
+    .vcard .garment-picture { aspect-ratio:5/3; }
+    .vbody { padding:17px 21px 20px; }
+    .word-heading { margin-top:3px; }
+    .description { font-size:13px; }
+    .word-meaning { font-size:12px; }
+    .pronunciation-tip { font-size:11px; padding:13px; }
+    .culture-notes { grid-template-columns:1fr; }
+    .phrase-card { grid-template-columns:1fr; padding:22px; }
+    .phrase-card .listen-btn { grid-column:1; grid-row:auto; justify-self:start; margin-top:15px; }
+    .quiz-panel { padding:22px 19px; }
+    .quiz-question { font-size:16px; }
+    .option-text { flex-wrap:wrap; gap:1px 8px; }
+    .option-text .ar { font-size:23px; }
+    .option-text .latin { font-size:11px; }
+    .quiz-option { padding:9px 10px; gap:10px; }
+    .review-table-wrap { padding:19px 13px; }
+    .review-table th,.review-table td { padding-inline:5px; }
+    .review-table td { font-size:11px; }
+    .review-table .ar { font-size:23px; }
+    .self-check { padding:25px 22px; }
+  }
+  @media (prefers-reduced-motion:reduce) {
+    html { scroll-behavior:auto; }
+    *,*::before,*::after { transition:none!important; animation:none!important; }
+  }
+  @media print {
+    .navbar,.lessonbar,.back-link,.hero-cta,.listen-btn,.quiz-next,.toast,.sources,.site-footer { display:none!important; }
+    body { background:#fff; font-size:11pt; }
+    .wrap { width:100%; }
+    .section { padding:16px 0; }
+    .vgrid { grid-template-columns:repeat(2,1fr); }
+    .vcard,.phrase-card { break-inside:avoid; box-shadow:none; }
+    .vcard .garment-picture { height:120px; aspect-ratio:auto; }
+    .hero-board { display:none; }
+    .hero-grid,.practice-layout { display:block; }
+  }
+  
+  /* Grammar-specific content, using the shared lesson tokens above. */
+  .hero h1 { font-size:clamp(42px,4.35vw,58px); }
+  .hero h1 em { color:var(--rose-deep); }
+  .hero-board .hero-person { height:139px; display:grid; place-items:center; }
+  .hero-person svg { width:173px; height:122px; }
+  .hero-label { text-align:center; }
+  .hero-label .ar { font-size:32px; }
+  .hero-label .latin { margin-top:-2px; font-size:12px; }
+  .hero-english { display:block; margin-top:2px; font-size:11px; color:var(--body); }
+  .hero-wide { grid-column:1/-1; display:flex; align-items:center; justify-content:center; gap:12px; border-radius:17px; padding:8px 20px; background:var(--mint); }
+  .hero-wide .hero-person { height:98px; width:153px; }
+  .hero-wide .hero-person svg { height:97px; width:146px; }
+  .hero-wide .hero-label { padding:0 8px; min-width:70px; }
+  .hero-wide .hero-english { margin-top:0; }
+  .intro-panel p strong { color:var(--ink); font-weight:500; }
+  .group-heading { display:flex; align-items:baseline; justify-content:space-between; gap:15px; margin:22px 0 14px; }
+  .group-heading h3 { color:var(--ink); font-size:15px; font-weight:500; }
+  .group-heading span { color:var(--muted); font-size:11px; }
+  .singular-grid { grid-template-columns:repeat(4,minmax(0,1fr)); }
+  .plural-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+  .role-picture { height:130px; display:grid; place-items:center; }
+  .role-picture svg { width:174px; height:115px; }
+  .pronoun-card .vbody { padding:17px 18px 20px; }
+  .pronoun-card .word-heading { margin-top:5px; }
+  .pronoun-card .word-heading h3 { font-size:36px; }
+  .pronoun-card .vtrans { font-size:14px; }
+  .pronoun-meaning { margin-top:6px; color:var(--ink); font-size:13px; font-weight:500; }
+  .role-note { margin-top:5px; color:var(--muted); font-size:11px; line-height:1.75; }
+  .audio-caption { display:flex; flex-wrap:wrap; align-items:center; gap:9px; margin-bottom:19px; color:var(--muted); font-size:11px; }
+  .audio-caption .status-pill { display:inline-flex; background:var(--cream2); border-radius:999px; padding:4px 10px; color:#6a566d; font-size:10px; }
+  .grammar-notes { margin-top:18px; }
+  .grammar-note { border:1px solid var(--line); border-radius:18px; background:#fff; padding:16px 19px; font-size:12px; color:var(--muted); }
+  .grammar-note strong { color:var(--body); font-weight:500; }
+  .grammar-note .ar { font-size:20px; }
+  .rule-panel { display:grid; grid-template-columns:1fr 1fr; gap:30px; align-items:center; padding:26px 29px; background:var(--cream2); border-radius:23px; margin-bottom:22px; }
+  .rule-panel h3 { color:var(--ink); font-family:Georgia,serif; font-size:25px; font-weight:500; }
+  .rule-panel p { color:var(--muted); font-size:12px; margin-top:9px; }
+  .rule-panel p strong { color:var(--body); font-weight:500; }
+  .rule-example { background:#fff; border:1px solid var(--line); border-radius:18px; padding:19px 22px; }
+  .rule-example .ar { font-size:32px; margin:7px 0 0; text-align:left; color:var(--arabic); }
+  .rule-example .vtrans { color:var(--rose-deep); margin-top:0; }
+  .rule-example .translation { color:var(--body); font-size:13px; margin-top:0; }
+  .rule-example .translation mark { background:var(--rose-soft); color:var(--rose-deep); border-radius:4px; padding:1px 5px; }
+  .nationality-strip { display:grid; grid-template-columns:repeat(3,1fr); gap:13px; margin:0 0 24px; }
+  .nationality-word { border:1px solid var(--line); background:#fff; border-radius:17px; padding:13px 17px; display:flex; align-items:center; gap:16px; }
+  .nationality-word .ar { font-size:28px; }
+  .nationality-word .vtrans { font-size:12px; }
+  .nationality-word .meaning { color:var(--muted); font-size:10px; }
+  .example-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; align-items:start; }
+  .example-panel { background:#fff; border:1px solid var(--line); border-radius:22px; padding:20px 23px 6px; }
+  .example-panel>h3 { color:var(--ink); font-size:13px; font-weight:500; padding-bottom:5px; }
+  .sentence { display:flex; align-items:center; justify-content:space-between; gap:15px; padding:15px 0 18px; }
+  .sentence+.sentence { border-top:1px solid var(--line); }
+  .sentence-context { color:var(--muted); font-size:10px; }
+  .sentence .ar { font-size:29px; text-align:left; margin-top:4px; line-height:1.55; }
+  .sentence .ar strong { color:var(--rose-deep); font-weight:700; }
+  .sentence .vtrans { font-size:12px; }
+  .sentence-meaning { color:var(--muted); font-size:12px; margin-top:3px; }
+  .question-tip { margin-top:16px; color:var(--muted); font-size:11px; }
+  .dialogue-layout { display:grid; grid-template-columns:.75fr 1.25fr; gap:37px; align-items:start; }
+  .dialogue-intro { padding-top:15px; }
+  .dialogue-intro h2 { margin-top:7px; }
+  .dialogue-intro>p { margin-top:13px; color:var(--muted); font-size:13px; }
+  .dialogue-roleplay { border-left:3px solid var(--rose); margin-top:21px; padding-left:15px; color:var(--muted); font-size:11px; }
+  .dialogue { list-style:none; padding:6px 23px; margin:0; background:#fff; border:1px solid var(--line); border-radius:24px; }
+  .dialogue-line { display:grid; grid-template-columns:112px minmax(0,1fr) auto; gap:13px; align-items:center; padding:19px 0; }
+  .dialogue-line+.dialogue-line { border-top:1px solid var(--line); }
+  .speaker { display:flex; gap:9px; align-items:center; font-size:11px; color:var(--body); }
+  .speaker-initial { width:30px; height:30px; display:grid; place-items:center; background:var(--cream2); border-radius:50%; color:var(--rose-deep); }
+  .speaker small { display:block; font-size:9px; color:var(--muted); }
+  .dialogue-sentence .ar { font-size:28px; text-align:left; }
+  .dialogue-sentence .vtrans { font-size:11px; }
+  .dialogue-sentence .sentence-meaning { font-size:11px; }
+  .question-visual { float:none; width:110px; height:74px; margin:0 0 12px; }
+  .question-visual svg { height:74px; width:110px; }
+  .quiz-question { min-height:0; }
+  .review-table td:nth-child(3) { line-height:1.55; }
+  @media (max-width:1000px) {
+    .singular-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .hero h1 { font-size:46px; }
+    .nationality-word { gap:10px; padding:13px; }
+    .dialogue-layout { gap:25px; grid-template-columns:.7fr 1.3fr; }
+    .dialogue-line { grid-template-columns:90px minmax(0,1fr); gap:8px 12px; }
+    .dialogue-line .listen-btn { grid-column:2; justify-self:start; }
+  }
+  @media (max-width:760px) {
+    .hero h1 { font-size:clamp(42px,8.5vw,54px); }
+    .hero-board .hero-person { height:133px; }
+    .hero-wide .hero-person { height:94px; }
+    .plural-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+    .plural-grid .word-heading { flex-wrap:wrap; gap:5px 10px; }
+    .plural-grid .role-picture { height:110px; }
+    .plural-grid .role-picture svg { width:138px; height:100px; }
+    .plural-grid .listen-btn { min-height:44px; }
+    .rule-panel { grid-template-columns:1fr; gap:20px; padding:24px; }
+    .rule-example { padding:16px 20px; }
+    .nationality-word { display:block; text-align:center; }
+    .example-grid { grid-template-columns:1fr; }
+    .dialogue-layout { grid-template-columns:1fr; gap:22px; }
+    .dialogue-intro { padding-top:0; }
+    .dialogue-line { grid-template-columns:100px minmax(0,1fr) auto; }
+    .dialogue-line .listen-btn { grid-column:auto; }
+  }
+  @media (max-width:500px) {
+    .hero h1 { font-size:42px; }
+    .hero-board .hero-person { height:116px; }
+    .hero-person svg { width:148px; height:109px; }
+    .hero-label .ar { font-size:30px; }
+    .hero-wide { padding:8px 13px; gap:10px; }
+    .hero-wide .hero-person { height:88px; width:137px; }
+    .hero-wide .hero-person svg { width:132px; height:88px; }
+    .singular-grid,.plural-grid { grid-template-columns:1fr; gap:15px; }
+    .pronoun-card { display:grid; grid-template-columns:91px minmax(0,1fr); }
+    .role-picture,.plural-grid .role-picture { height:100%; min-height:169px; }
+    .role-picture svg,.plural-grid .role-picture svg { width:87px; height:112px; }
+    .pronoun-card .vbody { padding:15px 17px 18px; }
+    .pronoun-card .word-heading { gap:7px; margin-top:2px; }
+    .pronoun-card .word-heading h3 { font-size:32px; }
+    .plural-grid .word-heading { flex-wrap:nowrap; }
+    .pronoun-card .listen-btn { padding:7px 9px; gap:4px; font-size:10px; }
+    .pronoun-card .listen-btn svg { width:14px; height:14px; }
+    .pronoun-card .vtrans { font-size:12px; }
+    .pronoun-meaning { font-size:12px; margin-top:4px; }
+    .role-note { font-size:10px; }
+    .group-heading { align-items:center; }
+    .group-heading h3 { font-size:13px; }
+    .group-heading span { font-size:10px; }
+    .nationality-strip { gap:8px; }
+    .nationality-word { padding:11px 6px; border-radius:13px; }
+    .nationality-word .ar { font-size:25px; }
+    .nationality-word .vtrans { font-size:10px; }
+    .nationality-word .meaning { font-size:9px; }
+    .example-panel { padding:18px 18px 4px; }
+    .sentence { gap:10px; }
+    .sentence .ar { font-size:27px; }
+    .dialogue { padding:3px 19px; }
+    .dialogue-line { grid-template-columns:minmax(0,1fr) auto; gap:9px; padding:17px 0; }
+    .speaker { grid-column:1/-1; }
+    .speaker small { display:inline; margin-left:6px; }
+    .speaker-initial { width:25px; height:25px; }
+    .dialogue-sentence .ar { font-size:27px; }
+    .dialogue-line .listen-btn { grid-column:2; }
+  }
+  @media (max-width:350px) {
+    .pronoun-card { grid-template-columns:66px minmax(0,1fr); }
+    .role-picture svg,.plural-grid .role-picture svg { width:65px; }
+    .pronoun-card .vbody { padding-inline:13px; }
+    .hero h1 { font-size:38px; }
+    .hero-cta { gap:8px; }
+    .hero-cta .btn { padding-inline:14px; }
+    .hero-person svg { width:121px; }
+  }
+  @media print {
+    .audio-caption,.question-tip,.dialogue-roleplay { display:none!important; }
+    .singular-grid,.plural-grid { grid-template-columns:repeat(2,1fr); }
+    .role-picture,.plural-grid .role-picture { height:80px; min-height:0; }
+    .example-panel,.dialogue-line,.rule-panel { break-inside:avoid; }
+    .dialogue-layout { display:block; }
+  }
+</style>
+</head><body>
+
+  <a class="skip-link" href="#lesson">Skip to lesson</a>
+  <header class="navbar">
+    <a class="brand-logo" href="index.html#home" aria-label="Darja with Mongia home"><img src="images/full-logo.png" alt="Darja with Mongia" width="153" height="56"></a>
+    <nav class="site-nav" aria-label="Main website navigation">
+      <a href="index.html#home">Home</a>
+      <a href="free-lessons.html" class="active">Free Lessons</a>
+      <a href="index.html#podcast">Podcast</a>
+      <a href="index.html#about">About</a>
+    </nav>
+  </header>
+  <div class="lessonbar">
+    <nav class="lesson-nav wrap" aria-label="Lesson sections">
+      <a href="#start" class="is-current" aria-current="location">Start here</a>
+      <a href="#pronouns">Pronouns</a>
+      <a href="#sentences">Sentences</a>
+      <a href="#conversation">Conversation</a><a href="#review">Review</a>
+      <a href="#practice" class="lesson-quiz">Mini quiz</a>
+    </nav>
+  </div>
+
+  <main id="lesson" class="wrap" tabindex="-1">
+    <a class="back-link" href="free-lessons.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6-6 6 6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Back to Free Lessons</a>
+    <section class="hero" id="top" aria-labelledby="lesson-title"><div class="hero-grid">
+      <div><div class="hero-meta"><span class="pill">Grammar Lesson 01</span><span>Beginner · A1 · Around 10 minutes</span></div>
+        <h1 id="lesson-title">Subject pronouns <em>in Tunisian Arabic</em></h1>
+        <p class="hero-ar ar" lang="ar" dir="rtl">الضمائر الشخصية في التونسي</p>
+        <p class="hero-copy">Start with I, you, he, she, we and they. Learn seven small words that help you talk about yourself and the people around you.</p>
+        <div class="hero-cta"><a class="btn" href="#pronouns">Meet the pronouns<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="btn btn-secondary" href="#practice">Try the mini quiz</a></div>
+        <p class="hero-objective"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4 10-10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>A few words. Your first simple sentences.</p>
+      </div>
+      <div class="hero-board" aria-label="I, you and we in Tunisian Arabic"><div class="board-head"><p>A small word. A clear meaning.</p><span>Grammar & language</span></div>
+        <div class="hero-gallery"><div class="hero-tile rose"><div class="hero-person"><svg viewBox="0 0 184 122" aria-hidden="true" focusable="false"><g transform="translate(92 76) scale(1)"><circle cx="0" cy="-20" r="12" fill="#b16c90"/><path d="M-24 27v-7a24 24 0 0 1 48 0v7Z" fill="#b16c90"/></g><path d="M117 22h40v24h-13l-10 8v-8h-17Z" fill="#fff"/><path d="M127 33h20" stroke="#b16c90" stroke-width="2" stroke-linecap="round"/><path d="M27 113h130" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div><div class="hero-label"><span class="ar" lang="ar" dir="rtl">أنا</span><span class="latin" lang="ar-Latn">ena</span><span class="hero-english">I</span></div></div><div class="hero-tile lavender"><div class="hero-person"><svg viewBox="0 0 184 122" aria-hidden="true" focusable="false"><g transform="translate(92 76) scale(1)"><circle cx="0" cy="-20" r="12" fill="#697987"/><path d="M-24 27v-7a24 24 0 0 1 48 0v7Z" fill="#697987"/></g><path d="M27 55h24m-7-7 7 7-7 7" fill="none" stroke="#b16c90" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M27 113h130" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div><div class="hero-label"><span class="ar" lang="ar" dir="rtl">إنتي</span><span class="latin" lang="ar-Latn">enti</span><span class="hero-english">You · one person</span></div></div>
+          <div class="hero-wide"><div class="hero-person"><svg viewBox="0 0 184 122" aria-hidden="true" focusable="false"><g transform="translate(47 77) scale(0.77)"><circle cx="0" cy="-20" r="12" fill="#b16c90"/><path d="M-24 27v-7a24 24 0 0 1 48 0v7Z" fill="#b16c90"/></g><g transform="translate(92 78) scale(1)"><circle cx="0" cy="-20" r="12" fill="#697987"/><path d="M-24 27v-7a24 24 0 0 1 48 0v7Z" fill="#697987"/></g><g transform="translate(138 77) scale(0.77)"><circle cx="0" cy="-20" r="12" fill="#cabacb"/><path d="M-24 27v-7a24 24 0 0 1 48 0v7Z" fill="#cabacb"/></g><path d="M26 37h37v21H49l-9 7v-7H26Z" fill="#fff"/><path d="M35 47h19" stroke="#b16c90" stroke-width="2" stroke-linecap="round"/><path d="M27 113h130" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div><div class="hero-label"><span class="ar" lang="ar" dir="rtl">أحنا</span><span class="latin" lang="ar-Latn">a7na</span><span class="hero-english">We</span></div></div>
+        </div><p class="board-foot">Notice who is speaking, listening or being described.</p>
+      </div>
+    </div></section>
+
+    <section class="section" id="start" aria-labelledby="start-title"><div class="intro-panel">
+      <div><span class="eyebrow">01 · Start here</span><h2 id="start-title">Who are we <em>talking about?</em></h2><div class="intro-tags"><span>One person</span><span>A group</span><span>Simple sentences</span></div></div>
+      <p>A subject pronoun tells us who a sentence is about. <strong>I</strong> is the speaker, <strong>you</strong> is the listener, and <strong>he, she or they</strong> refers to someone we are talking about. <strong>We</strong> includes the speaker. Learn the words first, then use them in short examples.</p>
+    </div></section>
+
+    <section class="section" id="pronouns" aria-labelledby="pronouns-title">
+      <div class="section-head"><div><span class="eyebrow">02 · Look & say</span><h2 id="pronouns-title">Meet the <em>pronouns.</em></h2><p>Arabic shows the word. The rose Latin spelling helps you say it. English gives the meaning.</p></div><span class="section-hint">Arabic · Latin spelling · English</span></div>
+      <p class="audio-caption" id="recordingsNote"><span class="status-pill">Audio coming soon</span><span>For now, read the Latin spelling and practise aloud.</span></p>
+      <div class="group-heading"><h3>Singular · one person</h3><span>I · you · he · she</span></div>
+      <div class="vgrid singular-grid"><article class="vcard pronoun-card" id="word-ena" aria-labelledby="title-ena">
+      <div class="role-picture rose"><svg viewBox="0 0 184 122" aria-hidden="true" focusable="false"><g transform="translate(92 76) scale(1)"><circle cx="0" cy="-20" r="12" fill="#b16c90"/><path d="M-24 27v-7a24 24 0 0 1 48 0v7Z" fill="#b16c90"/></g><path d="M117 22h40v24h-13l-10 8v-8h-17Z" fill="#fff"/><path d="M127 33h20" stroke="#b16c90" stroke-width="2" stroke-linecap="round"/><path d="M27 113h130" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div>
+      <div class="vbody"><div class="card-meta"><span>singular</span><span class="word-number">01</span></div>
+        <div class="word-heading"><h3 id="title-ena" class="ar" lang="ar" dir="rtl">أنا</h3><button type="button" class="listen-btn" data-audio="ena" aria-pressed="false" aria-label="Listen to ena"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 10 7-10 7z" fill="currentColor"/></svg><span>Listen</span></button></div>
+        <p class="vtrans" lang="ar-Latn">ena</p><p class="pronoun-meaning">I</p><p class="role-note">The person speaking.</p>
+      </div></article><article class="vcard pronoun-card" id="word-enti" aria-labelledby="title-enti">
+      <div class="role-picture lavender"><svg viewBox="0 0 184 122" aria-hidden="true" focusable="false"><g transform="translate(92 76) scale(1)"><circle cx="0" cy="-20" r="12" fill="#697987"/><path d="M-24 27v-7a24 24 0 0 1 48 0v7Z" fill="#697987"/></g><path d="M27 55h24m-7-7 7 7-7 7" fill="none" stroke="#b16c90" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M27 113h130" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div>
+      <div class="vbody"><div class="card-meta"><span>singular</span><span class="word-number">02</span></div>
+        <div class="word-heading"><h3 id="title-enti" class="ar" lang="ar" dir="rtl">إنتي</h3><button type="button" class="listen-btn" data-audio="enti" aria-pressed="false" aria-label="Listen to enti"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 10 7-10 7z" fill="currentColor"/></svg><span>Listen</span></button></div>
+        <p class="vtrans" lang="ar-Latn">enti</p><p class="pronoun-meaning">You · one person</p><p class="role-note">The person you are speaking to.</p>
+      </div></article><article class="vcard pronoun-card" id="word-houwa" aria-labelledby="title-houwa">
+      <div class="role-picture sky"><svg viewBox="0 0 184 122" aria-hidden="true" focusable="false"><g transform="translate(92 76) scale(1)"><circle cx="0" cy="-20" r="12" fill="#697987"/><path d="M-24 27v-7a24 24 0 0 1 48 0v7Z" fill="#697987"/></g><circle cx="140" cy="42" r="3" fill="#b16c90"/><circle cx="150" cy="42" r="3" fill="#b16c90"/><circle cx="160" cy="42" r="3" fill="#b16c90"/><path d="M27 113h130" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div>
+      <div class="vbody"><div class="card-meta"><span>singular</span><span class="word-number">03</span></div>
+        <div class="word-heading"><h3 id="title-houwa" class="ar" lang="ar" dir="rtl">هو</h3><button type="button" class="listen-btn" data-audio="houwa" aria-pressed="false" aria-label="Listen to houwa"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 10 7-10 7z" fill="currentColor"/></svg><span>Listen</span></button></div>
+        <p class="vtrans" lang="ar-Latn">houwa</p><p class="pronoun-meaning">He</p><p class="role-note">A man or boy you are talking about.</p>
+      </div></article><article class="vcard pronoun-card" id="word-hiyya" aria-labelledby="title-hiyya">
+      <div class="role-picture peach"><svg viewBox="0 0 184 122" aria-hidden="true" focusable="false"><g transform="translate(92 76) scale(1)"><circle cx="0" cy="-20" r="12" fill="#b16c90"/><path d="M-24 27v-7a24 24 0 0 1 48 0v7Z" fill="#b16c90"/></g><circle cx="140" cy="42" r="3" fill="#b16c90"/><circle cx="150" cy="42" r="3" fill="#b16c90"/><circle cx="160" cy="42" r="3" fill="#b16c90"/><path d="M27 113h130" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div>
+      <div class="vbody"><div class="card-meta"><span>singular</span><span class="word-number">04</span></div>
+        <div class="word-heading"><h3 id="title-hiyya" class="ar" lang="ar" dir="rtl">هي</h3><button type="button" class="listen-btn" data-audio="hiyya" aria-pressed="false" aria-label="Listen to hiyya"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 10 7-10 7z" fill="currentColor"/></svg><span>Listen</span></button></div>
+        <p class="vtrans" lang="ar-Latn">hiyya</p><p class="pronoun-meaning">She</p><p class="role-note">A woman or girl you are talking about.</p>
+      </div></article></div>
+      <div class="group-heading"><h3>Plural · more than one person</h3><span>we · you · they</span></div>
+      <div class="vgrid plural-grid"><article class="vcard pronoun-card" id="word-a7na" aria-labelledby="title-a7na">
+      <div class="role-picture mint"><svg viewBox="0 0 184 122" aria-hidden="true" focusable="false"><g transform="translate(47 77) scale(0.77)"><circle cx="0" cy="-20" r="12" fill="#b16c90"/><path d="M-24 27v-7a24 24 0 0 1 48 0v7Z" fill="#b16c90"/></g><g transform="translate(92 78) scale(1)"><circle cx="0" cy="-20" r="12" fill="#697987"/><path d="M-24 27v-7a24 24 0 0 1 48 0v7Z" fill="#697987"/></g><g transform="translate(138 77) scale(0.77)"><circle cx="0" cy="-20" r="12" fill="#cabacb"/><path d="M-24 27v-7a24 24 0 0 1 48 0v7Z" fill="#cabacb"/></g><path d="M26 37h37v21H49l-9 7v-7H26Z" fill="#fff"/><path d="M35 47h19" stroke="#b16c90" stroke-width="2" stroke-linecap="round"/><path d="M27 113h130" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div>
+      <div class="vbody"><div class="card-meta"><span>plural</span><span class="word-number">05</span></div>
+        <div class="word-heading"><h3 id="title-a7na" class="ar" lang="ar" dir="rtl">أحنا</h3><button type="button" class="listen-btn" data-audio="a7na" aria-pressed="false" aria-label="Listen to a7na"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 10 7-10 7z" fill="currentColor"/></svg><span>Listen</span></button></div>
+        <p class="vtrans" lang="ar-Latn">a7na</p><p class="pronoun-meaning">We</p><p class="role-note">A group that includes you.</p>
+      </div></article><article class="vcard pronoun-card" id="word-intouma" aria-labelledby="title-intouma">
+      <div class="role-picture lavender"><svg viewBox="0 0 184 122" aria-hidden="true" focusable="false"><g transform="translate(47 77) scale(0.77)"><circle cx="0" cy="-20" r="12" fill="#cabacb"/><path d="M-24 27v-7a24 24 0 0 1 48 0v7Z" fill="#cabacb"/></g><g transform="translate(92 78) scale(1)"><circle cx="0" cy="-20" r="12" fill="#b16c90"/><path d="M-24 27v-7a24 24 0 0 1 48 0v7Z" fill="#b16c90"/></g><g transform="translate(138 77) scale(0.77)"><circle cx="0" cy="-20" r="12" fill="#cabacb"/><path d="M-24 27v-7a24 24 0 0 1 48 0v7Z" fill="#cabacb"/></g><path d="M81 26h22m-7-6 7 6-7 6" fill="none" stroke="#b16c90" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M27 113h130" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div>
+      <div class="vbody"><div class="card-meta"><span>plural</span><span class="word-number">06</span></div>
+        <div class="word-heading"><h3 id="title-intouma" class="ar" lang="ar" dir="rtl">إنتوما</h3><button type="button" class="listen-btn" data-audio="intouma" aria-pressed="false" aria-label="Listen to intouma"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 10 7-10 7z" fill="currentColor"/></svg><span>Listen</span></button></div>
+        <p class="vtrans" lang="ar-Latn">intouma</p><p class="pronoun-meaning">You · more than one</p><p class="role-note">The people you are speaking to.</p>
+      </div></article><article class="vcard pronoun-card" id="word-houma" aria-labelledby="title-houma">
+      <div class="role-picture sand"><svg viewBox="0 0 184 122" aria-hidden="true" focusable="false"><g transform="translate(47 77) scale(0.77)"><circle cx="0" cy="-20" r="12" fill="#cabacb"/><path d="M-24 27v-7a24 24 0 0 1 48 0v7Z" fill="#cabacb"/></g><g transform="translate(92 78) scale(1)"><circle cx="0" cy="-20" r="12" fill="#697987"/><path d="M-24 27v-7a24 24 0 0 1 48 0v7Z" fill="#697987"/></g><g transform="translate(138 77) scale(0.77)"><circle cx="0" cy="-20" r="12" fill="#cabacb"/><path d="M-24 27v-7a24 24 0 0 1 48 0v7Z" fill="#cabacb"/></g><path d="M27 113h130" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div>
+      <div class="vbody"><div class="card-meta"><span>plural</span><span class="word-number">07</span></div>
+        <div class="word-heading"><h3 id="title-houma" class="ar" lang="ar" dir="rtl">هوما</h3><button type="button" class="listen-btn" data-audio="houma" aria-pressed="false" aria-label="Listen to houma"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 10 7-10 7z" fill="currentColor"/></svg><span>Listen</span></button></div>
+        <p class="vtrans" lang="ar-Latn">houma</p><p class="pronoun-meaning">They</p><p class="role-note">A group you are talking about.</p>
+      </div></article></div>
+      <div class="grammar-notes"><aside class="grammar-note"><strong>One “you”, two situations.</strong> Use <span class="vtrans" lang="ar-Latn">enti</span> with one person, whether a man or a woman. Use <span class="vtrans" lang="ar-Latn">intouma</span> with a group. <span class="vtrans" lang="ar-Latn">Intouma</span> and <span class="vtrans" lang="ar-Latn">houma</span> can refer to groups of men, women or both.</aside></div>
+      <div class="pronunciation-tip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6m-5 3h4M8 14a7 7 0 1 1 8 0c-1 1-1 2-1 2H9s0-1-1-2Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><p><strong>Pronunciation tip:</strong> in <span lang="ar-Latn">a7na</span>, <strong>7</strong> represents the Arabic sound <span class="ar" lang="ar" dir="rtl">ح</span>. Latin spellings can vary; the recordings will be your pronunciation guide.</p></div>
+    </section>
+
+    <section class="section" id="sentences" aria-labelledby="sentences-title">
+      <div class="section-head"><div><span class="eyebrow">03 · Build a sentence</span><h2 id="sentences-title">Small words. <em>Real sentences.</em></h2><p>Use the pronouns with three forms of one useful word: Tunisian.</p></div></div>
+      <div class="rule-panel"><div><h3>A simpler way to say “is”.</h3><p>In present-tense sentences like these, put the pronoun directly before the nationality word. You don’t add a separate word for <strong>am, is or are</strong>.</p></div><div class="rule-example"><p class="translation">She <mark>is</mark> Tunisian.</p><p class="ar" lang="ar" dir="rtl">هي تونسية.</p><p class="vtrans" lang="ar-Latn">Hiyya tounsiya.</p></div></div>
+      <div class="nationality-strip" aria-label="Three forms of the word Tunisian">
+        <div class="nationality-word"><span class="ar" lang="ar" dir="rtl">تونسي</span><div><p class="vtrans" lang="ar-Latn">tounsi</p><p class="meaning">Tunisian · masculine</p></div></div>
+        <div class="nationality-word"><span class="ar" lang="ar" dir="rtl">تونسية</span><div><p class="vtrans" lang="ar-Latn">tounsiya</p><p class="meaning">Tunisian · feminine</p></div></div>
+        <div class="nationality-word"><span class="ar" lang="ar" dir="rtl">توانسة</span><div><p class="vtrans" lang="ar-Latn">twansa</p><p class="meaning">Tunisian · plural</p></div></div>
+      </div>
+      <div class="example-grid"><article class="example-panel"><h3>Talk about yourself</h3><div class="sentence"><div><span class="sentence-context">A man speaking</span><p class="ar" lang="ar" dir="rtl"><strong>أنا</strong> تونسي.</p><p class="vtrans" lang="ar-Latn">Ena tounsi.</p><p class="sentence-meaning">I am Tunisian.</p></div><button type="button" class="listen-btn" data-audio="ena-tounsi" aria-pressed="false" aria-label="Listen to Ena tounsi."><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 10 7-10 7z" fill="currentColor"/></svg><span>Listen</span></button></div><div class="sentence"><div><span class="sentence-context">A woman speaking</span><p class="ar" lang="ar" dir="rtl"><strong>أنا</strong> تونسية.</p><p class="vtrans" lang="ar-Latn">Ena tounsiya.</p><p class="sentence-meaning">I am Tunisian.</p></div><button type="button" class="listen-btn" data-audio="ena-tounsiya" aria-pressed="false" aria-label="Listen to Ena tounsiya."><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 10 7-10 7z" fill="currentColor"/></svg><span>Listen</span></button></div></article><article class="example-panel"><h3>Talk about someone</h3><div class="sentence"><div><span class="sentence-context">About a man</span><p class="ar" lang="ar" dir="rtl"><strong>هو</strong> تونسي.</p><p class="vtrans" lang="ar-Latn">Houwa tounsi.</p><p class="sentence-meaning">He is Tunisian.</p></div><button type="button" class="listen-btn" data-audio="houwa-tounsi" aria-pressed="false" aria-label="Listen to Houwa tounsi."><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 10 7-10 7z" fill="currentColor"/></svg><span>Listen</span></button></div><div class="sentence"><div><span class="sentence-context">About a woman</span><p class="ar" lang="ar" dir="rtl"><strong>هي</strong> تونسية.</p><p class="vtrans" lang="ar-Latn">Hiyya tounsiya.</p><p class="sentence-meaning">She is Tunisian.</p></div><button type="button" class="listen-btn" data-audio="hiyya-tounsiya" aria-pressed="false" aria-label="Listen to Hiyya tounsiya."><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 10 7-10 7z" fill="currentColor"/></svg><span>Listen</span></button></div></article><article class="example-panel"><h3>Speak to one person</h3><div class="sentence"><div><span class="sentence-context">Asking a man</span><p class="ar" lang="ar" dir="rtl"><strong>إنتي</strong> تونسي؟</p><p class="vtrans" lang="ar-Latn">Enti tounsi?</p><p class="sentence-meaning">Are you Tunisian?</p></div><button type="button" class="listen-btn" data-audio="enti-tounsi" aria-pressed="false" aria-label="Listen to Enti tounsi?"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 10 7-10 7z" fill="currentColor"/></svg><span>Listen</span></button></div><div class="sentence"><div><span class="sentence-context">Asking a woman</span><p class="ar" lang="ar" dir="rtl"><strong>إنتي</strong> تونسية؟</p><p class="vtrans" lang="ar-Latn">Enti tounsiya?</p><p class="sentence-meaning">Are you Tunisian?</p></div><button type="button" class="listen-btn" data-audio="enti-tounsiya" aria-pressed="false" aria-label="Listen to Enti tounsiya?"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 10 7-10 7z" fill="currentColor"/></svg><span>Listen</span></button></div></article><article class="example-panel"><h3>Talk with or about a group</h3><div class="sentence"><div><span class="sentence-context">Including yourself</span><p class="ar" lang="ar" dir="rtl"><strong>أحنا</strong> توانسة.</p><p class="vtrans" lang="ar-Latn">A7na twansa.</p><p class="sentence-meaning">We are Tunisian.</p></div><button type="button" class="listen-btn" data-audio="a7na-twansa" aria-pressed="false" aria-label="Listen to A7na twansa."><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 10 7-10 7z" fill="currentColor"/></svg><span>Listen</span></button></div><div class="sentence"><div><span class="sentence-context">Speaking to a group</span><p class="ar" lang="ar" dir="rtl"><strong>إنتوما</strong> توانسة.</p><p class="vtrans" lang="ar-Latn">Intouma twansa.</p><p class="sentence-meaning">You are Tunisian.</p></div><button type="button" class="listen-btn" data-audio="intouma-twansa" aria-pressed="false" aria-label="Listen to Intouma twansa."><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 10 7-10 7z" fill="currentColor"/></svg><span>Listen</span></button></div><div class="sentence"><div><span class="sentence-context">About a group</span><p class="ar" lang="ar" dir="rtl"><strong>هوما</strong> توانسة.</p><p class="vtrans" lang="ar-Latn">Houma twansa.</p><p class="sentence-meaning">They are Tunisian.</p></div><button type="button" class="listen-btn" data-audio="houma-twansa" aria-pressed="false" aria-label="Listen to Houma twansa."><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 10 7-10 7z" fill="currentColor"/></svg><span>Listen</span></button></div></article></div>
+      <p class="question-tip"><strong>Ask a question:</strong> keep the same word order and let your voice rise at the end. Notice that <span class="vtrans" lang="ar-Latn">enti</span> stays the same; <span class="vtrans" lang="ar-Latn">tounsi</span> or <span class="vtrans" lang="ar-Latn">tounsiya</span> matches the person.</p>
+    </section>
+
+    <section class="section" id="conversation" aria-labelledby="conversation-title"><div class="dialogue-layout">
+      <div class="dialogue-intro"><span class="eyebrow">04 · Say it together</span><h2 id="conversation-title">A little <em>conversation.</em></h2><p>Ahmed and Sara are both Tunisian. They ask each other a simple question. Notice how they move from <span class="vtrans" lang="ar-Latn">enti</span> to <span class="vtrans" lang="ar-Latn">ena</span>.</p><div class="dialogue-roleplay">Your turn: take Ahmed’s or Sara’s part. Read the question, then answer as that character.</div></div>
+      <ol class="dialogue" aria-label="Conversation between Ahmed and Sara"><li class="dialogue-line"><div class="speaker"><span class="speaker-initial" aria-hidden="true">A</span><div><span>Ahmed</span><small>to Sara</small></div></div><div class="dialogue-sentence"><p class="ar" lang="ar" dir="rtl">إنتي تونسية؟</p><p class="vtrans" lang="ar-Latn">Enti tounsiya?</p><p class="sentence-meaning">Are you Tunisian?</p></div><button type="button" class="listen-btn" data-audio="enti-tounsiya" aria-pressed="false" aria-label="Listen to Enti tounsiya?"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 10 7-10 7z" fill="currentColor"/></svg><span>Listen</span></button></li><li class="dialogue-line"><div class="speaker"><span class="speaker-initial" aria-hidden="true">S</span><div><span>Sara</span><small>replying</small></div></div><div class="dialogue-sentence"><p class="ar" lang="ar" dir="rtl">أنا تونسية.</p><p class="vtrans" lang="ar-Latn">Ena tounsiya.</p><p class="sentence-meaning">I am Tunisian.</p></div><button type="button" class="listen-btn" data-audio="ena-tounsiya" aria-pressed="false" aria-label="Listen to Ena tounsiya."><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 10 7-10 7z" fill="currentColor"/></svg><span>Listen</span></button></li><li class="dialogue-line"><div class="speaker"><span class="speaker-initial" aria-hidden="true">S</span><div><span>Sara</span><small>to Ahmed</small></div></div><div class="dialogue-sentence"><p class="ar" lang="ar" dir="rtl">إنتي تونسي؟</p><p class="vtrans" lang="ar-Latn">Enti tounsi?</p><p class="sentence-meaning">Are you Tunisian?</p></div><button type="button" class="listen-btn" data-audio="enti-tounsi" aria-pressed="false" aria-label="Listen to Enti tounsi?"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 10 7-10 7z" fill="currentColor"/></svg><span>Listen</span></button></li><li class="dialogue-line"><div class="speaker"><span class="speaker-initial" aria-hidden="true">A</span><div><span>Ahmed</span><small>replying</small></div></div><div class="dialogue-sentence"><p class="ar" lang="ar" dir="rtl">أنا تونسي.</p><p class="vtrans" lang="ar-Latn">Ena tounsi.</p><p class="sentence-meaning">I am Tunisian.</p></div><button type="button" class="listen-btn" data-audio="ena-tounsi" aria-pressed="false" aria-label="Listen to Ena tounsi."><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 10 7-10 7z" fill="currentColor"/></svg><span>Listen</span></button></li></ol>
+    </div></section>
+
+    <section class="section" id="practice" aria-labelledby="practice-title"><div class="practice-layout">
+      <div class="practice-intro"><span class="eyebrow">05 · A little practice</span><h2 id="practice-title">Who is <em>who?</em></h2><p>Choose a pronoun, then try one complete sentence. There’s no timer, and you can try again.</p><div class="practice-note">Eight short questions.<br>Look back at the cards whenever you need a reminder.</div></div>
+      <div class="quiz-panel" id="quizPanel"><noscript><p>Turn on JavaScript to use the mini quiz and Listen buttons. You can still read the words and practise the conversation.</p></noscript><div id="quizContent" hidden></div></div>
+    </div></section>
+
+    <section class="section" id="review" aria-labelledby="review-title">
+      <div class="section-head"><div><span class="eyebrow">06 · Take it with you</span><h2 id="review-title">Your little <em>lesson review.</em></h2><p>Cover the English column. Can you remember who each pronoun refers to?</p></div></div>
+      <div class="review-panel"><div class="review-table-wrap"><table class="review-table"><caption class="sr-only">Seven Tunisian Arabic subject pronouns with Latin spelling and English meanings</caption><thead><tr><th scope="col">Arabic</th><th scope="col">Latin spelling</th><th scope="col">English</th></tr></thead><tbody><tr><td class="ar" lang="ar" dir="rtl">أنا</td><td lang="ar-Latn">ena</td><td>I</td></tr><tr><td class="ar" lang="ar" dir="rtl">إنتي</td><td lang="ar-Latn">enti</td><td>You · one person</td></tr><tr><td class="ar" lang="ar" dir="rtl">هو</td><td lang="ar-Latn">houwa</td><td>He</td></tr><tr><td class="ar" lang="ar" dir="rtl">هي</td><td lang="ar-Latn">hiyya</td><td>She</td></tr><tr><td class="ar" lang="ar" dir="rtl">أحنا</td><td lang="ar-Latn">a7na</td><td>We</td></tr><tr><td class="ar" lang="ar" dir="rtl">إنتوما</td><td lang="ar-Latn">intouma</td><td>You · more than one</td></tr><tr><td class="ar" lang="ar" dir="rtl">هوما</td><td lang="ar-Latn">houma</td><td>They</td></tr></tbody></table></div>
+        <div class="self-check"><h3>A small step forward.</h3><p>You know seven pronouns and how to use them in a simple sentence. Check what you can do:</p>
+          <label class="check-label"><input type="checkbox"><span>I can tell the singular and plural pronouns apart.</span></label>
+          <label class="check-label"><input type="checkbox"><span>I can choose enti or intouma for the people I’m speaking to.</span></label>
+          <label class="check-label"><input type="checkbox"><span>I can say “He is Tunisian” and “She is Tunisian” in Darja.</span></label>
+          <a class="btn btn-secondary" href="free-lessons.html">Explore more free lessons<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+      <p class="speaking-prompt"><b>One last try:</b> talk about Ahmed, Sara, then both together. Say the sentence for “he”, “she”, then “they”.</p>
+      <details class="sources"><summary>Language references</summary><ul><li><a href="https://resources.lingualism.com/maghrebi-arabic/tunisian-arabic-grammar/" target="_blank" rel="noopener noreferrer">Lingualism — Tunisian Arabic grammar: pronouns and present-tense sentences</a></li><li><a href="https://files.eric.ed.gov/fulltext/ED294424.pdf" target="_blank" rel="noopener noreferrer">Scholes & Abida — Spoken Tunisian Arabic, lessons 15–16 (Indiana University / Peace Corps)</a></li></ul></details>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="wrap footer-inner"><p>© Darja with Mongia · Grammar Lesson 01</p><p>Learn the language. Discover the culture.</p><a href="#top">Back to top ↑</a></div></footer>
+  <div class="toast" id="audioNotice" role="status" aria-live="polite" hidden></div>
+  <audio id="lessonAudio" preload="none" hidden aria-hidden="true"></audio>
+  <script type="application/json" id="audioAssets">[{"id": "ena", "ar": "أنا", "latin": "ena", "file": "audio/grammar-lesson-01/ena.mp3"}, {"id": "enti", "ar": "إنتي", "latin": "enti", "file": "audio/grammar-lesson-01/enti.mp3"}, {"id": "houwa", "ar": "هو", "latin": "houwa", "file": "audio/grammar-lesson-01/houwa.mp3"}, {"id": "hiyya", "ar": "هي", "latin": "hiyya", "file": "audio/grammar-lesson-01/hiyya.mp3"}, {"id": "a7na", "ar": "أحنا", "latin": "a7na", "file": "audio/grammar-lesson-01/a7na.mp3"}, {"id": "intouma", "ar": "إنتوما", "latin": "intouma", "file": "audio/grammar-lesson-01/intouma.mp3"}, {"id": "houma", "ar": "هوما", "latin": "houma", "file": "audio/grammar-lesson-01/houma.mp3"}, {"id": "ena-tounsi", "ar": "أنا تونسي.", "latin": "Ena tounsi.", "file": "audio/grammar-lesson-01/ena-tounsi.mp3"}, {"id": "ena-tounsiya", "ar": "أنا تونسية.", "latin": "Ena tounsiya.", "file": "audio/grammar-lesson-01/ena-tounsiya.mp3"}, {"id": "houwa-tounsi", "ar": "هو تونسي.", "latin": "Houwa tounsi.", "file": "audio/grammar-lesson-01/houwa-tounsi.mp3"}, {"id": "hiyya-tounsiya", "ar": "هي تونسية.", "latin": "Hiyya tounsiya.", "file": "audio/grammar-lesson-01/hiyya-tounsiya.mp3"}, {"id": "enti-tounsi", "ar": "إنتي تونسي؟", "latin": "Enti tounsi?", "file": "audio/grammar-lesson-01/enti-tounsi.mp3"}, {"id": "enti-tounsiya", "ar": "إنتي تونسية؟", "latin": "Enti tounsiya?", "file": "audio/grammar-lesson-01/enti-tounsiya.mp3"}, {"id": "a7na-twansa", "ar": "أحنا توانسة.", "latin": "A7na twansa.", "file": "audio/grammar-lesson-01/a7na-twansa.mp3"}, {"id": "intouma-twansa", "ar": "إنتوما توانسة.", "latin": "Intouma twansa.", "file": "audio/grammar-lesson-01/intouma-twansa.mp3"}, {"id": "houma-twansa", "ar": "هوما توانسة.", "latin": "Houma twansa.", "file": "audio/grammar-lesson-01/houma-twansa.mp3"}]</script>
+  <script type="application/json" id="quizQuestions">[{"prompt": "You’re introducing yourself. Which word means “I”?", "options": ["houwa", "ena", "enti"], "answer": "ena", "visual": "ena", "hint": "Think of the person speaking.", "explanation": "Ena means “I”: the person speaking."}, {"prompt": "You’re speaking to one person. Which pronoun works for a man or a woman?", "options": ["ena", "enti", "intouma"], "answer": "enti", "visual": "enti", "hint": "Look at the singular “you” card.", "explanation": "Enti is “you” for one person, whether a man or a woman."}, {"prompt": "You’re talking about Ahmed. Which pronoun means “he”?", "options": ["hiyya", "houwa", "houma"], "answer": "houwa", "hint": "Ahmed is one man.", "explanation": "Houwa means “he”. Houwa tounsi means “He is Tunisian”."}, {"prompt": "You’re talking about Sara. Which pronoun means “she”?", "options": ["houwa", "hiyya", "enti"], "answer": "hiyya", "hint": "You are talking about her, rather than speaking to her.", "explanation": "Hiyya means “she”. Hiyya tounsiya means “She is Tunisian”."}, {"prompt": "You and your friends are together. Which pronoun includes you in the group?", "options": ["houma", "a7na", "intouma"], "answer": "a7na", "visual": "a7na", "hint": "Choose the word for “we”.", "explanation": "A7na means “we”: a group that includes the speaker."}, {"prompt": "You’re addressing two classmates. Which pronoun means “you” for the group?", "options": ["a7na", "enti", "intouma"], "answer": "intouma", "visual": "intouma", "hint": "More than one listener needs the plural “you”.", "explanation": "Intouma means “you” when you speak to more than one person."}, {"prompt": "You’re talking about a group of people. Which pronoun means “they”?", "options": ["houma", "houwa", "a7na"], "answer": "houma", "visual": "houma", "hint": "The speaker is not included in this group.", "explanation": "Houma means “they”. Houma twansa means “They are Tunisian”."}, {"prompt": "Choose the sentence that means “She is Tunisian”.", "options": ["ena-tounsiya", "houwa-tounsi", "hiyya-tounsiya"], "answer": "hiyya-tounsiya", "hint": "Start with “she”, then choose the feminine nationality word.", "explanation": "Hiyya tounsiya. In this present-tense sentence, you do not add a word for “is”."}]</script>
+  <script type="application/json" id="quizChoices">{"ena": {"ar": "أنا", "latin": "ena"}, "enti": {"ar": "إنتي", "latin": "enti"}, "houwa": {"ar": "هو", "latin": "houwa"}, "hiyya": {"ar": "هي", "latin": "hiyya"}, "a7na": {"ar": "أحنا", "latin": "a7na"}, "intouma": {"ar": "إنتوما", "latin": "intouma"}, "houma": {"ar": "هوما", "latin": "houma"}, "ena-tounsi": {"ar": "أنا تونسي.", "latin": "Ena tounsi."}, "ena-tounsiya": {"ar": "أنا تونسية.", "latin": "Ena tounsiya."}, "houwa-tounsi": {"ar": "هو تونسي.", "latin": "Houwa tounsi."}, "hiyya-tounsiya": {"ar": "هي تونسية.", "latin": "Hiyya tounsiya."}, "enti-tounsi": {"ar": "إنتي تونسي؟", "latin": "Enti tounsi?"}, "enti-tounsiya": {"ar": "إنتي تونسية؟", "latin": "Enti tounsiya?"}, "a7na-twansa": {"ar": "أحنا توانسة.", "latin": "A7na twansa."}, "intouma-twansa": {"ar": "إنتوما توانسة.", "latin": "Intouma twansa."}, "houma-twansa": {"ar": "هوما توانسة.", "latin": "Houma twansa."}}</script>
+  <script type="application/json" id="roleVisuals">{"ena": "<svg viewBox=\"0 0 184 122\" aria-hidden=\"true\" focusable=\"false\"><g transform=\"translate(92 76) scale(1)\"><circle cx=\"0\" cy=\"-20\" r=\"12\" fill=\"#b16c90\"/><path d=\"M-24 27v-7a24 24 0 0 1 48 0v7Z\" fill=\"#b16c90\"/></g><path d=\"M117 22h40v24h-13l-10 8v-8h-17Z\" fill=\"#fff\"/><path d=\"M127 33h20\" stroke=\"#b16c90\" stroke-width=\"2\" stroke-linecap=\"round\"/><path d=\"M27 113h130\" stroke=\"#fff\" stroke-width=\"2\" stroke-linecap=\"round\"/></svg>", "enti": "<svg viewBox=\"0 0 184 122\" aria-hidden=\"true\" focusable=\"false\"><g transform=\"translate(92 76) scale(1)\"><circle cx=\"0\" cy=\"-20\" r=\"12\" fill=\"#697987\"/><path d=\"M-24 27v-7a24 24 0 0 1 48 0v7Z\" fill=\"#697987\"/></g><path d=\"M27 55h24m-7-7 7 7-7 7\" fill=\"none\" stroke=\"#b16c90\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M27 113h130\" stroke=\"#fff\" stroke-width=\"2\" stroke-linecap=\"round\"/></svg>", "a7na": "<svg viewBox=\"0 0 184 122\" aria-hidden=\"true\" focusable=\"false\"><g transform=\"translate(47 77) scale(0.77)\"><circle cx=\"0\" cy=\"-20\" r=\"12\" fill=\"#b16c90\"/><path d=\"M-24 27v-7a24 24 0 0 1 48 0v7Z\" fill=\"#b16c90\"/></g><g transform=\"translate(92 78) scale(1)\"><circle cx=\"0\" cy=\"-20\" r=\"12\" fill=\"#697987\"/><path d=\"M-24 27v-7a24 24 0 0 1 48 0v7Z\" fill=\"#697987\"/></g><g transform=\"translate(138 77) scale(0.77)\"><circle cx=\"0\" cy=\"-20\" r=\"12\" fill=\"#cabacb\"/><path d=\"M-24 27v-7a24 24 0 0 1 48 0v7Z\" fill=\"#cabacb\"/></g><path d=\"M26 37h37v21H49l-9 7v-7H26Z\" fill=\"#fff\"/><path d=\"M35 47h19\" stroke=\"#b16c90\" stroke-width=\"2\" stroke-linecap=\"round\"/><path d=\"M27 113h130\" stroke=\"#fff\" stroke-width=\"2\" stroke-linecap=\"round\"/></svg>", "intouma": "<svg viewBox=\"0 0 184 122\" aria-hidden=\"true\" focusable=\"false\"><g transform=\"translate(47 77) scale(0.77)\"><circle cx=\"0\" cy=\"-20\" r=\"12\" fill=\"#cabacb\"/><path d=\"M-24 27v-7a24 24 0 0 1 48 0v7Z\" fill=\"#cabacb\"/></g><g transform=\"translate(92 78) scale(1)\"><circle cx=\"0\" cy=\"-20\" r=\"12\" fill=\"#b16c90\"/><path d=\"M-24 27v-7a24 24 0 0 1 48 0v7Z\" fill=\"#b16c90\"/></g><g transform=\"translate(138 77) scale(0.77)\"><circle cx=\"0\" cy=\"-20\" r=\"12\" fill=\"#cabacb\"/><path d=\"M-24 27v-7a24 24 0 0 1 48 0v7Z\" fill=\"#cabacb\"/></g><path d=\"M81 26h22m-7-6 7 6-7 6\" fill=\"none\" stroke=\"#b16c90\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M27 113h130\" stroke=\"#fff\" stroke-width=\"2\" stroke-linecap=\"round\"/></svg>", "houma": "<svg viewBox=\"0 0 184 122\" aria-hidden=\"true\" focusable=\"false\"><g transform=\"translate(47 77) scale(0.77)\"><circle cx=\"0\" cy=\"-20\" r=\"12\" fill=\"#cabacb\"/><path d=\"M-24 27v-7a24 24 0 0 1 48 0v7Z\" fill=\"#cabacb\"/></g><g transform=\"translate(92 78) scale(1)\"><circle cx=\"0\" cy=\"-20\" r=\"12\" fill=\"#697987\"/><path d=\"M-24 27v-7a24 24 0 0 1 48 0v7Z\" fill=\"#697987\"/></g><g transform=\"translate(138 77) scale(0.77)\"><circle cx=\"0\" cy=\"-20\" r=\"12\" fill=\"#cabacb\"/><path d=\"M-24 27v-7a24 24 0 0 1 48 0v7Z\" fill=\"#cabacb\"/></g><path d=\"M27 113h130\" stroke=\"#fff\" stroke-width=\"2\" stroke-linecap=\"round\"/></svg>"}</script>
+  <script>
+  (() => {
+    'use strict';
+    const audioAssets = JSON.parse(document.getElementById('audioAssets').textContent);
+    const audioMap = new Map(audioAssets.map(item => [item.id, item]));
+    const audio = document.getElementById('lessonAudio');
+    const notice = document.getElementById('audioNotice');
+    const playIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 10 7-10 7z" fill="currentColor"/></svg>';
+    const pauseIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zm6 0h4v14h-4z" fill="currentColor"/></svg>';
+    let audioKey = null, requestVersion = 0, noticeTimer = null;
+    const syncButtons = () => {
+      document.querySelectorAll('[data-audio]').forEach(button => {
+        const item = audioMap.get(button.dataset.audio);
+        const playing = button.dataset.audio === audioKey && !audio.paused && !audio.ended;
+        button.setAttribute('aria-pressed', String(playing));
+        button.setAttribute('aria-label', `${playing ? 'Pause' : 'Listen to'} ${item.latin}`);
+        button.querySelector('svg').outerHTML = playing ? pauseIcon : playIcon;
+        button.querySelector('span').textContent = playing ? 'Pause' : button.dataset.originalLabel;
+      });
+    };
+    const showNotice = (message) => {
+      clearTimeout(noticeTimer);
+      notice.textContent = message;
+      notice.hidden = false;
+      noticeTimer = setTimeout(() => { notice.hidden = true; }, 4800);
+    };
+    const pauseAudio = () => {
+      requestVersion++;
+      audio.pause();
+      syncButtons();
+    };
+    for (const button of document.querySelectorAll('[data-audio]')) {
+      button.dataset.originalLabel = button.querySelector('span').textContent;
+      button.addEventListener('click', async () => {
+        const item = audioMap.get(button.dataset.audio);
+        if (audioKey === item.id && !audio.paused && !audio.ended) {
+          pauseAudio();
+          return;
+        }
+        const version = ++requestVersion;
+        audio.pause();
+        if (audioKey !== item.id) {
+          audioKey = item.id;
+          audio.src = item.file;
+        } else if (audio.ended) {
+          audio.currentTime = 0;
+        }
+        try {
+          await audio.play();
+          if (version !== requestVersion) return;
+          notice.hidden = true;
+          document.getElementById('recordingsNote').hidden = true;
+          syncButtons();
+        } catch (error) {
+          if (version !== requestVersion || error.name === 'AbortError') return;
+          showNotice(audio.error && [2, 4].includes(audio.error.code) ? `Recording coming soon: ${item.latin}` : 'Playback could not start. Please try the Listen button again.');
+          syncButtons();
+        }
+      });
+    }
+    ['play','pause','ended'].forEach(eventName => audio.addEventListener(eventName,syncButtons));
+    audio.addEventListener('error', syncButtons);
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && !audio.paused) pauseAudio();
+    });
+    document.addEventListener('visibilitychange', () => { if (document.hidden) audio.pause(); });
+
+
+    const choices = JSON.parse(document.getElementById('quizChoices').textContent);
+    const questions = JSON.parse(document.getElementById('quizQuestions').textContent);
+    const visuals = JSON.parse(document.getElementById('roleVisuals').textContent);
+    const content = document.getElementById('quizContent');
+    const correctFirst = Array(questions.length).fill(false);
+    let index = 0, attempts = 0, solved = false;
+    const renderQuestion = (moveFocus = false) => {
+      attempts = 0; solved = false;
+      const q = questions[index];
+      content.hidden = false;
+      content.innerHTML = `<div class="quiz-top"><span class="quiz-tag">Mini quiz</span><span>Question ${index+1} of ${questions.length}</span></div>
+        <progress class="quiz-progress" value="${index}" max="${questions.length}" aria-label="Quiz questions completed"></progress>
+        ${q.visual ? `<div class="question-visual" aria-hidden="true">${visuals[q.visual]}</div>`:''}
+        <h3 class="quiz-question" id="questionTitle" tabindex="-1">${q.prompt}</h3>
+        <div class="quiz-options" role="group" aria-labelledby="questionTitle">
+          ${q.options.map((key,i)=>`<button type="button" class="quiz-option" data-choice="${key}" aria-pressed="false"><span class="option-letter" aria-hidden="true">${['A','B','C'][i]}</span><span class="option-text"><span class="ar" lang="ar" dir="rtl">${choices[key].ar}</span><span class="latin" lang="ar-Latn">${choices[key].latin}</span></span></button>`).join('')}
+        </div>
+        <p class="quiz-feedback" id="quizFeedback" role="status" aria-live="polite"></p>
+        <div class="quiz-next"><button type="button" class="btn" id="nextQuestion" disabled>${index === questions.length-1 ? 'See my result' : 'Next question'}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>`;
+
+      content.querySelectorAll('[data-choice]').forEach(button => {
+        button.addEventListener('click', () => {
+          if (solved || button.disabled) return;
+          attempts++;
+          const feedback = document.getElementById('quizFeedback');
+          button.setAttribute('aria-pressed','true');
+          if (button.dataset.choice === q.answer) {
+            solved = true;
+            correctFirst[index] = attempts === 1;
+            button.classList.add('correct');
+            content.querySelectorAll('[data-choice]').forEach(choice => choice.setAttribute('aria-disabled','true'));
+            feedback.className = 'quiz-feedback success';
+            feedback.textContent = `✓ Correct! ${q.explanation}`;
+            document.getElementById('nextQuestion').disabled = false;
+            content.querySelector('progress').value = index+1;
+          } else {
+            button.classList.add('incorrect');
+            button.disabled = true;
+            feedback.className = 'quiz-feedback retry';
+            feedback.textContent = `Try again. ${q.hint}`;
+            const nextAvailable = content.querySelector('[data-choice]:not(:disabled):not([aria-pressed="true"])');
+            if (nextAvailable) nextAvailable.focus({preventScroll:true});
+          }
+        });
+      });
+      document.getElementById('nextQuestion').addEventListener('click', () => {
+        if (!solved) return;
+        if (index < questions.length-1) { index++; renderQuestion(true); }
+        else renderResult();
+      });
+      if (moveFocus) document.getElementById('questionTitle').focus({preventScroll:true});
+    };
+    const renderResult = () => {
+      const score = correctFirst.filter(Boolean).length;
+      content.innerHTML = `<div class="quiz-result">
+        <div class="result-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12 4 4 10-10" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3 id="resultTitle" tabindex="-1">Practice complete.</h3>
+        <p>${score === questions.length ? 'You chose every answer correctly on your first try.' : 'You worked through all eight questions. Revisit any pronouns you needed help with.'}</p>
+        <div class="result-score"><strong>${score} / ${questions.length}</strong><span>Correct on your first try</span></div>
+        <div class="result-actions"><button type="button" class="btn" id="retryQuiz">Try again</button><a href="#pronouns" class="btn btn-secondary">Review the pronouns</a></div>
+      </div>`;
+      document.getElementById('retryQuiz').addEventListener('click', () => {
+        index=0; correctFirst.fill(false); renderQuestion(true);
+      });
+      document.getElementById('resultTitle').focus({preventScroll:true});
+    };
+    renderQuestion();
+
+    const links = [...document.querySelectorAll('.lesson-nav a')];
+    if ('IntersectionObserver' in window) {
+      const sectionObserver = new IntersectionObserver(entries => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          links.forEach(link => {
+            const current = link.hash === '#'+entry.target.id;
+            link.classList.toggle('is-current',current);
+            if (current) link.setAttribute('aria-current','location');
+            else link.removeAttribute('aria-current');
+          });
+        }
+      },{rootMargin:'-18% 0px -58% 0px'});
+      document.querySelectorAll('#start,#pronouns,#sentences,#conversation,#practice,#review').forEach(section=>sectionObserver.observe(section));
+    }
+  })();
+  </script>
+</body></html>

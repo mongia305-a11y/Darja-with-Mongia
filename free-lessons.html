@@ -56,6 +56,7 @@
     .lesson-card{display:flex;flex-direction:column;overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:26px;box-shadow:var(--shadow);transition:transform .25s,box-shadow .25s}
     .lesson-card:hover{transform:translateY(-6px);box-shadow:0 24px 56px rgba(70,62,77,.16)}
     .card-image{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--lavender)}
+    .grammar-thumbnail{display:block;width:100%;height:100%}
     .card-image img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .4s}
     .lesson-card:hover .card-image img{transform:scale(1.035)}
     .lesson-card[data-category="conversation"] .card-image img{object-position:center top}
@@ -239,7 +240,7 @@
     <section class="lessons wrap" aria-live="polite">
       <div class="section-head">
         <div><h2 id="sectionTitle">All lessons</h2><p>Short lessons you can study at your own pace.</p></div>
-        <span class="count" id="count">6 lessons</span>
+        <span class="count" id="count">7 lessons</span>
       </div>
 
       <div class="grid" id="lessonGrid">
@@ -315,6 +316,10 @@
             <p class="description">Learn how to ask someone to repeat, speak slowly and help you understand in Tunisian Arabic.</p>
             <span class="open">Open lesson <span aria-hidden="true">→</span></span>
           </div>
+        </a>
+        <a class="lesson-card" href="grammar-lesson-01-subject-pronouns.html" data-category="grammar" aria-label="Open Grammar Lesson 01: Subject Pronouns">
+          <div class="card-image"><svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="I, you and we: Tunisian Arabic subject pronouns" class="grammar-thumbnail"><rect width="640" height="400" fill="#f2eaf4"/><rect x="51" y="76" width="160" height="235" rx="23" fill="#fff"/><rect x="241" y="76" width="160" height="235" rx="23" fill="#fff"/><rect x="431" y="76" width="160" height="235" rx="23" fill="#fff"/><g fill="#b16c90"><circle cx="131" cy="129" r="17"/><path d="M103 183v-8a28 28 0 0 1 56 0v8Z"/><circle cx="321" cy="129" r="17"/><path d="M293 183v-8a28 28 0 0 1 56 0v8Z"/></g><g fill="#697987"><circle cx="489" cy="139" r="12"/><path d="M471 181v-5a18 18 0 0 1 36 0v5Z"/><circle cx="535" cy="139" r="12"/><path d="M517 181v-5a18 18 0 0 1 36 0v5Z"/></g><g text-anchor="middle" fill="#536577" font-size="42" font-family="'Noto Naskh Arabic',serif"><text x="131" y="236" lang="ar">أنا</text><text x="321" y="236" lang="ar">إنتي</text><text x="511" y="236" lang="ar">أحنا</text></g><g text-anchor="middle" fill="#8f4b6a" font-size="18" font-family="Poppins,sans-serif"><text x="131" y="273">I</text><text x="321" y="273">You</text><text x="511" y="273">We</text></g></svg><span class="free-badge">FREE</span><span class="number">GRAMMAR 01</span></div>
+          <div class="card-body"><div class="meta"><span>Grammar</span><span>Beginner · A1</span></div><h3>Subject Pronouns</h3><div class="arabic" lang="ar" dir="rtl">الضمائر الشخصية</div><p class="description">Learn seven pronouns, build simple sentences and practise with a short conversation and quiz.</p><span class="open">Open lesson <span aria-hidden="true">→</span></span></div>
         </a>
         <a class="lesson-card" href="culture-lesson-01-traditional-clothing.html" data-category="culture" aria-label="Open Culture Lesson 01: Traditional Tunisian Clothing">
           <div class="card-image">
