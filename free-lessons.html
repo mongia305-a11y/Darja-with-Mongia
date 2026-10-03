@@ -59,6 +59,8 @@
     .card-image img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .4s}
     .lesson-card:hover .card-image img{transform:scale(1.035)}
     .lesson-card[data-category="conversation"] .card-image img{object-position:center top}
+    .lesson-card[data-category="culture"] .card-image{background:#fff}
+    .lesson-card[data-category="culture"] .card-image img{object-fit:contain}
     .number{position:absolute;top:16px;right:16px;padding:7px 11px;border-radius:999px;background:rgba(255,255,255,.94);color:#885c72;font-size:12px;font-weight:700}
     .card-body{padding:23px 24px 25px}
     .meta{display:flex;align-items:center;gap:8px;margin-bottom:11px;color:#bb6a8f;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px}
@@ -237,7 +239,7 @@
     <section class="lessons wrap" aria-live="polite">
       <div class="section-head">
         <div><h2 id="sectionTitle">All lessons</h2><p>Short lessons you can study at your own pace.</p></div>
-        <span class="count" id="count">5 lessons</span>
+        <span class="count" id="count">6 lessons</span>
       </div>
 
       <div class="grid" id="lessonGrid">
@@ -314,6 +316,20 @@
             <span class="open">Open lesson <span aria-hidden="true">→</span></span>
           </div>
         </a>
+        <a class="lesson-card" href="culture-lesson-01-traditional-clothing.html" data-category="culture" aria-label="Open Culture Lesson 01: Traditional Tunisian Clothing">
+          <div class="card-image">
+            <img src="images/culture-lesson-01/jebba.webp" alt="An embroidered Tunisian jebba" width="1200" height="900" loading="lazy">
+            <span class="free-badge">FREE</span>
+            <span class="number">CULTURE 01</span>
+          </div>
+          <div class="card-body">
+            <div class="meta"><span>Culture</span><span>Beginner</span></div>
+            <h3>Traditional Tunisian Clothing</h3>
+            <div class="arabic" lang="ar" dir="rtl">اللباس التقليدي التونسي</div>
+            <p class="description">Discover six traditional garments, practise three useful phrases and try a short culture quiz with audio.</p>
+            <span class="open">Open lesson <span aria-hidden="true">→</span></span>
+          </div>
+        </a>
       </div>
 
       <div class="empty" id="emptyState">
@@ -359,3 +375,4 @@
   </script>
 </body>
 </html>
+

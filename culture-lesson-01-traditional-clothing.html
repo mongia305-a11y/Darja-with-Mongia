@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f9f7ff">
+  <title>Culture Lesson 01 — Traditional Tunisian Clothing | Darja with Mongia</title>
+  <meta name="description" content="Discover six traditional Tunisian garments. Learn their names in Tunisian Arabic, practise useful phrases, and try a short interactive culture quiz with Darja with Mongia.">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+  
+  /* Page-specific styles adapted from the current Darja with Mongia lesson theme. */
+  :root {
+    --cream:#f9f7ff; --cream2:#f2eaf4; --paper:#fff;
+    --ink:#3f4c4a; --body:#46505b; --muted:#68717d; --arabic:#536577;
+    --rose:#e9a6c3; --rose-soft:#f8dce8; --rose-deep:#8f4b6a;
+    --rose-hover:#dfa0bd; --line:#eadfe7;
+    --mint:#e8f0eb; --peach:#f9e9e2; --sand:#f6efdf; --sky:#e8eef4;
+    --shadow:0 12px 28px rgba(70,62,77,.07);
+    --radius:24px; --header-height:76px;
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; scroll-padding-top:calc(var(--header-height) + 22px); }
+  body { margin:0; color:var(--body); background:var(--cream); font-family:'Poppins',system-ui,sans-serif; font-size:15px; line-height:1.75; }
+  button, input, audio { font:inherit; }
+  button { color:inherit; cursor:pointer; }
+  button:disabled { cursor:default; }
+  a { color:inherit; text-decoration:none; }
+  img { max-width:100%; display:block; }
+  svg { flex-shrink:0; }
+  h1,h2,h3,p,figure { margin:0; }
+  h1,h2 { color:var(--ink); font-family:Georgia,'Times New Roman',serif; font-weight:500; }
+  h2 { font-size:clamp(30px,3.3vw,42px); line-height:1.18; letter-spacing:-.8px; }
+  h2 em { color:var(--rose-deep); font-weight:400; }
+  .ar { color:var(--arabic); font-family:'Noto Naskh Arabic',Georgia,serif; font-weight:600; line-height:1.6; letter-spacing:0; }
+  [hidden] { display:none!important; }
+  :focus-visible { outline:3px solid var(--rose-deep); outline-offset:4px; }
+  ::selection { background:var(--rose-soft); color:var(--ink); }
+  .wrap { width:min(1120px,calc(100% - 48px)); margin-inline:auto; }
+  .skip-link { position:fixed; left:16px; top:12px; z-index:2000; background:white; padding:10px 18px; border:2px solid var(--rose-deep); border-radius:12px; transform:translateY(-170%); }
+  .skip-link:focus { transform:none; }
+  .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+
+  /* Existing website navigation and its visible mobile layout. */
+  .navbar { position:sticky; top:0; z-index:100; min-height:76px; padding:5px 22px; display:flex; align-items:center; background:#fff; box-shadow:0 4px 20px rgba(0,0,0,.05); }
+  .brand-logo { display:flex; align-items:center; }
+  .brand-logo img { width:153px; height:56px; object-fit:contain; }
+  .site-nav { position:absolute; left:50%; transform:translateX(-50%); display:flex; align-items:center; gap:23px; }
+  .site-nav a { padding:8px 0; font-size:18px; font-weight:500; color:#444; white-space:nowrap; }
+  .site-nav a:hover { color:var(--rose-deep); }
+  .site-nav .active { color:var(--rose-deep); }
+  .lessonbar { background:var(--cream); border-bottom:1px solid var(--line); }
+  .lesson-nav { min-height:55px; display:flex; gap:8px; align-items:center; overflow-x:auto; scrollbar-width:thin; }
+  .lesson-nav a { white-space:nowrap; padding:7px 14px; border-radius:999px; color:var(--muted); font-size:12px; font-weight:500; }
+  .lesson-nav a:hover,.lesson-nav .is-current { background:#fff; color:var(--rose-deep); }
+  .lesson-nav .lesson-quiz { margin-left:auto; background:var(--rose-soft); color:var(--rose-deep); }
+  .back-link { display:inline-flex; gap:7px; align-items:center; margin-top:25px; font-size:12px; color:var(--muted); }
+  .back-link svg { width:16px; height:16px; }
+  .back-link:hover { color:var(--rose-deep); }
+
+  /* Buttons keep the site's rose palette with readable text contrast. */
+  .btn { min-height:46px; display:inline-flex; align-items:center; justify-content:center; gap:9px; padding:12px 23px; border:1px solid transparent; border-radius:25px; background:var(--rose); color:#503343; font-size:13px; font-weight:600; line-height:1.5; transition:background .15s; }
+  .btn:hover { background:var(--rose-hover); }
+  .btn svg { width:18px; height:18px; }
+  .btn-secondary { background:#fff; border-color:var(--line); color:var(--rose-deep); }
+  .btn-secondary:hover { background:var(--rose-soft); }
+  .btn:disabled { background:#eee9ed; color:#747079; border-color:#eee9ed; }
+  .pill { display:inline-flex; padding:6px 12px; border-radius:999px; color:#75536b; background:var(--rose-soft); text-transform:uppercase; letter-spacing:1.3px; font-size:10px; font-weight:600; }
+  .eyebrow { display:block; color:var(--rose-deep); font-size:10px; font-weight:600; letter-spacing:1.8px; text-transform:uppercase; }
+
+  /* A compact introduction with the same split layout as the other lessons. */
+  .hero { padding:30px 0 49px; }
+  .hero-grid { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,.9fr); gap:62px; align-items:center; }
+  .hero-meta { display:flex; align-items:center; flex-wrap:wrap; gap:13px; }
+  .hero-meta>span:last-child { color:var(--muted); font-size:11px; }
+  .hero h1 { margin:20px 0 12px; font-size:clamp(42px,4.6vw,61px); letter-spacing:-1.8px; line-height:1.06; }
+  .hero h1 em { display:block; margin-top:4px; color:#b46b90; font-weight:400; }
+  .hero-ar { font-size:clamp(27px,2.7vw,36px); text-align:left; }
+  .hero-trans { color:var(--rose-deep); font-size:12px; margin-top:2px; }
+  .hero-copy { color:var(--muted); margin-top:18px; max-width:47ch; font-size:14px; line-height:1.9; }
+  .hero-cta { display:flex; gap:10px; flex-wrap:wrap; margin-top:23px; }
+  .hero-objective { display:flex; align-items:center; gap:8px; color:var(--muted); font-size:11px; margin-top:20px; }
+  .hero-objective svg { width:17px; height:17px; color:var(--rose-deep); }
+  .hero-board { border:1px solid var(--line); border-radius:30px; background:#fff; padding:19px; box-shadow:var(--shadow); }
+  .board-head { display:flex; align-items:center; justify-content:space-between; margin-bottom:13px; }
+  .board-head p { color:var(--ink); font-family:Georgia,serif; font-size:19px; }
+  .board-head>span { color:var(--rose-deep); font-size:9px; letter-spacing:1.2px; text-transform:uppercase; }
+  .hero-gallery { display:grid; grid-template-columns:1fr 1fr; gap:11px; }
+  .hero-tile { background:var(--cream); border-radius:18px; overflow:hidden; }
+  .hero-tile .garment-picture { height:200px; aspect-ratio:auto; border-radius:0; }
+  .hero-tile .garment-picture img { padding:17px; }
+  .hero-label { padding:8px 13px 12px; }
+  .hero-label .ar { font-size:24px; display:block; }
+  .hero-label .latin { display:block; color:var(--rose-deep); font-size:11px; margin-top:-5px; }
+  .hero-detail { grid-column:1/-1; background:var(--rose-soft); border-radius:16px; display:flex; align-items:center; gap:14px; min-height:96px; padding:8px 15px 8px 8px; }
+  .hero-detail .garment-picture { height:78px; width:110px; flex-shrink:0; aspect-ratio:auto; border-radius:11px; background:rgba(255,255,255,.65); }
+  .hero-detail .garment-picture img { padding:5px; }
+  .hero-detail .illustration-tag { display:none; }
+  .hero-detail .ar { font-size:26px; }
+  .hero-detail .latin { color:var(--rose-deep); font-size:11px; }
+  .hero-detail .detail-text { font-size:11px; color:#6c5363; }
+  .board-foot { padding-top:12px; text-align:center; font-size:10px; color:var(--muted); }
+
+  .section { padding:44px 0; scroll-margin-top:calc(var(--header-height) + 22px); }
+  .section-head { display:flex; align-items:end; justify-content:space-between; gap:24px; margin-bottom:25px; }
+  .section-head h2 { margin-top:6px; }
+  .section-head p { color:var(--muted); margin-top:11px; font-size:14px; max-width:58ch; }
+  .section-hint { color:var(--muted); font-size:11px; white-space:nowrap; padding-bottom:3px; }
+
+  /* Concise culture context, rather than a separate history article. */
+  .intro-panel { border:1px solid var(--line); border-radius:24px; background:#fff; display:grid; grid-template-columns:.75fr 1.25fr; gap:40px; padding:28px 32px; align-items:center; }
+  .intro-panel h2 { font-size:32px; margin-top:6px; }
+  .intro-panel p { font-size:14px; color:var(--muted); line-height:1.95; }
+  .intro-tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+  .intro-tags span { padding:4px 10px; border-radius:999px; font-size:10px; color:#685d73; background:var(--cream2); }
+  .intro-tags span:nth-child(2) { background:var(--peach); }
+  .intro-tags span:nth-child(3) { background:var(--mint); }
+
+  /* Keep the complete garment visible inside each consistent 4:3 image. */
+  .garment-picture { position:relative; background:var(--cream2); width:100%; aspect-ratio:4/3; overflow:hidden; }
+  .garment-picture img { width:100%; height:100%; object-fit:contain; padding:17px 28px; }
+  .garment-picture.is-photo { background:#fff; }
+  .garment-picture.is-photo img { padding:0; }
+  .illustration-tag { position:absolute; left:12px; bottom:10px; background:rgba(255,255,255,.88); color:#6a6270; padding:2px 8px; border-radius:999px; font-size:9px; }
+  .peach { background:var(--peach); }
+  .lavender { background:var(--cream2); }
+  .sand { background:var(--sand); }
+  .rose { background:#f7e5ed; }
+  .mint { background:var(--mint); }
+  .sky { background:var(--sky); }
+  .vgrid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:19px; }
+  .vcard { border:1px solid var(--line); background:#fff; border-radius:24px; box-shadow:var(--shadow); overflow:hidden; }
+  .vbody { padding:19px 21px 21px; }
+  .card-meta { display:flex; align-items:center; justify-content:space-between; color:var(--muted); font-size:9px; text-transform:uppercase; letter-spacing:.9px; }
+  .word-number { color:#887081; }
+  .word-heading { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:7px; }
+  .word-heading h3 { font-size:34px; line-height:1.45; }
+  .vtrans { color:var(--rose-deep); font-size:13px; font-weight:500; }
+  .word-meaning { font-size:12px; color:var(--muted); margin-top:2px; }
+  .description { font-size:13px; line-height:1.85; margin-top:13px; color:var(--body); }
+  .card-note { padding-top:10px; margin-top:13px; border-top:1px solid var(--line); font-size:11px; color:var(--muted); }
+  .listen-btn { display:inline-flex; align-items:center; justify-content:center; gap:6px; min-height:44px; padding:8px 12px; border:1px solid var(--line); border-radius:999px; background:#fff; color:var(--rose-deep); font-weight:500; font-size:11px; line-height:1.5; white-space:nowrap; }
+  .listen-btn svg { width:17px; height:17px; }
+  .listen-btn:hover { background:var(--rose-soft); }
+  .listen-btn[aria-pressed="true"] { background:var(--rose-soft); border-color:var(--rose); }
+  .pronunciation-tip { display:flex; align-items:start; gap:10px; font-size:11px; color:var(--muted); margin-top:18px; padding:13px 17px; border:1px solid var(--line); border-radius:15px; background:#fff; }
+  .pronunciation-tip>svg { width:19px; height:19px; color:var(--rose-deep); margin-top:1px; }
+  .pronunciation-tip strong { color:var(--body); font-weight:500; }
+  .culture-notes { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:21px; }
+  .culture-note { padding:19px 21px; background:var(--cream2); border-radius:19px; }
+  .culture-note:last-child { background:var(--mint); }
+  .culture-note h3 { font-size:12px; color:var(--ink); font-weight:600; }
+  .culture-note p { font-size:12px; color:var(--muted); margin-top:6px; line-height:1.9; }
+
+  .phrase-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:19px; }
+  .phrase-card { border:1px solid var(--line); border-radius:22px; background:#fff; padding:24px 21px; }
+  .phrase-context { font-size:10px; color:var(--muted); }
+  .phrase-card .ar { font-size:30px; text-align:left; margin-top:13px; }
+  .phrase-card .vtrans { margin-top:2px; }
+  .phrase-card>p:last-of-type { color:var(--muted); font-size:12px; margin-top:5px; }
+  .phrase-card .listen-btn { margin-top:18px; }
+  .speaking-prompt { font-size:11px; color:var(--muted); margin-top:17px; }
+  .speaking-prompt b { color:var(--rose-deep); font-weight:500; }
+
+  /* One untimed activity; answer text is not shown before a choice. */
+  .practice-layout { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.5fr); gap:40px; align-items:start; }
+  .practice-intro { padding-top:17px; }
+  .practice-intro h2 { margin-top:8px; }
+  .practice-intro>p { color:var(--muted); font-size:13px; margin-top:13px; max-width:31ch; }
+  .practice-note { margin-top:21px; border-left:3px solid var(--rose); padding:2px 0 2px 15px; color:var(--muted); font-size:11px; }
+  .quiz-panel { background:#fff; border:1px solid var(--line); border-radius:26px; padding:27px; box-shadow:var(--shadow); }
+  .quiz-top { display:flex; justify-content:space-between; align-items:center; gap:15px; color:var(--muted); font-size:11px; }
+  .quiz-top .quiz-tag { color:var(--rose-deep); font-size:9px; letter-spacing:1.2px; text-transform:uppercase; }
+  .quiz-progress { margin:13px 0 21px; width:100%; height:5px; border:0; border-radius:999px; background:var(--cream2); appearance:none; }
+  .quiz-progress::-webkit-progress-bar { background:var(--cream2); border-radius:999px; }
+  .quiz-progress::-webkit-progress-value { background:var(--rose); border-radius:999px; }
+  .quiz-progress::-moz-progress-bar { background:var(--rose); border-radius:999px; }
+  .question-visual { float:right; width:91px; height:84px; border-radius:15px; background:var(--rose-soft); margin:0 0 10px 13px; }
+  .question-visual img { object-fit:contain; width:100%; height:100%; padding:4px; }
+  .quiz-question { color:var(--ink); font-size:17px; font-weight:500; line-height:1.65; min-height:70px; }
+  .quiz-question:focus { outline-offset:5px; }
+  .quiz-options { clear:both; display:grid; gap:9px; margin-top:18px; }
+  .quiz-option { display:flex; align-items:center; gap:13px; min-height:65px; padding:10px 15px; background:#fff; border:1px solid var(--line); border-radius:15px; text-align:left; }
+  .quiz-option:not(:disabled):hover { background:var(--cream); border-color:#bb83a1; }
+  .option-letter { flex-shrink:0; display:grid; place-items:center; width:29px; height:29px; background:var(--cream); color:var(--muted); border-radius:50%; font-size:11px; }
+  .option-text { display:flex; gap:12px; align-items:center; justify-content:space-between; width:100%; min-width:0; }
+  .option-text .ar { font-size:24px; line-height:1.5; }
+  .option-text .latin { font-size:11px; color:var(--rose-deep); }
+  .quiz-option.correct { background:#edf5ef; border-color:#688671; }
+  .quiz-option.incorrect { background:#fff3ef; border-color:#b87b62; }
+  .quiz-option[aria-disabled="true"] { cursor:default; }
+  .quiz-feedback { font-size:12px; margin-top:13px; min-height:27px; color:var(--muted); }
+  .quiz-feedback.success { color:#3d674b; }
+  .quiz-feedback.retry { color:#8a503b; }
+  .quiz-next { margin-top:9px; display:flex; justify-content:flex-end; }
+  .quiz-next .btn { min-width:148px; }
+  .quiz-result { text-align:center; padding:9px 5px; }
+  .result-mark { display:grid; place-items:center; margin:0 auto 15px; width:57px; height:57px; border-radius:50%; background:var(--mint); color:#456c51; }
+  .result-mark svg { width:27px; height:27px; }
+  .quiz-result h3 { font-family:Georgia,serif; font-weight:500; color:var(--ink); font-size:30px; }
+  .quiz-result .ar { margin-top:5px; font-size:28px; }
+  .quiz-result p { color:var(--muted); font-size:12px; margin-top:10px; }
+  .result-score { margin-top:20px; padding:12px; border-radius:14px; background:var(--cream); }
+  .result-score strong { color:var(--rose-deep); font-size:22px; font-weight:500; }
+  .result-score span { display:block; font-size:10px; color:var(--muted); }
+  .result-actions { display:flex; justify-content:center; flex-wrap:wrap; gap:9px; margin-top:22px; }
+
+  .review-panel { display:grid; grid-template-columns:minmax(0,1.18fr) minmax(0,1fr); border:1px solid var(--line); border-radius:26px; background:#fff; overflow:hidden; }
+  .review-table-wrap { padding:24px 28px; }
+  .review-table { width:100%; border-collapse:collapse; text-align:left; }
+  .review-table th { padding:0 7px 11px; color:var(--muted); font-size:10px; font-weight:500; border-bottom:1px solid var(--line); }
+  .review-table td { font-size:12px; padding:9px 7px; border-bottom:1px solid #f0ebef; vertical-align:middle; }
+  .review-table tr:last-child td { border-bottom:0; }
+  .review-table .ar { font-size:24px; text-align:left; }
+  .review-table td:nth-child(2) { color:var(--rose-deep); white-space:nowrap; }
+  .self-check { padding:28px; background:linear-gradient(130deg,#fcfafc,var(--cream2)); }
+  .self-check h3 { color:var(--ink); font-family:Georgia,serif; font-size:24px; font-weight:500; }
+  .self-check>p { color:var(--muted); font-size:12px; margin:9px 0 20px; }
+  .check-label { display:flex; gap:11px; align-items:start; margin:12px 0; color:var(--body); font-size:12px; cursor:pointer; }
+  .check-label input { margin:4px 0 0; width:19px; height:19px; flex-shrink:0; accent-color:var(--rose-deep); }
+  .check-label span { padding-top:1px; }
+  .self-check .btn { margin-top:15px; }
+  .sources { margin-top:19px; font-size:11px; color:var(--muted); }
+  .sources summary { display:inline-list-item; cursor:pointer; padding:7px 0; }
+  .sources ul { margin:8px 0 0; padding-left:18px; }
+  .sources li { margin:8px 0; }
+  .sources a { color:var(--rose-deep); text-decoration:underline; text-underline-offset:3px; }
+  .site-footer { margin-top:32px; padding:24px 0; border-top:1px solid var(--line); background:#fffdfb; }
+  .footer-inner { display:flex; align-items:center; justify-content:space-between; gap:20px; }
+  .footer-inner p { color:var(--muted); font-size:11px; }
+  .footer-inner a { font-size:11px; color:var(--rose-deep); }
+
+  /* Only one recording plays at a time. No synthetic pronunciation fallback. */
+  .toast { position:fixed; z-index:150; left:50%; bottom:22px; transform:translateX(-50%); padding:13px 18px; max-width:calc(100% - 32px); width:max-content; background:var(--ink); color:#fff; border-radius:14px; box-shadow:var(--shadow); font-size:12px; text-align:center; }
+  .audio-dock { position:fixed; z-index:130; right:22px; bottom:20px; display:flex; align-items:center; gap:16px; width:min(490px,calc(100% - 32px)); padding:12px 14px; border:1px solid var(--line); border-radius:20px; background:#fff; box-shadow:0 10px 34px rgba(63,50,70,.18); }
+  .audio-title { min-width:90px; color:var(--rose-deep); font-size:11px; }
+  .audio-title .ar { display:block; font-size:22px; }
+  .audio-dock audio { min-width:0; width:100%; height:40px; }
+  .audio-close { border:0; flex-shrink:0; background:var(--cream); width:44px; height:44px; border-radius:50%; font-size:22px; }
+  body.audio-open { padding-bottom:105px; }
+
+  @media (max-width:1000px) {
+    .hero-grid { gap:30px; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); }
+    .hero h1 { font-size:47px; }
+    .hero-tile .garment-picture { height:175px; }
+    .vgrid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .section-hint { display:none; }
+    .phrase-card { padding:21px 17px; }
+    .phrase-card .ar { font-size:28px; }
+    .practice-layout { gap:26px; grid-template-columns:1fr 1.5fr; }
+  }
+  @media (max-width:760px) {
+    :root { --header-height:112px; }
+    .wrap { width:calc(100% - 36px); }
+    .navbar { flex-wrap:wrap; gap:4px; padding:8px 18px 9px; min-height:106px; }
+    .brand-logo img { height:50px; }
+    .site-nav { position:static; left:auto; transform:none; width:100%; gap:19px; justify-content:flex-start; }
+    .site-nav a { font-size:13px; padding:4px 0; }
+    .lesson-nav { min-height:50px; gap:1px; }
+    .lesson-nav a { font-size:10px; padding:7px 10px; }
+    .lesson-nav .lesson-quiz { margin-left:0; }
+    .back-link { margin-top:21px; }
+    .hero { padding:26px 0 32px; }
+    .hero-grid { grid-template-columns:1fr; gap:30px; }
+    .hero h1 { font-size:clamp(40px,8.4vw,54px); }
+    .hero h1 em { display:inline; }
+    .hero-copy { max-width:51ch; }
+    .hero-board { max-width:520px; width:100%; margin-inline:auto; }
+    .hero-tile .garment-picture { height:180px; }
+    .intro-panel { grid-template-columns:1fr; gap:16px; padding:25px; }
+    .intro-panel h2 { font-size:31px; }
+    .section { padding:32px 0; }
+    .section-head { margin-bottom:22px; }
+    .culture-notes { gap:13px; }
+    .phrase-grid { grid-template-columns:1fr; gap:12px; }
+    .phrase-card { display:grid; grid-template-columns:1fr auto; gap:0 12px; padding:19px 21px; }
+    .phrase-context,.phrase-card h3,.phrase-card p { grid-column:1; }
+    .phrase-card h3 { margin-top:5px; }
+    .phrase-card .listen-btn { grid-column:2; grid-row:2/5; align-self:center; margin-top:0; }
+    .practice-layout { grid-template-columns:1fr; gap:23px; }
+    .practice-intro { padding-top:0; }
+    .practice-intro>p { max-width:49ch; }
+    .practice-note { margin-top:14px; }
+    .review-panel { grid-template-columns:1fr; }
+    .footer-inner { flex-direction:column; align-items:start; gap:9px; }
+  }
+  @media (max-width:500px) {
+    .hero-meta { gap:10px; }
+    .hero-meta>span:last-child { font-size:10px; }
+    .hero h1 { font-size:43px; letter-spacing:-1.4px; }
+    .hero h1 em { display:block; }
+    .hero-ar { font-size:27px; }
+    .hero-trans { font-size:11px; }
+    .hero-copy { font-size:13px; }
+    .hero-cta .btn { font-size:12px; padding:11px 17px; }
+    .hero-board { padding:14px; border-radius:24px; }
+    .board-head p { font-size:17px; }
+    .board-head>span { font-size:8px; }
+    .hero-tile .garment-picture { height:153px; }
+    .hero-tile .garment-picture img { padding:11px; }
+    .hero-label { padding:7px 12px 10px; }
+    .hero-label .ar { font-size:23px; }
+    .hero-detail { gap:10px; }
+    .hero-detail .garment-picture { width:95px; }
+    .vgrid { grid-template-columns:1fr; gap:18px; }
+    .vcard .garment-picture { aspect-ratio:5/3; }
+    .vbody { padding:17px 21px 20px; }
+    .word-heading { margin-top:3px; }
+    .description { font-size:13px; }
+    .word-meaning { font-size:12px; }
+    .pronunciation-tip { font-size:11px; padding:13px; }
+    .culture-notes { grid-template-columns:1fr; }
+    .phrase-card { grid-template-columns:1fr; padding:22px; }
+    .phrase-card .listen-btn { grid-column:1; grid-row:auto; justify-self:start; margin-top:15px; }
+    .quiz-panel { padding:22px 19px; }
+    .quiz-question { font-size:16px; }
+    .option-text { flex-wrap:wrap; gap:1px 8px; }
+    .option-text .ar { font-size:23px; }
+    .option-text .latin { font-size:11px; }
+    .quiz-option { padding:9px 10px; gap:10px; }
+    .review-table-wrap { padding:19px 13px; }
+    .review-table th,.review-table td { padding-inline:5px; }
+    .review-table td { font-size:11px; }
+    .review-table .ar { font-size:23px; }
+    .self-check { padding:25px 22px; }
+    .audio-dock { right:16px; bottom:16px; flex-wrap:wrap; gap:7px; padding:10px 13px; }
+    .audio-title { flex:1; }
+    .audio-title .ar { display:inline; margin-inline-end:9px; }
+    .audio-dock audio { order:3; flex-basis:100%; height:36px; }
+    body.audio-open { padding-bottom:140px; }
+  }
+  @media (prefers-reduced-motion:reduce) {
+    html { scroll-behavior:auto; }
+    *,*::before,*::after { transition:none!important; animation:none!important; }
+  }
+  @media print {
+    .navbar,.lessonbar,.back-link,.hero-cta,.listen-btn,.quiz-next,.toast,.audio-dock,.sources,.site-footer { display:none!important; }
+    body { background:#fff; font-size:11pt; }
+    .wrap { width:100%; }
+    .section { padding:16px 0; }
+    .vgrid { grid-template-columns:repeat(2,1fr); }
+    .vcard,.phrase-card { break-inside:avoid; box-shadow:none; }
+    .vcard .garment-picture { height:120px; aspect-ratio:auto; }
+    .hero-board { display:none; }
+    .hero-grid,.practice-layout { display:block; }
+  }
+  </style>
+  <link rel="canonical" href="https://darjawithmongia.com/culture-lesson-01-traditional-clothing.html">
+  <link rel="stylesheet" href="cookie-consent.css?v=1">
+  <script src="cookie-consent.js?v=1" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#lesson">Skip to lesson</a>
+  <header class="navbar">
+    <a class="brand-logo" href="index.html#home" aria-label="Darja with Mongia home"><img src="images/full-logo.png" alt="Darja with Mongia" width="153" height="56"></a>
+    <nav class="site-nav" aria-label="Main website navigation">
+      <a href="index.html#home">Home</a>
+      <a href="free-lessons.html" class="active">Free Lessons</a>
+      <a href="index.html#podcast">Podcast</a>
+      <a href="index.html#about">About</a>
+    </nav>
+  </header>
+  <div class="lessonbar">
+    <nav class="lesson-nav wrap" aria-label="Lesson sections">
+      <a href="#story" class="is-current">Discover</a>
+      <a href="#wardrobe">Vocabulary</a>
+      <a href="#phrases">Say it</a>
+      <a href="#review">Review</a>
+      <a href="#practice" class="lesson-quiz">Mini quiz</a>
+    </nav>
+  </div>
+  <main id="lesson" class="wrap">
+    <a class="back-link" href="free-lessons.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6-6 6 6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Back to Free Lessons</a>
+    <section class="hero" id="top" aria-labelledby="lesson-title">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-meta"><span class="pill">Culture Lesson 01</span><span>Beginner · Around 10 minutes</span></div>
+          <h1 id="lesson-title">Traditional <em>Tunisian clothing</em></h1>
+          <p class="hero-ar ar" lang="ar" dir="rtl">اللباس التقليدي التونسي</p>
+          <p class="hero-trans" lang="ar-Latn">el-lbes et-taqlidi et-tounsi</p>
+          <p class="hero-copy">Discover a little Tunisian culture, learn six clothing names, and practise a few words you can use at a celebration.</p>
+          <div class="hero-cta">
+            <a class="btn" href="#wardrobe">Explore the clothes<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <a class="btn btn-secondary" href="#practice">Try the mini quiz</a>
+          </div>
+          <p class="hero-objective"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4 10-10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Look, listen, repeat — then try it yourself.</p>
+        </div>
+        <div class="hero-board" aria-label="A first look at Tunisian traditional clothing">
+          <div class="board-head"><p>A little Tunisian wardrobe</p><span>Culture & language</span></div>
+          <div class="hero-gallery">
+            <div class="hero-tile">
+              <figure class="garment-picture is-photo peach ">
+      <img src="images/culture-lesson-01/jebba.webp" alt="Traditional tunic in Tunisian traditional dress" width="1200" height="900" decoding="async">
+    </figure>
+              <div class="hero-label"><span class="ar" lang="ar" dir="rtl">الجُبّة</span><span class="latin" lang="ar-Latn">ej-jebba</span></div>
+            </div>
+            <div class="hero-tile">
+              <figure class="garment-picture is-photo lavender ">
+      <img src="images/culture-lesson-01/tabdila.webp" alt="Traditional festive outfit in Tunisian traditional dress" width="1200" height="900" decoding="async">
+    </figure>
+              <div class="hero-label"><span class="ar" lang="ar" dir="rtl">التبديلة</span><span class="latin" lang="ar-Latn">et-tabdila</span></div>
+            </div>
+            <div class="hero-detail">
+              <figure class="garment-picture is-photo rose ">
+      <img src="images/culture-lesson-01/chechia.webp" alt="Traditional felt cap in Tunisian traditional dress" width="1200" height="900" decoding="async">
+    </figure>
+              <div><p class="ar" lang="ar" dir="rtl">الشاشية</p><p class="latin" lang="ar-Latn">ech-chechia</p><p class="detail-text">A familiar little red cap.</p></div>
+            </div>
+          </div>
+          <p class="board-foot">Six words. A small window into Tunisian life.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="story" aria-labelledby="story-title">
+      <div class="intro-panel">
+        <div><span class="eyebrow">01 · Discover</span><h2 id="story-title">A tradition you <em>can wear.</em></h2>
+          <div class="intro-tags"><span>Heritage</span><span>Celebrations</span><span>Craft</span></div>
+        </div>
+        <p>Traditional clothing is part of Tunisian cultural heritage. Styles and embroidery vary from region to region. Many traditional outfits are worn for weddings and celebrations, while some garments also have everyday uses. Here are six examples to help you recognise them — and say their names in Darja.</p>
+      </div>
+    </section>
+
+    <section class="section" id="wardrobe" aria-labelledby="wardrobe-title">
+      <div class="section-head">
+        <div><span class="eyebrow">02 · Look & listen</span><h2 id="wardrobe-title">Meet the <em>clothes.</em></h2><p>Look at each garment. Read its name, listen, and repeat it aloud.</p></div>
+        <span class="section-hint">Arabic · Latin spelling · English</span>
+      </div>
+      <div class="vgrid"><article class="vcard" id="word-jebba">
+      <figure class="garment-picture is-photo peach ">
+      <img src="images/culture-lesson-01/jebba.webp" alt="Traditional tunic in Tunisian traditional dress" width="1200" height="900" decoding="async">
+    </figure>
+      <div class="vbody">
+        <div class="card-meta"><span>Men’s clothing</span><span class="word-number">01</span></div>
+        <div class="word-heading"><h3 class="ar" lang="ar" dir="rtl">الجُبّة</h3><button type="button" class="listen-btn" data-audio="jebba" aria-label="Listen to ej-jebba" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 10 7-10 7z" fill="currentColor"/></svg><span>Listen</span></button></div>
+        <p class="vtrans" lang="ar-Latn">ej-jebba</p>
+        <p class="word-meaning">Traditional tunic</p>
+        <p class="description">A loose traditional tunic, shown here in its men’s version. Often worn for celebrations.</p>
+        <p class="card-note">Look for the decorated neckline.</p>
+      </div>
+    </article>
+<article class="vcard" id="word-tabdila">
+      <figure class="garment-picture is-photo lavender ">
+      <img src="images/culture-lesson-01/tabdila.webp" alt="Traditional festive outfit in Tunisian traditional dress" width="1200" height="900" decoding="async">
+    </figure>
+      <div class="vbody">
+        <div class="card-meta"><span>Women’s clothing</span><span class="word-number">02</span></div>
+        <div class="word-heading"><h3 class="ar" lang="ar" dir="rtl">التبديلة</h3><button type="button" class="listen-btn" data-audio="tabdila" aria-label="Listen to et-tabdila" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 10 7-10 7z" fill="currentColor"/></svg><span>Listen</span></button></div>
+        <p class="vtrans" lang="ar-Latn">et-tabdila</p>
+        <p class="word-meaning">Traditional festive outfit</p>
+        <p class="description">A decorated women’s outfit associated with weddings. A familiar version combines a fouta and blouza.</p>
+        <p class="card-note">Notice the matching pieces and embroidery.</p>
+      </div>
+    </article>
+<article class="vcard" id="word-sefsari">
+      <figure class="garment-picture is-photo sand ">
+      <img src="images/culture-lesson-01/sefsari.webp" alt="Traditional wrap in Tunisian traditional dress" width="1200" height="900" decoding="async">
+    </figure>
+      <div class="vbody">
+        <div class="card-meta"><span>Women’s clothing</span><span class="word-number">03</span></div>
+        <div class="word-heading"><h3 class="ar" lang="ar" dir="rtl">السفساري</h3><button type="button" class="listen-btn" data-audio="sefsari" aria-label="Listen to es-sefsari" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 10 7-10 7z" fill="currentColor"/></svg><span>Listen</span></button></div>
+        <p class="vtrans" lang="ar-Latn">es-sefsari</p>
+        <p class="word-meaning">Traditional wrap</p>
+        <p class="description">A large white or cream wrap, traditionally draped over a woman’s head and clothing when going out.</p>
+        <p class="card-note">Notice how the fabric is draped.</p>
+      </div>
+    </article>
+<article class="vcard" id="word-chechia">
+      <figure class="garment-picture is-photo rose ">
+      <img src="images/culture-lesson-01/chechia.webp" alt="Traditional felt cap in Tunisian traditional dress" width="1200" height="900" decoding="async">
+    </figure>
+      <div class="vbody">
+        <div class="card-meta"><span>Headwear</span><span class="word-number">04</span></div>
+        <div class="word-heading"><h3 class="ar" lang="ar" dir="rtl">الشاشية</h3><button type="button" class="listen-btn" data-audio="chechia" aria-label="Listen to ech-chechia" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 10 7-10 7z" fill="currentColor"/></svg><span>Listen</span></button></div>
+        <p class="vtrans" lang="ar-Latn">ech-chechia</p>
+        <p class="word-meaning">Traditional felt cap</p>
+        <p class="description">A soft, round felt cap made from wool. The classic Tunisian chechia is red.</p>
+        <p class="card-note">Look for the soft, rounded shape.</p>
+      </div>
+    </article>
+<article class="vcard" id="word-farmla">
+      <figure class="garment-picture is-photo mint ">
+      <img src="images/culture-lesson-01/farmla.webp" alt="Traditional waistcoat in Tunisian traditional dress" width="1200" height="900" decoding="async">
+    </figure>
+      <div class="vbody">
+        <div class="card-meta"><span>Part of an outfit</span><span class="word-number">05</span></div>
+        <div class="word-heading"><h3 class="ar" lang="ar" dir="rtl">الفرملة</h3><button type="button" class="listen-btn" data-audio="farmla" aria-label="Listen to el-farmla" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 10 7-10 7z" fill="currentColor"/></svg><span>Listen</span></button></div>
+        <p class="vtrans" lang="ar-Latn">el-farmla</p>
+        <p class="word-meaning">Traditional waistcoat</p>
+        <p class="description">A sleeveless waistcoat, often embroidered and worn as part of a traditional outfit.</p>
+        <p class="card-note">Versions appear in men’s and women’s dress.</p>
+      </div>
+    </article>
+<article class="vcard" id="word-barnous">
+      <figure class="garment-picture is-photo sky ">
+      <img src="images/culture-lesson-01/barnous.webp" alt="Hooded wool cloak in Tunisian traditional dress" width="1200" height="900" decoding="async">
+    </figure>
+      <div class="vbody">
+        <div class="card-meta"><span>Outerwear</span><span class="word-number">06</span></div>
+        <div class="word-heading"><h3 class="ar" lang="ar" dir="rtl">البرنوس</h3><button type="button" class="listen-btn" data-audio="barnous" aria-label="Listen to el-barnous" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 10 7-10 7z" fill="currentColor"/></svg><span>Listen</span></button></div>
+        <p class="vtrans" lang="ar-Latn">el-barnous</p>
+        <p class="word-meaning">Hooded wool cloak</p>
+        <p class="description">A hooded wool cloak worn over clothing. It provides warmth, especially in colder weather.</p>
+        <p class="card-note">Look for the hood and flowing fabric.</p>
+      </div>
+    </article></div>
+      <div class="pronunciation-tip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6m-5 3h4M8 14a7 7 0 1 1 8 0c-1 1-1 2-1 2H9s0-1-1-2Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><p><strong>Pronunciation tip:</strong> in <span lang="ar-Latn">ej-jebba</span>, <span lang="ar-Latn">et-tabdila</span>, <span lang="ar-Latn">es-sefsari</span> and <span lang="ar-Latn">ech-chechia</span>, the article joins the first sound. Latin spelling helps; the recording is your pronunciation guide.</p></div>
+      <div class="culture-notes">
+        <aside class="culture-note"><h3>A history of exchange</h3><p>The Tunisian jebba reflects different influences, including Andalusian and Turkish traditions. Fabrics and decoration vary.</p></aside>
+        <aside class="culture-note"><h3>Small details, skilled hands</h3><p>The chechia is made from wool through several stages of skilled handwork. Embroidery also gives many outfits their distinctive appearance.</p></aside>
+      </div>
+    </section>
+
+    <section class="section" id="phrases" aria-labelledby="phrases-title">
+      <div class="section-head"><div><span class="eyebrow">03 · Say it in Darja</span><h2 id="phrases-title">A few words <em>to use.</em></h2><p>Name an item or give a simple compliment at a celebration.</p></div></div>
+      <div class="phrase-grid"><article class="phrase-card">
+      <span class="phrase-context">Point to an item</span>
+      <h3 class="ar" lang="ar" dir="rtl">هاذي شاشية.</h3>
+      <p class="vtrans" lang="ar-Latn">Hedhi chechia.</p>
+      <p>This is a chechia.</p>
+      <button type="button" class="listen-btn" data-audio="hedhi-chechia" aria-label="Listen to Hedhi chechia." aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 10 7-10 7z" fill="currentColor"/></svg><span>Listen & repeat</span></button>
+    </article>
+<article class="phrase-card">
+      <span class="phrase-context">Name what you see</span>
+      <h3 class="ar" lang="ar" dir="rtl">هذا برنوس.</h3>
+      <p class="vtrans" lang="ar-Latn">Hedha barnous.</p>
+      <p>This is a barnous.</p>
+      <button type="button" class="listen-btn" data-audio="hedha-barnous" aria-label="Listen to Hedha barnous." aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 10 7-10 7z" fill="currentColor"/></svg><span>Listen & repeat</span></button>
+    </article>
+<article class="phrase-card">
+      <span class="phrase-context">Give a compliment</span>
+      <h3 class="ar" lang="ar" dir="rtl">محلاها اللبسة!</h3>
+      <p class="vtrans" lang="ar-Latn">Ma7leha el-lebsa!</p>
+      <p>What a beautiful outfit!</p>
+      <button type="button" class="listen-btn" data-audio="ma7leha-el-lebsa" aria-label="Listen to Ma7leha el-lebsa!" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 10 7-10 7z" fill="currentColor"/></svg><span>Listen & repeat</span></button>
+    </article></div>
+      <p class="speaking-prompt"><b>Your turn:</b> point to the chechia or barnous above and say its sentence. In the compliment, <b>7</b> represents the Arabic sound <span class="ar" lang="ar" dir="rtl">ح</span>.</p>
+    </section>
+
+    <section class="section" id="practice" aria-labelledby="practice-title">
+      <div class="practice-layout">
+        <div class="practice-intro"><span class="eyebrow">04 · A little practice</span><h2 id="practice-title">What do you <em>remember?</em></h2><p>Choose the right answer. There is no timer, and you can try again if you need to.</p><div class="practice-note">Five short questions.<br>Use the vocabulary cards whenever you need a reminder.</div></div>
+        <div class="quiz-panel" id="quizPanel">
+          <noscript><p>Turn on JavaScript to use the mini quiz. You can still read the words and practise the speaking examples.</p></noscript>
+          <div id="quizContent" hidden></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="review" aria-labelledby="review-title">
+      <div class="section-head"><div><span class="eyebrow">05 · Take it with you</span><h2 id="review-title">Your little <em>lesson review.</em></h2><p>Cover the English meanings and see which words you remember.</p></div></div>
+      <div class="review-panel">
+        <div class="review-table-wrap"><table class="review-table"><caption class="sr-only">Six Tunisian clothing words with Latin pronunciation support and English meanings</caption><thead><tr><th scope="col">Arabic</th><th scope="col">Latin spelling</th><th scope="col">English</th></tr></thead><tbody><tr><td class="ar" lang="ar" dir="rtl">الجُبّة</td><td lang="ar-Latn">ej-jebba</td><td>Traditional tunic</td></tr><tr><td class="ar" lang="ar" dir="rtl">التبديلة</td><td lang="ar-Latn">et-tabdila</td><td>Traditional festive outfit</td></tr><tr><td class="ar" lang="ar" dir="rtl">السفساري</td><td lang="ar-Latn">es-sefsari</td><td>Traditional wrap</td></tr><tr><td class="ar" lang="ar" dir="rtl">الشاشية</td><td lang="ar-Latn">ech-chechia</td><td>Traditional felt cap</td></tr><tr><td class="ar" lang="ar" dir="rtl">الفرملة</td><td lang="ar-Latn">el-farmla</td><td>Traditional waistcoat</td></tr><tr><td class="ar" lang="ar" dir="rtl">البرنوس</td><td lang="ar-Latn">el-barnous</td><td>Hooded wool cloak</td></tr></tbody></table></div>
+        <div class="self-check"><h3>A small step forward.</h3><p>You have explored six garments and three useful expressions. Check what you can do:</p>
+          <label class="check-label"><input type="checkbox"><span>I can recognise three clothing names.</span></label>
+          <label class="check-label"><input type="checkbox"><span>I can name the chechia or barnous aloud.</span></label>
+          <label class="check-label"><input type="checkbox"><span>I can give a compliment in Darja.</span></label>
+          <a class="btn btn-secondary" href="free-lessons.html">Explore more free lessons<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+      <details class="sources"><summary>Culture sources</summary><ul>
+        <li><a href="https://www.artisanat.nat.tn/fr/about-4/activites-des-industries-traditionnelles/249-metiers-de-lhabillement-excelence-dun-savoir-faire-2" target="_blank" rel="noopener noreferrer">Office National de l’Artisanat Tunisien — Clothing crafts</a></li>
+        <li><a href="https://www.elissar.tn/product/collection-tabdilas/" target="_blank" rel="noopener noreferrer">Elissar — The tabdila / fouta and blouza ensemble</a></li>
+        <li><a href="https://www.tunisiaonline.com/traditional-tunisian-clothing/" target="_blank" rel="noopener noreferrer">Tunisia Online — Traditional Tunisian clothing</a></li>
+      </ul></details>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="wrap footer-inner"><p>© Darja with Mongia · Culture Lesson 01</p><p>Learn the language. Discover the culture.</p><a href="#top">Back to top ↑</a></div></footer>
+  <div class="toast" id="audioNotice" role="status" aria-live="polite" hidden></div>
+  <aside class="audio-dock" id="audioDock" aria-label="Lesson audio player" hidden>
+    <div class="audio-title"><span class="ar" id="audioTitle" lang="ar" dir="rtl"></span><span id="audioLatin" lang="ar-Latn"></span></div>
+    <audio id="lessonAudio" controls preload="none" aria-label="Tunisian Arabic pronunciation recording"></audio>
+    <button class="audio-close" id="closeAudio" type="button" aria-label="Close audio player">×</button>
+  </aside>
+  <script type="application/json" id="audioAssets">[{"id": "jebba", "text": "الجُبّة", "latin": "ej-jebba", "file": "audio/culture-lesson-01/jebba.mp3"}, {"id": "tabdila", "text": "التبديلة", "latin": "et-tabdila", "file": "audio/culture-lesson-01/tabdila.mp3"}, {"id": "sefsari", "text": "السفساري", "latin": "es-sefsari", "file": "audio/culture-lesson-01/sefsari.mp3"}, {"id": "chechia", "text": "الشاشية", "latin": "ech-chechia", "file": "audio/culture-lesson-01/chechia.mp3"}, {"id": "farmla", "text": "الفرملة", "latin": "el-farmla", "file": "audio/culture-lesson-01/farmla.mp3"}, {"id": "barnous", "text": "البرنوس", "latin": "el-barnous", "file": "audio/culture-lesson-01/barnous.mp3"}, {"id": "hedhi-chechia", "text": "هاذي شاشية.", "latin": "Hedhi chechia.", "file": "audio/culture-lesson-01/hedhi-chechia.mp3"}, {"id": "hedha-barnous", "text": "هذا برنوس.", "latin": "Hedha barnous.", "file": "audio/culture-lesson-01/hedha-barnous.mp3"}, {"id": "ma7leha-el-lebsa", "text": "محلاها اللبسة!", "latin": "Ma7leha el-lebsa!", "file": "audio/culture-lesson-01/ma7leha-el-lebsa.mp3"}]</script>
+  <script>
+  (() => {
+    'use strict';
+    // The real photographs and recordings use the asset checklist paths.
+    // A missing photograph keeps the supplied reference illustration.
+    const photoNodes = Array.from(document.querySelectorAll('img[data-photo]'));
+    const photos = new Map();
+    for (const node of photoNodes) {
+      if (!photos.has(node.dataset.photo)) photos.set(node.dataset.photo, []);
+      photos.get(node.dataset.photo).push(node);
+    }
+    const applyPhoto = (src) => {
+      photos.get(src).forEach(node => {
+        node.src = src;
+        node.alt = node.dataset.photoAlt;
+        const figure = node.closest('.garment-picture');
+        if (figure) {
+          figure.classList.add('is-photo');
+          const label = figure.querySelector('.illustration-tag');
+          if (label) label.hidden = true;
+        }
+      });
+      if (src.endsWith('/chechia.webp')) {
+        const questionImage = document.getElementById('questionImage');
+        if (questionImage) questionImage.src = src;
+      }
+    };
+    for (const src of photos.keys()) {
+      const candidate = new Image();
+      candidate.onload = () => applyPhoto(src);
+      candidate.onerror = () => {}; // Intentional placeholder: no broken image.
+      candidate.src = src;
+    }
+
+    const audioAssets = JSON.parse(document.getElementById('audioAssets').textContent);
+    const audioMap = new Map(audioAssets.map(item => [item.id, item]));
+    const audio = document.getElementById('lessonAudio');
+    const dock = document.getElementById('audioDock');
+    const notice = document.getElementById('audioNotice');
+    const playIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 10 7-10 7z" fill="currentColor"/></svg>';
+    const pauseIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zm6 0h4v14h-4z" fill="currentColor"/></svg>';
+    let audioKey = null, requestVersion = 0, noticeTimer = null, lastAudioButton = null;
+    const syncButtons = () => {
+      document.querySelectorAll('[data-audio]').forEach(button => {
+        const item = audioMap.get(button.dataset.audio);
+        const playing = button.dataset.audio === audioKey && !audio.paused && !audio.ended;
+        button.setAttribute('aria-pressed', String(playing));
+        button.setAttribute('aria-label', `${playing ? 'Pause' : 'Listen to'} ${item.latin}`);
+        button.querySelector('svg').outerHTML = playing ? pauseIcon : playIcon;
+        button.querySelector('span').textContent = playing ? 'Pause' : button.dataset.originalLabel;
+      });
+    };
+    const showNotice = (message) => {
+      clearTimeout(noticeTimer);
+      notice.textContent = message;
+      notice.hidden = false;
+      noticeTimer = setTimeout(() => { notice.hidden = true; }, 4800);
+    };
+    const closePlayer = () => {
+      requestVersion++;
+      audio.pause();
+      dock.hidden = true;
+      document.body.classList.remove('audio-open');
+      syncButtons();
+    };
+    for (const button of document.querySelectorAll('[data-audio]')) {
+      button.dataset.originalLabel = button.querySelector('span').textContent;
+      button.addEventListener('click', async () => {
+        lastAudioButton = button;
+        const item = audioMap.get(button.dataset.audio);
+        if (audioKey === item.id && !audio.paused && !audio.ended) {
+          audio.pause();
+          return;
+        }
+        const version = ++requestVersion;
+        audio.pause();
+        if (audioKey !== item.id) {
+          audioKey = item.id;
+          audio.src = item.file;
+          document.getElementById('audioTitle').textContent = item.text;
+          document.getElementById('audioLatin').textContent = item.latin;
+        } else if (audio.ended) {
+          audio.currentTime = 0;
+        }
+        try {
+          await audio.play();
+          if (version !== requestVersion) return;
+          notice.hidden = true;
+          dock.hidden = false;
+          document.body.classList.add('audio-open');
+          syncButtons();
+        } catch (error) {
+          if (version !== requestVersion || error.name === 'AbortError') return;
+          dock.hidden = true;
+          document.body.classList.remove('audio-open');
+          showNotice(`Recording coming soon: ${item.latin}`);
+          syncButtons();
+        }
+      });
+    }
+    ['play','pause','ended'].forEach(eventName => audio.addEventListener(eventName,syncButtons));
+    audio.addEventListener('error', () => {
+      dock.hidden = true;
+      document.body.classList.remove('audio-open');
+      syncButtons();
+    });
+    document.getElementById('closeAudio').addEventListener('click', () => {
+      closePlayer();
+      if (lastAudioButton) lastAudioButton.focus();
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && !dock.hidden) closePlayer();
+    });
+    document.addEventListener('visibilitychange', () => { if (document.hidden) audio.pause(); });
+
+    const choices = {
+      chechia:{ar:'الشاشية',latin:'ech-chechia'},
+      jebba:{ar:'الجُبّة',latin:'ej-jebba'},
+      barnous:{ar:'البرنوس',latin:'el-barnous'},
+      sefsari:{ar:'السفساري',latin:'es-sefsari'},
+      farmla:{ar:'الفرملة',latin:'el-farmla'},
+      tabdila:{ar:'التبديلة',latin:'et-tabdila'},
+      compliment:{ar:'محلاها اللبسة!',latin:'Ma7leha el-lebsa!'},
+      nameCap:{ar:'هاذي شاشية.',latin:'Hedhi chechia.'},
+      nameCloak:{ar:'هذا برنوس.',latin:'Hedha barnous.'}
+    };
+    const questions = [
+      {prompt:'What is this small red felt cap called?', options:['chechia','jebba','barnous'],answer:'chechia',image:true,
+       hint:'Look for the headwear card.',explanation:'The chechia is the small, rounded felt cap.'},
+      {prompt:'Which garment is a large wrap traditionally draped over a woman’s clothing?', options:['farmla','sefsari','tabdila'],answer:'sefsari',
+       hint:'Think of a large white or cream piece of fabric.',explanation:'The sefsari is draped over the head and clothing.'},
+      {prompt:'Which garment is a hooded wool cloak?', options:['jebba','chechia','barnous'],answer:'barnous',
+       hint:'Look for the outerwear card.',explanation:'The barnous has a hood and is worn over other clothing.'},
+      {prompt:'Which decorated outfit is associated with women’s wedding clothing?', options:['tabdila','farmla','sefsari'],answer:'tabdila',
+       hint:'It is an outfit made of matching pieces.',explanation:'A familiar tabdila combines a fouta and blouza.'},
+      {prompt:'How do you say “What a beautiful outfit!”?', options:['nameCap','compliment','nameCloak'],answer:'compliment',
+       hint:'Review the “Give a compliment” example.',explanation:'Ma7leha el-lebsa! is a simple compliment.'}
+    ];
+    const content = document.getElementById('quizContent');
+    const correctFirst = Array(questions.length).fill(false);
+    let index = 0, attempts = 0, solved = false;
+    const quizImage = 'images/culture-lesson-01/chechia.webp';
+    const renderQuestion = (moveFocus = false) => {
+      attempts = 0; solved = false;
+      const q = questions[index];
+      content.hidden = false;
+      content.innerHTML = `<div class="quiz-top"><span class="quiz-tag">Mini quiz</span><span>Question ${index+1} of ${questions.length}</span></div>
+        <progress class="quiz-progress" value="${index}" max="${questions.length}" aria-label="Quiz questions completed"></progress>
+        ${q.image ? `<div class="question-visual"><img id="questionImage" src="${quizImage}" alt="A small red felt cap" width="91" height="84"></div>`:''}
+        <h3 class="quiz-question" id="questionTitle" tabindex="-1">${q.prompt}</h3>
+        <div class="quiz-options" role="group" aria-labelledby="questionTitle">
+          ${q.options.map((key,i)=>`<button type="button" class="quiz-option" data-choice="${key}" aria-pressed="false"><span class="option-letter" aria-hidden="true">${['A','B','C'][i]}</span><span class="option-text"><span class="ar" lang="ar" dir="rtl">${choices[key].ar}</span><span class="latin" lang="ar-Latn">${choices[key].latin}</span></span></button>`).join('')}
+        </div>
+        <p class="quiz-feedback" id="quizFeedback" role="status" aria-live="polite"></p>
+        <div class="quiz-next"><button type="button" class="btn" id="nextQuestion" disabled>${index === questions.length-1 ? 'See my result' : 'Next question'}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>`;
+      if (q.image) {
+        const knownPhoto = document.querySelector('#word-chechia .is-photo img');
+        if (knownPhoto) document.getElementById('questionImage').src = knownPhoto.src;
+      }
+      content.querySelectorAll('[data-choice]').forEach(button => {
+        button.addEventListener('click', () => {
+          if (solved || button.disabled) return;
+          attempts++;
+          const feedback = document.getElementById('quizFeedback');
+          button.setAttribute('aria-pressed','true');
+          if (button.dataset.choice === q.answer) {
+            solved = true;
+            correctFirst[index] = attempts === 1;
+            button.classList.add('correct');
+            content.querySelectorAll('[data-choice]').forEach(choice => choice.setAttribute('aria-disabled','true'));
+            feedback.className = 'quiz-feedback success';
+            feedback.textContent = `✓ Correct! ${q.explanation}`;
+            document.getElementById('nextQuestion').disabled = false;
+            content.querySelector('progress').value = index+1;
+          } else {
+            button.classList.add('incorrect');
+            button.disabled = true;
+            feedback.className = 'quiz-feedback retry';
+            feedback.textContent = `Try again. ${q.hint}`;
+            const nextAvailable = content.querySelector('[data-choice]:not(:disabled):not([aria-pressed="true"])');
+            if (nextAvailable) nextAvailable.focus({preventScroll:true});
+          }
+        });
+      });
+      document.getElementById('nextQuestion').addEventListener('click', () => {
+        if (!solved) return;
+        if (index < questions.length-1) { index++; renderQuestion(true); }
+        else renderResult();
+      });
+      if (moveFocus) document.getElementById('questionTitle').focus({preventScroll:true});
+    };
+    const renderResult = () => {
+      const score = correctFirst.filter(Boolean).length;
+      content.innerHTML = `<div class="quiz-result">
+        <div class="result-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12 4 4 10-10" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3 id="resultTitle" tabindex="-1">Practice complete.</h3>
+        <p>${score === questions.length ? 'You chose every answer correctly on your first try.' : 'You worked through all five questions. Revisit any words you needed help with.'}</p>
+        <div class="result-score"><strong>${score} / ${questions.length}</strong><span>Correct on your first try</span></div>
+        <div class="result-actions"><button type="button" class="btn" id="retryQuiz">Try again</button><a href="#wardrobe" class="btn btn-secondary">Review the words</a></div>
+      </div>`;
+      document.getElementById('retryQuiz').addEventListener('click', () => {
+        index=0; correctFirst.fill(false); renderQuestion(true);
+      });
+      document.getElementById('resultTitle').focus({preventScroll:true});
+    };
+    renderQuestion();
+
+    const links = [...document.querySelectorAll('.lesson-nav a')];
+    if ('IntersectionObserver' in window) {
+      const sectionObserver = new IntersectionObserver(entries => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          links.forEach(link => {
+            const current = link.hash === '#'+entry.target.id;
+            link.classList.toggle('is-current',current);
+            if (current) link.setAttribute('aria-current','location');
+            else link.removeAttribute('aria-current');
+          });
+        }
+      },{rootMargin:'-18% 0px -58% 0px'});
+      document.querySelectorAll('#story,#wardrobe,#phrases,#practice,#review').forEach(section=>sectionObserver.observe(section));
+    }
+  })();
+  </script>
+</body>
+</html>
