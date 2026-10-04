@@ -10,7 +10,7 @@ If you later choose to replace an illustration with a photograph, keep your usua
 
 ## Audio
 
-**All 16 MP3 recordings are included** in `audio/grammar-lesson-01/`. They were cut from the supplied recording on 4 October 2026, in the same order as the Arabic script. Each file contains one complete pronoun or sentence, with a short quiet margin. The source upload is unchanged. The files are genuine MP3 audio, ready for the lesson’s Listen buttons.
+**All 16 MP3 recordings are included** in `audio/grammar-lesson-01/`. They were cut from the supplied recording on 4 October 2026, in the same order as the Arabic script. Each file contains one complete pronoun or sentence, with a short quiet margin. The source upload is unchanged. The clips were regenerated with exact trimming and checked for audible speech against the original recording. The lesson uses versioned audio URLs so browsers load the corrected files.
 
 | Filename | Exact Tunisian Arabic text | Used in the lesson |
 |---|---|---|
