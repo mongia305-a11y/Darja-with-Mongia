@@ -198,6 +198,20 @@
     .site-nav a.active {
   font-weight: 400 !important;
 }
+
+    /* Keep the lesson catalogue short while preserving the existing cards. */
+    .lesson-card[hidden]{display:none}
+    .lesson-pagination{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:38px}
+    .lesson-pagination[hidden]{display:none}
+    .pagination-pages{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap}
+    .page-button{min-width:44px;min-height:44px;padding:10px 14px;border:1px solid var(--line);border-radius:14px;background:var(--white);color:var(--ink);font-weight:600;cursor:pointer}
+    .page-button:hover:not(:disabled){border-color:var(--pink);background:var(--pink-soft)}
+    .page-button[aria-current="page"]{border-color:var(--pink);background:var(--pink);color:var(--ink)}
+    .page-button:disabled{opacity:.45;cursor:default}
+    .page-button:focus-visible{outline:3px solid #a85b7d;outline-offset:3px}
+    .pagination-gap{padding:0 3px;color:var(--muted)}
+    #sectionTitle:focus{outline:none}
+    @media(max-width:480px){.lesson-pagination{gap:8px;margin-top:28px}.page-button{padding:9px 12px}.pagination-pages{gap:6px}}
   </style>
   <link rel="stylesheet" href="newsletter-popup.css?v=3">
   <script src="newsletter-popup.js?v=3" defer></script>
@@ -239,7 +253,7 @@
 
     <section class="lessons wrap" aria-live="polite">
       <div class="section-head">
-        <div><h2 id="sectionTitle">All lessons</h2><p>Short lessons you can study at your own pace.</p></div>
+        <div><h2 id="sectionTitle" tabindex="-1">All lessons</h2><p>Short lessons you can study at your own pace.</p></div>
         <span class="count" id="count">7 lessons</span>
       </div>
 
@@ -337,6 +351,12 @@
         </a>
       </div>
 
+      <nav class="lesson-pagination" id="lessonPagination" aria-label="Lesson pages" hidden>
+        <button class="page-button" id="previousPage" type="button" aria-label="Previous page of lessons" disabled><span aria-hidden="true">←</span> Previous</button>
+        <div class="pagination-pages" id="paginationPages"></div>
+        <button class="page-button" id="nextPage" type="button" aria-label="Next page of lessons">Next <span aria-hidden="true">→</span></button>
+      </nav>
+
       <div class="empty" id="emptyState">
         <strong>More free lessons are coming soon</strong>
         Choose “All lessons” or “Vocabulary” to open a lesson.
@@ -348,27 +368,82 @@
 
   <script>
     const buttons = document.querySelectorAll('.category');
-    const cards = document.querySelectorAll('.lesson-card');
+    const cards = Array.from(document.querySelectorAll('.lesson-card'));
     const empty = document.getElementById('emptyState');
     const grid = document.getElementById('lessonGrid');
     const title = document.getElementById('sectionTitle');
     const count = document.getElementById('count');
+    const pagination = document.getElementById('lessonPagination');
+    const pageNumbers = document.getElementById('paginationPages');
+    const previousPage = document.getElementById('previousPage');
+    const nextPage = document.getElementById('nextPage');
+    const lessonsPerPage = 6;
+    let currentPage = 1;
+    let currentFilter = 'all';
+
+    function renderLessons(moveToLessons = false) {
+      const matching = cards.filter(card => currentFilter === 'all' || card.dataset.category === currentFilter);
+      const totalPages = Math.max(1, Math.ceil(matching.length / lessonsPerPage));
+      currentPage = Math.min(Math.max(1, currentPage), totalPages);
+      const start = (currentPage - 1) * lessonsPerPage;
+      const visible = new Set(matching.slice(start, start + lessonsPerPage));
+      cards.forEach(card => { card.hidden = !visible.has(card); });
+      grid.style.display = matching.length ? 'grid' : 'none';
+      empty.style.display = matching.length ? 'none' : 'block';
+      count.textContent = totalPages > 1
+        ? `Showing ${start + 1}–${Math.min(start + lessonsPerPage, matching.length)} of ${matching.length} lessons`
+        : matching.length + (matching.length === 1 ? ' lesson' : ' lessons');
+      pagination.hidden = totalPages <= 1;
+      previousPage.disabled = currentPage === 1;
+      nextPage.disabled = currentPage === totalPages;
+      pageNumbers.replaceChildren();
+      const pages = Array.from(new Set([1, currentPage - 1, currentPage, currentPage + 1, totalPages]))
+        .filter(page => page >= 1 && page <= totalPages).sort((a, b) => a - b);
+      pages.forEach((page, index) => {
+        if (index && page - pages[index - 1] > 1) {
+          const gap = document.createElement('span');
+          gap.className = 'pagination-gap';
+          gap.textContent = '…';
+          gap.setAttribute('aria-hidden', 'true');
+          pageNumbers.append(gap);
+        }
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'page-button';
+        button.textContent = page;
+        button.dataset.page = page;
+        button.setAttribute('aria-label', `Page ${page} of ${totalPages}`);
+        if (page === currentPage) button.setAttribute('aria-current', 'page');
+        button.addEventListener('click', () => {
+          if (page === currentPage) return;
+          currentPage = page;
+          renderLessons(true);
+        });
+        pageNumbers.append(button);
+      });
+      if (moveToLessons) {
+        title.focus({preventScroll: true});
+        const header = document.querySelector('.navbar');
+        const top = title.getBoundingClientRect().top + window.scrollY - header.getBoundingClientRect().height - 24;
+        window.scrollTo({top: Math.max(0, top), behavior: 'instant'});
+      }
+    }
 
     buttons.forEach(button => button.addEventListener('click', () => {
-      buttons.forEach(item => item.classList.remove('active'));
-      button.classList.add('active');
-      const filter = button.dataset.filter;
-      let visible = 0;
-      cards.forEach(card => {
-        const show = filter === 'all' || card.dataset.category === filter;
-        card.style.display = show ? 'flex' : 'none';
-        if (show) visible += 1;
+      buttons.forEach(item => {
+        const active = item === button;
+        item.classList.toggle('active', active);
+        item.setAttribute('aria-pressed', String(active));
       });
+      currentFilter = button.dataset.filter;
+      currentPage = 1;
       title.textContent = button.textContent;
-      count.textContent = visible + (visible === 1 ? ' lesson' : ' lessons');
-      grid.style.display = visible ? 'grid' : 'none';
-      empty.style.display = visible ? 'none' : 'block';
+      renderLessons();
     }));
+    previousPage.addEventListener('click', () => { currentPage -= 1; renderLessons(true); });
+    nextPage.addEventListener('click', () => { currentPage += 1; renderLessons(true); });
+    buttons.forEach(button => button.setAttribute('aria-pressed', String(button.classList.contains('active'))));
+    renderLessons();
 
     const menuButton = document.getElementById('menuButton');
     const mobileMenu = document.getElementById('mobileMenu');
