@@ -10,9 +10,9 @@ If you later choose to replace an illustration with a photograph, keep your usua
 
 ## Audio
 
-Provide **16 MP3 recordings** in `audio/grammar-lesson-01/`. Record only the exact Tunisian Arabic text below, in a clear natural voice. Do not say the English translation, filename or speaker name. A short pause at the start and end is enough. The two questions should sound like questions, with a natural rise in the voice.
+**All 16 MP3 recordings are included** in `audio/grammar-lesson-01/`. They were cut from the supplied recording on 4 October 2026, in the same order as the Arabic script. Each file contains one complete pronoun or sentence, with a short quiet margin. The source upload is unchanged. The files are genuine MP3 audio, ready for the lesson’s Listen buttons.
 
-| Suggested filename | Exact Tunisian Arabic text | Used in the lesson |
+| Filename | Exact Tunisian Arabic text | Used in the lesson |
 |---|---|---|
 | `ena.mp3` | أنا | Pronoun card: I |
 | `enti.mp3` | إنتي | Pronoun card: You · one person |
@@ -35,8 +35,8 @@ The Arabic and Latin spellings follow the supplied lesson reference. Read `a7na`
 
 No separate recordings are needed for the hero, nationality chips, quiz, review or full dialogue. The sentence clips also teach the nationality words, and the dialogue reuses four of those clips.
 
-## Adding the recordings
+## Recordings in the lesson
 
-Upload the files into the folder above with the exact lowercase filenames. The existing Listen buttons already point to those paths, so no button code needs changing. Missing recordings produce an accessible “Recording coming soon” message; no silent or artificial audio has been substituted. The temporary “Audio coming soon” note hides after a recording successfully plays.
+Every Listen button uses the corresponding file in the folder above. The four conversation lines reuse the matching sentence clips. The audio placeholders have been replaced and the introductory note now invites students to listen and repeat. To replace a clip later, upload its replacement using the same lowercase filename.
 
 One hidden audio element is shared by all Listen buttons. Clicking a playing button pauses it; selecting another recording stops the previous one; Escape pauses playback. No native audio player or floating audio dock is shown. Changes remain tracked and reversible through Git.

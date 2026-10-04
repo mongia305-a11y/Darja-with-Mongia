@@ -541,7 +541,7 @@
 
     <section class="section" id="pronouns" aria-labelledby="pronouns-title">
       <div class="section-head"><div><span class="eyebrow">02 · Look & say</span><h2 id="pronouns-title">Meet the <em>pronouns.</em></h2><p>Arabic shows the word. The rose Latin spelling helps you say it. English gives the meaning.</p></div><span class="section-hint">Arabic · Latin spelling · English</span></div>
-      <p class="audio-caption" id="recordingsNote"><span class="status-pill">Audio coming soon</span><span>For now, read the Latin spelling and practise aloud.</span></p>
+      <p class="audio-caption"><span class="status-pill">Listen &amp; repeat</span><span>Choose a Listen button to hear the word or sentence.</span></p>
       <div class="group-heading"><h3>Singular · one person</h3><span>I · you · he · she</span></div>
       <div class="vgrid singular-grid"><article class="vcard pronoun-card" id="word-ena" aria-labelledby="title-ena">
       <div class="role-picture rose"><svg viewBox="0 0 184 122" aria-hidden="true" focusable="false"><g transform="translate(92 76) scale(1)"><circle cx="0" cy="-20" r="12" fill="#b16c90"/><path d="M-24 27v-7a24 24 0 0 1 48 0v7Z" fill="#b16c90"/></g><path d="M117 22h40v24h-13l-10 8v-8h-17Z" fill="#fff"/><path d="M127 33h20" stroke="#b16c90" stroke-width="2" stroke-linecap="round"/><path d="M27 113h130" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div>
@@ -582,7 +582,7 @@
         <p class="vtrans" lang="ar-Latn">houma</p><p class="pronoun-meaning">They</p><p class="role-note">A group you are talking about.</p>
       </div></article></div>
       <div class="grammar-notes"><aside class="grammar-note"><strong>One “you”, two situations.</strong> Use <span class="vtrans" lang="ar-Latn">enti</span> with one person, whether a man or a woman. Use <span class="vtrans" lang="ar-Latn">intouma</span> with a group. <span class="vtrans" lang="ar-Latn">Intouma</span> and <span class="vtrans" lang="ar-Latn">houma</span> can refer to groups of men, women or both.</aside></div>
-      <div class="pronunciation-tip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6m-5 3h4M8 14a7 7 0 1 1 8 0c-1 1-1 2-1 2H9s0-1-1-2Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><p><strong>Pronunciation tip:</strong> in <span lang="ar-Latn">a7na</span>, <strong>7</strong> represents the Arabic sound <span class="ar" lang="ar" dir="rtl">ح</span>. Latin spellings can vary; the recordings will be your pronunciation guide.</p></div>
+      <div class="pronunciation-tip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6m-5 3h4M8 14a7 7 0 1 1 8 0c-1 1-1 2-1 2H9s0-1-1-2Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><p><strong>Pronunciation tip:</strong> in <span lang="ar-Latn">a7na</span>, <strong>7</strong> represents the Arabic sound <span class="ar" lang="ar" dir="rtl">ح</span>. Latin spellings can vary; use the recordings as your pronunciation guide.</p></div>
     </section>
 
     <section class="section" id="sentences" aria-labelledby="sentences-title">
@@ -679,11 +679,10 @@
           await audio.play();
           if (version !== requestVersion) return;
           notice.hidden = true;
-          document.getElementById('recordingsNote').hidden = true;
           syncButtons();
         } catch (error) {
           if (version !== requestVersion || error.name === 'AbortError') return;
-          showNotice(audio.error && [2, 4].includes(audio.error.code) ? `Recording coming soon: ${item.latin}` : 'Playback could not start. Please try the Listen button again.');
+          showNotice(`Could not play ${item.latin}. Please try the Listen button again.`);
           syncButtons();
         }
       });
