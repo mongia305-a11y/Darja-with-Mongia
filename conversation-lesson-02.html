@@ -135,15 +135,29 @@
   <link rel="stylesheet" href="newsletter-popup.css?v=3">
   <script src="newsletter-popup.js?v=3" defer></script>
   <link rel="stylesheet" href="lesson-navigation.css?v=1">
+  <link rel="stylesheet" href="lesson-menu.css?v=1">
+  <script src="lesson-menu.js?v=1" defer></script>
 </head>
 <body class="min-h-screen pb-24 text-ink-900 selection:bg-terracotta-100 selection:text-terracotta-600">
 <header class="site-header">
 <a aria-label="Darja with Mongia home" class="brand-logo" href="https://darjawithmongia.com/index.html#home">
 <img alt="Darja with Mongia" src="https://darjawithmongia.com/images/full-logo.png"/>
 </a>
-<nav aria-label="Main website navigation" class="site-nav">
+<nav aria-label="Main website navigation" class="site-nav" data-lesson-menu-nav>
 <a href="https://darjawithmongia.com/index.html#home">Home</a>
-<a class="active" href="https://darjawithmongia.com/free-lessons.html">Free Lessons</a>
+<div class="lesson-menu" data-lesson-menu>
+  <a class="active lesson-menu-link" href="https://darjawithmongia.com/free-lessons.html">Free Lessons</a>
+  <button class="lesson-menu-toggle" type="button" aria-expanded="false" aria-controls="free-lessons-topics" aria-label="Open Free Lessons topics">
+    <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="m4 6 4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+  </button>
+  <ul class="lesson-menu-list" id="free-lessons-topics" hidden>
+    <li><a href="free-lessons.html">All free lessons</a></li>
+    <li><a href="free-lessons.html?category=vocabulary#lessons">Vocabulary</a></li>
+    <li><a href="free-lessons.html?category=conversation#lessons">Conversations</a></li>
+    <li><a href="free-lessons.html?category=grammar#lessons">Grammar</a></li>
+    <li><a href="free-lessons.html?category=culture#lessons">Tunisian culture</a></li>
+  </ul>
+</div>
 <a href="https://darjawithmongia.com/podcast.html">Podcast</a>
 <a href="https://darjawithmongia.com/index.html#about">About</a>
 </nav>
