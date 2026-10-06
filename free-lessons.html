@@ -219,8 +219,9 @@
   <script src="newsletter-popup.js?v=3" defer></script>
   <link rel="stylesheet" href="lesson-menu.css?v=2">
   <script src="lesson-menu.js?v=1" defer></script>
+  <link rel="stylesheet" href="learning-layout.css?v=1">
 </head>
-<body>
+<body class="lesson-library-page">
   <header class="navbar">
     <a class="brand-logo" href="index.html#home" aria-label="Darja with Mongia home">
       <img src="images/full-logo.png" alt="Darja with Mongia">
@@ -233,6 +234,7 @@
           <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="m4 6 4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
         </button>
         <ul class="lesson-menu-list" id="free-lessons-topics" hidden>
+          <li><a href="free-lessons.html#start-here">Start here · Beginners</a></li>
           <li><a href="free-lessons.html">All free lessons</a></li>
           <li><a href="free-lessons.html?category=vocabulary#lessons">Vocabulary</a></li>
           <li><a href="free-lessons.html?category=conversation#lessons">Conversations</a></li>
@@ -257,6 +259,20 @@
       <span class="eyebrow">Learn Tunisian Arabic for free</span>
       <h1>Learn Tunisian Arabic with Free Beginner Lessons</h1>
       <p>Start learning Tunisian Arabic (Darja) with free lessons created by Mongia, a native Tunisian Arabic teacher. Practise vocabulary, conversations, grammar and culture with audio, Latin transliteration and interactive exercises. Choose a category below and learn at your own pace.</p>
+    </section>
+
+    <section class="beginner-path wrap" id="start-here" aria-labelledby="start-here-title">
+      <div class="beginner-path-heading">
+        <span class="beginner-kicker">Start here</span>
+        <h2 id="start-here-title">Your first three steps in Tunisian Arabic</h2>
+        <p>New to Darja? Follow this suggested order. You can also choose any lesson below.</p>
+      </div>
+      <ol class="beginner-steps">
+        <li><a href="conversation-01-meeting-someone.html"><span class="learning-step-number" aria-hidden="true">1</span><h3>Say hello and introduce yourself</h3><p>Listen, repeat and practise a short introduction.</p><span class="learning-step-meta">Beginner · About 15–20 minutes</span><span class="learning-step-action">Open lesson →</span></a></li>
+        <li><a href="grammar-lesson-01-subject-pronouns.html"><span class="learning-step-number" aria-hidden="true">2</span><h3>Build your first sentences</h3><p>Learn seven pronouns and use them in simple sentences.</p><span class="learning-step-meta">Beginner · About 10 minutes</span><span class="learning-step-action">Open lesson →</span></a></li>
+        <li><a href="conversation-lesson-02.html"><span class="learning-step-number" aria-hidden="true">3</span><h3>Ask for help when you don’t understand</h3><p>Ask someone to repeat or speak more slowly.</p><span class="learning-step-meta">Beginner · About 15–20 minutes</span><span class="learning-step-action">Open lesson →</span></a></li>
+      </ol>
+      <a class="beginner-all-link" href="#lessons">Browse all free lessons below ↓</a>
     </section>
 
     <div class="categories wrap" role="group" aria-label="Lesson categories">
@@ -393,7 +409,7 @@
     const pageNumbers = document.getElementById('paginationPages');
     const previousPage = document.getElementById('previousPage');
     const nextPage = document.getElementById('nextPage');
-    const lessonsPerPage = 6;
+    const lessonsPerPage = 9;
     let currentPage = 1;
     function categoryFromUrl() {
       const requested = new URLSearchParams(window.location.search).get('category');

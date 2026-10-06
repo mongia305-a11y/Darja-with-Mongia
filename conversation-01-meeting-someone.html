@@ -136,8 +136,9 @@
   <link rel="stylesheet" href="lesson-navigation.css?v=1">
   <link rel="stylesheet" href="lesson-menu.css?v=2">
   <script src="lesson-menu.js?v=1" defer></script>
+  <link rel="stylesheet" href="learning-layout.css?v=1">
 </head>
-<body class="min-h-screen pb-24 text-ink-900 selection:bg-terracotta-100 selection:text-terracotta-600">
+<body class="conversation-lesson min-h-screen pb-24 text-ink-900 selection:bg-terracotta-100 selection:text-terracotta-600">
 
   <header class="site-header">
     <a class="brand-logo" href="index.html#home" aria-label="Darja with Mongia home">
@@ -151,6 +152,7 @@
           <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="m4 6 4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
         </button>
         <ul class="lesson-menu-list" id="free-lessons-topics" hidden>
+          <li><a href="free-lessons.html#start-here">Start here · Beginners</a></li>
           <li><a href="free-lessons.html">All free lessons</a></li>
           <li><a href="free-lessons.html?category=vocabulary#lessons">Vocabulary</a></li>
           <li><a href="free-lessons.html?category=conversation#lessons">Conversations</a></li>
@@ -231,7 +233,7 @@
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           </div>
           <p class="text-xs sm:text-sm text-ink-700 leading-relaxed">
-            <strong class="font-semibold text-azure-600">Pedagogical Rule:</strong> Listen <em>before</em> reading! Trust your ears to catch tone, rhythm, and familiar sounds before unlocking the text.
+            <strong class="font-semibold text-azure-600">Listen first:</strong> Listen before reading. Notice the sounds and rhythm, then open the transcript when you are ready.
           </p>
         </div>
 
@@ -457,13 +459,13 @@
       <div class="flex items-center justify-between">
         <div>
           <span class="text-xs uppercase font-bold tracking-wider text-sage-500">Step 03</span>
-          <h3 class="text-lg font-bold text-ink-900">Useful Chunks (Ready-to-Use)</h3>
+          <h3 class="text-lg font-bold text-ink-900">Useful expressions</h3>
         </div>
         <span class="text-xs text-ink-500">Click to listen & repeat</span>
       </div>
 
       <p class="text-xs sm:text-sm text-ink-500 leading-relaxed -mt-1">
-        We don't get bogged down in isolated grammar. Master these complete expressions you can reuse directly in Tunisia today.
+        Listen, repeat and practise these expressions in your own conversations.
       </p>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="chunksGrid">
@@ -618,7 +620,7 @@
           <span class="text-xs uppercase font-bold tracking-wider text-azure-500">Step 04</span>
           <h3 class="text-lg font-bold text-ink-900">Conversation Patterns</h3>
         </div>
-        <span class="text-xs text-ink-500">Plug & Play Formulas</span>
+        <span class="text-xs text-ink-500">Try your own answer</span>
       </div>
 
       <div class="bg-white rounded-3xl border border-sand-200 p-5 sm:p-7 shadow-sm space-y-6">
@@ -722,7 +724,7 @@
           <span class="text-xs uppercase font-bold tracking-wider text-terracotta-500">Step 05</span>
           <h3 class="text-lg font-bold text-ink-900">Listen & Choose: Train Conversational Reaction</h3>
         </div>
-        <span class="text-xs text-ink-500">Active Ear Training</span>
+        <span class="text-xs text-ink-500">Listen and choose</span>
       </div>
 
       <div class="space-y-4" id="reactionQuizContainer">
@@ -946,9 +948,9 @@
     <footer class="pt-6 space-y-6">
       <div class="border-t border-sand-200 pt-8">
         <div class="text-center max-w-md mx-auto space-y-2 mb-8">
-          <span class="text-xs uppercase font-bold tracking-widest text-ink-400">Curriculum Structure</span>
+          <span class="text-xs uppercase font-bold tracking-widest text-ink-400">Keep learning</span>
           <h4 class="text-xl font-bold text-ink-900">Your Conversation Journey</h4>
-          <p class="text-xs text-ink-500">Every lesson is built to give you real speaking capability in under 10 minutes.</p>
+          <p class="text-xs text-ink-500">Practise at your own pace. Listen, repeat, then try saying your own answers aloud.</p>
           <nav class="flex flex-wrap justify-center gap-3 pt-3 text-xs" aria-label="Related Tunisian Arabic lessons">
             <a class="lesson-roadmap-link" href="grammar-lesson-01-subject-pronouns.html">Tunisian Arabic subject pronouns</a>
             <a class="lesson-roadmap-link" href="free-lessons.html">All free Tunisian Arabic lessons</a>

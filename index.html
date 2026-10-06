@@ -25,9 +25,10 @@
   <script src="newsletter-popup.js?v=3" defer></script>
   <link rel="stylesheet" href="lesson-menu.css?v=2">
   <script src="lesson-menu.js?v=1" defer></script>
+  <link rel="stylesheet" href="learning-layout.css?v=1">
 </head>
 
-<body>
+<body class="home-page">
 
 
 <header class="navbar">
@@ -44,7 +45,8 @@
        <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="m4 6 4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
      </button>
      <ul class="lesson-menu-list" id="free-lessons-topics" hidden>
-       <li><a href="free-lessons.html">All free lessons</a></li>
+       <li><a href="free-lessons.html#start-here">Start here · Beginners</a></li>
+          <li><a href="free-lessons.html">All free lessons</a></li>
        <li><a href="free-lessons.html?category=vocabulary#lessons">Vocabulary</a></li>
        <li><a href="free-lessons.html?category=conversation#lessons">Conversations</a></li>
        <li><a href="free-lessons.html?category=grammar#lessons">Grammar</a></li>
@@ -74,9 +76,11 @@
 Learn Tunisian Arabic<br>
 with <em>Darja with Mongia.</em>
 </h1>
-    <p>Friendly, practical online classes that help you connect with Tunisians, understand everyday conversations, and feel at home in the culture.</p>
-    <a href="placement-test.html" class="main-btn">Test Your Tunisian Arabic</a>
-    <br>
+    <p>Free Tunisian Arabic lessons with audio and interactive practice. Learn useful expressions for family, travel and everyday conversations with Mongia, a native Tunisian teacher.</p>
+    <div class="hero-actions">
+      <a href="free-lessons.html#start-here" class="main-btn hero-start-btn">Start learning for free</a>
+      <a href="placement-test.html" class="hero-test-btn">Test your Tunisian Arabic</a>
+    </div>
     <a href="#newsletter" class="hero-newsletter-link">Get email updates about new lessons →</a>
   </div>
 
@@ -111,6 +115,20 @@ with <em>Darja with Mongia.</em>
 
 </section>
 
+<section class="beginner-path" aria-labelledby="first-lessons-title">
+  <div class="beginner-path-heading">
+    <span class="beginner-kicker">Your first free lessons</span>
+    <h2 id="first-lessons-title">New to Tunisian Arabic? Start here.</h2>
+    <p>Follow these three steps, then explore more vocabulary and culture lessons.</p>
+  </div>
+  <ol class="beginner-steps">
+    <li><a href="conversation-01-meeting-someone.html"><span class="learning-step-number" aria-hidden="true">1</span><h3>Say hello and introduce yourself</h3><p>Listen to a short conversation and practise your own introduction.</p><span class="learning-step-meta">Beginner · About 15–20 minutes</span><span class="learning-step-action">Open lesson →</span></a></li>
+    <li><a href="grammar-lesson-01-subject-pronouns.html"><span class="learning-step-number" aria-hidden="true">2</span><h3>Build your first sentences</h3><p>Learn I, you, he, she, we and they, then use them in simple sentences.</p><span class="learning-step-meta">Beginner · About 10 minutes</span><span class="learning-step-action">Open lesson →</span></a></li>
+    <li><a href="conversation-lesson-02.html"><span class="learning-step-number" aria-hidden="true">3</span><h3>Ask for help when you don’t understand</h3><p>Learn how to ask someone to repeat or speak more slowly.</p><span class="learning-step-meta">Beginner · About 15–20 minutes</span><span class="learning-step-action">Open lesson →</span></a></li>
+  </ol>
+  <a class="beginner-all-link" href="free-lessons.html#lessons">Explore all free lessons →</a>
+</section>
+
 <div class="stats">
   <div>
     <h3>1377+</h3>
@@ -143,7 +161,7 @@ with <em>Darja with Mongia.</em>
     <div class="benefit-card">
       <span>📚</span>
       <h3>Step-by-Step Lessons</h3>
-      <p>Progress naturally from beginner to advanced.</p>
+      <p>Build confidence with clear, practical beginner lessons.</p>
     </div>
 
     <div class="benefit-card">
@@ -238,8 +256,8 @@ with <em>Darja with Mongia.</em>
           <span>✓ No pressure, just practice</span>
         </div>
 
-        <a href="#courses" class="secondary-btn">
-          See all class options
+        <a href="https://preply.com/en/tutor/2654132" class="secondary-btn" target="_blank" rel="noopener noreferrer">
+          View my private lessons
         </a>
       </div>
 
@@ -290,7 +308,7 @@ with <em>Darja with Mongia.</em>
     </h2>
 <p>A Tunisian Arabic learning podcast by Darja with Mongia.</p>
     <p>
-      Practise Tunisian Arabic wherever you are with free, beginner-friendly lessons on Spotify, Apple Podcasts, and Amazon Music..
+      Practise Tunisian Arabic wherever you are with free, beginner-friendly lessons on Spotify, Apple Podcasts, and Amazon Music.
     </p>
   </div>
 
@@ -376,7 +394,7 @@ with <em>Darja with Mongia.</em>
     <details>
       <summary>Do I need to know Arabic?</summary>
       <p>
-        No. Our courses are designed for complete beginners as well as learners with some Arabic background.
+        No. The free beginner lessons include Latin spelling, English meanings and audio, so you can start even if you cannot read Arabic.
       </p>
     </details>
 
@@ -390,7 +408,7 @@ with <em>Darja with Mongia.</em>
     <details>
       <summary>Can I take private lessons?</summary>
       <p>
-        Yes! Private one-on-one lessons are available through the Private Lessons section.
+        Yes. You can <a href="https://preply.com/en/tutor/2654132" target="_blank" rel="noopener noreferrer">view Mongia’s private lessons on Preply</a> for availability and booking.
       </p>
     </details>
 <details>
@@ -427,7 +445,7 @@ with <em>Darja with Mongia.</em>
     <div class="about-text">
       <h2>About Darja with Mongia</h2>
       <p>
-Darja with Mongia helps learners study Tunisian Arabic through practical lessons, podcasts, videos, exercises, and private classes.
+Darja with Mongia helps learners study Tunisian Arabic through free lessons, audio, podcasts and interactive exercises. Private lessons with Mongia are available on Preply.
 </p>
 
       <p>
@@ -466,7 +484,7 @@ Darja with Mongia was created to make Tunisian Arabic accessible through clear, 
       <h3>Explore</h3>
 
       <a href="#home">Home</a>
-      <a href="#courses">Courses</a>
+      <a href="free-lessons.html">Free Lessons</a>
       <a href="#podcast">Podcast</a>
       <a href="#about">About Mongia</a>
       <a href="#faq">FAQ</a>

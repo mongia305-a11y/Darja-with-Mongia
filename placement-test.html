@@ -1198,9 +1198,10 @@ animation: none;
   <script src="newsletter-popup.js?v=3" defer></script>
   <link rel="stylesheet" href="lesson-menu.css?v=2">
   <script src="lesson-menu.js?v=1" defer></script>
+  <link rel="stylesheet" href="learning-layout.css?v=1">
 </head>
 
-<body>
+<body class="level-test-page">
   <a class="skip-link" href="#test-app">Skip to the test</a>
 
   <header class="site-header">
@@ -1216,7 +1217,8 @@ animation: none;
          <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="m4 6 4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
        </button>
        <ul class="lesson-menu-list" id="free-lessons-topics" hidden>
-         <li><a href="free-lessons.html">All free lessons</a></li>
+         <li><a href="free-lessons.html#start-here">Start here · Beginners</a></li>
+          <li><a href="free-lessons.html">All free lessons</a></li>
          <li><a href="free-lessons.html?category=vocabulary#lessons">Vocabulary</a></li>
          <li><a href="free-lessons.html?category=conversation#lessons">Conversations</a></li>
          <li><a href="free-lessons.html?category=grammar#lessons">Grammar</a></li>
@@ -1301,7 +1303,7 @@ animation: none;
     <section class="screen" id="completion-screen" aria-labelledby="completion-title" hidden>
       <div class="completion-card">
         <div class="checkmark" aria-hidden="true">✓</div>
-        <h1 id="completion-title" tabindex="-1">You have completed the test!</h1>
+        <h2 id="completion-title" tabindex="-1">You have completed the test!</h2>
         <p>Your answers are ready. Click below to see your estimated Tunisian Arabic level.</p>
         <button class="primary-button" id="result-button" type="button">See My Result</button>
       </div>
@@ -1311,7 +1313,7 @@ animation: none;
       <div class="result-card">
         <div class="result-content">
          <p class="result-kicker">Estimated Tunisian Arabic level</p>
-          <h1 id="result-title" tabindex="-1"><span class="result-level" id="result-level">A1</span> · <span id="result-name">Beginner</span></h1>
+          <h2 id="result-title" tabindex="-1"><span class="result-level" id="result-level">A1</span> · <span id="result-name">Beginner</span></h2>
           <div class="result-score"><strong id="result-score">0/16</strong><span>correct</span></div>
           <p class="result-description" id="result-description"></p>
 
