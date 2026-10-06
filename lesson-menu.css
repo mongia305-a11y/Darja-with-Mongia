@@ -1,5 +1,6 @@
 /* Shared topic navigation. Keep styles scoped to the Free Lessons disclosure. */
 [data-lesson-menu-nav] {
+  align-items: center !important;
   overflow: visible !important;
 }
 
