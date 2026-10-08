@@ -50,3 +50,8 @@
   .home-page .podcast-nav { left: auto; right: 24px; transform: none; gap: 16px; }
   .home-page .podcast-nav > a, .home-page .podcast-nav .lesson-menu-link { font-size: 17px; }
 }
+
+.darja-contact-dialog .darja-contact-reply-time { margin: -12px 0 22px; color: #69475a; font: 500 12px/1.6 "Poppins", sans-serif; text-align: center; }
+.darja-contact-dialog .darja-contact-word-count { margin: -9px 0 0; color: #657080; font: 400 12px/1.5 "Poppins", sans-serif; text-align: right; }
+.darja-contact-dialog .darja-contact-word-count[data-state="error"] { color: #793750; font-weight: 600; }
+.darja-contact-dialog textarea[aria-invalid="true"] { border-color: #a44c70; }

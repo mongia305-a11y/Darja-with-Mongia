@@ -4,7 +4,7 @@
   if (document.getElementById('darja-contact-dialog')) return;
   const stylesheet = document.createElement('link');
   stylesheet.rel = 'stylesheet';
-  stylesheet.href = new URL('contact.css?v=1', document.currentScript.src).href;
+  stylesheet.href = new URL('contact.css?v=2', document.currentScript.src).href;
   document.head.appendChild(stylesheet);
   const dialog = document.createElement('dialog');
   dialog.id = 'darja-contact-dialog';
@@ -15,6 +15,7 @@
     <button type="button" class="darja-contact-close" aria-label="Close contact window">×</button>
     <h2 class="darja-contact-heading" id="darja-contact-title">Contact Mongia</h2>
     <p class="darja-contact-intro" id="darja-contact-intro">Have a question about Tunisian Arabic, a lesson, or the website? Send me a message — I’d love to hear from you!</p>
+    <p class="darja-contact-reply-time">I usually reply within 2 business days (Monday–Friday).</p>
     <form action="https://formsubmit.co/contact@darjawithmongia.com" method="post">
       <label for="darja-contact-name">Your name
         <input id="darja-contact-name" name="name" type="text" autocomplete="name" placeholder="Your name" maxlength="100" required autofocus>
@@ -23,8 +24,9 @@
         <input id="darja-contact-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com" maxlength="254" required>
       </label>
       <label for="darja-contact-message">Your message
-        <textarea id="darja-contact-message" name="message" rows="5" placeholder="What would you like to ask or share?" maxlength="5000" required></textarea>
+        <textarea id="darja-contact-message" name="message" rows="5" placeholder="What would you like to ask or share?" aria-describedby="darja-contact-word-count" required></textarea>
       </label>
+      <p class="darja-contact-word-count" id="darja-contact-word-count" aria-live="polite">0 / 500 words</p>
       <input type="hidden" name="_subject" value="New message — Darja with Mongia">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
@@ -77,15 +79,33 @@
   const form = dialog.querySelector('form');
   const send = dialog.querySelector('.darja-contact-send');
   const status = dialog.querySelector('.darja-contact-status');
+  const messageField = form.elements.message;
+  const wordCounter = dialog.querySelector('.darja-contact-word-count');
+  const maxWords = 500;
+  function updateWordCount() {
+    // Whitespace-separated words; support Arabic and Latin spelling with numbers.
+    const words = messageField.value.match(/\S+/gu) || [];
+    const count = words.filter(word => /[\p{L}\p{N}]/u.test(word)).length;
+    const over = count > maxWords;
+    const counterText = count + ' / ' + maxWords + ' words'
+      + (over ? ' — Please shorten your message.' : '');
+    if (wordCounter.textContent !== counterText) wordCounter.textContent = counterText;
+    wordCounter.dataset.state = over ? 'error' : 'normal';
+    messageField.setCustomValidity(over ? 'Please keep your message to 500 words or fewer.'
+      : (messageField.value.trim() ? '' : 'Please fill in this field.'));
+    if (over) messageField.setAttribute('aria-invalid', 'true');
+    else messageField.removeAttribute('aria-invalid');
+    return count;
+  }
+  messageField.addEventListener('input', updateWordCount);
+  updateWordCount();
   let sending = false;
   function setStatus(message, state) {
     status.textContent = message;
     status.dataset.state = state;
     status.hidden = false;
   }
-  ['name', 'message'].forEach(name => {
-    form.elements[name].addEventListener('input', () => form.elements[name].setCustomValidity(''));
-  });
+  form.elements.name.addEventListener('input', () => form.elements.name.setCustomValidity(''));
   form.addEventListener('submit', async event => {
     event.preventDefault();
     if (sending) return;
@@ -93,6 +113,7 @@
       const field = form.elements[name];
       field.setCustomValidity(field.value.trim() ? '' : 'Please fill in this field.');
     });
+    updateWordCount();
     if (!form.reportValidity()) return;
     if (form.elements._honey.value) return;
     sending = true;
@@ -118,8 +139,9 @@
       if (/activat|confirm/i.test(result.message || '')) {
         setStatus('The contact form is being activated. Please use the email link below to reach Mongia for now.', 'error');
       } else if (response.ok && (result.success === true || result.success === 'true')) {
-        setStatus('Thank you! Your message has been submitted. Mongia will reply to your email.', 'success');
+        setStatus('Thank you! Your message has been submitted. I usually reply to your email within 2 business days.', 'success');
         form.reset();
+        updateWordCount();
       } else {
         throw new Error('The service did not accept the message.');
       }
@@ -134,3 +156,4 @@
     }
   });
 })();
+
