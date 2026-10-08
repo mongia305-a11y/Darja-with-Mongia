@@ -89,9 +89,14 @@
     const privacyBar = document.createElement("div");
     privacyBar.className = "cookie-privacy-bar";
     privacyBar.appendChild(settingsButton);
-    const header = document.querySelector("header");
-    if (header) header.insertAdjacentElement("afterend", privacyBar);
-    else document.body.insertBefore(privacyBar, document.body.firstChild);
+    const footers = document.querySelectorAll("footer");
+    let footer = footers[footers.length - 1];
+    if (!footer) {
+      footer = document.createElement("footer");
+      footer.className = "darja-privacy-footer";
+      document.body.appendChild(footer);
+    }
+    footer.appendChild(privacyBar);
 
     function showBanner() {
       banner.hidden = false;

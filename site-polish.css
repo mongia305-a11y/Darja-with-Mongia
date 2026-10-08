@@ -1,0 +1,171 @@
+/* A shared finishing layer. Keep lesson content, recording players, and practice states intact. */
+:root {
+  --polish-page:#f9f7ff;
+  --polish-paper:#fff;
+  --polish-text:#3f424d;
+  --polish-muted:#626673;
+  --polish-line:#e5dce7;
+  --polish-pink:#edb6cc;
+  --polish-pink-hover:#f6dce7;
+  --polish-pink-ink:#66384f;
+  --polish-tint:#fbf0f6;
+  --polish-shadow:0 8px 26px rgba(64,45,67,.06);
+}
+@media screen {
+  html[data-theme="dark"] {
+    --polish-page:#17151d;
+    --polish-paper:#25212e;
+    --polish-text:#f4eef6;
+    --polish-muted:#c8becf;
+    --polish-line:#4e4056;
+    --polish-pink:#edb6cc;
+    --polish-pink-hover:#f6dce7;
+    --polish-pink-ink:#512c40;
+    --polish-tint:#382733;
+    --polish-shadow:0 8px 26px #0003;
+  }
+  html body { font-family:'Poppins',system-ui,sans-serif; font-size:16px; line-height:1.7; }
+  html .home-page { zoom:1; }
+  html :is(button,input,select,textarea) { font-family:'Poppins',system-ui,sans-serif; }
+  html :is(.ar,.arabic,.font-ar,.font-arabic,.font-arabic-serif) { font-family:'Noto Naskh Arabic',serif; }
+  html :is(h1,h2) { text-wrap:balance; }
+  html :is(p,h3,a) { overflow-wrap:break-word; }
+
+  /* One header rhythm on every page, with a compact switch and clear focus. */
+  html body > :is(.navbar,.site-header) {
+    min-height:78px; padding:8px clamp(18px,3vw,40px); border-bottom:1px solid var(--polish-line);
+    box-shadow:0 3px 16px rgba(40,25,43,.03);
+  }
+  html body > :is(.navbar,.site-header) > [data-lesson-menu-nav] { gap:clamp(12px,2vw,26px); }
+  html body > :is(.navbar,.site-header) > [data-lesson-menu-nav] a {
+    display:inline-flex; align-items:center; min-height:44px; padding:4px 0;
+    font-family:'Poppins',sans-serif; font-size:17px; font-weight:500; line-height:1.4;
+  }
+  html :is(.logo-only,.brand-logo,.brand-link) { min-width:0; }
+  html body > :is(.navbar,.site-header) :is(.logo,.brand-logo,.brand-link) img { width:156px; max-height:58px; object-fit:contain; }
+  html .darja-theme-toggle { min-height:44px; min-width:118px; padding:9px 12px; font-size:14px; }
+  html[data-theme="dark"] :is(.logo,.brand-logo,.brand-link,.footer-brand,.site-footer) > img {
+    box-sizing:border-box; padding:5px 9px; background:#faf5f8; border:1px solid #d4bbc9;
+    border-radius:12px; box-shadow:0 4px 14px #0002;
+  }
+  html[data-theme="dark"] .darja-theme-toggle { background:var(--polish-tint); color:#f1bad5; border-color:#9a6582; }
+
+  /* Visitors reach the first lessons sooner; the portrait stays part of the welcome. */
+  html .home-page .hero {
+    display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr); align-items:center;
+    width:min(1180px,100%); margin:0 auto; padding:32px 28px 26px; gap:42px; text-align:left;
+  }
+  html .home-page .hero-title { max-width:600px; font-size:clamp(34px,3.5vw,48px); line-height:1.2; letter-spacing:-.8px; }
+  html .home-page .hero-text p { margin-top:24px; font-size:17px; line-height:1.8; color:var(--polish-muted); max-width:55ch; }
+  html .home-page .hero-portrait { width:100%; max-width:440px; min-width:0; padding:22px 14px 36px; }
+  html .home-page .portrait-shape { aspect-ratio:1; border-width:5px; }
+  html .home-page .greeting-note { min-width:132px; right:0; padding:12px 14px; border-width:4px; }
+  html .home-page .greeting-note strong { font-size:25px; }
+  html .home-page .teacher-note { min-width:0; width:min(270px,85%); left:-4px; padding:13px 16px; border-radius:18px; }
+  html .home-page .beginner-path { margin-top:8px; margin-bottom:36px; }
+  html .home-page :is(.benefits,.pocket-section,.podcast-section,.newsletter-section,.about,.faq) { padding:56px max(24px,6%); }
+  html .home-page .quotes-band section { padding:56px 0!important; }
+  html .home-page :is(.section-heading,.podcast-heading) { margin-bottom:30px; }
+  html .home-page .benefits h2 { margin-bottom:30px; }
+  html .home-page :is(.benefit-card,.about-box) { padding:28px; }
+  html .home-page .hero-actions { gap:10px; margin-top:22px; }
+  html .home-page .hero-teaching-stat dt { font-size:12px; }
+  html .home-page .hero-teaching-stat dd { font-size:14px; }
+  html .home-page .faq summary { min-height:48px; padding:14px 18px; font-size:16px; }
+  html .home-page :is(.faq p,.about-text p,.benefit-card p) { font-size:16px; line-height:1.8; }
+
+  /* Common cards and readable lesson type, preserving Arabic practice sizes. */
+  html :is(.beginner-steps a,.lesson-card,.transcript-card,.vcard,.phrase-card,.pronoun-card,.intro-panel,.lab,.related-lessons,.ccard) {
+    border-color:var(--polish-line); border-radius:22px; box-shadow:var(--polish-shadow);
+  }
+  html .conversation-lesson { font-family:'Poppins',system-ui,sans-serif; }
+  html .conversation-lesson :is(h1,h2) { font-family:Georgia,'Times New Roman',serif; font-weight:600; }
+  html .conversation-lesson h1 { font-size:clamp(30px,3.3vw,42px); line-height:1.25; }
+  html .conversation-lesson :is(.text-xs,.text-sm) { font-size:14px; line-height:1.7; }
+  html .conversation-lesson .font-sans { font-family:'Poppins',sans-serif; }
+  html :is(.hero-copy,.intro-panel p,.section-head p,.sec-head p,.sentence-meaning,.description,.ex,.ccard p) { font-size:16px; line-height:1.8; }
+  html :is(.vtrans,.word-meaning,.example-trans,.example-meaning,.back-link,.lesson-nav a,.footer-inner p,.footer-inner a,.section-hint) { font-size:14px; line-height:1.65; }
+  html :is(.vbody .ar,.phrase-card .ar,.dialogue-sentence .ar) { line-height:1.5; }
+  html :is(.btn,.hero-start-btn,.hero-test-btn,.category,.lab-tab,.kbtn,.phrase-control,.pdf-download-button,.transcript-view,.transcript-download) {
+    min-height:46px; border-radius:999px; font-size:14px; font-weight:600; line-height:1.5;
+  }
+  html[data-theme] :is(.hero-start-btn,.btn:not(.btn-secondary,.btn-cream,.btn-ghost),.btn-primary,.btn-dark,.btn-peach,.btn-sage,.darja-contact-send,.darja-signup button,.category.active,.open) {
+    background:var(--polish-pink)!important; color:var(--polish-pink-ink)!important; border:1px solid #cc8da9!important;
+  }
+  html[data-theme] :is(.hero-start-btn,.btn:not(.btn-secondary,.btn-cream,.btn-ghost),.btn-primary,.btn-dark,.btn-peach,.btn-sage,.darja-contact-send,.darja-signup button,.category.active,.open):hover {
+    background:var(--polish-pink-hover)!important;
+  }
+  html[data-theme] :is(.hero-test-btn,.btn-secondary,.btn-cream,.btn-ghost) {
+    background:var(--polish-paper)!important; color:var(--polish-text)!important; border:1px solid var(--polish-line)!important;
+  }
+
+  /* Shared audio controls: generous tap targets with a visible playing state. */
+  html :is(.icobtn,.listen-btn) {
+    min-height:44px; min-width:44px; padding:10px 14px; font-size:14px; line-height:1.4;
+    font-weight:500; border:1px solid var(--polish-line); border-radius:999px;
+    color:var(--polish-pink-ink); background:var(--polish-tint); white-space:normal;
+  }
+  html .icobtn:is(.primary,.accent) { background:var(--polish-pink)!important; border-color:#cc8da9!important; color:var(--polish-pink-ink)!important; }
+  html[data-theme="dark"] .listen-btn,html[data-theme="dark"] .icobtn:not(.primary,.accent) { color:#f1bad5; }
+  html :is(.icobtn.playing,.listen-btn[aria-pressed="true"]) { outline:2px solid #b5658d; outline-offset:2px; }
+  html .conversation-lesson :is(button[onclick*="speak"],button[onclick*="play"],button[aria-label^="Listen"],#masterPlayBtn,#masterPlaySlowBtn) {
+    min-width:44px; min-height:44px; padding:10px 14px; border-radius:999px; font-size:14px;
+  }
+  html :is(.darja-contact-dialog,.darja-newsletter-dialog) { border-radius:22px; border-color:var(--polish-line); }
+  html .darja-contact-dialog label { font-size:14px; }
+  html .darja-contact-dialog :is(.darja-contact-intro,.darja-contact-reply-time) { font-size:14px; }
+  html .darja-contact-dialog :is(.darja-contact-note,.darja-contact-email,.darja-contact-word-count) { font-size:13px; }
+  html :is(button,a,input,textarea,select):focus-visible { outline:3px solid #a9567e; outline-offset:3px; }
+
+  /* Persistent privacy access lives at the end, not between navigation and content. */
+  html .cookie-privacy-bar { flex:1 0 100%; width:100%; margin:20px 0 0; padding:12px 0 0; border-top:1px solid var(--polish-line); background:transparent; }
+  html .cookie-privacy-bar .cookie-settings-button { min-height:44px; padding:8px 4px; margin:0; border:0; border-radius:0; box-shadow:none; background:transparent; color:var(--polish-muted); font-size:14px; text-decoration:underline; text-underline-offset:4px; }
+  html .darja-privacy-footer { margin:0; padding:24px; text-align:center; background:var(--polish-paper); border:0; }
+  html .darja-privacy-footer .cookie-privacy-bar { margin:0; border:0; padding:0; }
+  html .home-page .site-footer { padding-top:44px; }
+
+  @media (max-width:1100px) {
+    html body > :is(.navbar,.site-header) > [data-lesson-menu-nav] a { font-size:15px; }
+  }
+  @media (max-width:900px) {
+    html body > :is(.navbar,.site-header) { padding:8px 18px; gap:4px 12px!important; }
+    html body > :is(.navbar,.site-header) > [data-lesson-menu-nav] { gap:4px 16px!important; }
+    html body > :is(.navbar,.site-header) > [data-lesson-menu-nav] a { font-size:14px; min-height:40px; }
+    html body > :is(.navbar,.site-header) :is(.logo,.brand-logo,.brand-link) img { width:140px; }
+    html .home-page .hero { grid-template-columns:1fr; padding:28px 24px 24px; gap:24px; text-align:center; }
+    html .home-page .hero-text p { margin:20px auto 0; }
+    html .home-page .hero-title { margin:0 auto; max-width:650px; }
+    html .home-page .hero-actions { justify-content:center; }
+    html .home-page .hero-portrait { max-width:350px; padding-bottom:45px; }
+    html .home-page .teacher-note { left:50%; transform:translateX(-50%); bottom:0; }
+    html .vactions { flex-wrap:wrap; }
+    html .vactions .icobtn { flex:1 1 110px; }
+  }
+  @media (max-width:600px) {
+    html .home-page .hero { padding:24px 20px; gap:20px; }
+    html .home-page .hero-title { font-size:clamp(31px,7.8vw,38px); letter-spacing:-.5px; }
+    html .home-page .hero-text p { font-size:16px; }
+    html .home-page .hero-portrait { width:min(100%,290px); padding:18px 12px 40px; }
+    html .home-page .hero-actions { display:grid; grid-template-columns:1fr; }
+    html .home-page .hero-actions a { width:100%; }
+    html .home-page :is(.benefits,.pocket-section,.podcast-section,.newsletter-section,.about,.faq) { padding:40px 20px; }
+    html .home-page .quotes-band section { padding:40px 0!important; }
+    html .home-page .beginner-path { width:calc(100% - 40px); margin-top:12px; }
+    html .home-page .about-box { padding:22px; gap:24px; }
+    html :is(.vocabulary-lesson,.grammar-lesson,.culture-lesson) .wrap { width:calc(100% - 32px); padding-inline:0; }
+    html :is(.vocabulary-lesson,.grammar-lesson,.culture-lesson) .hero-grid { gap:26px; }
+    html :is(.vocabulary-lesson,.grammar-lesson,.culture-lesson) .hero { padding:24px 0; }
+    html .vactions .icobtn { flex:1 1 100%; }
+    html .lab-body { padding:18px; }
+    html .darja-contact-dialog { padding:28px 20px 22px; }
+    html .darja-contact-dialog .darja-contact-heading { font-size:28px; }
+    html .darja-contact-dialog .darja-contact-reply-time { margin-bottom:18px; }
+    html .conversation-lesson main { padding-inline:16px; }
+    html .cookie-consent__actions { display:flex; flex-direction:column; }
+  }
+}
+@media (prefers-reduced-motion:reduce) {
+  html { scroll-behavior:auto!important; }
+  .hero-title em::after,.portrait-shape,.greeting-note { animation:none!important; }
+}
+@media print { .cookie-privacy-bar,.darja-privacy-footer { display:none!important; } }
