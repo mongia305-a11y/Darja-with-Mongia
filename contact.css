@@ -1,0 +1,52 @@
+/* Contact window, shared by pages with the website navigation. */
+.darja-contact-dialog, .darja-contact-dialog * { box-sizing: border-box; }
+.darja-contact-dialog {
+  position: fixed; inset: 0; width: min(520px, calc(100% - 32px)); max-width: none;
+  max-height: calc(100dvh - 32px); margin: auto; padding: 32px;
+  overflow: auto; border: 1px solid #eadfe7; border-radius: 24px;
+  color: #3f4c4a; background: #fbf0f6;
+  box-shadow: 0 24px 80px rgba(70, 62, 77, .2); text-align: left;
+}
+.darja-contact-dialog::backdrop { background: rgba(48, 42, 53, .45); backdrop-filter: blur(3px); }
+.darja-contact-dialog .darja-contact-close {
+  position: absolute; top: 12px; right: 12px; display: grid; place-items: center;
+  width: 40px; height: 40px; margin: 0; padding: 0; border: 0; border-radius: 50%;
+  color: #69475a; background: transparent; font-size: 28px; line-height: 1; cursor: pointer;
+}
+.darja-contact-close:hover { background: #f8dce8; transform: none; opacity: 1; }
+.darja-contact-dialog .darja-contact-heading { margin: 4px 30px 12px; font: 600 32px/1.2 Georgia, "Times New Roman", serif; text-align: center; }
+.darja-contact-dialog .darja-contact-intro { margin: 0 0 24px; color: #657080; font: 400 14px/1.7 "Poppins", sans-serif; text-align: center; }
+.darja-contact-dialog form { display: grid; gap: 16px; margin: 0; }
+.darja-contact-dialog label { display: grid; gap: 7px; margin: 0; color: #4e5965; font: 500 13px/1.5 "Poppins", sans-serif; }
+.darja-contact-dialog input, .darja-contact-dialog textarea {
+  display: block; width: 100%; min-width: 0; margin: 0; padding: 12px 14px;
+  border: 1px solid #e4d6e0; border-radius: 12px; color: #3f4c4a; background: #fff;
+  font: 400 16px/1.5 "Poppins", sans-serif;
+}
+.darja-contact-dialog input { min-height: 48px; }
+.darja-contact-dialog textarea { min-height: 140px; resize: vertical; }
+.darja-contact-dialog input::placeholder, .darja-contact-dialog textarea::placeholder { color: #78818d; opacity: 1; }
+.darja-contact-dialog .darja-contact-send {
+  width: 100%; min-height: 48px; margin: 0; padding: 12px 20px;
+  border: 1px solid #cf91ae; border-radius: 999px; color: #542740; background: #edb6cc;
+  font: 600 15px/1.5 "Poppins", sans-serif; cursor: pointer;
+}
+.darja-contact-send:hover { background: #f6dce7; transform: none; opacity: 1; }
+.darja-contact-send:disabled { cursor: wait; opacity: .7; }
+.darja-contact-dialog :is(input, textarea, button, a):focus-visible { outline: 3px solid #884565; outline-offset: 3px; }
+.darja-contact-dialog .darja-contact-status { margin: 0; padding: 10px 12px; border-radius: 10px; color: #69475a; background: #fff; font: 400 13px/1.6 "Poppins", sans-serif; }
+.darja-contact-status[data-state="success"] { color: #315d50; background: #e3f2ed; }
+.darja-contact-status[data-state="error"] { color: #793750; background: #fce3ec; }
+.darja-contact-dialog .darja-contact-note, .darja-contact-dialog .darja-contact-email { margin: 0; color: #657080; font: 400 12px/1.6 "Poppins", sans-serif; text-align: center; }
+.darja-contact-dialog .darja-contact-email { margin-top: 16px; }
+.darja-contact-email a { color: #884565; overflow-wrap: anywhere; text-underline-offset: 3px; }
+.darja-contact-dialog [hidden], .darja-contact-dialog .darja-contact-honey { display: none !important; }
+@media (max-width: 600px) {
+  .darja-contact-dialog { width: calc(100% - 24px); max-height: calc(100dvh - 24px); padding: 28px 20px 24px; border-radius: 20px; }
+  .darja-contact-dialog .darja-contact-heading { font-size: 28px; }
+}
+/* Keep all five navigation items readable without colliding with the logo. */
+@media (min-width: 761px) and (max-width: 1100px) {
+  .home-page .podcast-nav { left: auto; right: 24px; transform: none; gap: 16px; }
+  .home-page .podcast-nav > a, .home-page .podcast-nav .lesson-menu-link { font-size: 17px; }
+}

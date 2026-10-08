@@ -68,3 +68,10 @@
     setOpen(false);
   });
 })();
+
+// Load the shared contact window on pages that use this navigation.
+(() => {
+  const script = document.createElement('script');
+  script.src = new URL('contact.js?v=1', document.currentScript.src).href;
+  document.head.appendChild(script);
+})();
