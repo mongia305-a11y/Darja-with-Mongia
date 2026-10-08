@@ -2,7 +2,9 @@
 <!-- Darja level test: fireworks celebration version, 2026-09-02 -->
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="cookie-consent.css?v=1">
+  <script src="theme.js?v=1"></script>
+  <link rel="stylesheet" href="theme.css?v=1">
+  <link rel="stylesheet" href="cookie-consent.css?v=dark1">
   <script src="cookie-consent.js?v=1" defer></script>
   <meta charset="UTF-8">
   <meta name="darja-test-version" content="fireworks-v4">
@@ -47,8 +49,8 @@
       min-height: 100vh;
       color: var(--ink);
       background:
-        radial-gradient(circle at 12% 18%, rgba(240, 111, 156, 0.10), transparent 27rem),
-        radial-gradient(circle at 88% 78%, rgba(26, 119, 113, 0.10), transparent 30rem),
+        radial-gradient(circle at 12% 18%, var(--darja-bg-213, rgba(240, 111, 156, 0.10)), transparent 27rem),
+        radial-gradient(circle at 88% 78%, var(--darja-bg-214, rgba(26, 119, 113, 0.10)), transparent 30rem),
         var(--page);
       font-family: "Poppins", Arial, sans-serif;
       font-size: 16px;
@@ -71,7 +73,7 @@
       left: 10px;
       z-index: 1000;
       padding: 10px 14px;
-      color: #fff;
+      color: var(--darja-fg-10, #fff);
       background: var(--teal-dark);
       border-radius: 10px;
       transform: translateY(-150%);
@@ -91,9 +93,9 @@
       gap: 32px;
    min-height: 76px;
 padding: 6px 24px;
-      background: rgba(255, 255, 255, 0.96);
-      border-bottom: 1px solid rgba(26, 119, 113, 0.08);
-      box-shadow: 0 5px 24px rgba(42, 65, 64, 0.05);
+      background: var(--darja-bg-215, rgba(255, 255, 255, 0.96));
+      border-bottom: 1px solid var(--darja-line-216, rgba(26, 119, 113, 0.08));
+      box-shadow: 0 5px 24px var(--darja-shadow-217, rgba(42, 65, 64, 0.05));
     }
 
     .brand-link {
@@ -118,7 +120,7 @@ max-height: 60px;
     }
 
     .site-nav a {
-      color: #505a59;
+      color: var(--darja-fg-218, #505a59);
       font-weight: 500;
       text-decoration: none;
       white-space: nowrap;
@@ -147,8 +149,8 @@ max-height: 60px;
     .result-card {
       position: relative;
       overflow: hidden;
-      background: rgba(255, 255, 255, 0.98);
-      border: 1px solid rgba(26, 119, 113, 0.12);
+      background: var(--darja-bg-219, rgba(255, 255, 255, 0.98));
+      border: 1px solid var(--darja-line-220, rgba(26, 119, 113, 0.12));
       border-radius: var(--radius-large);
       box-shadow: var(--shadow);
     }
@@ -245,7 +247,7 @@ max-height: 60px;
 
     .fact {
       padding: 17px 12px;
-      background: #f8fbfb;
+      background: var(--darja-bg-221, #f8fbfb);
       border: 1px solid var(--border);
       border-radius: 16px;
     }
@@ -272,20 +274,20 @@ max-height: 60px;
       padding: 20px 22px;
       text-align: left;
       background: var(--cream);
-      border: 1px solid #f0dfb8;
+      border: 1px solid var(--darja-line-222, #f0dfb8);
       border-radius: var(--radius-medium);
     }
 
     .instructions strong {
       display: block;
       margin-bottom: 7px;
-      color: #805a16;
+      color: var(--darja-fg-223, #805a16);
     }
 
     .instructions ul {
       margin: 0;
       padding-left: 22px;
-      color: #5f6463;
+      color: var(--darja-fg-224, #5f6463);
     }
 
     .primary-button,
@@ -305,10 +307,10 @@ max-height: 60px;
 
     .primary-button,
     .preply-button {
-      color: #fff;
+      color: var(--darja-fg-10, #fff);
       background: linear-gradient(135deg, var(--pink), var(--pink-dark));
       border: 0;
-      box-shadow: 0 12px 28px rgba(216, 82, 130, 0.25);
+      box-shadow: 0 12px 28px var(--darja-shadow-225, rgba(216, 82, 130, 0.25));
     }
 
     .primary-button:hover,
@@ -316,12 +318,12 @@ max-height: 60px;
     .preply-button:hover,
     .preply-button:focus-visible {
       transform: translateY(-2px);
-      box-shadow: 0 16px 34px rgba(216, 82, 130, 0.32);
+      box-shadow: 0 16px 34px var(--darja-shadow-226, rgba(216, 82, 130, 0.32));
     }
 
     .primary-button:disabled {
-      color: #899392;
-      background: #e7eceb;
+      color: var(--darja-fg-227, #899392);
+      background: var(--darja-bg-228, #e7eceb);
       box-shadow: none;
       cursor: not-allowed;
       transform: none;
@@ -329,7 +331,7 @@ max-height: 60px;
 
     .secondary-button {
       color: var(--teal-dark);
-      background: #fff;
+      background: var(--darja-bg-8, #fff);
       border: 1px solid var(--teal);
     }
 
@@ -370,14 +372,14 @@ max-height: 60px;
     .progress-track {
       height: 10px;
       overflow: hidden;
-      background: #e3eceb;
+      background: var(--darja-bg-229, #e3eceb);
       border-radius: 999px;
     }
 
     .progress-fill {
       width: 6.25%;
       height: 100%;
-      background: linear-gradient(90deg, var(--teal), #38a49b);
+      background: linear-gradient(90deg, var(--teal), var(--darja-bg-230, #38a49b));
       border-radius: inherit;
       transition: width 0.35s ease;
     }
@@ -393,8 +395,8 @@ max-height: 60px;
       align-items: center;
       margin-bottom: 30px;
       padding: 18px;
-      background: linear-gradient(135deg, var(--teal-soft), #f5fbfa);
-      border: 1px solid #cce5e2;
+      background: linear-gradient(135deg, var(--teal-soft), var(--darja-bg-231, #f5fbfa));
+      border: 1px solid var(--darja-line-232, #cce5e2);
       border-radius: var(--radius-medium);
     }
 
@@ -403,7 +405,7 @@ max-height: 60px;
       place-items: center;
       width: 50px;
       height: 50px;
-      color: #fff;
+      color: var(--darja-fg-10, #fff);
       background: var(--teal);
       border-radius: 50%;
       font-size: 1.3rem;
@@ -429,7 +431,7 @@ max-height: 60px;
     .audio-error {
       grid-column: 1 / -1;
       margin: 0;
-      color: #a13246;
+      color: var(--darja-fg-233, #a13246);
       font-size: 0.88rem;
       font-weight: 600;
     }
@@ -454,16 +456,16 @@ max-height: 60px;
       gap: 13px;
       min-height: 58px;
       padding: 14px 17px;
-      color: #445351;
-      background: #fff;
-      border: 1.5px solid #dce7e5;
+      color: var(--darja-fg-234, #445351);
+      background: var(--darja-bg-8, #fff);
+      border: 1.5px solid var(--darja-line-235, #dce7e5);
       border-radius: 15px;
       cursor: pointer;
       transition: border-color 0.18s ease, background 0.18s ease, transform 0.18s ease;
     }
 
     .answer-option:hover {
-      border-color: #84bbb5;
+      border-color: var(--darja-line-236, #84bbb5);
       transform: translateY(-1px);
     }
 
@@ -471,7 +473,7 @@ max-height: 60px;
       color: var(--teal-dark);
       background: var(--teal-soft);
       border-color: var(--teal);
-      box-shadow: 0 6px 20px rgba(26, 119, 113, 0.10);
+      box-shadow: 0 6px 20px var(--darja-shadow-237, rgba(26, 119, 113, 0.10));
     }
 
     .answer-option input {
@@ -490,7 +492,7 @@ max-height: 60px;
       height: 30px;
       flex: 0 0 auto;
       color: var(--teal-dark);
-      background: #f1f7f6;
+      background: var(--darja-bg-238, #f1f7f6);
       border-radius: 9px;
       font-weight: 700;
     }
@@ -527,12 +529,12 @@ max-height: 60px;
       width: 78px;
       height: 78px;
       margin: 0 auto 22px;
-      color: #fff;
+      color: var(--darja-fg-10, #fff);
       background: var(--teal);
       border-radius: 50%;
       font-size: 2.3rem;
       font-weight: 700;
-      box-shadow: 0 12px 30px rgba(26, 119, 113, 0.22);
+      box-shadow: 0 12px 30px var(--darja-shadow-239, rgba(26, 119, 113, 0.22));
     }
 
     .completion-card h1,
@@ -574,9 +576,9 @@ max-height: 60px;
       gap: 6px;
       margin: 7px 0 24px;
       padding: 10px 18px;
-      color: #805a16;
+      color: var(--darja-fg-223, #805a16);
       background: var(--cream);
-      border: 1px solid #f0dfb8;
+      border: 1px solid var(--darja-line-222, #f0dfb8);
       border-radius: 999px;
     }
 
@@ -587,7 +589,7 @@ max-height: 60px;
     .result-description {
       max-width: 630px;
       margin: 0 auto 22px;
-      color: #52615f;
+      color: var(--darja-fg-240, #52615f);
       font-size: 1.05rem;
     }
 
@@ -595,9 +597,9 @@ max-height: 60px;
       max-width: 640px;
       margin: 0 auto 22px;
       padding: 16px 20px;
-      color: #74314d;
-      background: linear-gradient(135deg, var(--pink-soft), #fff8fb);
-      border: 1px solid #f7cada;
+      color: var(--darja-fg-241, #74314d);
+      background: linear-gradient(135deg, var(--pink-soft), var(--darja-bg-242, #fff8fb));
+      border: 1px solid var(--darja-line-243, #f7cada);
       border-radius: 16px;
     }
 
@@ -656,7 +658,7 @@ max-height: 60px;
       z-index: 1000;
       overflow: hidden;
       pointer-events: none;
-      background: radial-gradient(circle at 50% 44%, rgba(255, 255, 255, 0.38), transparent 42%);
+      background: radial-gradient(circle at 50% 44%, var(--darja-bg-244, rgba(255, 255, 255, 0.38)), transparent 42%);
     }
 
     .celebration-overlay[hidden] {
@@ -685,7 +687,7 @@ max-height: 60px;
       left: 50%;
       width: min(72vw, 660px);
       aspect-ratio: 1;
-      border: 4px solid rgba(240, 111, 156, 0.32);
+      border: 4px solid var(--darja-line-245, rgba(240, 111, 156, 0.32));
       border-radius: 50%;
       transform: translate(-50%, -50%) scale(0.15);
       animation: halo-burst 1.5s ease-out 0.2s both;
@@ -700,10 +702,10 @@ max-height: 60px;
       padding: clamp(22px, 5vw, 38px);
       color: var(--ink);
       text-align: center;
-      background: rgba(255, 255, 255, 0.96);
-      border: 2px solid rgba(240, 111, 156, 0.38);
+      background: var(--darja-bg-215, rgba(255, 255, 255, 0.96));
+      border: 2px solid var(--darja-line-246, rgba(240, 111, 156, 0.38));
       border-radius: 26px;
-      box-shadow: 0 28px 90px rgba(29, 75, 72, 0.24);
+      box-shadow: 0 28px 90px var(--darja-shadow-247, rgba(29, 75, 72, 0.24));
       animation: congratulations-pop 1.4s ease-out both;
     }
 
@@ -818,23 +820,23 @@ max-height: 60px;
       0%,
       100% {
         transform: translateY(0) scale(1);
-        box-shadow: 0 12px 28px rgba(216, 82, 130, 0.25);
+        box-shadow: 0 12px 28px var(--darja-shadow-225, rgba(216, 82, 130, 0.25));
       }
       50% {
         transform: translateY(-3px) scale(1.035);
-        box-shadow: 0 18px 42px rgba(216, 82, 130, 0.48);
+        box-shadow: 0 18px 42px var(--darja-shadow-248, rgba(216, 82, 130, 0.48));
       }
     }
 
     .site-footer {
       padding: 26px 20px 34px;
-      color: #758280;
+      color: var(--darja-fg-249, #758280);
       text-align: center;
       font-size: 0.84rem;
     }
 
     :focus-visible {
-      outline: 3px solid rgba(240, 111, 156, 0.55);
+      outline: 3px solid var(--darja-line-250, rgba(240, 111, 156, 0.55));
       outline-offset: 4px;
     }
 
@@ -984,15 +986,15 @@ animation: none;
         0 -74px var(--spark),
         52px -52px var(--spark-two),
         74px 0 var(--spark),
-        52px 52px #ffffff,
+        52px 52px var(--darja-shadow-251, #ffffff),
         0 74px var(--spark-two),
         -52px 52px var(--spark),
-        -74px 0 #ffffff,
+        -74px 0 var(--darja-shadow-251, #ffffff),
         -52px -52px var(--spark-two),
-        27px -68px #ffffff,
+        27px -68px var(--darja-shadow-251, #ffffff),
         68px -27px var(--spark-two),
         68px 27px var(--spark),
-        27px 68px #ffffff,
+        27px 68px var(--darja-shadow-251, #ffffff),
         -27px 68px var(--spark-two),
         -68px 27px var(--spark),
         -68px -27px var(--spark-two),
@@ -1112,10 +1114,10 @@ animation: none;
   display: flex !important;
   align-items: center !important;
   gap: 0 !important;
-  background: #ffffff !important;
+  background: var(--darja-bg-85, #ffffff) !important;
   border: 0 !important;
   border-radius: 0 !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+  box-shadow: 0 4px 20px var(--darja-shadow-86, rgba(0, 0, 0, 0.05)) !important;
 }
 
 .brand-logo,
@@ -1146,7 +1148,7 @@ animation: none;
 
 .site-nav a {
   padding: 8px 0 !important;
-  color: #444 !important;
+  color: var(--darja-fg-59, #444) !important;
   font-size: 18px !important;
   font-weight: 500 !important;
   white-space: nowrap !important;
@@ -1155,7 +1157,7 @@ animation: none;
 
 .site-nav a:hover,
 .site-nav a.active {
-  color: #ff7aa2 !important;
+  color: var(--darja-fg-60, #ff7aa2) !important;
 }
 
 @media (max-width: 760px) {
@@ -1194,11 +1196,11 @@ animation: none;
   }
 }
   </style>
-  <link rel="stylesheet" href="newsletter-popup.css?v=3">
+  <link rel="stylesheet" href="newsletter-popup.css?v=dark1">
   <script src="newsletter-popup.js?v=3" defer></script>
-  <link rel="stylesheet" href="lesson-menu.css?v=2">
-  <script src="lesson-menu.js?v=1" defer></script>
-  <link rel="stylesheet" href="learning-layout.css?v=1">
+  <link rel="stylesheet" href="lesson-menu.css?v=dark1">
+  <script src="lesson-menu.js?v=4" defer></script>
+  <link rel="stylesheet" href="learning-layout.css?v=dark1">
 </head>
 
 <body class="level-test-page">

@@ -2,7 +2,9 @@
 
 <html lang="en">
 <head>
-<link href="https://darjawithmongia.com/cookie-consent.css?v=1" rel="stylesheet"/>
+  <script src="theme.js?v=1"></script>
+  <link rel="stylesheet" href="theme.css?v=1">
+<link href="https://darjawithmongia.com/cookie-consent.css?v=dark1" rel="stylesheet"/>
 <script defer="" src="https://darjawithmongia.com/cookie-consent.js?v=1"></script>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -74,8 +76,8 @@
   </script>
 <style>
     body {
-      background-color: #F9F7FF;
-      color: #3F4C4A;
+      background-color: var(--darja-bg-55, #F9F7FF);
+      color: var(--darja-fg-63, #3F4C4A);
       font-family: 'Plus Jakarta Sans', sans-serif;
       -webkit-font-smoothing: antialiased;
     }
@@ -115,16 +117,16 @@
       padding: 8px clamp(18px,4vw,48px);
       display: flex;
       align-items: center;
-      background: rgba(255,255,255,.97);
-      border-bottom: 1px solid #EADFEB;
-      box-shadow: 0 4px 20px rgba(70,62,77,.05);
+      background: var(--darja-bg-294, rgba(255,255,255,.97));
+      border-bottom: 1px solid var(--darja-line-295, #EADFEB);
+      box-shadow: 0 4px 20px var(--darja-shadow-296, rgba(70,62,77,.05));
       backdrop-filter: blur(12px);
     }
     .brand-logo img { width: 153px; max-height: 56px; object-fit: contain; }
     .site-nav { position:absolute; left:50%; transform:translateX(-50%); display:flex; gap:23px; }
-    .site-nav a { color:#444; font-size:18px; font-weight:400; white-space:nowrap; }
-    .site-nav a:hover,.site-nav a.active { color:#ff7aa2; }
-    .lesson-subnav { background:#F9F7FF; border-bottom:1px solid #EADFEB; }
+    .site-nav a { color:var(--darja-fg-59, #444); font-size:18px; font-weight:400; white-space:nowrap; }
+    .site-nav a:hover,.site-nav a.active { color:var(--darja-fg-60, #ff7aa2); }
+    .lesson-subnav { background:var(--darja-bg-55, #F9F7FF); border-bottom:1px solid var(--darja-line-295, #EADFEB); }
     @media(max-width:760px){
       .site-header{position:relative;flex-direction:column;align-items:flex-start;gap:10px;padding:12px 18px 14px}
       .brand-logo img{width:140px}
@@ -132,12 +134,12 @@
       .site-nav a{font-size:14px}
     }
   </style>
-  <link rel="stylesheet" href="newsletter-popup.css?v=3">
+  <link rel="stylesheet" href="newsletter-popup.css?v=dark1">
   <script src="newsletter-popup.js?v=3" defer></script>
-  <link rel="stylesheet" href="lesson-navigation.css?v=1">
-  <link rel="stylesheet" href="lesson-menu.css?v=2">
-  <script src="lesson-menu.js?v=1" defer></script>
-  <link rel="stylesheet" href="learning-layout.css?v=1">
+  <link rel="stylesheet" href="lesson-navigation.css?v=dark1">
+  <link rel="stylesheet" href="lesson-menu.css?v=dark1">
+  <script src="lesson-menu.js?v=4" defer></script>
+  <link rel="stylesheet" href="learning-layout.css?v=dark1">
 </head>
 <body class="conversation-lesson min-h-screen pb-24 text-ink-900 selection:bg-terracotta-100 selection:text-terracotta-600">
 <header class="site-header">

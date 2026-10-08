@@ -25,7 +25,7 @@
   border: 0;
   border-radius: 9px;
   background: transparent;
-  color: #69475a;
+  color: var(--darja-fg-199, #69475a);
   font: inherit;
   cursor: pointer;
   box-shadow: none;
@@ -39,7 +39,7 @@
 
 [data-lesson-menu] .lesson-menu-toggle:hover,
 [data-lesson-menu] .lesson-menu-toggle[aria-expanded="true"] {
-  background: #f8dce8;
+  background: var(--darja-bg-65, #f8dce8);
   opacity: 1;
   transform: none;
 }
@@ -65,10 +65,10 @@
   margin: 0;
   padding: 8px;
   list-style: none;
-  border: 1px solid #eadfe7;
+  border: 1px solid var(--darja-line-62, #eadfe7);
   border-radius: 16px;
-  background: #fff;
-  box-shadow: 0 12px 32px rgba(70, 62, 77, .14);
+  background: var(--darja-bg-8, #fff);
+  box-shadow: 0 12px 32px var(--darja-shadow-252, rgba(70, 62, 77, .14));
   text-align: left;
 }
 
@@ -97,7 +97,7 @@
   padding: 11px 14px !important;
   border-radius: 10px;
   background: transparent;
-  color: #46505b !important;
+  color: var(--darja-fg-56, #46505b) !important;
   font-size: 16px !important;
   font-weight: 500 !important;
   line-height: 1.5;
@@ -107,13 +107,13 @@
 
 [data-lesson-menu] .lesson-menu-list a:hover,
 [data-lesson-menu] .lesson-menu-list a:focus-visible {
-  background: #f8dce8;
-  color: #69475a !important;
+  background: var(--darja-bg-65, #f8dce8);
+  color: var(--darja-fg-199, #69475a) !important;
 }
 
 [data-lesson-menu] a:focus-visible,
 [data-lesson-menu] .lesson-menu-toggle:focus-visible {
-  outline: 2px solid #9b5c7c;
+  outline: 2px solid var(--darja-line-253, #9b5c7c);
   outline-offset: 3px;
 }
 

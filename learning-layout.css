@@ -54,37 +54,37 @@
   min-height: 46px;
   margin: 0;
   padding: 12px 20px;
-  border: 1px solid #cf91ae;
+  border: 1px solid var(--darja-line-202, #cf91ae);
   border-radius: 999px;
-  color: #542740;
+  color: var(--darja-fg-203, #542740);
   font: 600 15px/1.45 "Poppins", sans-serif;
   text-align: center;
   text-decoration: none;
 }
 
 .home-page .hero-start-btn {
-  background: #edb6cc;
+  background: var(--darja-bg-204, #edb6cc);
 }
 
 .home-page .hero-test-btn {
-  background: #fff;
+  background: var(--darja-bg-8, #fff);
 }
 
 .home-page .hero-start-btn:hover,
 .home-page .hero-test-btn:hover {
-  background: #f6dce7;
-  color: #542740;
+  background: var(--darja-bg-205, #f6dce7);
+  color: var(--darja-fg-203, #542740);
 }
 
 .vocabulary-lesson .hero .btn {
-  color: #542740;
+  color: var(--darja-fg-203, #542740);
 }
 
 .home-page .hero-start-btn:focus-visible,
 .home-page .hero-test-btn:focus-visible,
 .beginner-steps a:focus-visible,
 .beginner-all-link:focus-visible {
-  outline: 3px solid #884565;
+  outline: 3px solid var(--darja-line-206, #884565);
   outline-offset: 4px;
 }
 
@@ -105,7 +105,7 @@
 
 .lesson-library-page .category.active,
 .vocabulary-lesson .btn-primary {
-  color: #542740;
+  color: var(--darja-fg-203, #542740);
 }
 
 .level-test-page #completion-title,
@@ -140,13 +140,13 @@
 
 .podcast-page .transcript-related a,
 .home-page .faq a {
-  color: #884565;
+  color: var(--darja-fg-211, #884565);
   text-underline-offset: 3px;
 }
 
 .conversation-lesson .text-terracotta-400,
 .conversation-lesson .text-terracotta-500 {
-  color: #884565;
+  color: var(--darja-fg-211, #884565);
 }
 
 .beginner-path {
@@ -154,7 +154,7 @@
   margin: 24px auto 40px;
   padding: 0;
   scroll-margin-top: 190px;
-  color: #3f4c4a;
+  color: var(--darja-fg-63, #3f4c4a);
 }
 
 .beginner-path-heading {
@@ -165,7 +165,7 @@
 .beginner-kicker {
   display: block;
   margin: 0 0 8px;
-  color: #884565;
+  color: var(--darja-fg-211, #884565);
   font: 600 13px/1.5 "Poppins", sans-serif;
 }
 
@@ -177,7 +177,7 @@
 
 .beginner-path-heading p {
   margin: 0;
-  color: #59635f;
+  color: var(--darja-fg-254, #59635f);
   font-size: 16px;
   line-height: 1.75;
 }
@@ -204,17 +204,17 @@
   height: 100%;
   margin: 0;
   padding: 24px;
-  border: 1px solid #e3d9e3;
+  border: 1px solid var(--darja-line-255, #e3d9e3);
   border-radius: 20px;
-  color: #3f4c4a;
-  background: #fff;
+  color: var(--darja-fg-63, #3f4c4a);
+  background: var(--darja-bg-8, #fff);
   text-decoration: none;
   transition: border-color .15s, background-color .15s;
 }
 
 .beginner-steps a:hover {
-  border-color: #cf91ae;
-  background: #fffafd;
+  border-color: var(--darja-line-202, #cf91ae);
+  background: var(--darja-bg-256, #fffafd);
 }
 
 .learning-step-number {
@@ -224,8 +224,8 @@
   height: 36px;
   margin: 0;
   border-radius: 50%;
-  background: #f8dce8;
-  color: #69475a;
+  background: var(--darja-bg-65, #f8dce8);
+  color: var(--darja-fg-199, #69475a);
   font-size: 16px;
   font-weight: 700;
 }
@@ -239,21 +239,21 @@
 
 .beginner-steps p {
   margin: 0;
-  color: #59635f;
+  color: var(--darja-fg-254, #59635f);
   font-size: 16px;
   line-height: 1.7;
 }
 
 .learning-step-meta {
   margin-top: auto;
-  color: #69475a;
+  color: var(--darja-fg-199, #69475a);
   font-size: 13px;
   line-height: 1.6;
 }
 
 .learning-step-action,
 .beginner-all-link {
-  color: #884565;
+  color: var(--darja-fg-211, #884565);
   font-size: 15px;
   font-weight: 600;
   line-height: 1.6;

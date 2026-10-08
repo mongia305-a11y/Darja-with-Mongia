@@ -1,10 +1,10 @@
 .related-lessons {
   margin: 32px 0;
   padding: 24px;
-  border: 1px solid #eadfe7;
+  border: 1px solid var(--darja-line-62, #eadfe7);
   border-radius: 22px;
-  background: #fffdfb;
-  color: #3f4c4a;
+  background: var(--darja-bg-61, #fffdfb);
+  color: var(--darja-fg-63, #3f4c4a);
 }
 
 .related-lessons > h2 {
@@ -20,7 +20,7 @@
   margin: 0 0 18px;
   font-size: 14px;
   line-height: 1.7;
-  color: #697178;
+  color: var(--darja-fg-261, #697178);
 }
 
 .related-lessons ul {
@@ -38,10 +38,10 @@
   min-height: 52px;
   height: 100%;
   padding: 14px 16px;
-  border: 1px solid #eadfe7;
+  border: 1px solid var(--darja-line-62, #eadfe7);
   border-radius: 14px;
-  background: #f9f7ff;
-  color: #884565;
+  background: var(--darja-bg-55, #f9f7ff);
+  color: var(--darja-fg-211, #884565);
   font-size: 14px;
   font-weight: 600;
   line-height: 1.5;
@@ -49,12 +49,12 @@
 }
 
 .related-lessons a:hover {
-  background: #f2eaf4;
-  border-color: #d98eaf;
+  background: var(--darja-bg-75, #f2eaf4);
+  border-color: var(--darja-line-89, #d98eaf);
 }
 
 .related-lessons a:focus-visible {
-  outline: 3px solid #a85b7d;
+  outline: 3px solid var(--darja-line-262, #a85b7d);
   outline-offset: 3px;
 }
 
@@ -64,5 +64,5 @@
 }
 
 .lesson-roadmap-link:hover {
-  color: #884565;
+  color: var(--darja-fg-211, #884565);
 }

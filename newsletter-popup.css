@@ -4,74 +4,74 @@
   width: min(860px, calc(100% - 32px)); max-width: none;
   max-height: calc(100dvh - 32px); margin: auto; padding: 0;
   overflow: auto; overscroll-behavior: contain;
-  color: #3f4c4a; background: #fff; border: 1px solid #eadfe7;
-  border-radius: 24px; box-shadow: 0 24px 90px rgba(47,36,48,.24);
+  color: var(--darja-fg-63, #3f4c4a); background: var(--darja-bg-8, #fff); border: 1px solid var(--darja-line-62, #eadfe7);
+  border-radius: 24px; box-shadow: 0 24px 90px var(--darja-shadow-158, rgba(47,36,48,.24));
   font-family: "Poppins", Arial, sans-serif;
 }
 .darja-newsletter-dialog:not([open]) { display: none; }
-.darja-newsletter-dialog::backdrop { background: rgba(35,45,42,.52); backdrop-filter: blur(3px); }
+.darja-newsletter-dialog::backdrop { background: var(--darja-bg-159, rgba(35,45,42,.52)); backdrop-filter: blur(3px); }
 .darja-newsletter-open, .darja-newsletter-open body { overflow: hidden; }
 .darja-newsletter-bar {
   position: sticky; top: 0; z-index: 2; display: flex;
   align-items: center; justify-content: space-between; gap: 16px;
-  margin: 0; padding: 12px 20px; border-bottom: 1px solid #f1e8ed; background: #fff;
+  margin: 0; padding: 12px 20px; border-bottom: 1px solid var(--darja-line-160, #f1e8ed); background: var(--darja-bg-8, #fff);
 }
 .darja-newsletter-bar img { display: block; width: 132px; height: auto; margin: 0; }
 .darja-newsletter-close {
   display: grid; place-items: center; flex: 0 0 44px;
   width: 44px; height: 44px; margin: 0; padding: 0;
-  border: 1px solid #eadfe7; border-radius: 50%; color: #46514e; background: #faf7f9;
+  border: 1px solid var(--darja-line-62, #eadfe7); border-radius: 50%; color: var(--darja-fg-161, #46514e); background: var(--darja-bg-162, #faf7f9);
   font: 400 30px/1 Arial,sans-serif; cursor: pointer;
 }
-.darja-newsletter-close:hover { background: #f8dce8; transform: none; opacity: 1; }
-.darja-newsletter-close:focus-visible { outline: 3px solid #8e526d; outline-offset: 3px; }
+.darja-newsletter-close:hover { background: var(--darja-bg-65, #f8dce8); transform: none; opacity: 1; }
+.darja-newsletter-close:focus-visible { outline: 3px solid var(--darja-line-163, #8e526d); outline-offset: 3px; }
 .darja-newsletter-slot { margin: 0; }
 .darja-newsletter-fallback { padding: 28px 32px 8px; }
 .darja-newsletter-fallback[hidden] { display: none; }
 .darja-newsletter-fallback h2 { margin: 0 0 16px; font: 500 30px/1.2 Georgia,serif; }
 .darja-newsletter-fallback p { margin: 0; font-size: 16px; }
 .darja-newsletter-help { margin: 0; padding: 16px 24px; text-align: center; font-size: 14px; }
-.darja-newsletter-help a { color: #78465f; text-decoration: underline; }
+.darja-newsletter-help a { color: var(--darja-fg-164, #78465f); text-decoration: underline; }
 .darja-signup, .darja-signup * { box-sizing: border-box; }
 .darja-signup {
   display: block; width: 100%; max-width: 1000px; margin: 0 auto;
-  overflow: hidden; border: 1px solid #eadfe7; border-radius: 20px;
-  background: #fff; color: #3f4c4a; font-family: "Poppins",Arial,sans-serif;
+  overflow: hidden; border: 1px solid var(--darja-line-62, #eadfe7); border-radius: 20px;
+  background: var(--darja-bg-8, #fff); color: var(--darja-fg-63, #3f4c4a); font-family: "Poppins",Arial,sans-serif;
 }
 .darja-newsletter-dialog .darja-signup { border: 0; border-radius: 0; }
 .darja-signup-layout { display: grid; grid-template-columns: .95fr 1.05fr; }
 .darja-signup-picture {
-  min-height: 440px; background: #e8f5f0 url("https://embed.filekitcdn.com/e/oyk78xL9ZA8uHxjARJ8PZZ/gSMVCTwgNwY4wy2Ycrs2uS") center / cover no-repeat;
+  min-height: 440px; background: var(--darja-bg-165, #e8f5f0) url("https://embed.filekitcdn.com/e/oyk78xL9ZA8uHxjARJ8PZZ/gSMVCTwgNwY4wy2Ycrs2uS") center / cover no-repeat;
 }
 .darja-signup-content { min-width: 0; padding: 32px; }
-.darja-signup h2 { margin: 0 0 24px; color: #3f4c4a; font: 500 36px/1.15 Georgia,serif; letter-spacing: -.8px; }
+.darja-signup h2 { margin: 0 0 24px; color: var(--darja-fg-63, #3f4c4a); font: 500 36px/1.15 Georgia,serif; letter-spacing: -.8px; }
 .darja-signup-fields { display: grid; gap: 18px; margin: 0 0 22px; }
 .darja-signup label { display: grid; gap: 8px; text-align: left; font-size: 14px; font-weight: 500; }
 .darja-signup input {
   display: block; width: 100%; min-width: 0; min-height: 48px;
-  padding: 12px 14px; color: #3f4c4a; background: #fff;
-  border: 1px solid #b9c7c1; border-radius: 10px; font: 400 16px/1.4 "Poppins",Arial,sans-serif;
+  padding: 12px 14px; color: var(--darja-fg-63, #3f4c4a); background: var(--darja-bg-8, #fff);
+  border: 1px solid var(--darja-line-166, #b9c7c1); border-radius: 10px; font: 400 16px/1.4 "Poppins",Arial,sans-serif;
 }
 .darja-signup button {
   position: relative; display: block; width: 100%; min-height: 48px;
-  padding: 12px 14px; color: #382d33; background: #e9a6c3;
+  padding: 12px 14px; color: var(--darja-fg-167, #382d33); background: var(--darja-bg-70, #e9a6c3);
   border: 0; border-radius: 10px; font: 600 16px/1.4 "Poppins",Arial,sans-serif; cursor: pointer;
 }
-.darja-signup button:hover { background: #e596b8; transform: none; }
+.darja-signup button:hover { background: var(--darja-bg-168, #e596b8); transform: none; }
 .darja-signup button:disabled { cursor: wait; opacity: .7; }
 .darja-signup button[data-active] span { visibility: hidden; }
 .darja-signup button[data-active]::after { content: "Signing up…"; position: absolute; inset: 0; display: grid; place-items: center; }
-.darja-signup button:focus-visible, .darja-signup input:focus-visible, .darja-signup a:focus-visible { outline: 3px solid #8e526d; outline-offset: 3px; }
-.darja-signup-content p { margin: 0 0 8px; color: #595959; font-size: 14px; line-height: 1.65; }
-.darja-signup-provider { display: block; margin-top: 24px; color: #3f4c4a; text-align: center; font-size: 14px; font-weight: 600; }
-.darja-signup-errors { padding: 0; margin: 0 0 16px; list-style: none; color: #9c233e; font-size: 14px; line-height: 1.5; }
+.darja-signup button:focus-visible, .darja-signup input:focus-visible, .darja-signup a:focus-visible { outline: 3px solid var(--darja-line-163, #8e526d); outline-offset: 3px; }
+.darja-signup-content p { margin: 0 0 8px; color: var(--darja-fg-169, #595959); font-size: 14px; line-height: 1.65; }
+.darja-signup-provider { display: block; margin-top: 24px; color: var(--darja-fg-63, #3f4c4a); text-align: center; font-size: 14px; font-weight: 600; }
+.darja-signup-errors { padding: 0; margin: 0 0 16px; list-style: none; color: var(--darja-fg-170, #9c233e); font-size: 14px; line-height: 1.5; }
 .darja-signup-errors:empty { display: none; }
-.darja-signup [data-element="success"] { padding: 18px; margin: 0 0 22px; border-radius: 10px; color: #334d43; background: #e8f5f0; font-size: 16px; line-height: 1.6; }
+.darja-signup [data-element="success"] { padding: 18px; margin: 0 0 22px; border-radius: 10px; color: var(--darja-fg-171, #334d43); background: var(--darja-bg-165, #e8f5f0); font-size: 16px; line-height: 1.6; }
 .darja-newsletter-notice {
   position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 10001;
   width: max-content; max-width: calc(100% - 32px); padding: 16px 22px; margin: 0;
-  color: #334d43; background: #e8f5f0; border: 1px solid #a8c7b9; border-radius: 14px;
-  box-shadow: 0 8px 24px #0002; font: 500 15px/1.5 "Poppins",Arial,sans-serif;
+  color: var(--darja-fg-171, #334d43); background: var(--darja-bg-165, #e8f5f0); border: 1px solid var(--darja-line-172, #a8c7b9); border-radius: 14px;
+  box-shadow: 0 8px 24px var(--darja-shadow-173, #0002); font: 500 15px/1.5 "Poppins",Arial,sans-serif;
 }
 @media (max-width: 600px) {
   .darja-newsletter-dialog { width: calc(100% - 24px); max-height: calc(100dvh - 24px); border-radius: 20px; }

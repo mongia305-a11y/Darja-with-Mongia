@@ -9,11 +9,11 @@
   max-width: 720px;
   margin: auto;
   padding: 20px;
-  color: #2f2430;
-  background: #fffaf7;
-  border: 1px solid #ead7ce;
+  color: var(--darja-fg-282, #2f2430);
+  background: var(--darja-bg-283, #fffaf7);
+  border: 1px solid var(--darja-line-284, #ead7ce);
   border-radius: 18px;
-  box-shadow: 0 12px 40px rgba(57, 36, 44, 0.2);
+  box-shadow: 0 12px 40px var(--darja-shadow-285, rgba(57, 36, 44, 0.2));
   font-family: "Poppins", sans-serif;
 }
 
@@ -45,25 +45,25 @@
 .cookie-settings-button {
   min-height: 44px;
   padding: 10px 18px;
-  border: 2px solid #9f3f63;
+  border: 2px solid var(--darja-line-286, #9f3f63);
   border-radius: 999px;
   font: 600 0.9rem/1 "Poppins", sans-serif;
   cursor: pointer;
 }
 
 .cookie-consent__accept {
-  color: #fff;
-  background: #9f3f63;
+  color: var(--darja-fg-10, #fff);
+  background: var(--darja-bg-287, #9f3f63);
 }
 
 .cookie-consent__reject {
-  color: #9f3f63;
-  background: #fff;
+  color: var(--darja-fg-288, #9f3f63);
+  background: var(--darja-bg-8, #fff);
 }
 
 .cookie-consent button:focus-visible,
 .cookie-settings-button:focus-visible {
-  outline: 3px solid #efb4c9;
+  outline: 3px solid var(--darja-line-289, #efb4c9);
   outline-offset: 3px;
 }
 
@@ -74,9 +74,9 @@
   width: fit-content;
   min-height: 38px;
   padding: 8px 13px;
-  color: #6f2944;
-  background: #fffaf7;
-  box-shadow: 0 4px 18px rgba(57, 36, 44, 0.16);
+  color: var(--darja-fg-290, #6f2944);
+  background: var(--darja-bg-283, #fffaf7);
+  box-shadow: 0 4px 18px var(--darja-shadow-291, rgba(57, 36, 44, 0.16));
   font-size: 0.75rem;
 }
 
@@ -97,8 +97,8 @@
 }
 
 /* In-page access: visible near the top, never overlays lesson content. */
-.cookie-privacy-bar { display: flex; justify-content: center; padding: 8px 16px; background: #f9f7ff; }
+.cookie-privacy-bar { display: flex; justify-content: center; padding: 8px 16px; background: var(--darja-bg-55, #f9f7ff); }
 .cookie-privacy-bar .cookie-settings-button { position: static; margin: 0; min-height: 38px; }
 .cookie-privacy-bar:has(.cookie-settings-button[hidden]) { display: none; }
 
-.cookie-consent::backdrop { background: rgba(47, 36, 48, 0.45); }
+.cookie-consent::backdrop { background: var(--darja-bg-292, rgba(47, 36, 48, 0.45)); }

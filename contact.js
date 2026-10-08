@@ -4,7 +4,7 @@
   if (document.getElementById('darja-contact-dialog')) return;
   const stylesheet = document.createElement('link');
   stylesheet.rel = 'stylesheet';
-  stylesheet.href = new URL('contact.css?v=2', document.currentScript.src).href;
+  stylesheet.href = new URL('contact.css?v=dark1', document.currentScript.src).href;
   document.head.appendChild(stylesheet);
   const dialog = document.createElement('dialog');
   dialog.id = 'darja-contact-dialog';

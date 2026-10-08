@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="cookie-consent.css?v=1">
+  <script src="theme.js?v=1"></script>
+  <link rel="stylesheet" href="theme.css?v=1">
+  <link rel="stylesheet" href="cookie-consent.css?v=dark1">
   <script src="cookie-consent.js?v=1" defer></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,19 +51,19 @@ body{
   color:var(--ink);
   overflow-x:hidden;
   background-image:
-    radial-gradient(#E9DDC8 1.1px, transparent 1.1px),
-    radial-gradient(#E9DDC8 1.1px, transparent 1.1px);
+    radial-gradient(var(--darja-bg-1, #E9DDC8) 1.1px, transparent 1.1px),
+    radial-gradient(var(--darja-bg-1, #E9DDC8) 1.1px, transparent 1.1px);
   background-size:26px 26px;
   background-position:0 0,13px 13px;
   background-attachment:fixed;
 }
-button:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline:3px solid #2E7AB8;outline-offset:3px}
+button:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline:3px solid var(--darja-line-2, #2E7AB8);outline-offset:3px}
 body::before{
   content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
   background:
-    radial-gradient(600px 400px at 10% 5%, #FDE9DF 0%, transparent 60%),
-    radial-gradient(700px 500px at 90% 10%, #DDEAF0 0%, transparent 60%),
-    radial-gradient(600px 500px at 50% 100%, #E6EDE3 0%, transparent 60%);
+    radial-gradient(600px 400px at 10% 5%, var(--darja-bg-3, #FDE9DF) 0%, transparent 60%),
+    radial-gradient(700px 500px at 90% 10%, var(--darja-bg-4, #DDEAF0) 0%, transparent 60%),
+    radial-gradient(600px 500px at 50% 100%, var(--darja-bg-5, #E6EDE3) 0%, transparent 60%);
   opacity:.7;
 }
 .ar{font-family:'Noto Naskh Arabic',serif}
@@ -75,9 +77,9 @@ button{font-family:inherit}
 header{
   position:sticky;top:14px;z-index:50;
   margin:14px auto 0;max-width:1180px;
-  background:rgba(255,253,248,.92);
+  background:var(--darja-bg-6, rgba(255,253,248,.92));
   backdrop-filter:blur(14px);
-  border:2px solid #EDE2D1;
+  border:2px solid var(--darja-line-7, #EDE2D1);
   border-radius:22px;
   box-shadow:var(--shadow-sm);
   padding:10px 14px;
@@ -86,9 +88,9 @@ header{
 .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
 .logo-mark{
   width:48px;height:48px;border-radius:16px;
-  background:#fff;border:2px solid #EDE2D1;
+  background:var(--darja-bg-8, #fff);border:2px solid var(--darja-line-7, #EDE2D1);
   display:grid;place-items:center;position:relative;overflow:hidden;
-  box-shadow:inset 0 -4px 0 #F6E9D6;
+  box-shadow:inset 0 -4px 0 var(--darja-shadow-9, #F6E9D6);
 }
 .logo-mark svg{width:32px;height:32px}
 .logo-text{line-height:1}
@@ -101,21 +103,21 @@ nav.mainnav a{
   transition:.2s;
 }
 nav.mainnav a:hover{background:var(--cream2);color:var(--ink)}
-nav.mainnav a.active{background:var(--ink);color:#fff}
+nav.mainnav a.active{background:var(--ink);color:var(--darja-fg-10, #fff)}
 .btn{
   border:none;cursor:pointer;font-weight:900;border-radius:999px;
   padding:13px 22px;font-size:15px;display:inline-flex;align-items:center;gap:10px;
-  transition:.2s;box-shadow:0 4px 0 rgba(0,0,0,.12);
+  transition:.2s;box-shadow:0 4px 0 var(--darja-shadow-11, rgba(0,0,0,.12));
 }
-.btn:active{transform:translateY(2px);box-shadow:0 1px 0 rgba(0,0,0,.12)}
-.btn-dark{background:#2E3D38;color:#fff}
-.btn-dark:hover{background:#1E2926}
-.btn-peach{background:#E9A89A;color:#fff}
-.btn-cream{background:#fff;border:2px solid #EDE2D1;box-shadow:0 4px 0 #EDE2D1;color:var(--ink)}
-.btn-sage{background:#9DB8A2;color:#fff}
-.btn-ghost{background:transparent;box-shadow:none;border:2px dashed #D8CDB8;color:var(--ink-soft)}
-.hamburger{display:none;margin-left:auto;width:46px;height:46px;border-radius:14px;border:2px solid #EDE2D1;background:#fff;cursor:pointer;font-size:20px}
-.mobile-menu{display:none;max-width:1180px;margin:10px auto 0;background:#fff;border:2px solid #EDE2D1;border-radius:18px;padding:10px;position:sticky;top:82px;z-index:49}
+.btn:active{transform:translateY(2px);box-shadow:0 1px 0 var(--darja-shadow-11, rgba(0,0,0,.12))}
+.btn-dark{background:var(--darja-bg-12, #2E3D38);color:var(--darja-fg-10, #fff)}
+.btn-dark:hover{background:var(--darja-bg-13, #1E2926)}
+.btn-peach{background:var(--darja-bg-14, #E9A89A);color:var(--darja-fg-10, #fff)}
+.btn-cream{background:var(--darja-bg-8, #fff);border:2px solid var(--darja-line-7, #EDE2D1);box-shadow:0 4px 0 var(--darja-shadow-15, #EDE2D1);color:var(--ink)}
+.btn-sage{background:var(--darja-bg-16, #9DB8A2);color:var(--darja-fg-10, #fff)}
+.btn-ghost{background:transparent;box-shadow:none;border:2px dashed var(--darja-line-17, #D8CDB8);color:var(--ink-soft)}
+.hamburger{display:none;margin-left:auto;width:46px;height:46px;border-radius:14px;border:2px solid var(--darja-line-7, #EDE2D1);background:var(--darja-bg-8, #fff);cursor:pointer;font-size:20px}
+.mobile-menu{display:none;max-width:1180px;margin:10px auto 0;background:var(--darja-bg-8, #fff);border:2px solid var(--darja-line-7, #EDE2D1);border-radius:18px;padding:10px;position:sticky;top:82px;z-index:49}
 .mobile-menu.open{display:block}
 .mobile-menu a{display:block;padding:12px 14px;border-radius:12px;font-weight:800}
 .mobile-menu a:hover{background:var(--cream2)}
@@ -124,61 +126,61 @@ nav.mainnav a.active{background:var(--ink);color:#fff}
 .hero{padding:36px 0 10px}
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:stretch}
 .hero-card{
-  background:var(--paper);border:2px solid #EDE2D1;border-radius:32px;
+  background:var(--paper);border:2px solid var(--darja-line-7, #EDE2D1);border-radius:32px;
   padding:36px 34px;box-shadow:var(--shadow);position:relative;overflow:hidden;
 }
 .hero-card::after{
   content:"";position:absolute;right:-40px;top:-40px;width:180px;height:180px;
-  background:radial-gradient(circle at center, #F9EED3 0 60%, transparent 61%);
+  background:radial-gradient(circle at center, var(--darja-bg-18, #F9EED3) 0 60%, transparent 61%);
   opacity:.9;
 }
 .pill{
   display:inline-flex;align-items:center;gap:8px;
-  background:var(--sage-bg);border:2px solid #CBDAC7;color:#3F5A4E;
+  background:var(--sage-bg);border:2px solid var(--darja-line-19, #CBDAC7);color:var(--darja-fg-20, #3F5A4E);
   font-weight:900;font-size:12px;letter-spacing:1.6px;text-transform:uppercase;
   padding:8px 14px;border-radius:999px;
 }
-.pill .dot{width:8px;height:8px;border-radius:50%;background:#6FA287;animation:pulse 1.6s infinite}
+.pill .dot{width:8px;height:8px;border-radius:50%;background:var(--darja-bg-21, #6FA287);animation:pulse 1.6s infinite}
 @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.4)}}
 .hero h1{margin:16px 0 6px;font-size:clamp(34px,5vw,56px);line-height:.95;letter-spacing:-1.5px;font-weight:900}
 .hero h1 .script{font-family:'Caveat';font-weight:700;color:var(--peach-d);font-size:1.15em}
 .hero-ar{
   font-family:'Noto Naskh Arabic';font-size:clamp(38px,5.5vw,62px);font-weight:700;line-height:1.1;
-  background:linear-gradient(180deg,#F9E8A8,#F5D67A);display:inline-block;padding:2px 22px;border-radius:18px;
-  transform:rotate(-1.5deg);border:2px solid #E8D48A;margin:6px 0;
+  background:linear-gradient(180deg,var(--darja-bg-22, #F9E8A8),var(--darja-bg-23, #F5D67A));display:inline-block;padding:2px 22px;border-radius:18px;
+  transform:rotate(-1.5deg);border:2px solid var(--darja-line-24, #E8D48A);margin:6px 0;
 }
 .hero p.sub{color:var(--ink-soft);font-size:17px;line-height:1.6;max-width:48ch}
 .hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
 .hero-stats{display:flex;gap:14px;margin-top:24px;flex-wrap:wrap}
-.stat{background:#fff;border:2px solid #EDE2D1;border-radius:18px;padding:12px 16px;min-width:130px;box-shadow:0 4px 0 #F1E6D2}
+.stat{background:var(--darja-bg-8, #fff);border:2px solid var(--darja-line-7, #EDE2D1);border-radius:18px;padding:12px 16px;min-width:130px;box-shadow:0 4px 0 var(--darja-shadow-25, #F1E6D2)}
 .stat b{font-size:22px;display:block}
 .stat span{font-size:12.5px;font-weight:800;color:var(--ink-soft);letter-spacing:.3px}
 
 /* Poster */
 .poster-wrap{
-  background:#fff;border:2.5px solid #E9A89A;border-radius:30px;overflow:hidden;
+  background:var(--darja-bg-8, #fff);border:2.5px solid var(--darja-line-26, #E9A89A);border-radius:30px;overflow:hidden;
   box-shadow:var(--shadow);position:relative;display:flex;flex-direction:column;
 }
-.poster-top{padding:14px 18px 10px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(180deg,#FFFBF3,#FFF1E6)}
+.poster-top{padding:14px 18px 10px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(180deg,var(--darja-bg-27, #FFFBF3),var(--darja-bg-28, #FFF1E6))}
 .poster-top b{font-size:14px;letter-spacing:.2px}
 .poster-top small{display:block;font-size:12px;color:var(--ink-soft);font-weight:700}
-.poster-img{position:relative;background:#F6EEE1}
+.poster-img{position:relative;background:var(--darja-bg-29, #F6EEE1)}
 .poster-img img{width:100%;height:440px;object-fit:cover;object-position:top center;filter:saturate(.92) sepia(.06)}
 .hotspot{
   position:absolute;width:34px;height:34px;border-radius:50%;
-  background:#fff;border:3px solid var(--peach-d);color:var(--peach-d);
+  background:var(--darja-bg-8, #fff);border:3px solid var(--peach-d);color:var(--peach-d);
   font-weight:900;display:grid;place-items:center;cursor:pointer;
-  box-shadow:0 4px 12px rgba(0,0,0,.2);transition:.2s;animation:float 2.6s ease-in-out infinite;
+  box-shadow:0 4px 12px var(--darja-shadow-30, rgba(0,0,0,.2));transition:.2s;animation:float 2.6s ease-in-out infinite;
 }
-.hotspot:hover{transform:scale(1.15);background:var(--peach-d);color:#fff}
+.hotspot:hover{transform:scale(1.15);background:var(--peach-d);color:var(--darja-fg-10, #fff)}
 .hotspot .tip{
   position:absolute;bottom:42px;left:50%;transform:translateX(-50%) translateY(6px);
-  background:#2E3D38;color:#fff;font-size:12.5px;font-weight:800;padding:8px 12px;border-radius:12px;
+  background:var(--darja-bg-12, #2E3D38);color:var(--darja-fg-10, #fff);font-size:12.5px;font-weight:800;padding:8px 12px;border-radius:12px;
   white-space:nowrap;opacity:0;pointer-events:none;transition:.2s;
 }
 .hotspot:hover .tip,.hotspot.show .tip{opacity:1;transform:translateX(-50%) translateY(0)}
 @keyframes float{0%,100%{margin-top:0}50%{margin-top:-6px}}
-.poster-foot{padding:14px 16px;display:flex;gap:10px;align-items:center;background:#fff;border-top:2px dashed #EDE2D1;font-size:13.5px;color:var(--ink-soft);font-weight:700}
+.poster-foot{padding:14px 16px;display:flex;gap:10px;align-items:center;background:var(--darja-bg-8, #fff);border-top:2px dashed var(--darja-line-7, #EDE2D1);font-size:13.5px;color:var(--ink-soft);font-weight:700}
 /* SECTION TITLES */
 .sec{padding:28px 0}
 .sec-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:18px;flex-wrap:wrap}
@@ -189,8 +191,8 @@ nav.mainnav a.active{background:var(--ink);color:#fff}
 /* VOCAB GRID */
 .vgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
 .vcard{
-  background:#fff;border-radius:26px;overflow:hidden;position:relative;
-  border:3px solid var(--accent,#E9A89A);
+  background:var(--darja-bg-8, #fff);border-radius:26px;overflow:hidden;position:relative;
+  border:3px solid var(--accent,var(--darja-line-26, #E9A89A));
   box-shadow:var(--shadow-sm);transition:.25s;display:flex;flex-direction:column;
 }
 .vcard:hover{transform:translateY(-6px) rotate(-.4deg);box-shadow:var(--shadow)}
@@ -199,26 +201,26 @@ nav.mainnav a.active{background:var(--ink);color:#fff}
 .vcard.feat .vimg{width:58%;height:auto;min-height:300px}
 .vimg img{width:100%;height:100%;object-fit:cover;filter:saturate(.85);transition:.6s}
 .vcard:hover .vimg img{transform:scale(1.06)}
-.vimg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(46,61,56,.18))}
+.vimg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,var(--darja-bg-31, rgba(46,61,56,.18)))}
 .num{
   position:absolute;top:14px;left:14px;width:44px;height:44px;border-radius:50%;
-  background:var(--accent);color:#fff;font-weight:900;font-size:20px;display:grid;place-items:center;
-  border:3px solid #fff;box-shadow:0 4px 10px rgba(0,0,0,.15);z-index:2;
+  background:var(--accent);color:var(--darja-fg-10, #fff);font-weight:900;font-size:20px;display:grid;place-items:center;
+  border:3px solid var(--darja-line-32, #fff);box-shadow:0 4px 10px var(--darja-shadow-33, rgba(0,0,0,.15));z-index:2;
 }
-.vbody{padding:18px 18px 16px;flex:1;display:flex;flex-direction:column;background:linear-gradient(180deg,#fff,#FFFBF3)}
+.vbody{padding:18px 18px 16px;flex:1;display:flex;flex-direction:column;background:linear-gradient(180deg,var(--darja-bg-8, #fff),var(--darja-bg-27, #FFFBF3))}
 .vbody .ar{font-size:38px;font-weight:700;line-height:1;margin:2px 0}
 .vtrans{font-weight:900;font-size:18px;margin-top:2px}
 .vtrans small{display:block;font-weight:700;color:var(--ink-soft);font-size:13px}
 .divider{height:4px;border-radius:99px;background:var(--accent-soft);margin:10px 0;position:relative}
 .divider::after{content:"";position:absolute;left:0;top:0;height:100%;width:42%;background:var(--accent);border-radius:99px}
-.ex{background:#fff;border:2px dashed #EADFD0;border-radius:14px;padding:10px 12px;font-size:13.5px;line-height:1.5;color:var(--ink-soft);margin:8px 0}
+.ex{background:var(--darja-bg-8, #fff);border:2px dashed var(--darja-line-34, #EADFD0);border-radius:14px;padding:10px 12px;font-size:13.5px;line-height:1.5;color:var(--ink-soft);margin:8px 0}
 .ex b{color:var(--ink)}
 .vactions{display:flex;gap:8px;margin-top:auto;padding-top:10px}
-.icobtn{flex:1;border-radius:999px;padding:11px 10px;font-weight:900;font-size:13.5px;cursor:pointer;border:2px solid #EDE2D1;background:#fff;transition:.2s;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.icobtn{flex:1;border-radius:999px;padding:11px 10px;font-weight:900;font-size:13.5px;cursor:pointer;border:2px solid var(--darja-line-7, #EDE2D1);background:var(--darja-bg-8, #fff);transition:.2s;display:inline-flex;align-items:center;justify-content:center;gap:6px}
 .icobtn:hover{transform:translateY(-1px)}
-.icobtn.primary{background:var(--ink);color:#fff;border-color:var(--ink)}
-.icobtn.accent{background:var(--accent);border-color:var(--accent);color:#fff}
-.icobtn.playing{background:#FFE27A!important;border-color:#E8C93A!important;color:#5A4A00!important}
+.icobtn.primary{background:var(--ink);color:var(--darja-fg-10, #fff);border-color:var(--ink)}
+.icobtn.accent{background:var(--accent);border-color:var(--accent);color:var(--darja-fg-10, #fff)}
+.icobtn.playing{background:var(--darja-bg-35, #FFE27A)!important;border-color:var(--darja-line-36, #E8C93A)!important;color:var(--darja-fg-37, #5A4A00)!important}
 .wave{display:inline-flex;gap:2px;align-items:end;height:14px}
 .wave i{width:3px;background:currentColor;border-radius:99px;display:block}
 .playing .wave i{animation:wv .7s infinite alternate}
@@ -226,72 +228,72 @@ nav.mainnav a.active{background:var(--ink);color:#fff}
 @keyframes wv{from{height:4px}to{height:14px}}
 
 /* LAB */
-.lab{background:#fff;border:2px solid #EDE2D1;border-radius:30px;box-shadow:var(--shadow);overflow:hidden}
-.lab-tabs{display:flex;gap:8px;padding:14px;background:var(--cream2);border-bottom:2px solid #EDE2D1;flex-wrap:wrap}
+.lab{background:var(--darja-bg-8, #fff);border:2px solid var(--darja-line-7, #EDE2D1);border-radius:30px;box-shadow:var(--shadow);overflow:hidden}
+.lab-tabs{display:flex;gap:8px;padding:14px;background:var(--cream2);border-bottom:2px solid var(--darja-line-7, #EDE2D1);flex-wrap:wrap}
 .lab-tab{border:2px solid transparent;background:transparent;padding:11px 18px;border-radius:999px;font-weight:900;cursor:pointer;font-size:14.5px;color:var(--ink-soft)}
-.lab-tab.active{background:#fff;border-color:#EDE2D1;color:var(--ink);box-shadow:var(--shadow-sm)}
+.lab-tab.active{background:var(--darja-bg-8, #fff);border-color:var(--darja-line-7, #EDE2D1);color:var(--ink);box-shadow:var(--shadow-sm)}
 .lab-body{padding:26px;display:grid;grid-template-columns:1fr 320px;gap:24px}
-.progress{background:var(--cream);border:2px solid #EDE2D1;border-radius:18px;padding:16px}
-.pbar{height:12px;background:#EDE2D1;border-radius:99px;overflow:hidden;margin:10px 0}
-.pbar i{display:block;height:100%;background:linear-gradient(90deg,#9DB8A2,#6FA287);border-radius:99px;transition:.5s;width:0%}
+.progress{background:var(--cream);border:2px solid var(--darja-line-7, #EDE2D1);border-radius:18px;padding:16px}
+.pbar{height:12px;background:var(--darja-bg-38, #EDE2D1);border-radius:99px;overflow:hidden;margin:10px 0}
+.pbar i{display:block;height:100%;background:linear-gradient(90deg,var(--darja-bg-16, #9DB8A2),var(--darja-bg-21, #6FA287));border-radius:99px;transition:.5s;width:0%}
 .flash-stage{display:flex;flex-direction:column;align-items:center}
 .fcard{width:min(420px,100%);height:300px;perspective:1200px;cursor:pointer}
 .finner{position:relative;width:100%;height:100%;transition:transform .6s cubic-bezier(.2,.8,.2,1);transform-style:preserve-3d}
 .fcard.flipped .finner{transform:rotateY(180deg)}
-.fface{position:absolute;inset:0;border-radius:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;backface-visibility:hidden;border:3px solid #EDE2D1}
-.ffront{background:linear-gradient(180deg,#FFFDF8,#FFF1E6)}
-.fback{background:#2E3D38;color:#FFF6E8;transform:rotateY(180deg);border-color:#2E3D38}
+.fface{position:absolute;inset:0;border-radius:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;backface-visibility:hidden;border:3px solid var(--darja-line-7, #EDE2D1)}
+.ffront{background:linear-gradient(180deg,var(--darja-bg-39, #FFFDF8),var(--darja-bg-28, #FFF1E6))}
+.fback{background:var(--darja-bg-12, #2E3D38);color:var(--darja-fg-40, #FFF6E8);transform:rotateY(180deg);border-color:var(--darja-line-41, #2E3D38)}
 .fface .ar{font-size:56px;line-height:1}
 .fcontrols{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap;justify-content:center}
 .kbtn{padding:12px 18px;border-radius:999px;font-weight:900;border:none;cursor:pointer}
-.kbtn.know{background:#9DB8A2;color:#fff}
-.kbtn.dont{background:#F3D9CF;color:#8A4A3E}
-.kbtn.nav{background:#fff;border:2px solid #EDE2D1}
-.quiz-q{background:var(--cream);border:2px solid #EDE2D1;border-radius:20px;padding:20px}
-.opt{display:block;width:100%;text-align:left;margin:10px 0;padding:14px 16px;border-radius:16px;border:2px solid #EDE2D1;background:#fff;font-weight:800;cursor:pointer;transition:.2s;font-size:15px}
-.opt:hover{border-color:#2E3D38;transform:translateX(4px)}
-.opt.correct{background:#DDEEDD;border-color:#6FA287;color:#1E4A32}
-.opt.wrong{background:#FDE0D6;border-color:#C47A68;color:#7A2E22}
+.kbtn.know{background:var(--darja-bg-16, #9DB8A2);color:var(--darja-fg-10, #fff)}
+.kbtn.dont{background:var(--darja-bg-42, #F3D9CF);color:var(--darja-fg-43, #8A4A3E)}
+.kbtn.nav{background:var(--darja-bg-8, #fff);border:2px solid var(--darja-line-7, #EDE2D1)}
+.quiz-q{background:var(--cream);border:2px solid var(--darja-line-7, #EDE2D1);border-radius:20px;padding:20px}
+.opt{display:block;width:100%;text-align:left;margin:10px 0;padding:14px 16px;border-radius:16px;border:2px solid var(--darja-line-7, #EDE2D1);background:var(--darja-bg-8, #fff);font-weight:800;cursor:pointer;transition:.2s;font-size:15px}
+.opt:hover{border-color:var(--darja-line-41, #2E3D38);transform:translateX(4px)}
+.opt.correct{background:var(--darja-bg-44, #DDEEDD);border-color:var(--darja-line-45, #6FA287);color:var(--darja-fg-46, #1E4A32)}
+.opt.wrong{background:var(--darja-bg-47, #FDE0D6);border-color:var(--darja-line-48, #C47A68);color:var(--darja-fg-49, #7A2E22)}
 .match-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
-.mtile{background:#fff;border:2px solid #EDE2D1;border-radius:16px;padding:16px 8px;text-align:center;font-weight:900;cursor:pointer;min-height:86px;display:flex;align-items:center;justify-content:center;transition:.2s;font-size:14px}
+.mtile{background:var(--darja-bg-8, #fff);border:2px solid var(--darja-line-7, #EDE2D1);border-radius:16px;padding:16px 8px;text-align:center;font-weight:900;cursor:pointer;min-height:86px;display:flex;align-items:center;justify-content:center;transition:.2s;font-size:14px}
 .mtile.ar{font-family:'Noto Naskh Arabic';font-size:24px}
-.mtile.selected{border-color:#2E3D38;background:#FFF6D6;transform:scale(1.03)}
-.mtile.matched{background:#DDEEDD;border-color:#6FA287;color:#2A5A3E;pointer-events:none}
+.mtile.selected{border-color:var(--darja-line-41, #2E3D38);background:var(--darja-bg-50, #FFF6D6);transform:scale(1.03)}
+.mtile.matched{background:var(--darja-bg-44, #DDEEDD);border-color:var(--darja-line-45, #6FA287);color:var(--darja-fg-51, #2A5A3E);pointer-events:none}
 .mtile.wrong-shake{animation:shake .35s}
 @keyframes shake{25%{transform:translateX(-5px)}50%{transform:translateX(5px)}75%{transform:translateX(-3px)}}
 
 /* CULTURE */
 .cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.ccard{background:#fff;border:2px solid #EDE2D1;border-radius:22px;padding:22px;box-shadow:var(--shadow-sm)}
+.ccard{background:var(--darja-bg-8, #fff);border:2px solid var(--darja-line-7, #EDE2D1);border-radius:22px;padding:22px;box-shadow:var(--shadow-sm)}
 .ccard h4{margin:10px 0 8px}
 .ccard p{color:var(--ink-soft);line-height:1.6;font-size:14.5px;margin:0}
 .eicon{width:48px;height:48px;border-radius:16px;display:grid;place-items:center;font-size:24px}
 
 /* LESSON END */
-.free{background:#2E3D38;color:#EFE9D8;border-radius:30px;padding:34px;display:grid;grid-template-columns:1.1fr .9fr;gap:24px;position:relative;overflow:hidden}
+.free{background:var(--darja-bg-12, #2E3D38);color:var(--darja-fg-52, #EFE9D8);border-radius:30px;padding:34px;display:grid;grid-template-columns:1.1fr .9fr;gap:24px;position:relative;overflow:hidden}
 .free::before{content:"✳";position:absolute;right:20px;top:10px;font-size:120px;opacity:.08}
 
 /* FOOTER */
-footer{margin:30px 0 20px;background:#fff;border:2px solid #EDE2D1;border-radius:24px;padding:22px;display:flex;gap:16px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+footer{margin:30px 0 20px;background:var(--darja-bg-8, #fff);border:2px solid var(--darja-line-7, #EDE2D1);border-radius:24px;padding:22px;display:flex;gap:16px;flex-wrap:wrap;align-items:center;justify-content:space-between}
 footer small{color:var(--ink-soft);font-weight:700}
 
 /* MODAL */
-.overlay{position:fixed;inset:0;background:rgba(46,61,56,.45);backdrop-filter:blur(6px);display:none;place-items:center;z-index:100;padding:18px}
+.overlay{position:fixed;inset:0;background:var(--darja-bg-53, rgba(46,61,56,.45));backdrop-filter:blur(6px);display:none;place-items:center;z-index:100;padding:18px}
 .overlay.open{display:grid}
-.modal{background:#FFFBF3;border-radius:28px;max-width:760px;width:100%;overflow:hidden;border:3px solid #EDE2D1;box-shadow:0 30px 80px rgba(0,0,0,.25);max-height:92vh;overflow-y:auto;animation:pop .35s cubic-bezier(.2,1.2,.3,1)}
+.modal{background:var(--darja-bg-27, #FFFBF3);border-radius:28px;max-width:760px;width:100%;overflow:hidden;border:3px solid var(--darja-line-7, #EDE2D1);box-shadow:0 30px 80px var(--darja-shadow-54, rgba(0,0,0,.25));max-height:92vh;overflow-y:auto;animation:pop .35s cubic-bezier(.2,1.2,.3,1)}
 @keyframes pop{from{transform:scale(.92) translateY(16px);opacity:0}}
 .modal-top{position:relative;height:260px}
 .modal-top img{width:100%;height:100%;object-fit:cover}
-.modal-top button.close{position:absolute;top:14px;right:14px;width:42px;height:42px;border-radius:50%;border:none;background:#fff;font-size:18px;cursor:pointer;font-weight:900}
+.modal-top button.close{position:absolute;top:14px;right:14px;width:42px;height:42px;border-radius:50%;border:none;background:var(--darja-bg-8, #fff);font-size:18px;cursor:pointer;font-weight:900}
 .modal-body{padding:24px}
 .phon{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
-.phon span{background:#fff;border:2px solid #EDE2D1;border-radius:999px;padding:8px 14px;font-weight:800;font-size:13px}
+.phon span{background:var(--darja-bg-8, #fff);border:2px solid var(--darja-line-7, #EDE2D1);border-radius:999px;padding:8px 14px;font-weight:800;font-size:13px}
 
 /* TOAST */
 #toasts{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:200;display:flex;flex-direction:column;gap:10px;align-items:center}
-.toast{background:#2E3D38;color:#fff;padding:13px 20px;border-radius:999px;font-weight:800;box-shadow:0 10px 30px rgba(0,0,0,.25);display:flex;gap:10px;align-items:center;animation:slideup .3s}
+.toast{background:var(--darja-bg-12, #2E3D38);color:var(--darja-fg-10, #fff);padding:13px 20px;border-radius:999px;font-weight:800;box-shadow:0 10px 30px var(--darja-shadow-54, rgba(0,0,0,.25));display:flex;gap:10px;align-items:center;animation:slideup .3s}
 @keyframes slideup{from{transform:translateY(20px);opacity:0}}
-#topBtn{position:fixed;right:18px;bottom:18px;width:52px;height:52px;border-radius:50%;border:2px solid #EDE2D1;background:#fff;font-size:20px;cursor:pointer;box-shadow:var(--shadow);display:none;z-index:60}
+#topBtn{position:fixed;right:18px;bottom:18px;width:52px;height:52px;border-radius:50%;border:2px solid var(--darja-line-7, #EDE2D1);background:var(--darja-bg-8, #fff);font-size:20px;cursor:pointer;box-shadow:var(--shadow);display:none;z-index:60}
 .reveal{opacity:0;transform:translateY(18px);transition:.6s}
 .reveal.visible{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){
@@ -344,16 +346,16 @@ footer small{color:var(--ink-soft);font-weight:700}
 }
 html{scroll-padding-top:140px}
 body{
-  background:#f9f7ff;
+  background:var(--darja-bg-55, #f9f7ff);
   background-image:none;
-  color:#46505b;
+  color:var(--darja-fg-56, #46505b);
   font-family:'Poppins',sans-serif;
   font-size:16px;
   line-height:1.65;
 }
 body::before{display:none}
 .hand{font-family:Georgia,'Times New Roman',serif;font-style:italic}
-.ar{color:#536577}
+.ar{color:var(--darja-fg-57, #536577)}
 .wrap{max-width:1180px;padding:0 22px}
 
 /* Main navbar: same proportions and placement as the website */
@@ -369,10 +371,10 @@ body::before{display:none}
   display:flex;
   align-items:center;
   gap:0;
-  background:#fff;
+  background:var(--darja-bg-8, #fff);
   border:0;
   border-radius:0;
-  box-shadow:0 4px 20px rgba(0,0,0,.05);
+  box-shadow:0 4px 20px var(--darja-shadow-58, rgba(0,0,0,.05));
   backdrop-filter:none;
 }
 .brand-logo{display:flex;align-items:center}
@@ -387,22 +389,22 @@ body::before{display:none}
 }
 .site-nav a{
   padding:8px 0;
-  color:#444;
+  color:var(--darja-fg-59, #444);
   font-size:20px;
   font-weight:500;
   white-space:nowrap;
   transition:color .2s;
 }
-.site-nav a:hover,.site-nav a.active{background:transparent;color:#ff7aa2}
+.site-nav a:hover,.site-nav a.active{background:transparent;color:var(--darja-fg-60, #ff7aa2)}
 .hamburger{
   display:none;
   margin-left:auto;
   width:44px;
   height:44px;
-  background:#fffdfb;
-  border:1px solid #eadfe7;
+  background:var(--darja-bg-61, #fffdfb);
+  border:1px solid var(--darja-line-62, #eadfe7);
   border-radius:13px;
-  color:#3f4c4a;
+  color:var(--darja-fg-63, #3f4c4a);
   box-shadow:none;
 }
 .mobile-menu{
@@ -414,20 +416,20 @@ body::before{display:none}
   width:min(290px,calc(100% - 32px));
   margin:0;
   padding:10px;
-  background:#fff;
-  border:1px solid #eadfe7;
+  background:var(--darja-bg-8, #fff);
+  border:1px solid var(--darja-line-62, #eadfe7);
   border-radius:18px;
-  box-shadow:0 22px 55px rgba(70,62,77,.11);
+  box-shadow:0 22px 55px var(--darja-shadow-64, rgba(70,62,77,.11));
 }
 .mobile-menu.open{display:block}
-.mobile-menu a{padding:12px 14px;color:#46505b;font-weight:500}
-.mobile-menu a:hover{background:#f8dce8;color:#c66f96}
+.mobile-menu a{padding:12px 14px;color:var(--darja-fg-56, #46505b);font-weight:500}
+.mobile-menu a:hover{background:var(--darja-bg-65, #f8dce8);color:var(--darja-fg-66, #c66f96)}
 .lessonbar{
   position:sticky;
   top:84px;
   z-index:900;
-  background:rgba(249,247,255,.95);
-  border-bottom:1px solid #eadfe7;
+  background:var(--darja-bg-67, rgba(249,247,255,.95));
+  border-bottom:1px solid var(--darja-line-62, #eadfe7);
   backdrop-filter:blur(12px);
 }
 .lesson-nav{
@@ -441,38 +443,38 @@ body::before{display:none}
 .lesson-nav a{
   padding:8px 14px;
   border-radius:999px;
-  color:#7b8494;
+  color:var(--darja-fg-68, #7b8494);
   font-size:13px;
   font-weight:600;
 }
-.lesson-nav a:hover,.lesson-nav a.active{background:#fff;color:#c66f96;box-shadow:0 4px 14px rgba(70,62,77,.06)}
-.lesson-nav .lesson-quiz{margin-left:auto;padding:9px 18px;background:#e9a6c3;color:#fff}
-.lesson-nav .lesson-quiz:hover,.lesson-nav .lesson-quiz.active{background:#d98eaf;color:#fff}
+.lesson-nav a:hover,.lesson-nav a.active{background:var(--darja-bg-8, #fff);color:var(--darja-fg-66, #c66f96);box-shadow:0 4px 14px var(--darja-shadow-69, rgba(70,62,77,.06))}
+.lesson-nav .lesson-quiz{margin-left:auto;padding:9px 18px;background:var(--darja-bg-70, #e9a6c3);color:var(--darja-fg-10, #fff)}
+.lesson-nav .lesson-quiz:hover,.lesson-nav .lesson-quiz.active{background:var(--darja-bg-71, #d98eaf);color:var(--darja-fg-10, #fff)}
 
 .pill{
   padding:7px 12px;
-  background:#f8dce8;
+  background:var(--darja-bg-65, #f8dce8);
   border:0;
-  color:#755d70;
+  color:var(--darja-fg-72, #755d70);
   font-size:11px;
   font-weight:600;
 }
 .pill .dot{display:none}
 .btn{
   padding:13px 24px;
-  background:#e9a6c3;
+  background:var(--darja-bg-70, #e9a6c3);
   border:0;
   border-radius:25px;
   box-shadow:none;
-  color:#fff;
+  color:var(--darja-fg-10, #fff);
   font-size:14px;
   font-weight:600;
 }
-.btn:hover{background:#d98eaf;transform:translateY(-2px)}
-.btn-dark,.btn-peach,.btn-sage{background:#e9a6c3;color:#fff}
-.btn-dark:hover,.btn-peach:hover,.btn-sage:hover{background:#d98eaf}
-.btn-cream{background:#fff;border:1px solid #eadfe7;box-shadow:none;color:#c66f96}
-.btn-ghost{background:transparent;border:1px solid #eadfe7;color:#c66f96}
+.btn:hover{background:var(--darja-bg-71, #d98eaf);transform:translateY(-2px)}
+.btn-dark,.btn-peach,.btn-sage{background:var(--darja-bg-70, #e9a6c3);color:var(--darja-fg-10, #fff)}
+.btn-dark:hover,.btn-peach:hover,.btn-sage:hover{background:var(--darja-bg-71, #d98eaf)}
+.btn-cream{background:var(--darja-bg-8, #fff);border:1px solid var(--darja-line-62, #eadfe7);box-shadow:none;color:var(--darja-fg-66, #c66f96)}
+.btn-ghost{background:transparent;border:1px solid var(--darja-line-62, #eadfe7);color:var(--darja-fg-66, #c66f96)}
 
 .hero{padding:52px 0 18px}
 .hero-grid{gap:50px;align-items:center}
@@ -480,93 +482,93 @@ body::before{display:none}
 .hero-card::after{display:none}
 .hero h1{
   margin:16px 0 8px;
-  color:#3f4c4a;
+  color:var(--darja-fg-63, #3f4c4a);
   font-family:Georgia,'Times New Roman',serif;
   font-size:clamp(44px,5vw,66px);
   font-weight:600;
   letter-spacing:-2px;
   line-height:1.03;
 }
-.hero h1 .script{display:block;margin-top:7px;color:#e9a6c3;font-family:Georgia,'Times New Roman',serif;font-size:.87em;font-style:italic;font-weight:500}
-.hero-ar{margin:4px 0 10px;padding:0;background:transparent;border:0;color:#536577;font-size:clamp(35px,4vw,52px);transform:none}
-.hero p.sub{color:#666;font-size:16px;line-height:1.8}
-.stat{background:#fff;border:1px solid #eadfe7;border-radius:16px;box-shadow:none}
-.stat b{color:#3f4c4a;font-family:Georgia,'Times New Roman',serif;font-size:19px;font-weight:600}
-.stat span{color:#7b8494;font-size:11px;font-weight:500}
-.poster-wrap{background:#fff;border:1px solid #eadfe7;border-radius:30px;box-shadow:0 22px 55px rgba(70,62,77,.11)}
-.poster-top{background:#fff;border-bottom:1px solid #eadfe7}
-.poster-top b{color:#3f4c4a;font-family:Georgia,'Times New Roman',serif;font-size:17px;font-weight:600}
-.poster-top small{color:#7b8494;font-weight:400}
-.poster-top>div:last-child{background:#f8dce8!important;color:#755d70!important}
-.poster-img{background:#f2eaf4}
+.hero h1 .script{display:block;margin-top:7px;color:var(--darja-fg-73, #e9a6c3);font-family:Georgia,'Times New Roman',serif;font-size:.87em;font-style:italic;font-weight:500}
+.hero-ar{margin:4px 0 10px;padding:0;background:transparent;border:0;color:var(--darja-fg-57, #536577);font-size:clamp(35px,4vw,52px);transform:none}
+.hero p.sub{color:var(--darja-fg-74, #666);font-size:16px;line-height:1.8}
+.stat{background:var(--darja-bg-8, #fff);border:1px solid var(--darja-line-62, #eadfe7);border-radius:16px;box-shadow:none}
+.stat b{color:var(--darja-fg-63, #3f4c4a);font-family:Georgia,'Times New Roman',serif;font-size:19px;font-weight:600}
+.stat span{color:var(--darja-fg-68, #7b8494);font-size:11px;font-weight:500}
+.poster-wrap{background:var(--darja-bg-8, #fff);border:1px solid var(--darja-line-62, #eadfe7);border-radius:30px;box-shadow:0 22px 55px var(--darja-shadow-64, rgba(70,62,77,.11))}
+.poster-top{background:var(--darja-bg-8, #fff);border-bottom:1px solid var(--darja-line-62, #eadfe7)}
+.poster-top b{color:var(--darja-fg-63, #3f4c4a);font-family:Georgia,'Times New Roman',serif;font-size:17px;font-weight:600}
+.poster-top small{color:var(--darja-fg-68, #7b8494);font-weight:400}
+.poster-top>div:last-child{background:var(--darja-bg-65, #f8dce8)!important;color:var(--darja-fg-72, #755d70)!important}
+.poster-img{background:var(--darja-bg-75, #f2eaf4)}
 .poster-img img{filter:none}
-.hotspot{border-color:#c66f96!important;color:#c66f96!important;animation:none}
-.hotspot:hover{background:#e9a6c3;color:#fff!important;transform:scale(1.08)}
-.poster-foot{background:#fffdfb;border-top:1px solid #eadfe7;color:#7b8494;font-weight:400}
+.hotspot{border-color:var(--darja-line-76, #c66f96)!important;color:var(--darja-fg-66, #c66f96)!important;animation:none}
+.hotspot:hover{background:var(--darja-bg-70, #e9a6c3);color:var(--darja-fg-10, #fff)!important;transform:scale(1.08)}
+.poster-foot{background:var(--darja-bg-61, #fffdfb);border-top:1px solid var(--darja-line-62, #eadfe7);color:var(--darja-fg-68, #7b8494);font-weight:400}
 
 .sec{padding:54px 0}
-.sec-head h2{color:#3f4c4a;font-family:Georgia,'Times New Roman',serif;font-size:clamp(34px,4vw,47px);font-weight:600}
-.sec-head h2 em{color:#e9a6c3;font-family:Georgia,'Times New Roman',serif;font-style:italic;font-weight:500}
-.sec-head p{color:#7b8494;font-size:14px;font-weight:400}
+.sec-head h2{color:var(--darja-fg-63, #3f4c4a);font-family:Georgia,'Times New Roman',serif;font-size:clamp(34px,4vw,47px);font-weight:600}
+.sec-head h2 em{color:var(--darja-fg-73, #e9a6c3);font-family:Georgia,'Times New Roman',serif;font-style:italic;font-weight:500}
+.sec-head p{color:var(--darja-fg-68, #7b8494);font-size:14px;font-weight:400}
 .vgrid{gap:17px}
-.vcard{background:#fff;border:1px solid #eadfe7!important;border-radius:24px;box-shadow:0 12px 28px rgba(70,62,77,.07)}
-.vcard:hover{transform:translateY(-4px);box-shadow:0 22px 55px rgba(70,62,77,.11)}
-.vbody{background:#fff}
-.vbody .ar{color:#536577}
-.vtrans{color:#c66f96;font-weight:600}
-.vtrans small{color:#7b8494;font-weight:400}
-.divider{height:1px;background:#eadfe7}
+.vcard{background:var(--darja-bg-8, #fff);border:1px solid var(--darja-line-62, #eadfe7)!important;border-radius:24px;box-shadow:0 12px 28px var(--darja-shadow-77, rgba(70,62,77,.07))}
+.vcard:hover{transform:translateY(-4px);box-shadow:0 22px 55px var(--darja-shadow-64, rgba(70,62,77,.11))}
+.vbody{background:var(--darja-bg-8, #fff)}
+.vbody .ar{color:var(--darja-fg-57, #536577)}
+.vtrans{color:var(--darja-fg-66, #c66f96);font-weight:600}
+.vtrans small{color:var(--darja-fg-68, #7b8494);font-weight:400}
+.divider{height:1px;background:var(--darja-bg-78, #eadfe7)}
 .divider::after{display:none}
-.ex{background:#f9f7ff;border:0;color:#7b8494}
-.num{background:#e9a6c3!important;border:0;box-shadow:none}
+.ex{background:var(--darja-bg-55, #f9f7ff);border:0;color:var(--darja-fg-68, #7b8494)}
+.num{background:var(--darja-bg-70, #e9a6c3)!important;border:0;box-shadow:none}
 .icobtn{
-  background:#fff;
-  border:1px solid #eadfe7;
-  color:#c66f96;
+  background:var(--darja-bg-8, #fff);
+  border:1px solid var(--darja-line-62, #eadfe7);
+  color:var(--darja-fg-66, #c66f96);
   font-weight:600;
   font-size:13px;
   padding:8px 7px;
   white-space:nowrap;
 }
-.icobtn.primary,.icobtn.accent{background:#e9a6c3!important;border-color:#e9a6c3!important;color:#fff}
-.icobtn:hover{transform:none;background:#f8dce8}
+.icobtn.primary,.icobtn.accent{background:var(--darja-bg-70, #e9a6c3)!important;border-color:var(--darja-line-79, #e9a6c3)!important;color:var(--darja-fg-10, #fff)}
+.icobtn:hover{transform:none;background:var(--darja-bg-65, #f8dce8)}
 
-.lab{background:#fff;border:1px solid #eadfe7;border-radius:28px;box-shadow:0 12px 28px rgba(70,62,77,.07)}
-.lab-tabs{background:#fffdfb;border-bottom:1px solid #eadfe7}
-.lab-tab{color:#7b8494;font-size:13px;font-weight:600}
-.lab-tab.active{background:#f8dce8;border-color:#f8dce8;color:#755d70;box-shadow:none}
-#best,#qtimer{background:#f8dce8!important;color:#755d70!important}
-.progress,.quiz-q{background:#f9f7ff;border:1px solid #eadfe7}
-.pbar{background:#eadfe7}
-.pbar i{background:linear-gradient(90deg,#e9a6c3,#c66f96)}
-.fface{border:1px solid #eadfe7;box-shadow:0 12px 28px rgba(70,62,77,.07)}
-.ffront{background:linear-gradient(145deg,#fff,#f2eaf4)}
-.fback{background:linear-gradient(145deg,#fff,#f8dce8);border-color:#eadfe7;color:#46505b}
-.kbtn{border:1px solid #eadfe7;font-weight:600}
-.kbtn.know{background:#e9a6c3;color:#fff}
-.kbtn.dont{background:#f8dce8;color:#755d70}
-.opt,.mtile{border:1px solid #eadfe7;color:#46505b;font-weight:500}
-.opt:hover{border-color:#e9a6c3;transform:none}
-.mtile.selected{background:#f8dce8;border-color:#e9a6c3}
-.ccard{background:#fff;border:1px solid #eadfe7;border-radius:22px;box-shadow:0 12px 28px rgba(70,62,77,.07)}
-.ccard h4{color:#3f4c4a;font-family:Georgia,'Times New Roman',serif;font-size:19px;font-weight:600}
-.ccard p{color:#7b8494;font-weight:400}
-.eicon{background:#f8dce8!important}
-.free{background:linear-gradient(135deg,#fff,#f2eaf4);border:1px solid #eadfe7;color:#46505b;box-shadow:0 12px 28px rgba(70,62,77,.07)}
-.free .pill{background:#f8dce8!important;border:0!important}
-.free h2{color:#3f4c4a;font-family:Georgia,'Times New Roman',serif;font-weight:600}
-.free .hand{color:#e9a6c3!important}
-.free .btn{background:#e9a6c3!important;color:#fff!important;border-color:#e9a6c3!important}
-.check i{background:#e9a6c3;color:#fff}
-footer{background:#fffdfb;border:1px solid #eadfe7;border-radius:22px;box-shadow:none}
+.lab{background:var(--darja-bg-8, #fff);border:1px solid var(--darja-line-62, #eadfe7);border-radius:28px;box-shadow:0 12px 28px var(--darja-shadow-77, rgba(70,62,77,.07))}
+.lab-tabs{background:var(--darja-bg-61, #fffdfb);border-bottom:1px solid var(--darja-line-62, #eadfe7)}
+.lab-tab{color:var(--darja-fg-68, #7b8494);font-size:13px;font-weight:600}
+.lab-tab.active{background:var(--darja-bg-65, #f8dce8);border-color:var(--darja-line-80, #f8dce8);color:var(--darja-fg-72, #755d70);box-shadow:none}
+#best,#qtimer{background:var(--darja-bg-65, #f8dce8)!important;color:var(--darja-fg-72, #755d70)!important}
+.progress,.quiz-q{background:var(--darja-bg-55, #f9f7ff);border:1px solid var(--darja-line-62, #eadfe7)}
+.pbar{background:var(--darja-bg-78, #eadfe7)}
+.pbar i{background:linear-gradient(90deg,var(--darja-bg-70, #e9a6c3),var(--darja-bg-81, #c66f96))}
+.fface{border:1px solid var(--darja-line-62, #eadfe7);box-shadow:0 12px 28px var(--darja-shadow-77, rgba(70,62,77,.07))}
+.ffront{background:linear-gradient(145deg,var(--darja-bg-8, #fff),var(--darja-bg-75, #f2eaf4))}
+.fback{background:linear-gradient(145deg,var(--darja-bg-8, #fff),var(--darja-bg-65, #f8dce8));border-color:var(--darja-line-62, #eadfe7);color:var(--darja-fg-56, #46505b)}
+.kbtn{border:1px solid var(--darja-line-62, #eadfe7);font-weight:600}
+.kbtn.know{background:var(--darja-bg-70, #e9a6c3);color:var(--darja-fg-10, #fff)}
+.kbtn.dont{background:var(--darja-bg-65, #f8dce8);color:var(--darja-fg-72, #755d70)}
+.opt,.mtile{border:1px solid var(--darja-line-62, #eadfe7);color:var(--darja-fg-56, #46505b);font-weight:500}
+.opt:hover{border-color:var(--darja-line-79, #e9a6c3);transform:none}
+.mtile.selected{background:var(--darja-bg-65, #f8dce8);border-color:var(--darja-line-79, #e9a6c3)}
+.ccard{background:var(--darja-bg-8, #fff);border:1px solid var(--darja-line-62, #eadfe7);border-radius:22px;box-shadow:0 12px 28px var(--darja-shadow-77, rgba(70,62,77,.07))}
+.ccard h4{color:var(--darja-fg-63, #3f4c4a);font-family:Georgia,'Times New Roman',serif;font-size:19px;font-weight:600}
+.ccard p{color:var(--darja-fg-68, #7b8494);font-weight:400}
+.eicon{background:var(--darja-bg-65, #f8dce8)!important}
+.free{background:linear-gradient(135deg,var(--darja-bg-8, #fff),var(--darja-bg-75, #f2eaf4));border:1px solid var(--darja-line-62, #eadfe7);color:var(--darja-fg-56, #46505b);box-shadow:0 12px 28px var(--darja-shadow-77, rgba(70,62,77,.07))}
+.free .pill{background:var(--darja-bg-65, #f8dce8)!important;border:0!important}
+.free h2{color:var(--darja-fg-63, #3f4c4a);font-family:Georgia,'Times New Roman',serif;font-weight:600}
+.free .hand{color:var(--darja-fg-73, #e9a6c3)!important}
+.free .btn{background:var(--darja-bg-70, #e9a6c3)!important;color:var(--darja-fg-10, #fff)!important;border-color:var(--darja-line-79, #e9a6c3)!important}
+.check i{background:var(--darja-bg-70, #e9a6c3);color:var(--darja-fg-10, #fff)}
+footer{background:var(--darja-bg-61, #fffdfb);border:1px solid var(--darja-line-62, #eadfe7);border-radius:22px;box-shadow:none}
 .site-footer img{width:175px;max-height:60px;object-fit:contain}
-.overlay{background:rgba(63,76,74,.34)}
-.modal{background:#f9f7ff;border:1px solid #eadfe7}
-.modal-top{background:#f2eaf4}
-.phon span{border:1px solid #eadfe7;color:#7b8494}
-.toast{background:#3f4c4a;border-radius:14px;font-weight:500}
-#topBtn{border:1px solid #eadfe7;color:#c66f96;box-shadow:0 12px 28px rgba(70,62,77,.07)}
-button:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline-color:rgba(198,111,150,.45)}
+.overlay{background:var(--darja-bg-82, rgba(63,76,74,.34))}
+.modal{background:var(--darja-bg-55, #f9f7ff);border:1px solid var(--darja-line-62, #eadfe7)}
+.modal-top{background:var(--darja-bg-75, #f2eaf4)}
+.phon span{border:1px solid var(--darja-line-62, #eadfe7);color:var(--darja-fg-68, #7b8494)}
+.toast{background:var(--darja-bg-83, #3f4c4a);border-radius:14px;font-weight:500}
+#topBtn{border:1px solid var(--darja-line-62, #eadfe7);color:var(--darja-fg-66, #c66f96);box-shadow:0 12px 28px var(--darja-shadow-77, rgba(70,62,77,.07))}
+button:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline-color:var(--darja-line-84, rgba(198,111,150,.45))}
 
 @media(max-width:1020px){
   .site-nav{display:none}
@@ -598,10 +600,10 @@ button:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline-color
   display: flex !important;
   align-items: center !important;
   gap: 0 !important;
-  background: #ffffff !important;
+  background: var(--darja-bg-85, #ffffff) !important;
   border: 0 !important;
   border-radius: 0 !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+  box-shadow: 0 4px 20px var(--darja-shadow-86, rgba(0, 0, 0, 0.05)) !important;
 }
 
 .brand-logo,
@@ -632,7 +634,7 @@ button:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline-color
 
 .site-nav a {
   padding: 8px 0 !important;
-  color: #444 !important;
+  color: var(--darja-fg-59, #444) !important;
   font-size: 18px !important;
   font-weight: 500 !important;
   white-space: nowrap !important;
@@ -641,7 +643,7 @@ button:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline-color
 
 .site-nav a:hover,
 .site-nav a.active {
-  color: #ff7aa2 !important;
+  color: var(--darja-fg-60, #ff7aa2) !important;
 }
 
 /* Lesson 02 corrections */
@@ -671,30 +673,30 @@ button:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline-color
 .sentence-preview{
   margin:14px 0 12px;
   padding:12px;
-  border:1px solid #eadfe7;
+  border:1px solid var(--darja-line-62, #eadfe7);
   border-radius:14px;
-  background:#fff;
-  color:#536577;
+  background:var(--darja-bg-8, #fff);
+  color:var(--darja-fg-57, #536577);
   font-size:14px;
   line-height:1.6;
 }
 .next-step-title{display:block;margin:18px 0 4px;font-size:17px}
-.next-step-copy{margin:0 0 13px;color:#6f7783;font-size:14px;line-height:1.6}
+.next-step-copy{margin:0 0 13px;color:var(--darja-fg-87, #6f7783);font-size:14px;line-height:1.6}
 .next-actions{display:grid;gap:10px}
 .next-action{
   display:block;
   padding:12px 15px;
-  border:1px solid #e9a6c3;
+  border:1px solid var(--darja-line-79, #e9a6c3);
   border-radius:14px;
-  color:#9b5575;
-  background:#fff;
+  color:var(--darja-fg-88, #9b5575);
+  background:var(--darja-bg-8, #fff);
   font-size:14px;
   font-weight:600;
   text-align:center;
 }
-.next-action.primary{border-color:#d98eaf;background:#e9a6c3;color:#fff}
-.next-action:hover{background:#f8dce8;color:#8e4c6a}
-.next-action.primary:hover{background:#d98eaf;color:#fff}
+.next-action.primary{border-color:var(--darja-line-89, #d98eaf);background:var(--darja-bg-70, #e9a6c3);color:var(--darja-fg-10, #fff)}
+.next-action:hover{background:var(--darja-bg-65, #f8dce8);color:var(--darja-fg-90, #8e4c6a)}
+.next-action.primary:hover{background:var(--darja-bg-71, #d98eaf);color:var(--darja-fg-10, #fff)}
 
 /* Keep the lesson menu from covering content while scrolling. */
 .lessonbar{
@@ -785,13 +787,13 @@ button:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline-color
   .poster-img img{height:auto!important}
 }
 </style>
-  <link rel="stylesheet" href="newsletter-popup.css?v=3">
+  <link rel="stylesheet" href="newsletter-popup.css?v=dark1">
   <script src="newsletter-popup.js?v=3" defer></script>
-  <link rel="stylesheet" href="lesson-navigation.css?v=1">
+  <link rel="stylesheet" href="lesson-navigation.css?v=dark1">
   <noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
-  <link rel="stylesheet" href="lesson-menu.css?v=2">
-  <script src="lesson-menu.js?v=1" defer></script>
-  <link rel="stylesheet" href="learning-layout.css?v=1">
+  <link rel="stylesheet" href="lesson-menu.css?v=dark1">
+  <script src="lesson-menu.js?v=4" defer></script>
+  <link rel="stylesheet" href="learning-layout.css?v=dark1">
 </head>
 <body class="vocabulary-lesson">
 <header class="navbar">
@@ -859,7 +861,7 @@ button:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline-color
     <div class="poster-wrap reveal visible">
       <div class="poster-top">
         <div><b>🖼️ Furniture of the House</b><small>Tap a numbered dot to jump to that word</small></div>
-        <div style="background:#FFE27A;border-radius:999px;padding:6px 12px;font-weight:900;font-size:12px">LESSON 02 ✦</div>
+        <div style="background:var(--darja-bg-35, #FFE27A);border-radius:999px;padding:6px 12px;font-weight:900;font-size:12px">LESSON 02 ✦</div>
       </div>
       <div class="poster-img">
         <img src="images/lesson-02/furniture-of-the-house-poster.jpg" alt="Furniture of the House vocabulary poster">
@@ -888,31 +890,31 @@ button:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline-color
   <div class="vgrid" id="vgrid">
 <!-- prerender:vgrid:start -->
 <article class="vcard feat" id="card-1" style="--accent: #D98A7A; --accent-soft: #FDE9DF">
-      <div class="vimg"><span class="num">1</span><img loading="lazy" src="images/lesson-02/01-farch.jpg" alt="bed"><span style="position:absolute;bottom:10px;left:12px;background:rgba(255,255,255,.92);padding:6px 12px;border-radius:99px;font-weight:900;font-size:12px;z-index:2">🛏️ bed</span></div>
+      <div class="vimg"><span class="num">1</span><img loading="lazy" src="images/lesson-02/01-farch.jpg" alt="bed"><span style="position:absolute;bottom:10px;left:12px;background:var(--darja-bg-91, rgba(255,255,255,.92));padding:6px 12px;border-radius:99px;font-weight:900;font-size:12px;z-index:2">🛏️ bed</span></div>
       <div class="vbody"><div class="ar">فرش</div><div class="vtrans">farch <small>bed • Tap 🔊 to hear</small></div><div class="divider"></div><div class="ex"><b class="ar">الفرش مرتاح برشا</b><br><i>El-farch merta7 barcha.</i> — The bed is very comfortable.</div><div class="vactions"><button class="icobtn accent" onclick="playWord(1,this)"><span class="wave"><i style="height:6px"></i><i style="height:10px"></i><i style="height:7px"></i></span> Hear word</button><button class="icobtn" onclick="playSentence(1,this)">🔊 Sentence</button><button class="icobtn primary" onclick="openModal(1)">Details →</button></div></div></article>
 <article class="vcard " id="card-2" style="--accent: #6BA3BE; --accent-soft: #DDEAF0">
-      <div class="vimg"><span class="num">2</span><img loading="lazy" src="images/lesson-02/02-mkhadda.jpg" alt="pillow"><span style="position:absolute;bottom:10px;left:12px;background:rgba(255,255,255,.92);padding:6px 12px;border-radius:99px;font-weight:900;font-size:12px;z-index:2">🛏️ pillow</span></div>
+      <div class="vimg"><span class="num">2</span><img loading="lazy" src="images/lesson-02/02-mkhadda.jpg" alt="pillow"><span style="position:absolute;bottom:10px;left:12px;background:var(--darja-bg-91, rgba(255,255,255,.92));padding:6px 12px;border-radius:99px;font-weight:900;font-size:12px;z-index:2">🛏️ pillow</span></div>
       <div class="vbody"><div class="ar">مخدة</div><div class="vtrans">mkhadda <small>pillow • Tap 🔊 to hear</small></div><div class="divider"></div><div class="ex"><b class="ar">المخدة فوق الفرش</b><br><i>El-mkhadda fou9 el-farch.</i> — The pillow is on the bed.</div><div class="vactions"><button class="icobtn accent" onclick="playWord(2,this)"><span class="wave"><i style="height:6px"></i><i style="height:10px"></i><i style="height:7px"></i></span> Hear word</button><button class="icobtn" onclick="playSentence(2,this)">🔊 Sentence</button><button class="icobtn primary" onclick="openModal(2)">Details →</button></div></div></article>
 <article class="vcard " id="card-3" style="--accent: #C39A4A; --accent-soft: #F9EED3">
-      <div class="vimg"><span class="num">3</span><img loading="lazy" src="images/lesson-02/03-zarbiya.jpg" alt="rug / carpet"><span style="position:absolute;bottom:10px;left:12px;background:rgba(255,255,255,.92);padding:6px 12px;border-radius:99px;font-weight:900;font-size:12px;z-index:2">🧶 rug / carpet</span></div>
+      <div class="vimg"><span class="num">3</span><img loading="lazy" src="images/lesson-02/03-zarbiya.jpg" alt="rug / carpet"><span style="position:absolute;bottom:10px;left:12px;background:var(--darja-bg-91, rgba(255,255,255,.92));padding:6px 12px;border-radius:99px;font-weight:900;font-size:12px;z-index:2">🧶 rug / carpet</span></div>
       <div class="vbody"><div class="ar">زربية</div><div class="vtrans">zarbiya <small>rug / carpet • Tap 🔊 to hear</small></div><div class="divider"></div><div class="ex"><b class="ar">الزربية تحت الطاولة</b><br><i>Ez-zarbiya ta7t et-tawla.</i> — The rug is under the table.</div><div class="vactions"><button class="icobtn accent" onclick="playWord(3,this)"><span class="wave"><i style="height:6px"></i><i style="height:10px"></i><i style="height:7px"></i></span> Hear word</button><button class="icobtn" onclick="playSentence(3,this)">🔊 Sentence</button><button class="icobtn primary" onclick="openModal(3)">Details →</button></div></div></article>
 <article class="vcard " id="card-4" style="--accent: #6FA287; --accent-soft: #E6EDE3">
-      <div class="vimg"><span class="num">4</span><img loading="lazy" src="images/lesson-02/04-korsi.jpg" alt="chair"><span style="position:absolute;bottom:10px;left:12px;background:rgba(255,255,255,.92);padding:6px 12px;border-radius:99px;font-weight:900;font-size:12px;z-index:2">🪑 chair</span></div>
+      <div class="vimg"><span class="num">4</span><img loading="lazy" src="images/lesson-02/04-korsi.jpg" alt="chair"><span style="position:absolute;bottom:10px;left:12px;background:var(--darja-bg-91, rgba(255,255,255,.92));padding:6px 12px;border-radius:99px;font-weight:900;font-size:12px;z-index:2">🪑 chair</span></div>
       <div class="vbody"><div class="ar">كرسي</div><div class="vtrans">korsi <small>chair • Tap 🔊 to hear</small></div><div class="divider"></div><div class="ex"><b class="ar">الكرسي بحذا الطاولة</b><br><i>El-korsi b7dha et-tawla.</i> — The chair is next to the table.</div><div class="vactions"><button class="icobtn accent" onclick="playWord(4,this)"><span class="wave"><i style="height:6px"></i><i style="height:10px"></i><i style="height:7px"></i></span> Hear word</button><button class="icobtn" onclick="playSentence(4,this)">🔊 Sentence</button><button class="icobtn primary" onclick="openModal(4)">Details →</button></div></div></article>
 <article class="vcard " id="card-5" style="--accent: #D96A6A; --accent-soft: #FDE3DE">
-      <div class="vimg"><span class="num">5</span><img loading="lazy" src="images/lesson-02/05-sala.jpg" alt="sofa / couch"><span style="position:absolute;bottom:10px;left:12px;background:rgba(255,255,255,.92);padding:6px 12px;border-radius:99px;font-weight:900;font-size:12px;z-index:2">🛋️ sofa / couch</span></div>
+      <div class="vimg"><span class="num">5</span><img loading="lazy" src="images/lesson-02/05-sala.jpg" alt="sofa / couch"><span style="position:absolute;bottom:10px;left:12px;background:var(--darja-bg-91, rgba(255,255,255,.92));padding:6px 12px;border-radius:99px;font-weight:900;font-size:12px;z-index:2">🛋️ sofa / couch</span></div>
       <div class="vbody"><div class="ar">صالا</div><div class="vtrans">sala <small>sofa / couch • Tap 🔊 to hear</small></div><div class="divider"></div><div class="ex"><b class="ar">الصالا مرتاحة برشا</b><br><i>Es-sala merta7a barcha.</i> — The sofa is very comfortable.</div><div class="vactions"><button class="icobtn accent" onclick="playWord(5,this)"><span class="wave"><i style="height:6px"></i><i style="height:10px"></i><i style="height:7px"></i></span> Hear word</button><button class="icobtn" onclick="playSentence(5,this)">🔊 Sentence</button><button class="icobtn primary" onclick="openModal(5)">Details →</button></div></div></article>
 <article class="vcard " id="card-6" style="--accent: #9AB7A0; --accent-soft: #E6EDE3">
-      <div class="vimg"><span class="num">6</span><img loading="lazy" src="images/lesson-02/06-lamba.jpg" alt="lamp"><span style="position:absolute;bottom:10px;left:12px;background:rgba(255,255,255,.92);padding:6px 12px;border-radius:99px;font-weight:900;font-size:12px;z-index:2">💡 lamp</span></div>
+      <div class="vimg"><span class="num">6</span><img loading="lazy" src="images/lesson-02/06-lamba.jpg" alt="lamp"><span style="position:absolute;bottom:10px;left:12px;background:var(--darja-bg-91, rgba(255,255,255,.92));padding:6px 12px;border-radius:99px;font-weight:900;font-size:12px;z-index:2">💡 lamp</span></div>
       <div class="vbody"><div class="ar">لامبة</div><div class="vtrans">lamba <small>lamp • Tap 🔊 to hear</small></div><div class="divider"></div><div class="ex"><b class="ar">اللامبة فوق الطاولة</b><br><i>El-lamba fou9 et-tawla.</i> — The lamp is on the table.</div><div class="vactions"><button class="icobtn accent" onclick="playWord(6,this)"><span class="wave"><i style="height:6px"></i><i style="height:10px"></i><i style="height:7px"></i></span> Hear word</button><button class="icobtn" onclick="playSentence(6,this)">🔊 Sentence</button><button class="icobtn primary" onclick="openModal(6)">Details →</button></div></div></article>
 <article class="vcard " id="card-7" style="--accent: #8AA8C8; --accent-soft: #E2EDF6">
-      <div class="vimg"><span class="num">7</span><img loading="lazy" src="images/lesson-02/07-tawla.jpg" alt="table"><span style="position:absolute;bottom:10px;left:12px;background:rgba(255,255,255,.92);padding:6px 12px;border-radius:99px;font-weight:900;font-size:12px;z-index:2">🪵 table</span></div>
+      <div class="vimg"><span class="num">7</span><img loading="lazy" src="images/lesson-02/07-tawla.jpg" alt="table"><span style="position:absolute;bottom:10px;left:12px;background:var(--darja-bg-91, rgba(255,255,255,.92));padding:6px 12px;border-radius:99px;font-weight:900;font-size:12px;z-index:2">🪵 table</span></div>
       <div class="vbody"><div class="ar">طاولة</div><div class="vtrans">tawla <small>table • Tap 🔊 to hear</small></div><div class="divider"></div><div class="ex"><b class="ar">حطّ الكتاب فوق الطاولة</b><br><i>7ott el-kteb fou9 et-tawla.</i> — Put the book on the table.</div><div class="vactions"><button class="icobtn accent" onclick="playWord(7,this)"><span class="wave"><i style="height:6px"></i><i style="height:10px"></i><i style="height:7px"></i></span> Hear word</button><button class="icobtn" onclick="playSentence(7,this)">🔊 Sentence</button><button class="icobtn primary" onclick="openModal(7)">Details →</button></div></div></article>
 <article class="vcard " id="card-8" style="--accent: #C4A484; --accent-soft: #F3E8D6">
-      <div class="vimg"><span class="num">8</span><img loading="lazy" src="images/lesson-02/08-mraya.jpg" alt="mirror"><span style="position:absolute;bottom:10px;left:12px;background:rgba(255,255,255,.92);padding:6px 12px;border-radius:99px;font-weight:900;font-size:12px;z-index:2">🪞 mirror</span></div>
+      <div class="vimg"><span class="num">8</span><img loading="lazy" src="images/lesson-02/08-mraya.jpg" alt="mirror"><span style="position:absolute;bottom:10px;left:12px;background:var(--darja-bg-91, rgba(255,255,255,.92));padding:6px 12px;border-radius:99px;font-weight:900;font-size:12px;z-index:2">🪞 mirror</span></div>
       <div class="vbody"><div class="ar">مراية</div><div class="vtrans">mraya <small>mirror • Tap 🔊 to hear</small></div><div class="divider"></div><div class="ex"><b class="ar">نشوف روحي في المراية</b><br><i>Nchouf rou7i fel-mraya.</i> — I look at myself in the mirror.</div><div class="vactions"><button class="icobtn accent" onclick="playWord(8,this)"><span class="wave"><i style="height:6px"></i><i style="height:10px"></i><i style="height:7px"></i></span> Hear word</button><button class="icobtn" onclick="playSentence(8,this)">🔊 Sentence</button><button class="icobtn primary" onclick="openModal(8)">Details →</button></div></div></article>
 <article class="vcard " id="card-9" style="--accent: #A89BC0; --accent-soft: #E9E3F2">
-      <div class="vimg"><span class="num">9</span><img loading="lazy" src="images/lesson-02/09-fotey.jpg" alt="armchair"><span style="position:absolute;bottom:10px;left:12px;background:rgba(255,255,255,.92);padding:6px 12px;border-radius:99px;font-weight:900;font-size:12px;z-index:2">🪑 armchair</span></div>
+      <div class="vimg"><span class="num">9</span><img loading="lazy" src="images/lesson-02/09-fotey.jpg" alt="armchair"><span style="position:absolute;bottom:10px;left:12px;background:var(--darja-bg-91, rgba(255,255,255,.92));padding:6px 12px;border-radius:99px;font-weight:900;font-size:12px;z-index:2">🪑 armchair</span></div>
       <div class="vbody"><div class="ar">فوتاي</div><div class="vtrans">fotey <small>armchair • Tap 🔊 to hear</small></div><div class="divider"></div><div class="ex"><b class="ar">الفوتاي مرتاح</b><br><i>El-fotey merta7.</i> — The armchair is comfortable.</div><div class="vactions"><button class="icobtn accent" onclick="playWord(9,this)"><span class="wave"><i style="height:6px"></i><i style="height:10px"></i><i style="height:7px"></i></span> Hear word</button><button class="icobtn" onclick="playSentence(9,this)">🔊 Sentence</button><button class="icobtn primary" onclick="openModal(9)">Details →</button></div></div></article>
 <!-- prerender:vgrid:end -->
 </div>
@@ -926,7 +928,7 @@ button:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline-color
       <button class="lab-tab active" data-tab="flash">🃏 Flashcards</button>
       <button class="lab-tab" data-tab="quiz">✏️ Quiz Challenge</button>
       <button class="lab-tab" data-tab="match">🧩 Match Game</button>
-      <span style="margin-left:auto;display:flex;gap:8px;align-items:center;font-weight:900;font-size:13px;color:var(--ink-soft)">🏆 Best quiz: <span id="best" style="background:#FFE27A;padding:4px 10px;border-radius:99px">0/9</span> • Mastered: <span id="masterCount">0</span>/9</span>
+      <span style="margin-left:auto;display:flex;gap:8px;align-items:center;font-weight:900;font-size:13px;color:var(--ink-soft)">🏆 Best quiz: <span id="best" style="background:var(--darja-bg-35, #FFE27A);padding:4px 10px;border-radius:99px">0/9</span> • Mastered: <span id="masterCount">0</span>/9</span>
     </div>
     <div class="lab-body">
       <div>
@@ -958,7 +960,7 @@ button:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline-color
             </div>
           </div>
           <div id="quizPlay" style="display:none">
-            <div style="display:flex;justify-content:space-between;align-items:center;font-weight:900"><span id="qpos">Q 1/9</span><span id="qtimer" style="background:#FFE27A;padding:6px 12px;border-radius:99px">⏱ 60s</span><span id="qscore">Score: 0</span></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-weight:900"><span id="qpos">Q 1/9</span><span id="qtimer" style="background:var(--darja-bg-35, #FFE27A);padding:6px 12px;border-radius:99px">⏱ 60s</span><span id="qscore">Score: 0</span></div>
             <div class="pbar"><i id="qbar"></i></div>
             <div class="quiz-q"><div id="qprompt" style="font-weight:900;font-size:19px"></div><div id="qopts"></div><div id="qfeed" style="font-weight:800;min-height:22px"></div>
             <div style="display:flex;gap:10px;margin-top:10px"><button class="btn btn-cream" id="qHear" onclick="hearQuiz()">🔊 Hear</button><button class="btn btn-dark" id="qNext" onclick="nextQ()" disabled>Next →</button></div></div>
@@ -981,7 +983,7 @@ button:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline-color
           <p style="font-size:13.5px;color:var(--ink-soft);font-weight:600;margin:6px 0">Every “I know it” plants a seed. Master all 9 to bloom.</p>
           <div class="pbar"><i id="masterBar"></i></div>
           <div style="font-weight:900;font-size:13px" id="masterTxt">0% grown</div>
-          <hr style="border:none;border-top:2px dashed #EADFD0;margin:14px 0">
+          <hr style="border:none;border-top:2px dashed var(--darja-line-34, #EADFD0);margin:14px 0">
           <b style="font-size:14px">💡 How Tunisians say it</b>
           <p style="font-size:13.5px;line-height:1.6;color:var(--ink-soft);font-weight:600">• <b>farch</b> = bed<br>• <b>mkhadda</b> = pillow<br>• <b>fotey</b> comes from French <i>fauteuil</i><br>• <b>fou9</b>, <b>ta7t</b> and <b>b7dha</b> describe position</p>
           <div class="sentence-preview" id="currentSentencePreview"><span class="ar">الفرش مرتاح برشا</span><br>El-farch merta7 barcha.</div>
@@ -996,19 +998,19 @@ button:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline-color
 <section class="sec" id="culture">
   <div class="sec-head reveal"><div><div class="pill">Language and culture</div><h2>Furniture in a <em>Tunisian dar</em></h2><p>Discover how furniture words connect with Tunisian homes, hospitality and everyday speech.</p></div></div>
   <div class="cgrid">
-    <div class="ccard reveal"><div class="eicon" style="background:#F9EED3">🧶</div><h4>The Tunisian rug — <span class="ar">الزربية التونسية</span></h4><p><span class="ar">الزربية التونسية تزيّن الدار</span><br><b>Ez-zarbiya et-tounsiyya tzayyen ed-dar.</b><br>The Tunisian rug decorates the home.</p><button class="icobtn" style="margin-top:12px" onclick="playPhrase('tunisian-rug')">🔊 Hear the phrase</button></div>
-    <div class="ccard reveal"><div class="eicon" style="background:#FDE9DF">🏠</div><h4>Welcoming a guest — <span class="ar">الدار دارك</span></h4><p><span class="ar">الدار دارك</span><br><b>Ed-dar darek.</b><br>Make yourself at home.</p><button class="icobtn" style="margin-top:12px" onclick="playPhrase('make-yourself-at-home')">🔊 Hear the phrase</button></div>
-    <div class="ccard reveal"><div class="eicon" style="background:#DDEAF0">🪑</div><h4>French influence — <span class="ar">كلمات من الفرنسية</span></h4><p><span class="ar">فوتاي كلمة جاية من الفرنسية</span><br><b>Fotey kelma jeya mel-fransawiyya.</b><br>“Fotey” is a word that comes from French.</p><button class="icobtn" style="margin-top:12px" onclick="playPhrase('fotey-culture')">🔊 Hear the phrase</button></div>
+    <div class="ccard reveal"><div class="eicon" style="background:var(--darja-bg-18, #F9EED3)">🧶</div><h4>The Tunisian rug — <span class="ar">الزربية التونسية</span></h4><p><span class="ar">الزربية التونسية تزيّن الدار</span><br><b>Ez-zarbiya et-tounsiyya tzayyen ed-dar.</b><br>The Tunisian rug decorates the home.</p><button class="icobtn" style="margin-top:12px" onclick="playPhrase('tunisian-rug')">🔊 Hear the phrase</button></div>
+    <div class="ccard reveal"><div class="eicon" style="background:var(--darja-bg-3, #FDE9DF)">🏠</div><h4>Welcoming a guest — <span class="ar">الدار دارك</span></h4><p><span class="ar">الدار دارك</span><br><b>Ed-dar darek.</b><br>Make yourself at home.</p><button class="icobtn" style="margin-top:12px" onclick="playPhrase('make-yourself-at-home')">🔊 Hear the phrase</button></div>
+    <div class="ccard reveal"><div class="eicon" style="background:var(--darja-bg-4, #DDEAF0)">🪑</div><h4>French influence — <span class="ar">كلمات من الفرنسية</span></h4><p><span class="ar">فوتاي كلمة جاية من الفرنسية</span><br><b>Fotey kelma jeya mel-fransawiyya.</b><br>“Fotey” is a word that comes from French.</p><button class="icobtn" style="margin-top:12px" onclick="playPhrase('fotey-culture')">🔊 Hear the phrase</button></div>
   </div>
 </section>
 
 <!-- LESSON END -->
 <section class="sec" id="finish">
   <div class="free reveal">
-    <div><div class="pill" style="background:#F9E8A8;border-color:#E8D48A">Lesson complete</div><h2 style="font-size:clamp(28px,4vw,42px);margin:12px 0;letter-spacing:-.8px">Bravo! <span class="hand" style="color:#F9E8A8;font-size:1.3em">You finished Lesson 02.</span></h2><p style="opacity:.9;line-height:1.7;font-weight:600">Review any difficult cards, then try the quiz again without looking at the vocabulary.</p><div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap"><button class="btn" style="background:#F9E8A8;color:#2E3D38" onclick="scrollToId('vocab')">Review the words 📚</button><button class="btn btn-ghost" style="color:#fff;border-color:#6B7E77" onclick="scrollToId('lab');setTimeout(()=>showTab('quiz'),400)">Try the quiz ✏️</button></div></div>
-    <div style="background:#FFFDF8;border-radius:22px;padding:22px;color:var(--ink)">
+    <div><div class="pill" style="background:var(--darja-bg-22, #F9E8A8);border-color:var(--darja-line-24, #E8D48A)">Lesson complete</div><h2 style="font-size:clamp(28px,4vw,42px);margin:12px 0;letter-spacing:-.8px">Bravo! <span class="hand" style="color:var(--darja-fg-92, #F9E8A8);font-size:1.3em">You finished Lesson 02.</span></h2><p style="opacity:.9;line-height:1.7;font-weight:600">Review any difficult cards, then try the quiz again without looking at the vocabulary.</p><div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap"><button class="btn" style="background:var(--darja-bg-22, #F9E8A8);color:var(--darja-fg-93, #2E3D38)" onclick="scrollToId('vocab')">Review the words 📚</button><button class="btn btn-ghost" style="color:var(--darja-fg-10, #fff);border-color:var(--darja-line-94, #6B7E77)" onclick="scrollToId('lab');setTimeout(()=>showTab('quiz'),400)">Try the quiz ✏️</button></div></div>
+    <div style="background:var(--darja-bg-39, #FFFDF8);border-radius:22px;padding:22px;color:var(--ink)">
       <b>Quick self-check</b>
-<div style="background:var(--cream);border:2px solid #EDE2D1;border-radius:16px;padding:14px;margin-top:12px;font-weight:600;font-size:14px;line-height:1.6">Can you name at least five words without looking?<br>Can you use one word in a complete sentence?<br>Can you recognize the words when you hear them?</div>
+<div style="background:var(--cream);border:2px solid var(--darja-line-7, #EDE2D1);border-radius:16px;padding:14px;margin-top:12px;font-weight:600;font-size:14px;line-height:1.6">Can you name at least five words without looking?<br>Can you use one word in a complete sentence?<br>Can you recognize the words when you hear them?</div>
       <strong class="next-step-title">Want to keep learning Tunisian Arabic?</strong>
       <p class="next-step-copy">Continue your learning with Mongia or discover your current level.</p>
       <div class="next-actions">
@@ -1045,7 +1047,7 @@ button:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline-color
       <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:start"><div><div class="ar" id="mAr" style="font-size:46px;line-height:1">فرش</div><div style="font-weight:900;font-size:20px" id="mTr">farch • bed</div></div><button class="icobtn accent" id="mHear" style="padding:12px 18px">🔊 Listen</button></div>
       <div class="phon" id="mPhon"></div>
       <div class="ex" id="mEx"></div>
-      <div style="background:#fff;border:2px solid #EDE2D1;border-radius:16px;padding:14px"><b>🌿 Cultural note</b><p id="mTip" style="margin:6px 0 0;color:var(--ink-soft);font-weight:600;line-height:1.6"></p></div>
+      <div style="background:var(--darja-bg-8, #fff);border:2px solid var(--darja-line-7, #EDE2D1);border-radius:16px;padding:14px"><b>🌿 Cultural note</b><p id="mTip" style="margin:6px 0 0;color:var(--ink-soft);font-weight:600;line-height:1.6"></p></div>
       <div style="display:flex;gap:10px;margin-top:16px"><button class="btn btn-cream" onclick="stepModal(-1)">← Prev word</button><button class="btn btn-dark" onclick="stepModal(1)">Next word →</button></div>
     </div>
   </div>
@@ -1132,7 +1134,7 @@ function renderVocab(){
     const el=document.createElement('article');el.className='vcard '+feat;el.id='card-'+w.id;
     el.style.setProperty('--accent',w.accent);el.style.setProperty('--accent-soft',w.soft);
     el.innerHTML=`
-      <div class="vimg"><span class="num">${w.id}</span><img loading="lazy" src="${w.img}" alt="${w.en}"><span style="position:absolute;bottom:10px;left:12px;background:rgba(255,255,255,.92);padding:6px 12px;border-radius:99px;font-weight:900;font-size:12px;z-index:2">${w.emoji} ${w.en}</span></div>
+      <div class="vimg"><span class="num">${w.id}</span><img loading="lazy" src="${w.img}" alt="${w.en}"><span style="position:absolute;bottom:10px;left:12px;background:var(--darja-bg-91, rgba(255,255,255,.92));padding:6px 12px;border-radius:99px;font-weight:900;font-size:12px;z-index:2">${w.emoji} ${w.en}</span></div>
       <div class="vbody"><div class="ar">${w.ar}</div><div class="vtrans">${w.tr} <small>${w.en} • Tap 🔊 to hear</small></div><div class="divider"></div><div class="ex"><b class="ar">${w.exAr}</b><br><i>${w.exTr}</i> — ${w.exEn}</div><div class="vactions"><button class="icobtn accent" onclick="playWord(${w.id},this)"><span class="wave"><i style="height:6px"></i><i style="height:10px"></i><i style="height:7px"></i></span> Hear word</button><button class="icobtn" onclick="playSentence(${w.id},this)">🔊 Sentence</button><button class="icobtn primary" onclick="openModal(${w.id})">Details →</button></div></div>`;
     grid.appendChild(el);
   });
@@ -1169,7 +1171,7 @@ function renderQ(){const q=Qs[qi];document.getElementById('qpos').textContent=`Q
 function hearQuiz(){const q=Qs[qi];playWord(q.w.id);}
 function answerQ(btn,val){const q=Qs[qi];const all=[...document.querySelectorAll('#qopts .opt')];all.forEach(b=>b.disabled=true);if(val===q.answer){btn.classList.add('correct');qscore++;document.getElementById('qfeed').textContent='✅ Sa77it! Correct — '+q.w.tr+' • '+q.w.en;}else{btn.classList.add('wrong');all.find(b=>b.textContent.trim()===q.answer||b.innerHTML.includes(q.answer))?.classList.add('correct');document.getElementById('qfeed').textContent=`❌ Not quite — answer: ${q.w.ar} (${q.w.tr})`;}document.getElementById('qscore').textContent='Score: '+qscore;document.getElementById('qNext').disabled=false;document.getElementById('qbar').style.width=((qi+1)/9*100)+'%';}
 function nextQ(){qi++;if(qi>=Qs.length)endQuiz();else renderQ();}
-function endQuiz(){if(qTimer)clearInterval(qTimer);document.getElementById('quizPlay').style.display='none';document.getElementById('quizEnd').style.display='block';const best=parseInt(localStorage.getItem('dwm_lesson02_best')||'0');if(qscore>best)localStorage.setItem('dwm_lesson02_best',qscore);let msg=qscore>=8?'🏆 Excellent! You know these words!':qscore>=6?'🎉 Bravo! Good work!':qscore>=4?'🌱 Good start — review and try again.':'💪 Beshwaya beshwaya — review the flashcards.';document.getElementById('qResult').textContent=`${msg} — ${qscore}/9`;document.getElementById('qReview').textContent=qUntimed?'Practice mode — take your time.':'Finished in '+(60-qTime)+' seconds. Best: '+localStorage.getItem('dwm_lesson02_best')+'/9';document.getElementById('qList').innerHTML=Qs.map((q,i)=>`<div style="background:var(--cream);border:2px solid #EDE2D1;border-radius:12px;padding:10px 12px;margin:6px 0;font-size:14px;font-weight:700"><span class="ar">${q.w.ar}</span> • ${q.w.tr} = ${q.w.en}</div>`).join('');updateProgress();if(qscore>=6)confetti();else toast(`Quiz finished: ${qscore}/9`);}
+function endQuiz(){if(qTimer)clearInterval(qTimer);document.getElementById('quizPlay').style.display='none';document.getElementById('quizEnd').style.display='block';const best=parseInt(localStorage.getItem('dwm_lesson02_best')||'0');if(qscore>best)localStorage.setItem('dwm_lesson02_best',qscore);let msg=qscore>=8?'🏆 Excellent! You know these words!':qscore>=6?'🎉 Bravo! Good work!':qscore>=4?'🌱 Good start — review and try again.':'💪 Beshwaya beshwaya — review the flashcards.';document.getElementById('qResult').textContent=`${msg} — ${qscore}/9`;document.getElementById('qReview').textContent=qUntimed?'Practice mode — take your time.':'Finished in '+(60-qTime)+' seconds. Best: '+localStorage.getItem('dwm_lesson02_best')+'/9';document.getElementById('qList').innerHTML=Qs.map((q,i)=>`<div style="background:var(--cream);border:2px solid var(--darja-line-7, #EDE2D1);border-radius:12px;padding:10px 12px;margin:6px 0;font-size:14px;font-weight:700"><span class="ar">${q.w.ar}</span> • ${q.w.tr} = ${q.w.en}</div>`).join('');updateProgress();if(qscore>=6)confetti();else toast(`Quiz finished: ${qscore}/9`);}
 function confetti(){const c=document.getElementById('conf'),x=c.getContext('2d');let p=[];for(let i=0;i<40;i++)p.push({x:Math.random()*400,y:Math.random()*-60,v:3+Math.random()*3,s:4+Math.random()*4,c:['#E9A89A','#9DB8A2','#F9E8A8','#9ABED1','#C39A4A'][i%5],r:Math.random()*6});let f=0;function anim(){x.clearRect(0,0,400,120);p.forEach(o=>{o.y+=o.v;o.r+=.14;x.save();x.translate(o.x,o.y);x.rotate(o.r);x.fillStyle=o.c;x.fillRect(-o.s/2,-o.s/2,o.s,o.s*0.6);x.restore();});if(f++<55)requestAnimationFrame(anim);}anim();toast('🎉 Mabrouk! Excellent score!');}
 
 // match game

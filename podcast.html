@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="cookie-consent.css?v=1">
+  <script src="theme.js?v=1"></script>
+  <link rel="stylesheet" href="theme.css?v=1">
+  <link rel="stylesheet" href="cookie-consent.css?v=dark1">
   <script src="cookie-consent.js?v=1" defer></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,52 +12,52 @@
 
   <meta name="description" content="Listen to the Speak Tunisian Arabic podcast by Darja with Mongia. Learn Tunisian Arabic through short practical episodes, free transcripts and short exercises.">
 <link rel="canonical" href="https://darjawithmongia.com/podcast.html">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=dark1">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     /* Page-specific styles: the existing logo and shared stylesheet are retained. */
-    body.podcast-page { margin: 0; font-family: 'Poppins', sans-serif; color: #352d3c; }
+    body.podcast-page { margin: 0; font-family: 'Poppins', sans-serif; color: var(--darja-fg-297, #352d3c); }
     body.podcast-page > .navbar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
     body.podcast-page > .navbar > .podcast-nav { margin-left: auto; display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 24px; }
-    body.podcast-page .podcast-nav a { text-decoration: none; color: #352d3c; }
-    body.podcast-page .podcast-nav a[aria-current="page"] { color: #9b3565; text-decoration: underline; text-underline-offset: 7px; }
-    body.podcast-page .transcript-page { background: #f3ebf5; padding: 44px 24px 56px; }
+    body.podcast-page .podcast-nav a { text-decoration: none; color: var(--darja-fg-297, #352d3c); }
+    body.podcast-page .podcast-nav a[aria-current="page"] { color: var(--darja-fg-298, #9b3565); text-decoration: underline; text-underline-offset: 7px; }
+    body.podcast-page .transcript-page { background: var(--darja-bg-299, #f3ebf5); padding: 44px 24px 56px; }
     body.podcast-page .transcript-page *, body.podcast-page .transcript-page *::before, body.podcast-page .transcript-page *::after { box-sizing: border-box; }
     body.podcast-page .transcript-hero { max-width: 760px; margin: 0 auto 32px; text-align: center; }
-    body.podcast-page .transcript-label { display: inline-block; background: #fff; border-radius: 30px; padding: 6px 13px; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; color: #86536e; }
-    body.podcast-page .transcript-hero h1 { font-size: clamp(26px, 4vw, 38px); line-height: 1.25; margin: 14px 0; color: #352d3c; }
-    body.podcast-page .transcript-hero h1 em { color: #9b3565; }
-    body.podcast-page .transcript-hero p { max-width: 600px; margin: 0 auto 22px; font-size: 14px; line-height: 1.8; color: #746779; }
+    body.podcast-page .transcript-label { display: inline-block; background: var(--darja-bg-8, #fff); border-radius: 30px; padding: 6px 13px; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; color: var(--darja-fg-300, #86536e); }
+    body.podcast-page .transcript-hero h1 { font-size: clamp(26px, 4vw, 38px); line-height: 1.25; margin: 14px 0; color: var(--darja-fg-297, #352d3c); }
+    body.podcast-page .transcript-hero h1 em { color: var(--darja-fg-298, #9b3565); }
+    body.podcast-page .transcript-hero p { max-width: 600px; margin: 0 auto 22px; font-size: 14px; line-height: 1.8; color: var(--darja-fg-301, #746779); }
     body.podcast-page .transcript-library { max-width: 960px; margin: auto; }
-    body.podcast-page .transcript-library-heading { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px; margin-bottom: 20px; border-top: 1px solid #e2d5e6; padding-top: 24px; }
-    body.podcast-page .transcript-library-heading h2 { font-size: 23px; margin: 0; color: #352d3c; }
-    body.podcast-page .transcript-library-heading p { font-size: 12px; color: #746779; margin: 0; }
+    body.podcast-page .transcript-library-heading { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px; margin-bottom: 20px; border-top: 1px solid var(--darja-line-302, #e2d5e6); padding-top: 24px; }
+    body.podcast-page .transcript-library-heading h2 { font-size: 23px; margin: 0; color: var(--darja-fg-297, #352d3c); }
+    body.podcast-page .transcript-library-heading p { font-size: 12px; color: var(--darja-fg-301, #746779); margin: 0; }
     body.podcast-page .transcript-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
-    body.podcast-page .transcript-card { background: #fff; border: 1px solid #eadfe9; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 16px; min-width: 0; box-shadow: 0 5px 16px #39213906; }
+    body.podcast-page .transcript-card { background: var(--darja-bg-8, #fff); border: 1px solid var(--darja-line-303, #eadfe9); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 16px; min-width: 0; box-shadow: 0 5px 16px var(--darja-shadow-304, #39213906); }
     body.podcast-page .transcript-card-heading { display: flex; align-items: center; gap: 16px; }
-    body.podcast-page .transcript-cover { width: 58px; height: 76px; flex-shrink: 0; border-left: 4px solid #a03b6a; border-radius: 4px 9px 9px 4px; background: #f6eaf2; color: #99325f; display: flex; flex-direction: column; justify-content: space-between; padding: 10px; }
+    body.podcast-page .transcript-cover { width: 58px; height: 76px; flex-shrink: 0; border-left: 4px solid var(--darja-line-305, #a03b6a); border-radius: 4px 9px 9px 4px; background: var(--darja-bg-306, #f6eaf2); color: var(--darja-fg-307, #99325f); display: flex; flex-direction: column; justify-content: space-between; padding: 10px; }
     body.podcast-page .transcript-cover span { font-size: 10px; letter-spacing: 1px; }
     body.podcast-page .transcript-cover strong { font-size: 24px; font-weight: 500; }
-    body.podcast-page .transcript-kicker { font-size: 11px; color: #8a5572; }
-    body.podcast-page .transcript-card h3 { font-size: 18px; line-height: 1.45; margin: 5px 0 0; color: #352d3c; }
-    body.podcast-page .transcript-description { color: #746779; font-size: 13px; line-height: 1.8; margin: 0; }
-    body.podcast-page .transcript-included { font-size: 12px; color: #8a5572; }
+    body.podcast-page .transcript-kicker { font-size: 11px; color: var(--darja-fg-308, #8a5572); }
+    body.podcast-page .transcript-card h3 { font-size: 18px; line-height: 1.45; margin: 5px 0 0; color: var(--darja-fg-297, #352d3c); }
+    body.podcast-page .transcript-description { color: var(--darja-fg-301, #746779); font-size: 13px; line-height: 1.8; margin: 0; }
+    body.podcast-page .transcript-included { font-size: 12px; color: var(--darja-fg-308, #8a5572); }
     body.podcast-page .transcript-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; }
     body.podcast-page .transcript-actions a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 16px; border-radius: 8px; text-decoration: none; font-size: 13px; font-weight: 500; }
-    body.podcast-page .transcript-view { color: #fff; background: #9b3565; border: 1px solid #9b3565; }
-    body.podcast-page .transcript-download { color: #873459; background: #fff; border: 1px solid #dfc8d6; }
+    body.podcast-page .transcript-view { color: var(--darja-fg-10, #fff); background: var(--darja-bg-309, #9b3565); border: 1px solid var(--darja-line-310, #9b3565); }
+    body.podcast-page .transcript-download { color: var(--darja-fg-311, #873459); background: var(--darja-bg-8, #fff); border: 1px solid var(--darja-line-312, #dfc8d6); }
     body.podcast-page .transcript-actions a:hover { filter: brightness(.95); }
-    body.podcast-page .transcript-listen { border-top: 1px solid #eee4ed; padding-top: 12px; }
-    body.podcast-page .transcript-listen a { display: inline-block; padding: 5px 0; font-size: 12px; color: #91345f; text-decoration: none; }
+    body.podcast-page .transcript-listen { border-top: 1px solid var(--darja-line-313, #eee4ed); padding-top: 12px; }
+    body.podcast-page .transcript-listen a { display: inline-block; padding: 5px 0; font-size: 12px; color: var(--darja-fg-314, #91345f); text-decoration: none; }
     body.podcast-page .transcript-listen a:hover { text-decoration: underline; }
-    body.podcast-page a:focus-visible { outline: 3px solid #724589; outline-offset: 4px; }
-    /* Fallback only. Unlayered rules in your existing style.css retain the original platform colors. */
+    body.podcast-page a:focus-visible { outline: 3px solid var(--darja-line-315, #724589); outline-offset: 4px; }
+    /* Fallback only. Unlayered rules in your existing style.css?v=dark1 retain the original platform colors. */
     @layer podcast-platform-fallback {
       .podcast-page .podcast-platforms { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px; }
-      .podcast-page .podcast-platforms a { display: inline-block; border-radius: 28px; padding: 12px 18px; color: #fff; font-size: 12px; font-weight: 600; text-decoration: none; box-shadow: 0 4px 10px #0001; }
-      .podcast-page .podcast-platforms a:nth-child(1) { background: #1db954; }
-      .podcast-page .podcast-platforms a:nth-child(2) { background: #8726c7; }
-      .podcast-page .podcast-platforms a:nth-child(3) { background: #00a8d5; }
+      .podcast-page .podcast-platforms a { display: inline-block; border-radius: 28px; padding: 12px 18px; color: var(--darja-fg-10, #fff); font-size: 12px; font-weight: 600; text-decoration: none; box-shadow: 0 4px 10px var(--darja-shadow-316, #0001); }
+      .podcast-page .podcast-platforms a:nth-child(1) { background: var(--darja-bg-155, #1db954); }
+      .podcast-page .podcast-platforms a:nth-child(2) { background: var(--darja-bg-317, #8726c7); }
+      .podcast-page .podcast-platforms a:nth-child(3) { background: var(--darja-bg-318, #00a8d5); }
     }
     @media (max-width: 640px) {
       body.podcast-page .transcript-page { padding: 28px 16px 36px; }
@@ -65,11 +67,11 @@
       body.podcast-page .transcript-library-heading { align-items: flex-start; flex-direction: column; }
     }
   </style>
-  <link rel="stylesheet" href="newsletter-popup.css?v=3">
+  <link rel="stylesheet" href="newsletter-popup.css?v=dark1">
   <script src="newsletter-popup.js?v=3" defer></script>
-  <link rel="stylesheet" href="lesson-menu.css?v=2">
-  <script src="lesson-menu.js?v=1" defer></script>
-  <link rel="stylesheet" href="learning-layout.css?v=1">
+  <link rel="stylesheet" href="lesson-menu.css?v=dark1">
+  <script src="lesson-menu.js?v=4" defer></script>
+  <link rel="stylesheet" href="learning-layout.css?v=dark1">
 </head>
 <body class="podcast-page">
 <header class="navbar">
