@@ -6,6 +6,8 @@
 .darja-theme-toggle:focus-visible { outline:3px solid #b65f85; outline-offset:3px; }
 /* Reserve a real header column for the switch rather than overlaying navigation. */
 body > :is(.navbar,.site-header):has(.darja-theme-toggle) { display:grid!important; grid-template-columns:auto minmax(0,1fr) auto; align-items:center; gap:20px; }
+body > :is(.navbar,.site-header) > .darja-theme-toggle { grid-column:3; grid-row:1; }
+body > :is(.navbar,.site-header) > .language-switcher:not(:has(*)) { display:none; }
 body > :is(.navbar,.site-header) > [data-lesson-menu-nav] { position:static!important; transform:none!important; left:auto!important; right:auto!important; width:auto!important; margin:0 auto!important; grid-column:2; justify-content:center!important; gap:20px; }
 @media (max-width:1100px) { body > :is(.navbar,.site-header) > [data-lesson-menu-nav] { gap:12px; } body > :is(.navbar,.site-header) > [data-lesson-menu-nav] a { font-size:16px; } }
 @media (max-width:900px) {
