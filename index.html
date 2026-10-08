@@ -20,6 +20,17 @@
     .hero-newsletter-link { display: inline-block; margin-top: 18px; font-size: 15px; font-weight: 600; }
     .hero-newsletter-link:focus-visible, .newsletter-help a:focus-visible { outline: 3px solid #69475a; outline-offset: 4px; }
     @media (max-width: 600px) { .newsletter-section { padding: 44px 5%; } }
+    /* Compact teaching statistics below the hero email link. */
+    .hero-teaching-stats { display: flex; align-items: center; width: fit-content; max-width: 100%; margin: 16px 0 0; padding: 0; text-align: left; }
+    .hero-teaching-stat { display: grid; grid-template-columns: 18px auto; align-items: center; gap: 2px 6px; min-width: 0; margin: 0; padding: 0 12px; }
+    .hero-teaching-stat:first-child { padding-left: 0; }
+    .hero-teaching-stat:last-child { padding-right: 0; }
+    .hero-teaching-stat + .hero-teaching-stat { border-left: 1px solid #e7dfe9; }
+    .hero-teaching-stat svg { grid-column: 1; grid-row: 1 / 3; width: 18px; height: 18px; margin: 0; color: #d98eaf; }
+    .hero-teaching-stat dt { grid-column: 2; grid-row: 2; margin: 0; color: #666; font-size: 11px; line-height: 1.4; }
+    .hero-teaching-stat dd { grid-column: 2; grid-row: 1; margin: 0; color: #b65f85; font-size: 14px; font-weight: 600; line-height: 1.3; white-space: nowrap; }
+    @media (max-width: 980px) { .hero-teaching-stats { margin-left: auto; margin-right: auto; } }
+    @media (max-width: 400px) { .hero-teaching-stat { grid-template-columns: 15px auto; gap: 2px 4px; padding: 0 8px; } .hero-teaching-stat svg { width: 15px; height: 15px; } .hero-teaching-stat dd { font-size: 13px; } }
   </style>
   <link rel="stylesheet" href="newsletter-popup.css?v=3">
   <script src="newsletter-popup.js?v=3" defer></script>
@@ -82,6 +93,23 @@ with <em>Darja with Mongia.</em>
       <a href="placement-test.html" class="hero-test-btn">Test your Tunisian Arabic</a>
     </div>
     <a href="#newsletter" class="hero-newsletter-link">Get email updates about new lessons →</a>
+    <dl class="hero-teaching-stats" aria-label="Mongia’s teaching experience">
+      <div class="hero-teaching-stat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5C9 3 5 3 2 4v15c3-1 7-1 10 1 3-2 7-2 10-1V4c-3-1-7-1-10 1Z"/><path d="M12 5v15"/></svg>
+        <dt>Lessons Taught</dt>
+        <dd>1377+</dd>
+      </div>
+      <div class="hero-teaching-stat">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="m12 2 3.1 6.3L22 9.3l-5 4.9 1.2 6.8L12 17.8 5.8 21 7 14.2 2 9.3l6.9-1Z"/></svg>
+        <dt>Student Reviews</dt>
+        <dd aria-label="5 out of 5 stars">5★</dd>
+      </div>
+      <div class="hero-teaching-stat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4m10-4v4M3 10h18M7 14h2m4 0h2m-8 3h2m4 0h2"/></svg>
+        <dt>Teaching Online</dt>
+        <dd>Since 2022</dd>
+      </div>
+    </dl>
   </div>
 
   <div class="hero-portrait">
@@ -129,22 +157,7 @@ with <em>Darja with Mongia.</em>
   <a class="beginner-all-link" href="free-lessons.html#lessons">Explore all free lessons →</a>
 </section>
 
-<div class="stats">
-  <div>
-    <h3>1377+</h3>
-    <p>Lessons Taught</p>
-  </div>
 
-  <div>
-    <h3>5★</h3>
-    <p>Student Reviews</p>
-  </div>
-
-  <div>
-    <h3>Since 2022</h3>
-    <p>Teaching Online</p>
-  </div>
-</div>
 
 
 
