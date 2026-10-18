@@ -1,2 +1,39 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="canonical" href="https://darjawithmongia.com/survival-guide-audio.html"><title>Tunisian Arabic Survival Guide | PDF &amp; Audio | Darja with Mongia</title><meta name="description" content="Get the Tunisian Arabic Survival Guide PDF with downloadable audio. Explore ten free sample pages and listen to companion recordings by Darja with Mongia."><style>html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#fff}iframe{display:block;width:100%;height:100%;height:100dvh;border:0}</style></head><body><iframe id="guide" title="Tunisian Arabic Survival Guide — book preview and free audio" src="https://darja-survival-guide-audio.crisptitan32.chatgpt.site/?embedded=1" allow="autoplay" allowfullscreen></iframe><script>function updateSection(){const section=location.hash;document.getElementById('guide').src='https://darja-survival-guide-audio.crisptitan32.chatgpt.site/?embedded=1'+section}updateSection();window.addEventListener('hashchange',updateSection);</script></body></html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="canonical" href="https://darjawithmongia.com/survival-guide-audio.html"><title>Tunisian Arabic Survival Guide | PDF &amp; Audio | Darja with Mongia</title><meta name="description" content="Get the Tunisian Arabic Survival Guide PDF with downloadable audio. Explore ten free sample pages and listen to companion recordings by Darja with Mongia."><script>try{document.documentElement.dataset.theme=localStorage.getItem('darja-color-theme')==='dark'?'dark':'light'}catch(_){document.documentElement.dataset.theme='light'}</script><style>html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#fff;color-scheme:light}html[data-theme="dark"],html[data-theme="dark"] body{background:#17151d;color-scheme:dark}iframe{display:block;width:100%;height:100%;height:100dvh;border:0}</style></head><body><iframe id="guide" title="Tunisian Arabic Survival Guide — book, preview and free audio" allow="autoplay" allowfullscreen></iframe><script>
+(() => {
+  const key = 'darja-color-theme';
+  const origin = 'https://darja-survival-guide-audio.crisptitan32.chatgpt.site';
+  const frame = document.getElementById('guide');
+  const valid = theme => theme === 'light' || theme === 'dark';
+  let theme = document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
+  function sendTheme() {
+    if (frame.contentWindow) frame.contentWindow.postMessage({ type:'darja:theme-set', theme }, origin);
+  }
+  function apply(next, persist) {
+    if (!valid(next)) return;
+    theme = next;
+    document.documentElement.dataset.theme = theme;
+    if (persist) { try { localStorage.setItem(key, theme); } catch (_) {} }
+    sendTheme();
+  }
+  function updateSection() {
+    const url = new URL(origin + '/');
+    url.searchParams.set('embedded', '1');
+    url.searchParams.set('theme', theme);
+    url.hash = location.hash;
+    frame.src = url.href;
+  }
+  window.addEventListener('message', event => {
+    if (event.origin !== origin || event.source !== frame.contentWindow || !event.data) return;
+    if (event.data.type === 'darja:theme-ready') sendTheme();
+    if (event.data.type === 'darja:theme-change') apply(event.data.theme, true);
+  });
+  window.addEventListener('storage', event => {
+    if (event.key !== key && event.key !== null) return;
+    try { apply(localStorage.getItem(key) === 'dark' ? 'dark' : 'light', false); } catch (_) {}
+  });
+  frame.addEventListener('load', sendTheme);
+  window.addEventListener('hashchange', updateSection);
+  updateSection();
+})();
+</script></body></html>
