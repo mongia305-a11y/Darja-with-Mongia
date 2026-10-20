@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="color-scheme" content="light">
+<title>Compact Feedback — New Design | Darja with Mongia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#362e36;--muted:#857a83;--line:#eee5e9;--rose:#a54f78;--pink:#f8e9f0;--page:#faf8f9}
+*{box-sizing:border-box}body{margin:0;background:var(--page);color:var(--ink);font-family:'DM Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,input,textarea{font:inherit}button,a{-webkit-tap-highlight-color:transparent}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #b76e94;outline-offset:3px}
+[hidden]{display:none!important}svg{display:block;width:20px;height:20px;flex-shrink:0}
+main{width:min(780px,calc(100% - 40px));margin:0 auto;padding:36px 0 70px}
+.brand{display:inline-block}.brand img{width:145px;height:auto}
+.preview-label{display:inline-flex;align-items:center;gap:6px;border:1px solid #ead9e2;padding:5px 9px;border-radius:999px;font-size:10px;color:var(--rose);font-weight:600;letter-spacing:.03em}
+.preview-dot{width:5px;height:5px;background:var(--rose);border-radius:50%}
+.intro{margin:38px 0 32px}.intro h1{font-size:28px;line-height:1.25;font-weight:600;letter-spacing:-.9px;margin:14px 0 10px}.intro p{font-size:14px;color:var(--muted);line-height:1.7;margin:0;max-width:510px}
+.lesson-end{margin:0 0 16px;padding:24px 0 18px;border-bottom:1px solid var(--line)}.lesson-end span{font-size:10px;text-transform:uppercase;letter-spacing:.12em;font-weight:600;color:var(--muted)}.lesson-end h2{font-size:20px;font-weight:500;letter-spacing:-.4px;margin:7px 0 0}
+.reaction-strip{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:9px 12px 9px 20px;background:#fff;border:1px solid #e8dde3;border-radius:999px;box-shadow:0 5px 22px #583c4c05}
+.rate-group{flex:0 0 auto}.rate-label{font-size:10px;font-weight:600;letter-spacing:.015em;color:var(--muted);margin:0 0 1px 4px}.quick-stars{display:flex;align-items:center;gap:0}
+.quick-star{display:grid;place-items:center;width:29px;min-height:36px;background:transparent;border:0;color:var(--rose);font-size:27px;line-height:1;padding:0;border-radius:7px}.quick-star:hover{background:var(--pink);transform:translateY(-1px)}
+.divider{width:1px;height:29px;background:var(--line);flex:0 0 auto}
+.comment-trigger{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:42px;padding:10px 15px;border:1px solid #efdde6;background:var(--pink);border-radius:999px;color:#884365;font-size:12px;font-weight:600;white-space:nowrap}.comment-trigger svg{width:17px;height:17px}.comment-trigger:hover{background:#f2d8e5}
+.share-group{display:flex;align-items:center;gap:3px;flex:0 0 auto}.share-group a,.share-group button{display:grid;place-items:center;width:39px;min-height:42px;border:0;border-radius:50%;background:transparent;color:#8d7a87;text-decoration:none}.share-group a:hover,.share-group button:hover{color:var(--rose);background:var(--pink)}.share-group svg{width:18px;height:18px}.share-group .whatsapp:hover{color:#26876a;background:#eef8f3}.share-group .facebook:hover{color:#4267a1;background:#f0f4fa}
+.strip-status{font-size:12px;color:var(--rose);padding:4px 16px;margin:8px 0 0}
+.copy-fallback{margin:10px 0 0;font-size:12px;color:var(--muted)}.copy-fallback input{display:block;width:100%;font-size:14px;padding:10px;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--ink);margin-top:5px}
+.preview-hint{margin:17px 0 0;text-align:center;font-size:11px;color:#9c8e97;line-height:1.7}.next{padding:32px 0}.next h3{font-size:14px;font-weight:500;margin:0 0 5px}.next p{font-size:12px;line-height:1.7;color:var(--muted);margin:0}
+dialog{color:var(--ink);width:min(430px,calc(100% - 28px));max-height:calc(100dvh - 32px);overflow:auto;padding:26px;border:1px solid var(--line);border-radius:22px;background:#fff;box-shadow:0 24px 90px #47323c29}dialog:not([open]){display:none}dialog::backdrop{background:#32262e66;backdrop-filter:blur(4px)}
+.dialog-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}.dialog-eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--rose);font-weight:600}.dialog-top h2{font-size:23px;font-weight:600;letter-spacing:-.7px;margin:6px 0 8px}.dialog-close{display:grid;place-items:center;border:0;border-radius:50%;width:32px;min-height:32px;background:#f8f4f6;color:var(--muted);padding:7px}.dialog-close svg{width:17px;height:17px}.dialog-intro{font-size:12px;line-height:1.7;color:var(--muted);margin:0 0 16px}
+form{display:grid;gap:13px}fieldset{margin:0;padding:0;border:0;min-width:0}legend,.field-label{font-size:12px;font-weight:500;color:#665962}.modal-stars{display:flex;gap:4px;margin-top:4px}.modal-star{position:relative;cursor:pointer}.modal-star input{position:absolute;opacity:0;width:1px;height:1px}.modal-star span{display:grid;place-items:center;width:42px;height:42px;font-size:29px;color:#e6dbe1;border-radius:8px}.modal-star[data-selected=true] span{color:var(--rose);background:#fcf2f7}.modal-star input:focus-visible+span{outline:3px solid #b76e94}
+.field-label input,.field-label textarea{display:block;width:100%;margin:6px 0 0;border:1px solid #e8dde3;border-radius:10px;background:#fcfafb;color:var(--ink);padding:10px 12px;font-size:16px;line-height:1.5}.field-label textarea{resize:vertical;min-height:82px}
+.consent{display:flex;align-items:flex-start;gap:8px;font-size:11px;line-height:1.6;color:var(--muted)}.consent input{margin:2px 0 0;width:15px;height:15px;flex:0 0 auto;accent-color:var(--rose)}
+.send-preview{min-height:43px;border:0;border-radius:10px;background:var(--rose);color:#fff;font-size:12px;font-weight:600;box-shadow:0 3px 9px #a54f7815}.form-note{font-size:10px;line-height:1.6;text-align:center;color:var(--muted);margin:0}.preview-status{font-size:12px;line-height:1.6;color:var(--rose);background:var(--pink);border-radius:9px;padding:10px;margin:0}
+@media(max-width:620px){main{width:calc(100% - 28px);padding-top:24px}.intro{margin-top:25px}.intro h1{font-size:25px}.reaction-strip{flex-wrap:wrap;gap:8px 12px;border-radius:18px;padding:13px 14px}.reaction-strip>.divider{display:none}.rate-group{margin-right:auto}.comment-trigger{font-size:11px;padding-inline:11px;min-height:42px}.share-group{flex:1 0 100%;justify-content:center;border-top:1px solid var(--line);padding-top:7px;margin-top:2px;gap:12px}.quick-star{width:27px;min-height:38px}.share-group a,.share-group button{width:42px}.lesson-end{padding-top:10px}.preview-hint{max-width:290px;margin:14px auto 0}dialog{padding:22px}}
+@media(prefers-reduced-motion:reduce){.quick-star:hover{transform:none}}
+</style></head>
+<body><main>
+<a class="brand" href="index.html"><img src="images/full-logo.png" alt="Darja with Mongia"></a>
+<div class="intro"><span class="preview-label"><span class="preview-dot"></span>NEW DESIGN · COMPACT PREVIEW</span><h1>A little feedback. A little sharing.</h1><p>One slim toolbar at the end of a lesson. Tap a star or leave a comment to open the small feedback window.</p></div>
+<div class="lesson-end"><span>At the end of your lesson</span><h2>Keep your Darja growing.</h2></div>
+<section class="reaction-strip" aria-label="Lesson rating, feedback and sharing">
+<div class="rate-group"><p class="rate-label">Rate this lesson</p><div class="quick-stars"><button type="button" class="quick-star" data-rating="1" aria-label="Rate 1 out of 5 stars" aria-haspopup="dialog" aria-controls="feedback-dialog"><span aria-hidden="true">☆</span></button><button type="button" class="quick-star" data-rating="2" aria-label="Rate 2 out of 5 stars" aria-haspopup="dialog" aria-controls="feedback-dialog"><span aria-hidden="true">☆</span></button><button type="button" class="quick-star" data-rating="3" aria-label="Rate 3 out of 5 stars" aria-haspopup="dialog" aria-controls="feedback-dialog"><span aria-hidden="true">☆</span></button><button type="button" class="quick-star" data-rating="4" aria-label="Rate 4 out of 5 stars" aria-haspopup="dialog" aria-controls="feedback-dialog"><span aria-hidden="true">☆</span></button><button type="button" class="quick-star" data-rating="5" aria-label="Rate 5 out of 5 stars" aria-haspopup="dialog" aria-controls="feedback-dialog"><span aria-hidden="true">☆</span></button></div></div>
+<span class="divider" aria-hidden="true"></span>
+<button class="comment-trigger" type="button" id="comment-trigger" aria-haspopup="dialog" aria-controls="feedback-dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5H6l-4 3V6.5A4.5 4.5 0 0 1 6.5 2h9A4.5 4.5 0 0 1 20 6.5Z"/><path d="M7 8h8M7 12h5"/></svg>Leave a comment</button>
+<span class="divider" aria-hidden="true"></span>
+<div class="share-group" aria-label="Share this lesson">
+<a class="whatsapp" href="https://wa.me/?text=Learn%20Tunisian%20Arabic%20with%20Darja%20with%20Mongia%20https%3A%2F%2Fdarjawithmongia.com%2Ffurniture-of-the-house.html" target="_blank" rel="noopener noreferrer" aria-label="Share on WhatsApp" title="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 20 1.2-4A8.5 8.5 0 1 1 8 19.5Z"/><path d="m9 7-1 2c.5 3 2 4.5 5 5l2-1-2-2-1 1c-1.5-.5-2.5-1.5-3-3l1-1Z"/></svg></a>
+<a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdarjawithmongia.com%2Ffurniture-of-the-house.html" target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook" title="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 21v-8h3l.5-3H14V8.2c0-.9.3-1.5 1.6-1.5h2V4a23 23 0 0 0-2.8-.2c-2.8 0-4.7 1.7-4.7 4.8V10H7v3h3.1v8Z"/></svg></a>
+<button type="button" id="copy-link" aria-label="Copy lesson link" title="Copy link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="13" rx="3"/><path d="M16 8V6a3 3 0 0 0-3-3H6a3 3 0 0 0-3 3v7a3 3 0 0 0 3 3h2"/></svg></button>
+<button type="button" id="native-share" aria-label="More sharing options" title="More sharing options" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 10.5 6.8-4m-6.8 7 6.8 4"/></svg></button>
+</div></section>
+<p id="copy-status" class="strip-status" role="status" hidden></p>
+<label class="copy-fallback" id="copy-fallback" hidden>Lesson link<input id="lesson-link" value="https://darjawithmongia.com/furniture-of-the-house.html" readonly></label>
+<p class="preview-hint">Try the stars or the comment button. This preview does not send or save feedback.</p>
+<div class="next"><h3>Continue learning Tunisian Arabic →</h3><p>Your existing lesson recommendations follow the toolbar.</p></div>
+</main>
+<dialog id="feedback-dialog" aria-labelledby="feedback-title" aria-describedby="feedback-intro">
+<div class="dialog-top"><div><span class="dialog-eyebrow">Your voice matters</span><h2 id="feedback-title">How was this lesson?</h2></div><button type="button" class="dialog-close" id="close-dialog" aria-label="Close feedback window"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div>
+<p class="dialog-intro" id="feedback-intro">Share a thought, ask a question or tell me what could be clearer.</p>
+<form id="preview-form" onsubmit="event.preventDefault()">
+<fieldset><legend>Your rating · optional</legend><div class="modal-stars"><label class="modal-star"><input type="radio" name="rating" value="1" aria-label="1 out of 5 stars"><span aria-hidden="true">★</span></label><label class="modal-star"><input type="radio" name="rating" value="2" aria-label="2 out of 5 stars"><span aria-hidden="true">★</span></label><label class="modal-star"><input type="radio" name="rating" value="3" aria-label="3 out of 5 stars"><span aria-hidden="true">★</span></label><label class="modal-star"><input type="radio" name="rating" value="4" aria-label="4 out of 5 stars"><span aria-hidden="true">★</span></label><label class="modal-star"><input type="radio" name="rating" value="5" aria-label="5 out of 5 stars"><span aria-hidden="true">★</span></label></div></fieldset>
+<label class="field-label">First name or nickname<input type="text" name="nickname" maxlength="60" autocomplete="nickname"></label>
+<label class="field-label">Comment or question<textarea name="comment" rows="2" maxlength="1500" placeholder="I’d love to hear what you think…"></textarea></label>
+<label class="consent"><input type="checkbox" name="publish_consent"><span>You may publish my nickname and feedback after approval. Leave unchecked for private feedback.</span></label>
+<button class="send-preview" type="submit">Send feedback <span aria-hidden="true">↗</span></button>
+<p class="form-note">Design preview — nothing is submitted.</p><p id="preview-status" class="preview-status" role="status" hidden></p>
+</form></dialog>
+<script>(() => {
+ 'use strict';
+ const dialog = document.getElementById('feedback-dialog');
+ const form = document.getElementById('preview-form');
+ const status = document.getElementById('preview-status');
+ const copyStatus = document.getElementById('copy-status');
+ const quickStars = Array.from(document.querySelectorAll('[data-rating]'));
+ let previousFocus;
+ function paintStars() {
+   const value=Number(form.elements.rating.value)||0;
+   document.querySelectorAll('.modal-star input').forEach(radio => {
+     radio.parentElement.dataset.selected=Number(radio.value)<=value ? 'true':'false';
+   });
+   quickStars.forEach(button => { button.querySelector('span').textContent=Number(button.dataset.rating)<=value?'★':'☆'; });
+ }
+ function openFeedback(trigger, rating) {
+   previousFocus=trigger;
+   if(rating)form.querySelector('[name="rating"][value="'+rating+'"]').checked=true;
+   paintStars();
+   status.hidden=true;
+   if(!dialog.open)dialog.showModal();
+ }
+ quickStars.forEach(button=>button.addEventListener('click',()=>openFeedback(button,button.dataset.rating)));
+ document.getElementById('comment-trigger').addEventListener('click',event=>openFeedback(event.currentTarget));
+ document.querySelectorAll('.modal-star input').forEach(input=>input.addEventListener('change',paintStars));
+ document.getElementById('close-dialog').addEventListener('click',()=>dialog.close());
+ dialog.addEventListener('close',()=>{if(previousFocus)previousFocus.focus();});
+ dialog.addEventListener('click',event=>{
+   if(event.target!==dialog)return;
+   const box=dialog.getBoundingClientRect();
+   if(event.clientX<box.left||event.clientX>box.right||event.clientY<box.top||event.clientY>box.bottom)dialog.close();
+ });
+ form.addEventListener('submit',event=>{
+   event.preventDefault();
+   status.hidden=false;
+   status.textContent='Preview only — your feedback has not been sent.';
+ });
+ const url='https://darjawithmongia.com/furniture-of-the-house.html';
+ const fallback=document.getElementById('copy-fallback');
+ const link=document.getElementById('lesson-link');
+ document.getElementById('copy-link').addEventListener('click',async()=>{
+   copyStatus.hidden=false;
+   try {
+     if(!navigator.clipboard || !navigator.clipboard.writeText)throw Error('Clipboard unavailable');
+     await navigator.clipboard.writeText(url);
+     copyStatus.textContent='Lesson link copied';
+   } catch(error) {
+     fallback.hidden=false;
+     link.focus();
+     link.select();
+     link.setSelectionRange(0,link.value.length);
+     copyStatus.textContent='Copy the selected lesson link.';
+   }
+ });
+ const share=document.getElementById('native-share');
+ if(typeof navigator.share==='function'){
+   share.hidden=false;
+   share.addEventListener('click',async()=>{
+     try { await navigator.share({title:'Furniture of the House in Tunisian Arabic',url}); }
+     catch(error){if(error.name!=='AbortError'){copyStatus.hidden=false;copyStatus.textContent='Choose a sharing button or copy the link.';}}
+   });
+ }
+})();</script>
+</body></html>
