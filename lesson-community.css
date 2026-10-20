@@ -78,3 +78,7 @@ html[data-theme="dark"] .dwm-community{--c-accent:#f1bad5;--c-off:#9f8392}
  .dwm-community .dwm-c-shares :is(a,button){width:42px}
  .dwm-community .dwm-c-dialog{padding:20px 20px 14px}
 }
+
+/* Optional direct submission is shown only after an unsuccessful confirmation. */
+.dwm-community .dwm-c-standard-submit{min-height:42px;padding:9px 12px;margin:0;border:1px solid var(--c-line);border-radius:10px;background:var(--c-paper);color:var(--c-accent);font-size:12px;font-weight:500;line-height:1.5}
+.dwm-community .dwm-c-standard-submit:hover{background:var(--c-tint)}

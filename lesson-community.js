@@ -20,12 +20,13 @@ function feedbackPayload(form, lesson, title, url) {
   if (!nickname || nickname.length > 60 || comment.length > 1500 || (!rating && !comment)) return null;
   return {
     nickname,
-    rating:rating || 'No rating — comment only',
+    rating:rating ? String(rating) : 'No rating — comment only',
     comment:comment || '(No comment)',
     publish_consent:form.elements.publish_consent.checked ? 'Yes — may publish after moderation' : 'No — private feedback only',
     lesson:title,
     lesson_path:lesson,
     lesson_url:url,
+    _url:url,
     _subject:'Lesson feedback — ' + title + ' — Darja with Mongia',
     _template:'table',
     _captcha:'false',
@@ -43,6 +44,7 @@ function feedbackPayload(form, lesson, title, url) {
     const copyFallback=section.querySelector('[data-c-copy-fallback]');
     const linkInput=section.querySelector('[data-c-copy-url]');
     const submit=form.querySelector('[type="submit"]');
+    const standardSubmit=section.querySelector('[data-c-standard-submit]');
     const quickStars=Array.from(section.querySelectorAll('[data-c-rating]'));
     const radios=Array.from(form.querySelectorAll('[name="rating"]'));
     const lesson=section.dataset.lesson;
@@ -141,6 +143,38 @@ function feedbackPayload(form, lesson, title, url) {
     function sayForm(message,state) {
       status.hidden=false;status.textContent=message;status.dataset.state=state;
     }
+    function offerStandardSubmission() {
+      if(standardSubmit)standardSubmit.hidden=false;
+    }
+    if(standardSubmit)standardSubmit.addEventListener('click',()=>{
+      if(sending||form.elements._honey.value)return;
+      validate();
+      if(!form.reportValidity())return;
+      const payload=feedbackPayload(form,lesson,title,url);
+      if(!payload)return;
+      // A normal form POST is a separate visitor choice, never an automatic retry.
+      // It lets FormSubmit show verification or activation instructions directly.
+      const direct=document.createElement('form');
+      direct.method='POST';
+      direct.action='https://formsubmit.co/contact@darjawithmongia.com';
+      direct.target='_blank';
+      direct.setAttribute('rel','noopener');
+      direct.hidden=true;
+      Object.entries({...payload,_captcha:'true'}).forEach(([name,value])=>{
+        const input=document.createElement('input');
+        input.type='hidden';input.name=name;input.value=String(value);
+        direct.append(input);
+      });
+      document.body.append(direct);
+      try {
+        direct.submit();
+        sayForm('The standard form is opening in a new tab. Follow the instructions there to finish. This window still contains your feedback.','pending');
+      } catch(error) {
+        sayForm('The standard form could not open. Your feedback is still here; please use the email link below.','error');
+      } finally {
+        window.setTimeout(()=>direct.remove(),1000);
+      }
+    });
     form.addEventListener('submit',async event=>{
       event.preventDefault();
       if(sending||form.elements._honey.value)return;
@@ -149,6 +183,7 @@ function feedbackPayload(form, lesson, title, url) {
       const payload=feedbackPayload(form,lesson,title,url);
       if(!payload)return;
       sending=true;submit.disabled=true;submit.textContent='Sending…';
+      if(standardSubmit)standardSubmit.hidden=true;
       form.setAttribute('aria-busy','true');
       sayForm('Sending your feedback…','pending');
       const controller=new AbortController();
@@ -158,17 +193,36 @@ function feedbackPayload(form, lesson, title, url) {
           method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
           body:JSON.stringify(payload),signal:controller.signal,credentials:'omit'
         });
-        const result=await response.json();
-        if(/activat|confirm/i.test(result.message||'')) {
-          sayForm('Feedback is awaiting activation. Your text is still here. Please use the email link below for now.','error');
+        const body=await response.text();
+        let result;
+        try {result=JSON.parse(body);}
+        catch(error){result={success:false};}
+        if(!result||typeof result!=='object')result={success:false};
+        const message=typeof result.message==='string'?result.message:'';
+        if(/activat|confirm/i.test(message)) {
+          sayForm('The feedback service is awaiting activation. Your feedback is still here. Please use the standard form below or email Mongia.','error');
+          offerStandardSubmission();
         } else if(response.ok&&(result.success===true||result.success==='true')) {
           sayForm('Thank you! Your feedback was submitted to Mongia for review. Public reviews appear after approval and publication.','success');
           form.reset();paintStars();
           form.elements.nickname.setCustomValidity('');
           form.elements.comment.setCustomValidity('');
-        } else throw Error('Feedback was not accepted.');
+        } else {
+          const detail=message.trim().slice(0,240);
+          sayForm(detail
+            ? 'The form service says: '+detail+' Your feedback is still here. You can use the standard form below.'
+            : response.status===429
+              ? 'The form service is limiting requests. Please wait a few minutes or use the standard form below. Your feedback is still here.'
+              : 'The form service is unavailable or requires verification. Your feedback is still here. Use the standard form below to continue.',
+            'error');
+          offerStandardSubmission();
+        }
       } catch(error) {
-        sayForm('We couldn’t confirm submission. Your text is still here. Please try again or use the email link below.','error');
+        sayForm(error&&error.name==='AbortError'
+          ? 'The form service took too long to respond. Your feedback is still here. Try the standard form below or return later.'
+          : 'We couldn’t confirm delivery. Your feedback is still here. Try the standard form below or use the email link.',
+          'error');
+        offerStandardSubmission();
       } finally {
         window.clearTimeout(timeout);sending=false;submit.disabled=false;
         submit.textContent='Send feedback ↗';form.removeAttribute('aria-busy');

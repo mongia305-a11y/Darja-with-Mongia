@@ -46,3 +46,13 @@ The new styles and event handlers are scoped to the component. No local storage,
 
 Checks used simulated browser and service responses: popup selection/close/focus/fallback; submission success/network errors/rejection/activation; duplicate requests; invalid input/honeypot; public opt-in and private default; comment-only submissions; per-lesson review filtering; plain-text rendering; clipboard/native sharing; unchanged original lesson source.
 Browser rendering and inbox delivery were not verified because the execution environment was unavailable.
+
+## Submission repair
+
+The form includes its canonical lesson URL as _url in both AJAX and normal submissions, as recommended by FormSubmit's help page for submission errors.
+All AJAX field values are strings, matching normal HTML form encoding.
+Errors distinguish service rejection, activation, rate limits, non-JSON verification pages and network/timeouts.
+An optional "Continue with standard form" button appears after an unsuccessful confirmation.
+This is a separate visitor choice; the site never automatically re-sends feedback after a failed or uncertain request.
+The fallback submits a normal POST to the same existing FormSubmit service in a new tab, enabling its standard verification screen. It includes all fields and the same publication-permission value, requests CAPTCHA verification and keeps the original popup text intact.
+The owner should verify actual inbox receipt and any required FormSubmit activation. Service-side availability cannot be repaired by changing the static website.
