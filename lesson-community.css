@@ -1,0 +1,80 @@
+/* Compact community controls. All rules are scoped to this new component. */
+.dwm-community{
+ --c-paper:var(--polish-paper,#fff);--c-ink:var(--polish-text,#362e36);--c-muted:var(--polish-muted,#857a83);
+ --c-line:var(--polish-line,#e8dde3);--c-tint:var(--polish-tint,#f8e9f0);--c-accent:#a54f78;--c-off:#d9c8d2;
+ box-sizing:border-box;width:100%;min-width:0;margin:18px auto 12px;color:var(--c-ink);
+ font:400 14px/1.6 'Poppins',system-ui,sans-serif;text-align:left;scroll-margin-top:180px;
+}
+html[data-theme="dark"] .dwm-community{--c-accent:#f1bad5;--c-off:#9f8392}
+.dwm-community *,.dwm-community *::before,.dwm-community *::after{box-sizing:border-box}
+.dwm-community [hidden]{display:none!important}
+.dwm-community svg{display:block;width:20px;height:20px;flex-shrink:0}
+.dwm-community :is(button,input,textarea){font-family:'Poppins',system-ui,sans-serif}
+.dwm-community :is(button,a,input,textarea):focus-visible{outline:3px solid #b76e94;outline-offset:3px}
+.dwm-community button{cursor:pointer;-webkit-tap-highlight-color:transparent}
+.dwm-community .dwm-c-strip{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:9px 12px 9px 20px;background:var(--c-paper);border:1px solid var(--c-line);border-radius:999px;box-shadow:0 5px 22px #583c4c05}
+.dwm-community .dwm-c-rate{flex:0 0 auto}
+.dwm-community .dwm-c-rate-label{font-size:10px;font-weight:600;letter-spacing:.015em;line-height:1.5;color:var(--c-muted);margin:0 0 1px 4px}
+.dwm-community .dwm-c-quick-stars{display:flex;align-items:center;gap:0}
+.dwm-community .dwm-c-star{display:grid;place-items:center;width:29px;min-height:36px;background:transparent;border:0;color:var(--c-accent);font-size:27px;line-height:1;padding:0;margin:0;border-radius:7px}
+.dwm-community .dwm-c-star:hover{background:var(--c-tint)}
+.dwm-community .dwm-c-divider{width:1px;height:29px;background:var(--c-line);flex:0 0 auto}
+.dwm-community .dwm-c-comment{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:42px;padding:10px 15px;margin:0;border:1px solid var(--c-line);background:var(--c-tint);border-radius:999px;color:var(--c-accent);font-size:12px;font-weight:600;line-height:1.5;white-space:nowrap}
+.dwm-community .dwm-c-comment svg{width:17px;height:17px}
+.dwm-community .dwm-c-shares{display:flex;align-items:center;gap:3px;flex:0 0 auto}
+.dwm-community .dwm-c-shares :is(a,button){display:grid;place-items:center;width:39px;min-height:42px;padding:8px;margin:0;border:0;border-radius:50%;background:transparent;color:var(--c-muted);text-decoration:none}
+.dwm-community .dwm-c-shares :is(a,button):hover{color:var(--c-accent);background:var(--c-tint)}
+.dwm-community .dwm-c-shares svg{width:18px;height:18px}
+.dwm-community .dwm-c-share-status,.dwm-community .dwm-c-summary,.dwm-community .dwm-c-review-notice{font-size:12px;color:var(--c-muted);padding:0 12px;margin:8px 0 0;line-height:1.6}
+.dwm-community .dwm-c-copy-fallback{margin:10px 0 0;font-size:12px;color:var(--c-muted)}
+.dwm-community .dwm-c-copy-fallback input{display:block;width:100%;font-size:14px;padding:10px;border:1px solid var(--c-line);border-radius:9px;background:var(--c-paper);color:var(--c-ink);margin-top:5px}
+.dwm-community .dwm-c-dialog{color:var(--c-ink);width:min(430px,calc(100% - 28px));max-width:430px;height:auto;min-height:0;max-height:calc(100dvh - 32px);overflow:auto;padding:24px 24px 16px;border:1px solid var(--c-line);border-radius:22px;background:var(--c-paper);box-shadow:0 24px 90px #47323c29;font:400 14px/1.6 'Poppins',system-ui,sans-serif;text-align:left}
+.dwm-community .dwm-c-dialog:not([open]){display:none}
+.dwm-community .dwm-c-dialog::backdrop{background:#32262e66;backdrop-filter:blur(4px)}
+.dwm-community .dwm-c-dialog-fallback{position:static;margin:12px auto}
+.dwm-community .dwm-c-dialog-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.dwm-community .dwm-c-eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--c-accent);font-weight:600}
+.dwm-community .dwm-c-dialog h2{color:var(--c-ink);font:600 23px/1.3 'Poppins',system-ui,sans-serif;letter-spacing:-.7px;margin:6px 0 8px}
+.dwm-community .dwm-c-close{display:grid;place-items:center;border:0;border-radius:50%;width:32px;min-height:32px;margin:0;background:var(--c-tint);color:var(--c-muted);padding:7px}
+.dwm-community .dwm-c-close svg{width:17px;height:17px}
+.dwm-community .dwm-c-intro{font-size:12px;line-height:1.7;color:var(--c-muted);margin:0 0 14px}
+.dwm-community .dwm-c-form{display:grid;gap:12px;margin:0}
+.dwm-community .dwm-c-form fieldset{margin:0;padding:0;border:0;min-width:0}
+.dwm-community .dwm-c-form legend,.dwm-community .dwm-c-field{font-size:12px;font-weight:500;color:var(--c-ink);margin:0;padding:0;line-height:1.5}
+.dwm-community .dwm-c-modal-stars{display:flex;gap:4px;margin-top:4px}
+.dwm-community .dwm-c-modal-star{position:relative;cursor:pointer}
+.dwm-community .dwm-c-modal-star input{position:absolute;opacity:0;width:1px;height:1px}
+.dwm-community .dwm-c-modal-star span{display:grid;place-items:center;width:42px;height:42px;font-size:29px;color:var(--c-off);border-radius:8px;line-height:1}
+.dwm-community .dwm-c-modal-star[data-selected="true"] span{color:var(--c-accent);background:var(--c-tint)}
+.dwm-community .dwm-c-modal-star input:focus-visible+span{outline:3px solid #b76e94;outline-offset:2px}
+.dwm-community .dwm-c-clear{min-height:28px;padding:2px 0;margin:0;border:0;background:transparent;color:var(--c-muted);font-size:11px;text-decoration:underline;line-height:1.5}
+.dwm-community .dwm-c-field :is(input,textarea){display:block;width:100%;margin:6px 0 0;border:1px solid var(--c-line);border-radius:10px;background:var(--c-paper);color:var(--c-ink);padding:9px 11px;font-size:16px;font-weight:400;line-height:1.5}
+.dwm-community .dwm-c-field textarea{resize:vertical;min-height:76px}
+.dwm-community .dwm-c-consent{display:flex;align-items:flex-start;gap:8px;font-size:11px;font-weight:400;line-height:1.6;color:var(--c-muted)}
+.dwm-community .dwm-c-consent input{margin:2px 0 0;width:15px;height:15px;flex:0 0 auto;accent-color:#a54f78}
+.dwm-community .dwm-c-send{min-height:43px;padding:10px 16px;margin:0;border:0;border-radius:10px;background:#a54f78;color:#fff;font-size:12px;font-weight:600;line-height:1.5}
+.dwm-community .dwm-c-send:disabled{opacity:.6;cursor:wait}
+.dwm-community .dwm-c-note{font-size:10px;line-height:1.6;text-align:center;color:var(--c-muted);margin:0}
+.dwm-community .dwm-c-note a{color:inherit;text-decoration:underline}
+.dwm-community .dwm-c-form-status{font-size:12px;line-height:1.6;color:var(--c-accent);background:var(--c-tint);border-radius:9px;padding:10px;margin:0}
+.dwm-community .dwm-c-honey{display:none!important}
+.dwm-community .dwm-c-reviews{margin:14px 0 0}
+.dwm-community .dwm-c-reviews h3{font:600 15px/1.5 'Poppins',system-ui,sans-serif;margin:0 0 10px;color:var(--c-ink)}
+.dwm-community .dwm-c-review{margin:0 0 10px;padding:14px 16px;border:1px solid var(--c-line);border-radius:14px;background:var(--c-paper);overflow-wrap:anywhere}
+.dwm-community .dwm-c-review-meta{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:12px;color:var(--c-ink)}
+.dwm-community .dwm-c-review time{font-size:11px;color:var(--c-muted)}
+.dwm-community .dwm-c-review p{margin:6px 0 0;font-size:13px;line-height:1.7;white-space:pre-wrap;color:var(--c-ink)}
+.dwm-community .dwm-c-review .dwm-c-review-stars{color:var(--c-accent);font-size:15px;letter-spacing:2px}
+.dwm-community .dwm-c-reply{margin-top:10px;padding:10px 12px;background:var(--c-tint);border-radius:10px;font-size:12px;color:var(--c-ink)}
+.dwm-community .dwm-c-reply p{font-size:12px}
+.dwm-community .dwm-c-noscript{font-size:12px;padding:12px;line-height:1.7}
+@media(max-width:620px){
+ .dwm-community .dwm-c-strip{flex-wrap:wrap;gap:8px 12px;border-radius:18px;padding:12px}
+ .dwm-community .dwm-c-strip>.dwm-c-divider{display:none}
+ .dwm-community .dwm-c-rate{margin-right:auto}
+ .dwm-community .dwm-c-comment{font-size:11px;padding-inline:11px;min-height:42px}
+ .dwm-community .dwm-c-shares{flex:1 0 100%;justify-content:center;border-top:1px solid var(--c-line);padding-top:6px;margin-top:1px;gap:12px}
+ .dwm-community .dwm-c-star{width:27px;min-height:38px}
+ .dwm-community .dwm-c-shares :is(a,button){width:42px}
+ .dwm-community .dwm-c-dialog{padding:20px 20px 14px}
+}
