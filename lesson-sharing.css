@@ -1,0 +1,34 @@
+/* Additive lesson sharing. Every rule is scoped to the new section. */
+.dwm-lesson-social {
+  --dwm-paper:var(--polish-paper,#fff);
+  --dwm-ink:var(--polish-text,#3f424d);
+  --dwm-muted:var(--polish-muted,#626673);
+  --dwm-line:var(--polish-line,#e5dce7);
+  --dwm-tint:var(--polish-tint,#fbf0f6);
+  --dwm-pink:var(--polish-pink,#edb6cc);
+  --dwm-pink-ink:var(--polish-pink-ink,#66384f);
+  box-sizing:border-box; width:100%; min-width:0; margin:32px auto;
+  padding:clamp(20px,4vw,32px); border:1px solid var(--dwm-line);
+  border-radius:22px; color:var(--dwm-ink); background:var(--dwm-paper);
+  font-family:'Poppins',system-ui,sans-serif; text-align:left; line-height:1.7;
+}
+.dwm-lesson-social *, .dwm-lesson-social *::before, .dwm-lesson-social *::after { box-sizing:border-box; }
+.dwm-lesson-social [hidden] { display:none!important; }
+.dwm-lesson-social h2 { margin:0 0 8px; color:var(--dwm-ink); font:600 clamp(22px,3vw,28px)/1.3 Georgia,serif; letter-spacing:0; }
+.dwm-lesson-social p { margin:0 0 16px; color:var(--dwm-muted); font-size:14px; line-height:1.7; }
+.dwm-lesson-social .dwm-share-actions { display:flex; align-items:center; flex-wrap:wrap; gap:10px; }
+.dwm-lesson-social .dwm-share-action {
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  min-height:44px; max-width:100%; padding:10px 16px; margin:0;
+  border:1px solid var(--dwm-line); border-radius:999px; background:var(--dwm-tint);
+  color:var(--dwm-pink-ink); font:500 14px/1.5 'Poppins',system-ui,sans-serif;
+  text-decoration:none; cursor:pointer; white-space:normal;
+}
+.dwm-lesson-social .dwm-share-action:hover { background:var(--dwm-pink); color:var(--dwm-pink-ink); }
+.dwm-lesson-social :is(a,button,input,summary):focus-visible { outline:3px solid #a9567e; outline-offset:3px; }
+.dwm-lesson-social .dwm-share-link { margin-top:16px; color:var(--dwm-muted); font-size:13px; }
+.dwm-lesson-social .dwm-share-link summary { width:fit-content; cursor:pointer; padding:6px 0; }
+.dwm-lesson-social .dwm-share-link label { display:block; margin-top:8px; font-size:13px; }
+.dwm-lesson-social .dwm-share-link input { width:100%; min-width:0; min-height:44px; margin:6px 0 0; padding:10px 12px; border:1px solid var(--dwm-line); border-radius:10px; background:var(--dwm-paper); color:var(--dwm-ink); font:400 14px/1.5 'Poppins',system-ui,sans-serif; }
+.dwm-lesson-social .dwm-share-status { margin:12px 0 0; font-size:13px; }
+@media (max-width:480px) { .dwm-lesson-social .dwm-share-action { flex:1 1 auto; } }
