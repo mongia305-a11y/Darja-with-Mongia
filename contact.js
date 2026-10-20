@@ -13,7 +13,7 @@
   dialog.setAttribute('aria-describedby', 'darja-contact-intro');
   dialog.innerHTML = `
     <button type="button" class="darja-contact-close" aria-label="Close contact window">×</button>
-    <h2 class="darja-contact-heading" id="darja-contact-title">Contact Mongia</h2>
+    <h2 class="darja-contact-heading" id="darja-contact-title">Contact us</h2>
     <p class="darja-contact-intro" id="darja-contact-intro">Have a question about Tunisian Arabic, a lesson, or the website? Send me a message — I’d love to hear from you!</p>
     <p class="darja-contact-reply-time">I usually reply within 2 business days (Monday–Friday).</p>
     <form action="https://formsubmit.co/contact@darjawithmongia.com" method="post">
