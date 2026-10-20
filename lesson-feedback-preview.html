@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Lesson Feedback Preview | Darja with Mongia</title>
+<script src="theme.js?v=1"></script>
+<link rel="stylesheet" href="theme.css?v=2">
+<link rel="stylesheet" href="site-polish.css?v=1">
+<link rel="stylesheet" href="lesson-sharing.css?v=1">
+<style>
+body { margin:0; padding:28px 20px; background:var(--polish-page,#f9f7ff); color:var(--polish-text,#3f424d); font-family:'Poppins',system-ui,sans-serif; }
+main { max-width:800px; margin:0 auto; }
+.preview-intro { padding:22px 0 0; } .preview-intro img { width:155px; height:auto; }
+.preview-intro h1 { font:600 32px/1.3 Georgia,serif; margin:20px 0 12px; }
+.preview-intro p { font-size:15px; line-height:1.7; }
+.preview-intro .preview-banner { padding:14px 18px; background:var(--polish-tint,#fbf0f6); border:1px solid var(--polish-line,#e5dce7); border-radius:14px; }
+.preview-end { padding:24px 0; color:var(--polish-muted,#626673); font-size:14px; }
+/* Feedback draft: isolated from all existing lesson styles. */
+.dwm-lesson-feedback {
+  --dwm-f-paper:var(--polish-paper,#fff); --dwm-f-ink:var(--polish-text,#3f424d);
+  --dwm-f-muted:var(--polish-muted,#626673); --dwm-f-line:var(--polish-line,#e5dce7);
+  --dwm-f-tint:var(--polish-tint,#fbf0f6); --dwm-f-pink:var(--polish-pink,#edb6cc);
+  --dwm-f-pink-ink:var(--polish-pink-ink,#66384f);
+  box-sizing:border-box; width:100%; min-width:0; margin:24px auto 32px;
+  padding:clamp(20px,4vw,32px); border:1px solid var(--dwm-f-line); border-radius:22px;
+  background:var(--dwm-f-paper); color:var(--dwm-f-ink); text-align:left;
+  font:400 14px/1.7 'Poppins',system-ui,sans-serif;
+}
+.dwm-lesson-feedback *, .dwm-lesson-feedback *::before, .dwm-lesson-feedback *::after { box-sizing:border-box; }
+.dwm-lesson-feedback [hidden] { display:none!important; }
+.dwm-lesson-feedback h2 { margin:0 0 8px; color:var(--dwm-f-ink); font:600 clamp(22px,3vw,28px)/1.3 Georgia,serif; letter-spacing:0; }
+.dwm-lesson-feedback h3 { margin:24px 0 12px; color:var(--dwm-f-ink); font:600 19px/1.4 Georgia,serif; }
+.dwm-lesson-feedback p { margin:0 0 14px; font-size:14px; line-height:1.7; color:var(--dwm-f-muted); }
+.dwm-lesson-feedback form { display:grid; gap:16px; margin-top:20px; }
+.dwm-lesson-feedback .dwm-feedback-label { display:block; font-size:14px; color:var(--dwm-f-ink); font-weight:500; }
+.dwm-lesson-feedback :is(input[type="text"],textarea) { display:block; width:100%; min-width:0; min-height:44px; margin:6px 0 0; padding:11px 13px; border:1px solid var(--dwm-f-line); border-radius:12px; background:var(--dwm-f-paper); color:var(--dwm-f-ink); font:400 15px/1.6 'Poppins',system-ui,sans-serif; }
+.dwm-lesson-feedback textarea { resize:vertical; }
+.dwm-lesson-feedback fieldset { min-width:0; margin:0; padding:0; border:0; }
+.dwm-lesson-feedback legend { padding:0; margin-bottom:6px; font-size:14px; font-weight:500; color:var(--dwm-f-ink); }
+.dwm-lesson-feedback .dwm-feedback-stars { display:flex; gap:4px; flex-wrap:wrap; align-items:center; }
+.dwm-lesson-feedback .dwm-feedback-star { position:relative; display:inline-flex; width:44px; height:44px; margin:0; padding:0; cursor:pointer; }
+.dwm-lesson-feedback .dwm-feedback-star input { position:absolute; width:1px; height:1px; opacity:0; }
+.dwm-lesson-feedback .dwm-feedback-star span { display:grid; place-items:center; width:44px; height:44px; border:1px solid var(--dwm-f-line); border-radius:10px; background:var(--dwm-f-tint); color:var(--dwm-f-muted); font-size:29px; line-height:1; }
+.dwm-lesson-feedback .dwm-feedback-star input:checked + span, .dwm-lesson-feedback [data-dwm-star][data-selected="true"] { background:var(--dwm-f-pink); color:var(--dwm-f-pink-ink); border-color:#c486a2; }
+.dwm-lesson-feedback .dwm-feedback-star input:focus-visible + span { outline:3px solid #a9567e; outline-offset:3px; }
+.dwm-lesson-feedback .dwm-feedback-clear { margin:4px 0 0; padding:5px 0; border:0; background:transparent; color:var(--dwm-f-muted); font:400 13px/1.5 'Poppins',system-ui,sans-serif; text-decoration:underline; cursor:pointer; }
+.dwm-lesson-feedback .dwm-feedback-consent { display:flex; align-items:flex-start; gap:10px; font-size:13px; line-height:1.7; color:var(--dwm-f-ink); }
+.dwm-lesson-feedback .dwm-feedback-consent input { flex:0 0 auto; width:18px; height:18px; margin-top:3px; accent-color:#a9567e; }
+.dwm-lesson-feedback .dwm-feedback-submit { justify-self:start; min-height:46px; max-width:100%; margin:0; padding:11px 22px; border:1px solid #cc8da9; border-radius:999px; background:var(--dwm-f-pink); color:var(--dwm-f-pink-ink); font:600 14px/1.5 'Poppins',system-ui,sans-serif; cursor:pointer; }
+.dwm-lesson-feedback .dwm-feedback-submit:disabled { opacity:.65; cursor:wait; }
+.dwm-lesson-feedback .dwm-feedback-note { margin:0; font-size:12px; }
+.dwm-lesson-feedback .dwm-feedback-note a { color:inherit; text-decoration:underline; }
+.dwm-lesson-feedback :is(a,button,input,textarea):focus-visible { outline:3px solid #a9567e; outline-offset:3px; }
+.dwm-lesson-feedback .dwm-feedback-honey { display:none!important; }
+.dwm-lesson-feedback .dwm-published-review { margin:12px 0 0; padding:18px; border:1px solid var(--dwm-f-line); border-radius:16px; overflow-wrap:anywhere; }
+.dwm-lesson-feedback .dwm-review-meta { display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px; margin-bottom:8px; }
+.dwm-lesson-feedback time { color:var(--dwm-f-muted); font-size:12px; }
+.dwm-lesson-feedback .dwm-review-rating { color:var(--dwm-f-pink-ink); letter-spacing:2px; }
+.dwm-lesson-feedback .dwm-review-reply { margin-top:12px; padding:12px 16px; border-radius:12px; background:var(--dwm-f-tint); }
+.dwm-lesson-feedback .dwm-review-reply p { margin:4px 0 0; white-space:pre-wrap; }
+.dwm-lesson-feedback .dwm-published-review > p { white-space:pre-wrap; }
+.dwm-lesson-feedback [data-dwm-feedback-status] { margin:0; padding:12px 14px; border:1px solid var(--dwm-f-line); border-radius:12px; }
+@media (max-width:480px) { .dwm-lesson-feedback .dwm-feedback-submit { width:100%; } }
+
+</style></head><body><main>
+<div class="preview-intro">
+<a href="index.html"><img src="images/full-logo.png" alt="Darja with Mongia"></a>
+<h1>Sharing and lesson feedback</h1>
+<p>Example placement: after the lesson activities, before “Continue learning”.</p>
+<p class="preview-banner"><strong>Design preview.</strong> The feedback form below does not send or save anything. Ratings and comments await Mongia’s approval.</p>
+</div>
+<!-- DWM lesson sharing: additive section -->
+<section class="dwm-lesson-social" data-dwm-share data-dwm-title="Furniture of the House in Tunisian Arabic" aria-labelledby="dwm-share-title">
+  <h2 id="dwm-share-title">Share this lesson</h2>
+  <p>Know someone learning Tunisian Arabic? Send them this lesson.</p>
+  <div class="dwm-share-actions" aria-label="Lesson sharing options">
+    <button class="dwm-share-action" type="button" disabled>Copy link</button>
+    <a class="dwm-share-action" href="https://wa.me/?text=Furniture%20of%20the%20House%20in%20Tunisian%20Arabic%20%E2%80%94%20Darja%20with%20Mongia%0Ahttps%3A%2F%2Fdarjawithmongia.com%2Ffurniture-of-the-house.html" target="_blank" rel="noopener noreferrer" aria-label="Share this lesson on WhatsApp (opens a new tab)">WhatsApp</a>
+    <a class="dwm-share-action" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdarjawithmongia.com%2Ffurniture-of-the-house.html" target="_blank" rel="noopener noreferrer" aria-label="Share this lesson on Facebook (opens a new tab)">Facebook</a>
+    <button class="dwm-share-action" type="button" disabled>More sharing options</button>
+  </div>
+  <details class="dwm-share-link">
+    <summary>View lesson link</summary>
+    <label for="dwm-share-url">Copy this lesson’s link
+      <input id="dwm-share-url" data-dwm-share-url type="text" value="https://darjawithmongia.com/furniture-of-the-house.html" readonly dir="ltr" spellcheck="false">
+    </label>
+  </details>
+  <p class="dwm-share-status" role="status" aria-live="polite" hidden></p>
+</section>
+<!-- End DWM lesson sharing -->
+
+<!-- DWM feedback: submissions are moderated; public data contains approved reviews only. -->
+<section class="dwm-lesson-feedback" data-dwm-feedback data-dwm-lesson="furniture-of-the-house.html" data-dwm-title="Furniture of the House in Tunisian Arabic" aria-labelledby="dwm-feedback-title">
+  <h2 id="dwm-feedback-title">How helpful was this lesson?</h2>
+  <p>Leave a rating, share your experience or ask Mongia a question.</p>
+  <p data-dwm-rating-summary hidden></p>
+  <form onsubmit="event.preventDefault()" accept-charset="UTF-8">
+    <fieldset>
+      <legend>Your rating (optional)</legend>
+      <div class="dwm-feedback-stars">
+        <label class="dwm-feedback-star"><input type="radio" name="rating" value="1" aria-label="1 out of 5 stars"><span data-dwm-star="1" aria-hidden="true">★</span></label>
+        <label class="dwm-feedback-star"><input type="radio" name="rating" value="2" aria-label="2 out of 5 stars"><span data-dwm-star="2" aria-hidden="true">★</span></label>
+        <label class="dwm-feedback-star"><input type="radio" name="rating" value="3" aria-label="3 out of 5 stars"><span data-dwm-star="3" aria-hidden="true">★</span></label>
+        <label class="dwm-feedback-star"><input type="radio" name="rating" value="4" aria-label="4 out of 5 stars"><span data-dwm-star="4" aria-hidden="true">★</span></label>
+        <label class="dwm-feedback-star"><input type="radio" name="rating" value="5" aria-label="5 out of 5 stars"><span data-dwm-star="5" aria-hidden="true">★</span></label>
+      </div>
+      
+    </fieldset>
+    <label class="dwm-feedback-label" for="dwm-feedback-name">First name or nickname
+      <input id="dwm-feedback-name" name="nickname" type="text" maxlength="60" required>
+    </label>
+    <label class="dwm-feedback-label" for="dwm-feedback-comment">Your comment or question (optional)
+      <textarea id="dwm-feedback-comment" name="comment" rows="4" maxlength="1500" placeholder="What helped you? What could be clearer?"></textarea>
+    </label>
+    <label class="dwm-feedback-consent"><input name="publish_consent" type="checkbox" value="Yes — may publish after moderation"><span>You may publish my nickname, rating and comment on this lesson after moderation. Leave unchecked to keep my feedback private.</span></label>
+    <p data-dwm-feedback-status role="status" aria-live="polite" hidden></p>
+    <button class="dwm-feedback-submit" type="button" disabled>Submit feedback — preview only</button>
+    <p class="dwm-feedback-note">Preview only. Nothing entered here is submitted or saved.</p>
+  </form>
+  <p data-dwm-reviews-notice role="status" hidden></p>
+  <div data-dwm-comments-wrap hidden>
+    <h3>Learner reviews and questions</h3>
+    <div data-dwm-comments></div>
+  </div>
+</section>
+<!-- End DWM feedback -->
+
+<div class="preview-end"><strong>Continue learning Tunisian Arabic</strong><p>Your existing recommendations and footer stay after these additions.</p></div>
+</main></body></html>
