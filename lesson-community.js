@@ -29,7 +29,7 @@ function feedbackPayload(form, lesson, title, url) {
     _url:url,
     _subject:'Lesson feedback — ' + title + ' — Darja with Mongia',
     _template:'table',
-    _captcha:'false',
+    _captcha:'true',
     _honey:form.elements._honey.value
   };
 }
@@ -43,15 +43,12 @@ function feedbackPayload(form, lesson, title, url) {
     const shareStatus=section.querySelector('[data-c-share-status]');
     const copyFallback=section.querySelector('[data-c-copy-fallback]');
     const linkInput=section.querySelector('[data-c-copy-url]');
-    const submit=form.querySelector('[type="submit"]');
-    const standardSubmit=section.querySelector('[data-c-standard-submit]');
     const quickStars=Array.from(section.querySelectorAll('[data-c-rating]'));
     const radios=Array.from(form.querySelectorAll('[name="rating"]'));
     const lesson=section.dataset.lesson;
     const title=section.dataset.lessonTitle;
     const url=section.dataset.lessonUrl;
     let previousFocus;
-    let sending=false;
     function paintStars() {
       const selected=Number(form.elements.rating.value)||0;
       radios.forEach(radio => {
@@ -68,7 +65,7 @@ function feedbackPayload(form, lesson, title, url) {
     }
     function openFeedback(trigger,rating) {
       previousFocus=trigger;
-      if(rating&&!sending) {
+      if(rating) {
         const radio=radios.find(item=>item.value===String(rating));
         if(radio)radio.checked=true;
       }
@@ -143,90 +140,28 @@ function feedbackPayload(form, lesson, title, url) {
     function sayForm(message,state) {
       status.hidden=false;status.textContent=message;status.dataset.state=state;
     }
-    function offerStandardSubmission() {
-      if(standardSubmit)standardSubmit.hidden=false;
-    }
-    if(standardSubmit)standardSubmit.addEventListener('click',()=>{
-      if(sending||form.elements._honey.value)return;
-      validate();
-      if(!form.reportValidity())return;
+    // Let the browser make a normal top-level POST. Background fetch failures
+    // cannot confirm delivery and must not trigger an automatic second submission.
+    // FormSubmit shows verification, activation, success or errors in its own tab.
+    form.addEventListener('formdata',event=>{
       const payload=feedbackPayload(form,lesson,title,url);
       if(!payload)return;
-      // A normal form POST is a separate visitor choice, never an automatic retry.
-      // It lets FormSubmit show verification or activation instructions directly.
-      const direct=document.createElement('form');
-      direct.method='POST';
-      direct.action='https://formsubmit.co/contact@darjawithmongia.com';
-      direct.target='_blank';
-      direct.setAttribute('rel','noopener');
-      direct.hidden=true;
-      Object.entries({...payload,_captcha:'true'}).forEach(([name,value])=>{
-        const input=document.createElement('input');
-        input.type='hidden';input.name=name;input.value=String(value);
-        direct.append(input);
-      });
-      document.body.append(direct);
-      try {
-        direct.submit();
-        sayForm('The standard form is opening in a new tab. Follow the instructions there to finish. This window still contains your feedback.','pending');
-      } catch(error) {
-        sayForm('The standard form could not open. Your feedback is still here; please use the email link below.','error');
-      } finally {
-        window.setTimeout(()=>direct.remove(),1000);
-      }
+      Object.entries(payload).forEach(([name,value])=>event.formData.set(name,String(value)));
     });
-    form.addEventListener('submit',async event=>{
-      event.preventDefault();
-      if(sending||form.elements._honey.value)return;
-      validate();
-      if(!form.reportValidity())return;
-      const payload=feedbackPayload(form,lesson,title,url);
-      if(!payload)return;
-      sending=true;submit.disabled=true;submit.textContent='Sending…';
-      if(standardSubmit)standardSubmit.hidden=true;
-      form.setAttribute('aria-busy','true');
-      sayForm('Sending your feedback…','pending');
-      const controller=new AbortController();
-      const timeout=window.setTimeout(()=>controller.abort(),20000);
-      try {
-        const response=await fetch('https://formsubmit.co/ajax/contact@darjawithmongia.com',{
-          method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
-          body:JSON.stringify(payload),signal:controller.signal,credentials:'omit'
-        });
-        const body=await response.text();
-        let result;
-        try {result=JSON.parse(body);}
-        catch(error){result={success:false};}
-        if(!result||typeof result!=='object')result={success:false};
-        const message=typeof result.message==='string'?result.message:'';
-        if(/activat|confirm/i.test(message)) {
-          sayForm('The feedback service is awaiting activation. Your feedback is still here. Please use the standard form below or email Mongia.','error');
-          offerStandardSubmission();
-        } else if(response.ok&&(result.success===true||result.success==='true')) {
-          sayForm('Thank you! Your feedback was submitted to Mongia for review. Public reviews appear after approval and publication.','success');
-          form.reset();paintStars();
-          form.elements.nickname.setCustomValidity('');
-          form.elements.comment.setCustomValidity('');
-        } else {
-          const detail=message.trim().slice(0,240);
-          sayForm(detail
-            ? 'The form service says: '+detail+' Your feedback is still here. You can use the standard form below.'
-            : response.status===429
-              ? 'The form service is limiting requests. Please wait a few minutes or use the standard form below. Your feedback is still here.'
-              : 'The form service is unavailable or requires verification. Your feedback is still here. Use the standard form below to continue.',
-            'error');
-          offerStandardSubmission();
-        }
-      } catch(error) {
-        sayForm(error&&error.name==='AbortError'
-          ? 'The form service took too long to respond. Your feedback is still here. Try the standard form below or return later.'
-          : 'We couldn’t confirm delivery. Your feedback is still here. Try the standard form below or use the email link.',
-          'error');
-        offerStandardSubmission();
-      } finally {
-        window.clearTimeout(timeout);sending=false;submit.disabled=false;
-        submit.textContent='Send feedback ↗';form.removeAttribute('aria-busy');
+    form.addEventListener('submit',event=>{
+      if(form.elements._honey.value) {
+        event.preventDefault();
+        return;
       }
+      validate();
+      if(!form.reportValidity()||!feedbackPayload(form,lesson,title,url)) {
+        event.preventDefault();
+        return;
+      }
+      sayForm('Complete any verification in the FormSubmit tab and check its result. Your feedback stays here until you close this window.','pending');
+      // Do not reset the form or claim receipt: only the service can confirm it.
+      // No preventDefault here: the original form submits directly, including
+      // in browsers without JavaScript or the formdata event.
     });
     // Only explicitly approved, consented public entries are fetched. Raw submissions are never published.
     fetch('lesson-feedback-approved.json',{cache:'no-cache',credentials:'omit'})

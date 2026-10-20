@@ -7,7 +7,7 @@ The compact toolbar, popup form and approved review display are included on all 
 
 The form reuses the existing contact service at FormSubmit:
 https://formsubmit.co/contact@darjawithmongia.com
-The browser submits to its /ajax/ endpoint. Feedback is addressed to contact@darjawithmongia.com.
+The browser submits a normal form POST directly to the service in a new tab. Feedback is addressed to contact@darjawithmongia.com.
 The email subject identifies the lesson. The payload includes nickname, rating or comment-only marker, comment, lesson path, canonical lesson URL, and explicit publication permission.
 A nickname is required. A rating or comment is required. Visitor email is not collected.
 The permission checkbox is initially unchecked. "No" or missing consent means private feedback only.
@@ -47,12 +47,12 @@ The new styles and event handlers are scoped to the component. No local storage,
 Checks used simulated browser and service responses: popup selection/close/focus/fallback; submission success/network errors/rejection/activation; duplicate requests; invalid input/honeypot; public opt-in and private default; comment-only submissions; per-lesson review filtering; plain-text rendering; clipboard/native sharing; unchanged original lesson source.
 Browser rendering and inbox delivery were not verified because the execution environment was unavailable.
 
-## Submission repair
+## Submission repair — direct form POST
 
-The form includes its canonical lesson URL as _url in both AJAX and normal submissions, as recommended by FormSubmit's help page for submission errors.
-All AJAX field values are strings, matching normal HTML form encoding.
-Errors distinguish service rejection, activation, rate limits, non-JSON verification pages and network/timeouts.
-An optional "Continue with standard form" button appears after an unsuccessful confirmation.
-This is a separate visitor choice; the site never automatically re-sends feedback after a failed or uncertain request.
-The fallback submits a normal POST to the same existing FormSubmit service in a new tab, enabling its standard verification screen. It includes all fields and the same publication-permission value, requests CAPTCHA verification and keeps the original popup text intact.
-The owner should verify actual inbox receipt and any required FormSubmit activation. Service-side availability cannot be repaired by changing the static website.
+The Send feedback button now submits the original form directly to FormSubmit in a new tab. It no longer sends an AJAX request or waits for a cross-origin response, so the site's previous network-error and timeout loop is removed. There is one submission route and no automatic retry.
+FormSubmit displays its own CAPTCHA, activation instructions, success or service error. The lesson and original form text remain open. The site never claims delivery or clears text based on opening the service.
+All seven forms use POST, target="_blank", rel="noopener", CAPTCHA enabled and the canonical _url. Lesson metadata and private-by-default publication instructions are present in HTML, including without JavaScript.
+The formdata event normalizes the rating and explicitly records Yes/No consent in supporting browsers. With JavaScript disabled or without formdata, only a checked consent checkbox sends Yes; missing consent always means private. Rating-or-comment validation and the honeypot remain in the component.
+
+Validation covered valid, invalid and honeypot submission paths; public and private consent payloads; direct POST markup and cache version on all seven lessons; and unchanged content outside the feedback component. JavaScript syntax was checked.
+Actual browser submission and inbox receipt remain unverified because the execution environment is unavailable. FormSubmit itself also timed out when opened by the web retrieval tool. A native POST removes the failing background request; it does not guarantee provider availability or mailbox delivery. Required email activation can only be completed by the mailbox owner.
