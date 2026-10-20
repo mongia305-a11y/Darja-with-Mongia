@@ -347,6 +347,8 @@
   <link rel="stylesheet" href="site-polish.css?v=1">
   <link rel="stylesheet" href="lesson-sharing.css?v=1">
   <script src="lesson-sharing.js?v=1" defer></script>
+  <link rel="stylesheet" href="lesson-feedback.css?v=1">
+  <script src="lesson-feedback.js?v=1" defer></script>
 <script src="business-events.js?v=1" defer></script></head>
 <body class="culture-lesson">
   <a class="skip-link" href="#lesson">Skip to lesson</a>
@@ -597,6 +599,47 @@
   <p class="dwm-share-status" role="status" aria-live="polite" hidden></p>
 </section>
 <!-- End DWM lesson sharing -->
+<!-- DWM feedback: submissions are moderated; public data contains approved reviews only. -->
+<section class="dwm-lesson-feedback" data-dwm-feedback data-dwm-lesson="culture-lesson-01-traditional-clothing.html" data-dwm-title="Traditional Tunisian Clothing" aria-labelledby="dwm-feedback-title">
+  <h2 id="dwm-feedback-title">How helpful was this lesson?</h2>
+  <p>Leave a rating, share your experience or ask Mongia a question.</p>
+  <p data-dwm-rating-summary hidden></p>
+  <form action="https://formsubmit.co/contact@darjawithmongia.com" method="post" accept-charset="UTF-8">
+    <fieldset>
+      <legend>Your rating (optional)</legend>
+      <div class="dwm-feedback-stars">
+        <label class="dwm-feedback-star"><input type="radio" name="rating" value="1" aria-label="1 out of 5 stars"><span data-dwm-star="1" aria-hidden="true">★</span></label>
+        <label class="dwm-feedback-star"><input type="radio" name="rating" value="2" aria-label="2 out of 5 stars"><span data-dwm-star="2" aria-hidden="true">★</span></label>
+        <label class="dwm-feedback-star"><input type="radio" name="rating" value="3" aria-label="3 out of 5 stars"><span data-dwm-star="3" aria-hidden="true">★</span></label>
+        <label class="dwm-feedback-star"><input type="radio" name="rating" value="4" aria-label="4 out of 5 stars"><span data-dwm-star="4" aria-hidden="true">★</span></label>
+        <label class="dwm-feedback-star"><input type="radio" name="rating" value="5" aria-label="5 out of 5 stars"><span data-dwm-star="5" aria-hidden="true">★</span></label>
+      </div>
+      <button class="dwm-feedback-clear" type="button" data-dwm-clear-rating>Clear rating</button>
+    </fieldset>
+    <label class="dwm-feedback-label" for="dwm-feedback-name">First name or nickname
+      <input id="dwm-feedback-name" name="nickname" type="text" maxlength="60" required>
+    </label>
+    <label class="dwm-feedback-label" for="dwm-feedback-comment">Your comment or question (optional)
+      <textarea id="dwm-feedback-comment" name="comment" rows="4" maxlength="1500" placeholder="What helped you? What could be clearer?"></textarea>
+    </label>
+    <label class="dwm-feedback-consent"><input name="publish_consent" type="checkbox" value="Yes — may publish after moderation"><span>You may publish my nickname, rating and comment on this lesson after moderation. Leave unchecked to keep my feedback private.</span></label>
+    <input type="hidden" name="lesson" value="Traditional Tunisian Clothing">
+    <input type="hidden" name="lesson_url" value="https://darjawithmongia.com/culture-lesson-01-traditional-clothing.html">
+    <input type="hidden" name="_subject" value="Lesson feedback — Traditional Tunisian Clothing — Darja with Mongia">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="false">
+    <input class="dwm-feedback-honey" name="_honey" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <p data-dwm-feedback-status role="status" aria-live="polite" hidden></p>
+    <button class="dwm-feedback-submit" type="submit">Submit feedback</button>
+    <p class="dwm-feedback-note">Choose a rating or write a comment. Feedback is sent privately to Mongia through <a href="https://formsubmit.co/privacy.pdf" target="_blank" rel="noopener noreferrer">FormSubmit</a>. Only reviews you allow us to publish can appear here after approval. Keep personal information out of your comment.</p>
+  </form>
+  <p data-dwm-reviews-notice role="status" hidden></p>
+  <div data-dwm-comments-wrap hidden>
+    <h3>Learner reviews and questions</h3>
+    <div data-dwm-comments></div>
+  </div>
+</section>
+<!-- End DWM feedback -->
 <section class="related-lessons" aria-labelledby="related-lessons-heading">
   <h2 id="related-lessons-heading">Continue learning Tunisian Arabic</h2>
   <p>Choose another short lesson and keep practising.</p>
