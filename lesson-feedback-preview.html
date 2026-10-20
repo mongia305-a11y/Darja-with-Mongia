@@ -62,22 +62,82 @@ main { max-width:800px; margin:0 auto; }
 .dwm-lesson-feedback [data-dwm-feedback-status] { margin:0; padding:12px 14px; border:1px solid var(--dwm-f-line); border-radius:12px; }
 @media (max-width:480px) { .dwm-lesson-feedback .dwm-feedback-submit { width:100%; } }
 
-</style></head><body><main>
+
+/* Compact preview revision: sharing and feedback stay together in one small card. */
+main { max-width:760px; }
+.preview-intro { padding:8px 0 0; }
+.preview-intro h1 { margin:16px 0 8px; font:600 25px/1.3 'Poppins',system-ui,sans-serif; letter-spacing:-.6px; }
+.preview-intro p { font-size:13px; margin:6px 0 12px; }
+.preview-intro .preview-banner { padding:9px 12px; font-size:12px; border-radius:10px; }
+.compact-community { margin:24px 0; overflow:hidden; border:1px solid var(--polish-line,#e5dce7); border-radius:16px; background:var(--polish-paper,#fff); box-shadow:0 3px 16px #50384b05; }
+.compact-community .dwm-lesson-social { margin:0; padding:12px 16px 8px; border:0; border-radius:0; display:grid; grid-template-columns:minmax(0,1fr) auto; gap:0 16px; align-items:center; background:transparent; }
+.compact-community .dwm-lesson-social h2 { margin:0; font:600 14px/1.5 'Poppins',system-ui,sans-serif; letter-spacing:-.2px; }
+.compact-community .dwm-lesson-social > p:not([role="status"]) { margin:2px 0 0; font-size:12px; grid-column:1; }
+.compact-community .dwm-share-actions { gap:3px; grid-column:2; grid-row:1 / 3; }
+.compact-community .dwm-share-action { width:40px; min-height:44px; padding:8px; border:0; border-radius:10px; background:transparent; flex:0 0 40px; color:var(--polish-pink-ink,#66384f); }
+.compact-community .dwm-share-action:hover { background:var(--polish-tint,#fbf0f6); }
+.compact-community .dwm-share-action svg { display:block; width:19px; height:19px; }
+.compact-community .dwm-share-link { margin:2px 0 0; grid-column:1 / -1; font-size:11px; }
+.compact-community .dwm-share-link summary { padding:2px 0; }
+.compact-community .dwm-share-link input { font-size:13px; min-height:40px; padding:8px 10px; }
+.compact-community .dwm-share-status { grid-column:1 / -1; font-size:12px; margin:4px 0 0; }
+.compact-feedback { border-top:1px solid var(--polish-line,#e5dce7); }
+.compact-feedback > summary { list-style:none; display:flex; align-items:center; justify-content:space-between; gap:12px; min-height:48px; padding:10px 16px; cursor:pointer; color:var(--polish-pink-ink,#66384f); font:500 13px/1.5 'Poppins',system-ui,sans-serif; }
+.compact-feedback > summary::-webkit-details-marker { display:none; }
+.compact-feedback > summary > span { display:inline-flex; align-items:center; gap:9px; }
+.compact-feedback > summary svg { width:17px; height:17px; flex-shrink:0; }
+.compact-feedback > summary .compact-chevron { width:14px; transition:transform .15s ease; }
+.compact-feedback[open] > summary .compact-chevron { transform:rotate(180deg); }
+.compact-feedback > summary:hover { background:var(--polish-tint,#fbf0f6); }
+.compact-feedback > summary:focus-visible { outline:3px solid #a9567e; outline-offset:-3px; border-radius:8px; }
+.compact-community .dwm-lesson-feedback { margin:0; padding:4px 16px 16px; border:0; border-radius:0; background:transparent; }
+.compact-community .dwm-lesson-feedback h2 { font:600 16px/1.4 'Poppins',system-ui,sans-serif; margin:0 0 4px; }
+.compact-community .dwm-lesson-feedback > p { font-size:12px; margin:0 0 10px; }
+.compact-community .dwm-lesson-feedback form { margin:12px 0 0; display:grid; grid-template-columns:1fr 1fr; gap:12px 18px; align-items:start; }
+.compact-community .dwm-feedback-label, .compact-community .dwm-lesson-feedback legend { font-size:12px; font-weight:500; margin:0; }
+.compact-community .dwm-lesson-feedback :is(input[type="text"],textarea) { margin-top:5px; min-height:42px; padding:8px 10px; border-radius:9px; font-size:16px; line-height:1.5; }
+.compact-community .dwm-lesson-feedback textarea { min-height:76px; }
+.compact-community .dwm-feedback-stars { gap:0; }
+.compact-community .dwm-feedback-star { width:38px; height:44px; }
+.compact-community .dwm-feedback-star span { width:38px; height:44px; border:0; border-radius:8px; background:transparent; color:var(--polish-muted,#626673); font-size:26px; }
+.compact-community .dwm-feedback-star input:checked + span { background:var(--polish-tint,#fbf0f6); color:var(--polish-pink-ink,#66384f); }
+.compact-community .dwm-feedback-label:has(textarea), .compact-community .dwm-feedback-consent, .compact-community .dwm-feedback-note, .compact-community [data-dwm-feedback-status] { grid-column:1 / -1; }
+.compact-community .dwm-feedback-consent { font-size:11px; gap:8px; line-height:1.6; }
+.compact-community .dwm-feedback-consent input { width:16px; height:16px; margin-top:1px; }
+.compact-community .dwm-feedback-submit { min-height:40px; padding:9px 16px; font-size:12px; border-radius:10px; width:auto; }
+.compact-community .dwm-feedback-submit:disabled { opacity:.7; cursor:default; }
+.compact-community .dwm-feedback-note { font-size:11px; }
+.preview-end { padding:8px 0; font-size:13px; }
+.preview-end p { margin:6px 0; font-size:12px; }
+@media (max-width:520px) {
+  body { padding:20px 14px; }
+  .compact-community .dwm-lesson-social { grid-template-columns:minmax(0,1fr) auto; gap:0 8px; padding-inline:12px; }
+  .compact-community .dwm-lesson-social > p:not([role="status"]) { grid-column:1 / -1; font-size:11px; margin:3px 0; }
+  .compact-community .dwm-share-actions { grid-row:1; }
+  .compact-community .dwm-share-action { width:36px; flex-basis:36px; padding:8px; }
+  .compact-community .dwm-lesson-feedback form { grid-template-columns:1fr; gap:12px; }
+  .compact-feedback > summary, .compact-community .dwm-lesson-feedback { padding-inline:12px; }
+}
+@media (prefers-reduced-motion:reduce) { .compact-chevron { transition:none!important; } }
+
+</style><script src="lesson-sharing.js?v=1" defer></script>
+</head><body><main>
 <div class="preview-intro">
 <a href="index.html"><img src="images/full-logo.png" alt="Darja with Mongia"></a>
 <h1>Sharing and lesson feedback</h1>
 <p>Example placement: after the lesson activities, before “Continue learning”.</p>
 <p class="preview-banner"><strong>Design preview.</strong> The feedback form below does not send or save anything. Ratings and comments await Mongia’s approval.</p>
 </div>
+<div class="compact-community">
 <!-- DWM lesson sharing: additive section -->
 <section class="dwm-lesson-social" data-dwm-share data-dwm-title="Furniture of the House in Tunisian Arabic" aria-labelledby="dwm-share-title">
   <h2 id="dwm-share-title">Share this lesson</h2>
   <p>Know someone learning Tunisian Arabic? Send them this lesson.</p>
   <div class="dwm-share-actions" aria-label="Lesson sharing options">
-    <button class="dwm-share-action" type="button" disabled>Copy link</button>
-    <a class="dwm-share-action" href="https://wa.me/?text=Furniture%20of%20the%20House%20in%20Tunisian%20Arabic%20%E2%80%94%20Darja%20with%20Mongia%0Ahttps%3A%2F%2Fdarjawithmongia.com%2Ffurniture-of-the-house.html" target="_blank" rel="noopener noreferrer" aria-label="Share this lesson on WhatsApp (opens a new tab)">WhatsApp</a>
-    <a class="dwm-share-action" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdarjawithmongia.com%2Ffurniture-of-the-house.html" target="_blank" rel="noopener noreferrer" aria-label="Share this lesson on Facebook (opens a new tab)">Facebook</a>
-    <button class="dwm-share-action" type="button" disabled>More sharing options</button>
+    <button class="dwm-share-action" type="button" data-dwm-copy hidden aria-label="Copy lesson link" title="Copy link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="13" rx="3"/><path d="M16 8V6a3 3 0 0 0-3-3H6a3 3 0 0 0-3 3v7a3 3 0 0 0 3 3h2"/></svg></button>
+    <a class="dwm-share-action" href="https://wa.me/?text=Furniture%20of%20the%20House%20in%20Tunisian%20Arabic%20%E2%80%94%20Darja%20with%20Mongia%0Ahttps%3A%2F%2Fdarjawithmongia.com%2Ffurniture-of-the-house.html" target="_blank" rel="noopener noreferrer" aria-label="Share this lesson on WhatsApp (opens a new tab)" title="Share on WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 20 1.2-4A8.5 8.5 0 1 1 8 19.5Z"/><path d="m9 7-1 2c.5 3 2 4.5 5 5l2-1-2-2-1 1c-1.5-.5-2.5-1.5-3-3l1-1Z"/></svg></a>
+    <a class="dwm-share-action" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdarjawithmongia.com%2Ffurniture-of-the-house.html" target="_blank" rel="noopener noreferrer" aria-label="Share this lesson on Facebook (opens a new tab)" title="Share on Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 21v-8h3l.5-3H14V8.2c0-.9.3-1.5 1.6-1.5h2V4a23 23 0 0 0-2.8-.2c-2.8 0-4.7 1.7-4.7 4.8V10H7v3h3.1v8Z"/></svg></a>
+    <button class="dwm-share-action" type="button" data-dwm-native-share hidden aria-label="More sharing options" title="More sharing options"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 10.5 6.8-4m-6.8 7 6.8 4"/></svg></button>
   </div>
   <details class="dwm-share-link">
     <summary>View lesson link</summary>
@@ -89,6 +149,8 @@ main { max-width:800px; margin:0 auto; }
 </section>
 <!-- End DWM lesson sharing -->
 
+<details class="compact-feedback">
+<summary><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L3 9.6l6.2-.9Z"/></svg>Rate or comment</span><svg class="compact-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></summary>
 <!-- DWM feedback: submissions are moderated; public data contains approved reviews only. -->
 <section class="dwm-lesson-feedback" data-dwm-feedback data-dwm-lesson="furniture-of-the-house.html" data-dwm-title="Furniture of the House in Tunisian Arabic" aria-labelledby="dwm-feedback-title">
   <h2 id="dwm-feedback-title">How helpful was this lesson?</h2>
@@ -110,7 +172,7 @@ main { max-width:800px; margin:0 auto; }
       <input id="dwm-feedback-name" name="nickname" type="text" maxlength="60" required>
     </label>
     <label class="dwm-feedback-label" for="dwm-feedback-comment">Your comment or question (optional)
-      <textarea id="dwm-feedback-comment" name="comment" rows="4" maxlength="1500" placeholder="What helped you? What could be clearer?"></textarea>
+      <textarea id="dwm-feedback-comment" name="comment" rows="2" maxlength="1500" placeholder="What helped you? What could be clearer?"></textarea>
     </label>
     <label class="dwm-feedback-consent"><input name="publish_consent" type="checkbox" value="Yes — may publish after moderation"><span>You may publish my nickname, rating and comment on this lesson after moderation. Leave unchecked to keep my feedback private.</span></label>
     <p data-dwm-feedback-status role="status" aria-live="polite" hidden></p>
@@ -124,6 +186,8 @@ main { max-width:800px; margin:0 auto; }
   </div>
 </section>
 <!-- End DWM feedback -->
+</details>
+</div>
 
 <div class="preview-end"><strong>Continue learning Tunisian Arabic</strong><p>Your existing recommendations and footer stay after these additions.</p></div>
 </main></body></html>
