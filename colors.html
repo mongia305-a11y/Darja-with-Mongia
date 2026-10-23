@@ -169,6 +169,13 @@ tailwind.config={theme:{extend:{
   .recording-playback{margin-top:12px}
   .recording-playback audio{display:block;width:100%;max-width:100%;height:40px}
   .recording-download{display:inline-block;font-size:12px;font-weight:600;color:var(--pink-text);margin-top:7px;text-decoration:underline}
+  #speaking .practice-note{font-size:13px;line-height:1.7;color:var(--pink-text);margin-top:12px}
+  #speaking .model-answer{margin-top:16px;padding-top:14px;border-top:1px solid #eadfe7}
+  #speaking .model-answer summary{cursor:pointer;font-size:14px;font-weight:600;color:var(--pink-text);min-height:44px;align-content:center}
+  #speaking .model-answer summary:focus-visible{outline:3px solid var(--pink-text);outline-offset:4px;border-radius:8px}
+  #speaking .model-answer p{font-size:13px;line-height:1.7;margin-top:8px}
+  #speaking .model-answer .model-answer-arabic{font-family:Amiri,serif;font-size:24px}
+  #speaking .model-answer-play{display:inline-flex;align-items:center;gap:8px;background:var(--pink);color:#3f4c4a;border:0;border-radius:999px;padding:10px 14px;margin-top:10px;font:600 13px Outfit,sans-serif;cursor:pointer}
   main section .reveal>p:first-of-type{margin-top:18px}
   main section .reveal>span.inline-block{font-size:13px;color:var(--pink-text)}
 
@@ -744,7 +751,7 @@ document.addEventListener('click',e=>{
   const all=e.target.closest('[data-all]');
   if(all){playSequence(all.dataset.all.split('|'),all);}
   const rb=e.target.closest('[data-record]');
-  if(rb){toggleRecording(rb.dataset.record);}
+  if(rb){if(rb.closest('#speaking'))toggleSpeakingRecording(rb.dataset.record);else toggleRecording(rb.dataset.record);}
   const ab=e.target.closest('[data-add-recording]');
   if(ab){el('recordFile'+ab.dataset.addRecording).click();}
 });
@@ -1102,11 +1109,74 @@ async function setAnswerRecording(id,blob,filename,persist=true){
   player.onerror=()=>recordingStatus(id,'This audio format cannot be played here. Try an MP3, M4A or WAV file.');
   const link=el('recordDownload'+id);link.href=entry.url;link.download=filename;
   el('recordPlayback'+id).classList.remove('hidden');
+  syncSpeakingRecordButton(id);
   if(!persist){recordingStatus(id,'Your saved recording is ready. Press play to listen.');return;}
   recordingStatus(id,'Your recording is ready. Saving it in this browser…');
   const saved=await saveAnswerRecording(id,blob,filename);
   if(answerRecordings.get(id)!==entry)return;
   recordingStatus(id,saved?'Your recording is saved in this browser. Press play to listen, or download a copy.':'Your recording is ready. This browser could not save it; download a copy to keep it.');
+}
+// A fresh recorder for each attempt in section 09. Other sections keep their existing recorder.
+function syncSpeakingRecordButton(id){
+  const button=el('recordBtn'+id);
+  if(!button?.closest('#speaking')||currentRecording?.id===id||pendingRecordingId===id)return;
+  button.disabled=false;button.classList.remove('is-recording');button.setAttribute('aria-pressed','false');
+  button.querySelector('span').textContent=answerRecordings.has(id)?'Record again':'Record answer';
+}
+async function toggleSpeakingRecording(id){
+  const button=el('recordBtn'+id);
+  if(!button?.closest('#speaking'))return;
+  if(pendingRecordingId!==null){recordingStatus(id,'Please respond to the microphone permission request first.');return;}
+  if(currentRecording){
+    if(currentRecording.id!==id){recordingStatus(id,'Stop the current recording before starting another.');return;}
+    button.disabled=true;recordingStatus(id,'Finishing your recording…');
+    try{if(currentRecording.recorder.state!=='inactive')currentRecording.recorder.stop();}
+    catch(error){currentRecording.finish?.(true);}
+    return;
+  }
+  if(!canRecord()){recordingStatus(id,'Use your device’s recorder, then choose Add recording. You can replace your answer as often as you like.');return;}
+  button.disabled=true;pendingRecordingId=id;
+  recordingStatus(id,'Allow microphone access to record your answer.');
+  let stream,state;
+  try{
+    stopAudio();document.querySelectorAll('#speaking audio').forEach(audio=>audio.pause());
+    stream=await navigator.mediaDevices.getUserMedia({audio:true});
+    const mime=['audio/webm;codecs=opus','audio/mp4','audio/ogg;codecs=opus'].find(type=>typeof MediaRecorder.isTypeSupported==='function'&&MediaRecorder.isTypeSupported(type));
+    const recorder=new MediaRecorder(stream,mime?{mimeType:mime}:undefined);
+    state={id,recorder,stream,chunks:[],timer:null,started:Date.now(),finished:false};
+    state.finish=(failed=false)=>{
+      if(state.finished)return;state.finished=true;
+      if(currentRecording===state)currentRecording=null;
+      if(pendingRecordingId===id)pendingRecordingId=null;
+      releaseRecording(state);syncSpeakingRecordButton(id);
+      if(!failed&&state.chunks.length){
+        const type=recorder.mimeType||state.chunks[0].type||'audio/webm';
+        const ext=type.includes('mp4')?'m4a':type.includes('ogg')?'ogg':'webm';
+        setAnswerRecording(id,new Blob(state.chunks,{type}),'my-colors-answer-'+id+'.'+ext);
+      }else recordingStatus(id,failed?'Recording stopped. Try again; your previous answer is still available.':'No audio was captured. Try again; your previous answer is still available.');
+    };
+    recorder.ondataavailable=event=>{if(!state.finished&&event.data.size)state.chunks.push(event.data);};
+    recorder.onstop=()=>state.finish();
+    recorder.onerror=()=>state.finish(true);
+    currentRecording=state;pendingRecordingId=null;
+    recorder.start();
+    button.disabled=false;button.classList.add('is-recording');button.setAttribute('aria-pressed','true');button.querySelector('span').textContent='Stop recording';
+    recordingStatus(id,'Recording… stop when you finish.');
+    state.timer=setInterval(()=>{
+      const seconds=Math.floor((Date.now()-state.started)/1000);
+      recordingStatus(id,'Recording… '+seconds+'s. Stop when you finish.');
+      if(seconds>=60&&recorder.state==='recording'){
+        button.disabled=true;
+        try{recorder.stop();}catch(error){state.finish(true);}
+      }
+    },500);
+  }catch(error){
+    if(state)state.finish(true);else stream?.getTracks().forEach(track=>track.stop());
+    if(pendingRecordingId===id)pendingRecordingId=null;
+    syncSpeakingRecordButton(id);
+    const message=error.name==='NotAllowedError'?'Microphone access was not granted. Allow it in your browser, then try again, or choose Add recording.':error.name==='NotFoundError'?'No microphone was found. Choose Add recording to use audio from your device.':'Recording could not start. Try again or choose Add recording.';
+    recordingStatus(id,message);
+  }
 }
 async function toggleRecording(id){
   if(pendingRecordingId!==null){recordingStatus(id,'Please respond to the microphone permission request first.');return;}
@@ -1185,7 +1255,7 @@ async function restoreLessonAudio(){
   if(Q.i===0&&!Q.heard&&!Q.locked&&Object.keys(AUDIO_FILES).length)startQuiz();
 }
 
-function speakCard(s,idx){
+function speakCard(s,idx,practice=false){
   const hint=s.hint.split(' — ')[0].replace(/^(Try:|مثال:)\s*/, '');
   return `<div class="reveal hovercard bg-white rounded-3xl shadow-card p-6">
    <div class="flex items-center gap-4">
@@ -1204,16 +1274,18 @@ function speakCard(s,idx){
      </div>
      <button class="pbtn flex-none" data-say="${s.q}" aria-label="Play question"><svg class="audio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4Z"/><path d="M15 8a6 6 0 0 1 0 8M18 5a10 10 0 0 1 0 14"/></svg></button>
    </div>
+   ${practice?'<p class="practice-note">Try answering first. Then listen to a model answer, compare, and try again. You can record as many times as you like.</p>':''}
    <div class="lesson-audio-line mt-3"><p class="text-sm text-ink/50 flex-1">${s.hint}</p>${audioButton(hint,'Play example answer')}</div>
    <div class="answer-recorder" data-recorder-card="${idx}">
      <div class="recording-actions"><button class="record-btn" id="recordBtn${idx}" data-record="${idx}"><svg class="audio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6"/></svg><span>Record answer</span></button><button type="button" class="add-recording" data-add-recording="${idx}">Add recording</button><input class="record-file" id="recordFile${idx}" type="file" accept="audio/*,.webm,.m4a,.mp3,.wav,.ogg" data-record-file="${idx}" aria-label="Add your answer recording"></div>
      <p id="res${idx}" class="recording-status" aria-live="polite">Your turn — answer out loud.</p>
      <div id="recordPlayback${idx}" class="recording-playback hidden"><audio id="recordAudio${idx}" controls preload="metadata" aria-label="Your recorded answer"></audio><a id="recordDownload${idx}" class="recording-download">Download my recording</a></div>
    </div>
+   ${practice?`<details class="model-answer"><summary>Listen to a model answer</summary><p>Try your own answer before listening. This is one possible answer; you can use another color.</p><p class="model-answer-arabic" lang="ar" dir="rtl">${hint}</p><p>${s.hint.split(' — ')[1].replace(/^e\.g\.\s*/, '')}</p><button type="button" class="model-answer-play" data-say="${hint}" aria-label="Play model answer for ${s.en}">${AUDIO_ICON}<span>Play model answer</span></button><p>Listen to your recording and compare the pronunciation and sentence pattern. For a cup or door, use <b>lounou</b>; for a flower or dress, use <b>lounha</b>. This activity does not automatically check your answer.</p></details>`:''}
   </div>`;
 }
 const speakGrid=el('speakGrid');
-SPEAK.forEach((s,i)=>{const d=document.createElement('div');d.innerHTML=speakCard(s,i);speakGrid.appendChild(d.firstElementChild);});
+SPEAK.forEach((s,i)=>{const d=document.createElement('div');d.innerHTML=speakCard(s,i,true);speakGrid.appendChild(d.firstElementChild);});
 const persGrid=el('persGrid');
 PERS.forEach((s,i)=>{const d=document.createElement('div');d.innerHTML=speakCard(s,10+i);persGrid.appendChild(d.firstElementChild);});
 
