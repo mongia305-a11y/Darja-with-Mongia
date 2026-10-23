@@ -169,13 +169,11 @@ tailwind.config={theme:{extend:{
   .recording-playback{margin-top:12px}
   .recording-playback audio{display:block;width:100%;max-width:100%;height:40px}
   .recording-download{display:inline-block;font-size:12px;font-weight:600;color:var(--pink-text);margin-top:7px;text-decoration:underline}
+  .recording-tools{display:flex;align-items:center;gap:10px 16px;flex-wrap:wrap;margin-top:7px}
+  .recording-tools .recording-download{margin-top:0}
+  .delete-recording{border:1px solid var(--pink-dark);border-radius:999px;padding:9px 13px;background:transparent;color:var(--pink-text);font:600 12px Outfit,sans-serif;cursor:pointer;min-height:40px}
+  #speaking .agreement-note,#personal .agreement-note{max-width:720px;margin-top:16px;padding:14px 16px;background:var(--pink-soft);border-radius:16px;color:var(--ink);font-size:14px;line-height:1.8}
   #speaking .practice-note{font-size:13px;line-height:1.7;color:var(--pink-text);margin-top:12px}
-  #speaking .model-answer{margin-top:16px;padding-top:14px;border-top:1px solid #eadfe7}
-  #speaking .model-answer summary{cursor:pointer;font-size:14px;font-weight:600;color:var(--pink-text);min-height:44px;align-content:center}
-  #speaking .model-answer summary:focus-visible{outline:3px solid var(--pink-text);outline-offset:4px;border-radius:8px}
-  #speaking .model-answer p{font-size:13px;line-height:1.7;margin-top:8px}
-  #speaking .model-answer .model-answer-arabic{font-family:Amiri,serif;font-size:24px}
-  #speaking .model-answer-play{display:inline-flex;align-items:center;gap:8px;background:var(--pink);color:#3f4c4a;border:0;border-radius:999px;padding:10px 14px;margin-top:10px;font:600 13px Outfit,sans-serif;cursor:pointer}
   main section .reveal>p:first-of-type{margin-top:18px}
   main section .reveal>span.inline-block{font-size:13px;color:var(--pink-text)}
 
@@ -453,6 +451,7 @@ tailwind.config={theme:{extend:{
       <span class="ghost">09</span>
       <span class="inline-block text-xs font-semibold tracking-[.25em] uppercase text-terra bg-terra/10 rounded-full px-4 py-1.5">09 · Speaking practice</span>
       <p class="text-ink/60 mt-2 max-w-xl">Read the question and answer out loud. Record your answer, stop, then listen to yourself. You can also add an audio recording from your device.</p>
+      <p class="agreement-note">The noun usually comes before the adjective. <b>Match gender and number:</b> masculine singular + masculine singular; feminine singular + feminine singular; plural + plural.</p>
     </div>
     <div id="speakGrid" class="grid sm:grid-cols-2 gap-6"></div>
   </div>
@@ -465,6 +464,7 @@ tailwind.config={theme:{extend:{
       <span class="ghost">10</span>
       <span class="inline-block text-xs font-semibold tracking-[.25em] uppercase text-terra bg-terra/10 rounded-full px-4 py-1.5">10 · About you · على روحك</span>
       <p class="text-ink/60 mt-2 max-w-xl">Now make it personal. Answer these about <b>you</b> — out loud, in Darja.</p>
+      <p class="agreement-note">The noun usually comes before the adjective. <b>Match gender and number:</b> masculine singular + masculine singular; feminine singular + feminine singular; plural + plural.</p>
     </div>
     <div id="persGrid" class="grid md:grid-cols-3 gap-6"></div>
   </div>
@@ -751,9 +751,11 @@ document.addEventListener('click',e=>{
   const all=e.target.closest('[data-all]');
   if(all){playSequence(all.dataset.all.split('|'),all);}
   const rb=e.target.closest('[data-record]');
-  if(rb){if(rb.closest('#speaking'))toggleSpeakingRecording(rb.dataset.record);else toggleRecording(rb.dataset.record);}
+  if(rb){toggleRecording(rb.dataset.record);}
   const ab=e.target.closest('[data-add-recording]');
   if(ab){el('recordFile'+ab.dataset.addRecording).click();}
+  const db=e.target.closest('[data-delete-recording]');
+  if(db){deleteAnswerRecording(db.dataset.deleteRecording);}
 });
 
 /* ================= DATA ================= */
@@ -1060,6 +1062,8 @@ function endQuiz(){
 
 /* ================= RECORD YOUR ANSWER ================= */
 const answerRecordings=new Map();
+const deletingAnswerRecordings=new Set();
+const deletedAnswerRecordings=new Set();
 let currentRecording=null;
 let pendingRecordingId=null;
 const canRecord=()=>Boolean(window.isSecureContext && navigator.mediaDevices?.getUserMedia && window.MediaRecorder);
@@ -1091,6 +1095,35 @@ async function saveAnswerRecording(id,blob,filename){
     }catch(error){resolve(false);}
   });
 }
+async function deleteSavedAnswerRecording(id){
+  const db=await openRecordingsDB();if(!db)return true;
+  return new Promise(resolve=>{
+    try{
+      const tx=db.transaction('recordings','readwrite');
+      tx.objectStore('recordings').delete('colors:'+id);
+      tx.oncomplete=()=>resolve(true);tx.onerror=()=>resolve(false);tx.onabort=()=>resolve(false);
+    }catch(error){resolve(false);}
+  });
+}
+async function deleteAnswerRecording(id){
+  const entry=answerRecordings.get(id);
+  if(!entry||deletingAnswerRecordings.has(id))return;
+  if(currentRecording?.id===id||pendingRecordingId===id){recordingStatus(id,'Stop recording before deleting your answer.');return;}
+  deletingAnswerRecordings.add(id);deletedAnswerRecordings.add(id);syncAnswerRecordControls(id);
+  recordingStatus(id,'Deleting your recording…');
+  if(entry.savePromise)await entry.savePromise;
+  const removed=await deleteSavedAnswerRecording(id);
+  if(!removed){
+    deletingAnswerRecordings.delete(id);deletedAnswerRecordings.delete(id);syncAnswerRecordControls(id);
+    recordingStatus(id,'Your recording could not be deleted. Please try again.');return;
+  }
+  const player=el('recordAudio'+id);player.pause();player.onerror=null;player.removeAttribute('src');player.load();
+  URL.revokeObjectURL(entry.url);answerRecordings.delete(id);
+  const link=el('recordDownload'+id);link.removeAttribute('href');link.removeAttribute('download');
+  el('recordFile'+id).value='';el('recordPlayback'+id).classList.add('hidden');
+  deletingAnswerRecordings.delete(id);syncAnswerRecordControls(id);
+  recordingStatus(id,'Recording deleted. You can record a new answer.');
+}
 async function restoreAnswerRecordings(){
   const db=await openRecordingsDB();if(!db)return;
   const saved=await new Promise(resolve=>{
@@ -1099,33 +1132,41 @@ async function restoreAnswerRecordings(){
   for(const entry of saved){
     if(!entry.key.startsWith('colors:')||!entry.blob)continue;
     const id=entry.key.slice(7);
-    if(el('recordAudio'+id)&&!answerRecordings.has(id))setAnswerRecording(id,entry.blob,entry.filename,false);
+    if(el('recordAudio'+id)&&!answerRecordings.has(id)&&!deletedAnswerRecordings.has(id))setAnswerRecording(id,entry.blob,entry.filename,false);
   }
 }
 async function setAnswerRecording(id,blob,filename,persist=true){
+  if(!persist&&deletedAnswerRecordings.has(id))return;
+  if(persist)deletedAnswerRecordings.delete(id);
   const old=answerRecordings.get(id);if(old)URL.revokeObjectURL(old.url);
   const entry={blob,url:URL.createObjectURL(blob)};answerRecordings.set(id,entry);
   const player=el('recordAudio'+id);player.src=entry.url;
   player.onerror=()=>recordingStatus(id,'This audio format cannot be played here. Try an MP3, M4A or WAV file.');
   const link=el('recordDownload'+id);link.href=entry.url;link.download=filename;
   el('recordPlayback'+id).classList.remove('hidden');
-  syncSpeakingRecordButton(id);
+  syncAnswerRecordControls(id);
+  if(!persist&&(currentRecording?.id===id||pendingRecordingId===id))return;
   if(!persist){recordingStatus(id,'Your saved recording is ready. Press play to listen.');return;}
   recordingStatus(id,'Your recording is ready. Saving it in this browser…');
-  const saved=await saveAnswerRecording(id,blob,filename);
-  if(answerRecordings.get(id)!==entry)return;
+  const saved=await (entry.savePromise=saveAnswerRecording(id,blob,filename));
+  if(answerRecordings.get(id)!==entry||deletingAnswerRecordings.has(id)||currentRecording?.id===id||pendingRecordingId===id)return;
   recordingStatus(id,saved?'Your recording is saved in this browser. Press play to listen, or download a copy.':'Your recording is ready. This browser could not save it; download a copy to keep it.');
 }
-// A fresh recorder for each attempt in section 09. Other sections keep their existing recorder.
-function syncSpeakingRecordButton(id){
+// Share retry and delete controls across all learner recording cards in this lesson.
+function syncAnswerRecordControls(id){
   const button=el('recordBtn'+id);
-  if(!button?.closest('#speaking')||currentRecording?.id===id||pendingRecordingId===id)return;
-  button.disabled=false;button.classList.remove('is-recording');button.setAttribute('aria-pressed','false');
+  if(!button)return;
+  const busy=deletingAnswerRecordings.has(id)||currentRecording?.id===id||pendingRecordingId===id;
+  const remove=el('recordDelete'+id);if(remove)remove.disabled=busy;
+  const add=document.querySelector('[data-add-recording="'+id+'"]');if(add)add.disabled=busy;
+  if(currentRecording?.id===id||pendingRecordingId===id)return;
+  button.disabled=deletingAnswerRecordings.has(id);button.classList.remove('is-recording');button.setAttribute('aria-pressed','false');
   button.querySelector('span').textContent=answerRecordings.has(id)?'Record again':'Record answer';
 }
-async function toggleSpeakingRecording(id){
+async function toggleRecording(id){
   const button=el('recordBtn'+id);
-  if(!button?.closest('#speaking'))return;
+  if(!button)return;
+  if(deletingAnswerRecordings.has(id)){recordingStatus(id,'Deleting your recording…');return;}
   if(pendingRecordingId!==null){recordingStatus(id,'Please respond to the microphone permission request first.');return;}
   if(currentRecording){
     if(currentRecording.id!==id){recordingStatus(id,'Stop the current recording before starting another.');return;}
@@ -1135,11 +1176,11 @@ async function toggleSpeakingRecording(id){
     return;
   }
   if(!canRecord()){recordingStatus(id,'Use your device’s recorder, then choose Add recording. You can replace your answer as often as you like.');return;}
-  button.disabled=true;pendingRecordingId=id;
+  button.disabled=true;pendingRecordingId=id;syncAnswerRecordControls(id);
   recordingStatus(id,'Allow microphone access to record your answer.');
   let stream,state;
   try{
-    stopAudio();document.querySelectorAll('#speaking audio').forEach(audio=>audio.pause());
+    stopAudio();document.querySelectorAll('.recording-playback audio').forEach(audio=>audio.pause());
     stream=await navigator.mediaDevices.getUserMedia({audio:true});
     const mime=['audio/webm;codecs=opus','audio/mp4','audio/ogg;codecs=opus'].find(type=>typeof MediaRecorder.isTypeSupported==='function'&&MediaRecorder.isTypeSupported(type));
     const recorder=new MediaRecorder(stream,mime?{mimeType:mime}:undefined);
@@ -1148,12 +1189,12 @@ async function toggleSpeakingRecording(id){
       if(state.finished)return;state.finished=true;
       if(currentRecording===state)currentRecording=null;
       if(pendingRecordingId===id)pendingRecordingId=null;
-      releaseRecording(state);syncSpeakingRecordButton(id);
+      releaseRecording(state);syncAnswerRecordControls(id);
       if(!failed&&state.chunks.length){
         const type=recorder.mimeType||state.chunks[0].type||'audio/webm';
         const ext=type.includes('mp4')?'m4a':type.includes('ogg')?'ogg':'webm';
         setAnswerRecording(id,new Blob(state.chunks,{type}),'my-colors-answer-'+id+'.'+ext);
-      }else recordingStatus(id,failed?'Recording stopped. Try again; your previous answer is still available.':'No audio was captured. Try again; your previous answer is still available.');
+      }else recordingStatus(id,(failed?'Recording stopped.':'No audio was captured.')+(answerRecordings.has(id)?' Try again; your previous answer is still available.':' Try again or choose Add recording.'));
     };
     recorder.ondataavailable=event=>{if(!state.finished&&event.data.size)state.chunks.push(event.data);};
     recorder.onstop=()=>state.finish();
@@ -1173,56 +1214,8 @@ async function toggleSpeakingRecording(id){
   }catch(error){
     if(state)state.finish(true);else stream?.getTracks().forEach(track=>track.stop());
     if(pendingRecordingId===id)pendingRecordingId=null;
-    syncSpeakingRecordButton(id);
+    syncAnswerRecordControls(id);
     const message=error.name==='NotAllowedError'?'Microphone access was not granted. Allow it in your browser, then try again, or choose Add recording.':error.name==='NotFoundError'?'No microphone was found. Choose Add recording to use audio from your device.':'Recording could not start. Try again or choose Add recording.';
-    recordingStatus(id,message);
-  }
-}
-async function toggleRecording(id){
-  if(pendingRecordingId!==null){recordingStatus(id,'Please respond to the microphone permission request first.');return;}
-  if(currentRecording){
-    if(currentRecording.id===id && currentRecording.recorder.state==='recording'){el('recordBtn'+id).disabled=true;recordingStatus(id,'Finishing your recording…');currentRecording.recorder.stop();}
-    else recordingStatus(id,'Stop the current recording before starting another.');
-    return;
-  }
-  if(!canRecord()){
-    recordingStatus(id,'This browser cannot record here. Use your device’s recorder, then choose Add recording.');
-    return;
-  }
-  const button=el('recordBtn'+id);button.disabled=true;pendingRecordingId=id;
-  recordingStatus(id,'Allow microphone access to record your answer.');
-  let stream;
-  try{
-    stream=await navigator.mediaDevices.getUserMedia({audio:true});pendingRecordingId=null;
-    const mime=['audio/webm;codecs=opus','audio/mp4','audio/ogg;codecs=opus'].find(t=>MediaRecorder.isTypeSupported(t));
-    const recorder=new MediaRecorder(stream,mime?{mimeType:mime}:undefined);
-    const state={id,recorder,stream,chunks:[],timer:null,started:Date.now()};
-    currentRecording=state;
-    recorder.ondataavailable=e=>{if(e.data.size)state.chunks.push(e.data);};
-    recorder.onstop=()=>{
-      releaseRecording(state);if(currentRecording===state)currentRecording=null;
-      button.disabled=false;button.classList.remove('is-recording');button.querySelector('span').textContent='Record again';
-      if(state.chunks.length){
-        const type=recorder.mimeType||state.chunks[0].type||'audio/webm';
-        const ext=type.includes('mp4')?'m4a':type.includes('ogg')?'ogg':'webm';
-        setAnswerRecording(id,new Blob(state.chunks,{type}),'my-colors-answer-'+id+'.'+ext);
-      }else recordingStatus(id,'No audio was captured. Try again or add a recording from your device.');
-    };
-    recorder.onerror=()=>{
-      releaseRecording(state);if(currentRecording===state)currentRecording=null;
-      button.disabled=false;button.classList.remove('is-recording');button.querySelector('span').textContent='Record answer';
-      recordingStatus(id,'Recording stopped. Try again or choose Add recording.');
-    };
-    recorder.start();button.disabled=false;button.classList.add('is-recording');button.querySelector('span').textContent='Stop recording';
-    recordingStatus(id,'Recording… stop when you finish.');
-    state.timer=setInterval(()=>{
-      const secs=Math.floor((Date.now()-state.started)/1000);
-      recordingStatus(id,'Recording… '+secs+'s. Stop when you finish.');
-      if(secs>=60 && recorder.state==='recording')recorder.stop();
-    },500);
-  }catch(error){
-    stream?.getTracks().forEach(track=>track.stop());currentRecording=null;pendingRecordingId=null;button.disabled=false;
-    const message=error.name==='NotAllowedError'?'Microphone access was not granted. Allow it in your browser, or choose Add recording.':error.name==='NotFoundError'?'No microphone was found. Choose Add recording to use audio from your device.':'Recording is unavailable here. Use your device’s recorder, then choose Add recording.';
     recordingStatus(id,message);
   }
 }
@@ -1233,6 +1226,7 @@ function initRecorders(){
   document.querySelectorAll('[data-record-file]').forEach(input=>input.addEventListener('change',()=>{
     const file=input.files[0];if(!file)return;
     const id=input.dataset.recordFile;
+    if(deletingAnswerRecordings.has(id)){recordingStatus(id,'Deleting your recording…');input.value='';return;}
     if(currentRecording||pendingRecordingId!==null){recordingStatus(id,'Finish the current recording request before adding a file.');input.value='';return;}
     if(!file.type.startsWith('audio/')&&!/\.(mp3|wav|m4a|ogg|webm|aac)$/i.test(file.name)){
       recordingStatus(id,'Choose an audio recording.');input.value='';return;
@@ -1274,14 +1268,13 @@ function speakCard(s,idx,practice=false){
      </div>
      <button class="pbtn flex-none" data-say="${s.q}" aria-label="Play question"><svg class="audio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4Z"/><path d="M15 8a6 6 0 0 1 0 8M18 5a10 10 0 0 1 0 14"/></svg></button>
    </div>
-   ${practice?'<p class="practice-note">Try answering first. Then listen to a model answer, compare, and try again. You can record as many times as you like.</p>':''}
+   ${practice?'<p class="practice-note">Try answering first. Then listen to the key answer and compare.</p>':''}
    <div class="lesson-audio-line mt-3"><p class="text-sm text-ink/50 flex-1">${s.hint}</p>${audioButton(hint,'Play example answer')}</div>
    <div class="answer-recorder" data-recorder-card="${idx}">
      <div class="recording-actions"><button class="record-btn" id="recordBtn${idx}" data-record="${idx}"><svg class="audio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6"/></svg><span>Record answer</span></button><button type="button" class="add-recording" data-add-recording="${idx}">Add recording</button><input class="record-file" id="recordFile${idx}" type="file" accept="audio/*,.webm,.m4a,.mp3,.wav,.ogg" data-record-file="${idx}" aria-label="Add your answer recording"></div>
      <p id="res${idx}" class="recording-status" aria-live="polite">Your turn — answer out loud.</p>
-     <div id="recordPlayback${idx}" class="recording-playback hidden"><audio id="recordAudio${idx}" controls preload="metadata" aria-label="Your recorded answer"></audio><a id="recordDownload${idx}" class="recording-download">Download my recording</a></div>
+     <div id="recordPlayback${idx}" class="recording-playback hidden"><audio id="recordAudio${idx}" controls preload="metadata" aria-label="Your recorded answer"></audio><div class="recording-tools"><a id="recordDownload${idx}" class="recording-download">Download my recording</a><button type="button" class="delete-recording" id="recordDelete${idx}" data-delete-recording="${idx}" aria-label="Delete your recording for ${s.en||s.title}">Delete recording</button></div></div>
    </div>
-   ${practice?`<details class="model-answer"><summary>Listen to a model answer</summary><p>Try your own answer before listening. This is one possible answer; you can use another color.</p><p class="model-answer-arabic" lang="ar" dir="rtl">${hint}</p><p>${s.hint.split(' — ')[1].replace(/^e\.g\.\s*/, '')}</p><button type="button" class="model-answer-play" data-say="${hint}" aria-label="Play model answer for ${s.en}">${AUDIO_ICON}<span>Play model answer</span></button><p>Listen to your recording and compare the pronunciation and sentence pattern. For a cup or door, use <b>lounou</b>; for a flower or dress, use <b>lounha</b>. This activity does not automatically check your answer.</p></details>`:''}
   </div>`;
 }
 const speakGrid=el('speakGrid');
@@ -1390,3 +1383,4 @@ gsap.utils.toArray('.reveal').forEach(elm=>{
 </script>
 </body>
 </html>
+
