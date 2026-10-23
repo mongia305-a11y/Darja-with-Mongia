@@ -7,6 +7,7 @@
   const key = 'darjaNewsletterPreference';
   const week = 7 * 24 * 60 * 60 * 1000;
   const selector = 'form[data-darja-signup]';
+  const signupPage = !!document.querySelector('[data-darja-newsletter-page]');
   // Local markup remains visible even if Kit's scripts are blocked by a browser.
   const formHTML = "<form class=\"darja-signup\" data-darja-signup data-sv-form=\"9978820\" data-uid=\"bcbed786bc\" data-format=\"inline\" data-version=\"5\" data-options='{\"settings\":{\"after_subscribe\":{\"action\":\"message\",\"success_message\":\"Success! Now check your email to confirm your subscription.\"},\"recaptcha\":{\"enabled\":false},\"return_visitor\":{\"action\":\"show\"}}}' action=\"https://app.kit.com/forms/9978820/subscriptions\" method=\"post\">\n  <div class=\"darja-signup-layout\">\n    <div class=\"darja-signup-picture\" aria-hidden=\"true\"></div>\n    <div class=\"darja-signup-content\">\n      <h2>Keep learning Tunisian Arabic!</h2>\n      <ul class=\"darja-signup-errors\" data-element=\"errors\" role=\"alert\"></ul>\n      <div class=\"darja-signup-fields\" data-element=\"fields\">\n        <label>Email Address\n          <input name=\"email_address\" type=\"email\" autocomplete=\"email\" inputmode=\"email\" placeholder=\"Email Address\" required>\n        </label>\n        <button type=\"submit\" data-element=\"submit\"><span>Keep me updated</span></button>\n      </div>\n      <p>Get email updates from Darja with Mongia about new lessons.</p>\n      <p>We respect your privacy. Unsubscribe at any time.</p>\n      <a class=\"darja-signup-provider\" href=\"https://kit.com/\" target=\"_blank\" rel=\"noopener\">Built with Kit</a>\n    </div>\n  </div>\n</form>";
   let clientLoading = false;
@@ -61,7 +62,7 @@
     dialog.id = 'darjaNewsletterDialog';
     dialog.className = 'darja-newsletter-dialog';
     dialog.setAttribute('aria-label', 'Keep learning Tunisian Arabic — email updates');
-    dialog.innerHTML = '<div class="darja-newsletter-bar"><img src="/images/full-logo.png" width="150" height="63" alt="Darja with Mongia"><button type="button" class="darja-newsletter-close" aria-label="Close newsletter signup" autofocus><span aria-hidden="true">×</span></button></div><div class="darja-newsletter-slot"></div><div class="darja-newsletter-fallback"><h2>Keep learning Tunisian Arabic!</h2><p>Get email updates about new lessons.</p></div><p class="darja-newsletter-help"><a href="/#newsletter" target="_blank" rel="noopener">Open the signup form in a new tab</a></p>';
+    dialog.innerHTML = '<div class="darja-newsletter-bar"><img src="/images/full-logo.png" width="150" height="63" alt="Darja with Mongia"><button type="button" class="darja-newsletter-close" aria-label="Close newsletter signup" autofocus><span aria-hidden="true">×</span></button></div><div class="darja-newsletter-slot"></div><div class="darja-newsletter-fallback"><h2>Keep learning Tunisian Arabic!</h2><p>Get email updates about new lessons.</p></div><p class="darja-newsletter-help"><a href="/newsletter.html" target="_blank" rel="noopener">Open the signup form in a new tab</a></p>';
     slot = dialog.querySelector('.darja-newsletter-slot');
     fallback = dialog.querySelector('.darja-newsletter-fallback');
     // Kit may finish initializing or replace its markup after the dialog opens.
@@ -182,6 +183,7 @@
       return;
     }
     loadClient();
+    if (signupPage) return;
     if (suppressed() || /placement-test\.html$/.test(location.pathname)) return;
     timer = setTimeout(() => { elapsed = true; attemptOpen(); }, 15000);
   }
