@@ -1,0 +1,42 @@
+/* The book card adds no backdrop and leaves the page usable. */
+.darja-book-offer {
+  position: fixed; right: 22px; bottom: max(22px, env(safe-area-inset-bottom)); z-index: 900;
+  display: grid; grid-template-columns: 82px minmax(0, 1fr); gap: 18px; align-items: center;
+  width: min(390px, calc(100% - 32px)); max-height: calc(100dvh - 32px);
+  box-sizing: border-box; overflow: auto; padding: 24px 22px;
+  color: #342d36; background: #fff; border: 1px solid #eadce5; border-radius: 22px;
+  box-shadow: 0 12px 42px rgba(64,45,67,.18); font: 400 13px/1.5 Poppins, Arial, sans-serif;
+}
+.darja-book-offer[hidden] { display: none !important; }
+.darja-book-offer * { box-sizing: border-box; }
+.darja-book-offer .darja-book-offer-close {
+  position: absolute; top: 2px; right: 2px; display: grid; place-items: center;
+  width: 44px; height: 44px; min-height: 44px; padding: 0; margin: 0; border: 0;
+  border-radius: 50%; color: #655666; background: transparent; font: 28px/1 Arial,sans-serif; cursor: pointer;
+}
+.darja-book-offer .darja-book-offer-cover { display: block; width: 82px; height: auto; border-radius: 3px; box-shadow: 3px 5px 12px #3e2c4320; }
+.darja-book-offer .darja-book-offer-copy { min-width: 0; }
+.darja-book-offer .darja-book-offer-kicker { margin: 0 16px 6px 0; color: #94607a; font-size: 9px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+.darja-book-offer h2 { margin: 0 0 7px; color: inherit; font: 650 17px/1.35 Poppins,Arial,sans-serif; letter-spacing: -.3px; text-align: left; }
+.darja-book-offer .darja-book-offer-format { margin: 0 0 8px; color: #655666; font-size: 11px; }
+.darja-book-offer .darja-book-offer-price { display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px; margin: 0 0 10px; }
+.darja-book-offer-price strong { color: #b65f85; font-size: 24px; line-height: 1.2; }
+.darja-book-offer-price del { color: #655666; font-size: 12px; }
+.darja-book-offer .darja-book-offer-button {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 44px;
+  padding: 9px 13px; border-radius: 999px; background: #e7a6c2; color: #392e36;
+  font-size: 11px; font-weight: 650; line-height: 1.4; text-align: center; text-decoration: none;
+}
+.darja-book-offer .darja-book-offer-button:hover { background: #f0bdd3; }
+.darja-book-offer .darja-book-offer-close:hover { background: #fcf5f8; }
+.darja-book-offer :is(a,button):focus-visible { outline: 3px solid #94607a; outline-offset: 2px; }
+html[data-theme="dark"] .darja-book-offer { color: #f5edf3; background: #24202c; border-color: #59465b; }
+html[data-theme="dark"] .darja-book-offer :is(.darja-book-offer-kicker,.darja-book-offer-price strong) { color: #efaccb; }
+html[data-theme="dark"] .darja-book-offer :is(.darja-book-offer-close,.darja-book-offer-format,.darja-book-offer-price del) { color: #d1c0d0; }
+html[data-theme="dark"] .darja-book-offer .darja-book-offer-close:hover { background: #392b3b; }
+@media(max-width:600px) {
+  .darja-book-offer { right: 12px; bottom: max(12px, env(safe-area-inset-bottom)); width: min(366px, calc(100% - 24px)); gap: 14px; padding: 22px 18px; grid-template-columns: 70px minmax(0,1fr); border-radius: 18px; }
+  .darja-book-offer .darja-book-offer-cover { width: 70px; }
+  .darja-book-offer h2 { font-size: 16px; }
+}
+@media(max-height:500px) { .darja-book-offer { max-height: calc(100dvh - 24px); } }

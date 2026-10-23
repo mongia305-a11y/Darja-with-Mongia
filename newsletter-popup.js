@@ -139,6 +139,7 @@
 
   function attemptOpen(manual) {
     if ((!manual && suppressed()) || !privacyReady()) return false;
+    if (!manual && window.darjaPromotions && !window.darjaPromotions.canShow('newsletter')) return false;
     if (dialog && dialog.open) return true;
     if (typeof HTMLDialogElement === 'undefined') return false;
     if (busy()) {
@@ -165,6 +166,7 @@
     previousFocus = document.activeElement;
     if (form) slot.appendChild(form);
     dialog.showModal();
+    if (window.darjaPromotions) window.darjaPromotions.markShown('newsletter');
     updateFallback();
     document.documentElement.classList.add('darja-newsletter-open');
     loadClient();
