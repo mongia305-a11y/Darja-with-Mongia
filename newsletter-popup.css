@@ -41,7 +41,7 @@
 .darja-newsletter-dialog .darja-signup { border: 0; border-radius: 0; }
 .darja-signup-layout { display: grid; grid-template-columns: .95fr 1.05fr; }
 .darja-signup-picture {
-  min-height: 440px; background: var(--darja-bg-165, #e8f5f0) url("https://embed.filekitcdn.com/e/oyk78xL9ZA8uHxjARJ8PZZ/gSMVCTwgNwY4wy2Ycrs2uS") center / cover no-repeat;
+  min-height: 440px; background: var(--darja-bg-165, #e8f5f0) url("images/newsletter-homepage-new-portrait.webp") center / cover no-repeat;
 }
 .darja-signup-content { min-width: 0; padding: 32px; }
 .darja-signup h2 { margin: 0 0 24px; color: var(--darja-fg-63, #3f4c4a); font: 500 36px/1.15 Georgia,serif; letter-spacing: -.8px; }
