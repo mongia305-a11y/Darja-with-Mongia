@@ -61,7 +61,7 @@
     dialog.id = 'darjaNewsletterDialog';
     dialog.className = 'darja-newsletter-dialog';
     dialog.setAttribute('aria-label', 'Keep learning Tunisian Arabic — email updates');
-    dialog.innerHTML = '<div class="darja-newsletter-bar"><img src="/images/full-logo.png" width="150" height="63" alt="Darja with Mongia"><button type="button" class="darja-newsletter-close" aria-label="Close newsletter signup" autofocus><span aria-hidden="true">×</span></button></div><div class="darja-newsletter-slot"></div><div class="darja-newsletter-fallback"><h2>Keep learning Tunisian Arabic!</h2><p>Get email updates about new lessons.</p></div><p class="darja-newsletter-help"><a href="https://darja-with-mongia.kit.com/bcbed786bc" target="_blank" rel="noopener">Open the signup form in a new tab</a></p>';
+    dialog.innerHTML = '<div class="darja-newsletter-bar"><img src="/images/full-logo.png" width="150" height="63" alt="Darja with Mongia"><button type="button" class="darja-newsletter-close" aria-label="Close newsletter signup" autofocus><span aria-hidden="true">×</span></button></div><div class="darja-newsletter-slot"></div><div class="darja-newsletter-fallback"><h2>Keep learning Tunisian Arabic!</h2><p>Get email updates about new lessons.</p></div><p class="darja-newsletter-help"><a href="/#newsletter" target="_blank" rel="noopener">Open the signup form in a new tab</a></p>';
     slot = dialog.querySelector('.darja-newsletter-slot');
     fallback = dialog.querySelector('.darja-newsletter-fallback');
     // Kit may finish initializing or replace its markup after the dialog opens.
@@ -191,7 +191,7 @@
     if (privacy) new MutationObserver(schedule).observe(privacy, { attributes: true, attributeFilter: ['open', 'hidden'] });
     document.addEventListener('click', event => {
       const link = event.target.closest('a[href]');
-      if (!link || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button) return;
+      if (!link || link.target === '_blank' || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button) return;
       const url = new URL(link.href, location.href);
       if (url.origin !== location.origin || url.hash !== '#newsletter' || !privacyReady()) return;
       if (attemptOpen(true)) event.preventDefault();
