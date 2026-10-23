@@ -169,3 +169,12 @@
   .hero-title em::after,.portrait-shape,.greeting-note { animation:none!important; }
 }
 @media print { .cookie-privacy-bar,.darja-privacy-footer { display:none!important; } }
+
+/* Show the full original portrait with a little breathing room. */
+html .home-page .portrait-shape img,
+html .home-page .about-image img {
+  object-fit: contain;
+  object-position: center;
+  padding: 4%;
+  background: #eeecec;
+}
