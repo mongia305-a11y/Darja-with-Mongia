@@ -1,0 +1,83 @@
+/* Colors-only site navigation and footer layer. Lesson cards and activities retain their supplied design. */
+.colors-lesson {
+  --polish-page:#f9f7ff;--polish-paper:#fff;--polish-text:#3f424d;--polish-muted:#626673;
+  --polish-line:#e5dce7;--polish-pink:#edb6cc;--polish-pink-ink:#66384f;--polish-tint:#fbf0f6;
+}
+html body.colors-lesson > .navbar {
+  position:sticky;top:0;z-index:1000;width:100%;min-height:78px;margin:0;
+  padding:8px clamp(18px,3vw,40px);border:0;border-bottom:1px solid var(--polish-line);
+  border-radius:0;background:var(--polish-paper);box-shadow:0 3px 16px #28192b08;
+  font-family:'Poppins',sans-serif;line-height:1.7;
+}
+.colors-lesson .brand-logo {display:flex;align-items:center;min-width:0}
+.colors-lesson .brand-logo img {width:156px;max-height:58px;object-fit:contain;display:block}
+html body.colors-lesson > .navbar > [data-lesson-menu-nav] {display:flex;gap:clamp(12px,2vw,26px);padding:0;align-items:center}
+html body.colors-lesson > .navbar > [data-lesson-menu-nav] a {
+  display:inline-flex;align-items:center;min-height:44px;padding:4px 0;
+  font:500 17px/1.4 'Poppins',sans-serif;color:var(--polish-text);text-decoration:none;white-space:nowrap;
+}
+html body.colors-lesson > .navbar > [data-lesson-menu-nav] a:is(:hover,.active) {color:#ff7aa2}
+.colors-lesson :is(.hamburger,.mobile-menu){display:none}
+.colors-lesson .darja-theme-toggle{min-width:118px}
+.colors-lesson .lessonbar{position:relative;z-index:80;border-bottom:1px solid var(--polish-line);background:var(--polish-page);font-family:'Poppins',sans-serif}
+.colors-lesson .lesson-nav{display:flex;align-items:center;gap:8px;width:min(1180px,calc(100% - 44px));min-height:55px;margin:0 auto;overflow-x:auto}
+.colors-lesson .lesson-nav a{flex:none;padding:8px 14px;border-radius:999px;color:#7b8494;font-size:14px;font-weight:600;line-height:1.65;text-decoration:none;white-space:nowrap}
+.colors-lesson .lesson-nav a:is(:hover,.active){background:var(--polish-paper);color:#c66f96;box-shadow:0 4px 14px #463e4d0f}
+.colors-lesson .lesson-nav .lesson-quiz{margin-left:auto;padding:9px 18px;background:#e9a6c3;color:#fff}
+.colors-lesson .lesson-nav .lesson-quiz:hover{background:#d98eaf;color:#fff}
+.colors-lesson .lesson-intro{padding-top:36px}
+.colors-lesson #pbar{z-index:1100}
+.colors-lesson #celebrate{z-index:1200}
+.colors-page-bottom{width:min(1180px,calc(100% - 48px));margin:32px auto 40px;font:400 16px/1.7 'Poppins',sans-serif;color:var(--polish-text)}
+.colors-page-bottom .related-lessons{padding:24px;border-color:var(--polish-line);background:var(--polish-paper);box-shadow:0 8px 26px #402d430f}
+.colors-page-bottom .related-lessons h2{font-size:clamp(22px,3vw,28px);font-weight:700;line-height:1.35;margin:0 0 10px}
+.colors-page-bottom .related-lessons p{font-size:16px;line-height:1.8;margin:0 0 18px;color:var(--polish-muted)}
+.colors-page-bottom .related-lessons a{border-color:var(--polish-line);background:var(--polish-page);color:#884565}
+.colors-page-bottom .site-footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px;padding:28px 24px;background:var(--polish-paper);border:1px solid var(--polish-line);border-radius:22px}
+.colors-page-bottom .site-footer>img{width:156px;max-height:60px;object-fit:contain}
+.colors-page-bottom .site-footer small{font-size:13px;font-weight:600;line-height:1.7}
+.colors-footer-thanks{font-size:13px;color:var(--polish-muted)}
+.colors-page-bottom .site-footer .btn-cream{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:12px 22px;border:1px solid var(--polish-line);border-radius:999px;background:var(--polish-paper);color:var(--polish-text);font-size:14px;font-weight:600;line-height:1.5}
+.colors-page-bottom .cookie-privacy-bar{flex:1 0 100%;width:100%;margin:20px 0 0;padding:12px 0 0;border-top:1px solid var(--polish-line);background:transparent}
+.colors-page-bottom .cookie-settings-button{min-height:44px;padding:8px 4px;margin:0;border:0;border-radius:0;box-shadow:none;background:transparent;color:var(--polish-muted);font-size:14px;text-decoration:underline;text-underline-offset:4px}
+.colors-lesson #topBtn{position:fixed;right:18px;bottom:18px;width:52px;height:52px;border-radius:50%;border:1px solid var(--polish-line);background:var(--polish-paper);color:#c66f96;font-size:20px;cursor:pointer;box-shadow:0 12px 28px #463e4d12;z-index:95}
+.colors-lesson #topBtn[hidden]{display:none}
+@media(max-width:1100px){html body.colors-lesson > .navbar > [data-lesson-menu-nav] a{font-size:15px}}
+@media(max-width:900px){
+  html body.colors-lesson > .navbar{padding:8px 18px;gap:4px 12px}
+  html body.colors-lesson > .navbar > [data-lesson-menu-nav]{gap:4px 16px!important}
+  html body.colors-lesson > .navbar > [data-lesson-menu-nav] a{font-size:14px;min-height:40px}
+  .colors-lesson .brand-logo img{width:140px}
+  .colors-lesson main section,.colors-lesson #hero,.colors-lesson #coreGrid article{scroll-margin-top:160px}
+}
+@media(max-width:600px){
+  .colors-lesson .lesson-intro{padding-top:28px}
+  .colors-lesson .lesson-nav{width:calc(100% - 24px);min-height:50px;gap:0}
+  .colors-lesson .lesson-nav a{padding:8px 10px}
+  .colors-lesson .lesson-nav .lesson-quiz{display:none}
+  .colors-page-bottom{width:calc(100% - 32px)}
+  .colors-page-bottom .site-footer{padding:24px 20px;justify-content:center;text-align:center}
+  .colors-page-bottom .site-footer small{flex:1 0 100%}
+}
+@media screen{
+  html[data-theme="dark"] .colors-lesson{
+    --polish-page:#17151d;--polish-paper:#25212e;--polish-text:#f4eef6;--polish-muted:#c8becf;--polish-line:#4e4056;--polish-tint:#382733;
+    --page:#17151d;--ink:#f2ebf4;--lavender:#302737;--pink-soft:#392534;--pink-text:#f1bad5;
+    color:#f2ebf4;background:#17151d;
+  }
+  html[data-theme="dark"] .colors-lesson :is(.bg-cream,.intro-steps>div,.color-overview,.overview-swatch){background:#25212e;border-color:#4e4056}
+  html[data-theme="dark"] .colors-lesson [class~="bg-sand/60"]{background:#211c29}
+  html[data-theme="dark"] .colors-lesson .bg-sand{background:#392534}
+  html[data-theme="dark"] .colors-lesson [class*="text-ink"]{color:#f2ebf4!important}
+  html[data-theme="dark"] .colors-lesson [class*="text-ink/"]{color:#c8becf!important}
+  html[data-theme="dark"] .colors-lesson :is(.intro-description,.intro-arabic,.intro-steps p,.overview-heading>span,.swatch-english,.overview-note,.recording-status){color:#c8becf}
+  html[data-theme="dark"] .colors-lesson .overview-note{background:#302534;border-color:#4e4056}
+  html[data-theme="dark"] .colors-lesson :is(.btn-primary,.pbtn,.pat-mini.active){color:#3f4c4a!important}
+  html[data-theme="dark"] .colors-lesson :is(.pat-mini,.bg-ink.text-cream [class*="bg-white/"]){background:#3c3345;color:#f2ebf4}
+  html[data-theme="dark"] .colors-lesson .bg-ink.text-cream [class*="text-cream/"]{color:#c8becf}
+  html[data-theme="dark"] .colors-lesson .bg-ink.text-cream #patWord{filter:brightness(1.5)}
+  html[data-theme="dark"] .colors-lesson #color-white>div:first-child [class*="text-ink"]{color:#3f4c4a!important}
+  html[data-theme="dark"] .colors-lesson .brand-logo>img,html[data-theme="dark"] .colors-page-bottom .site-footer>img{box-sizing:border-box;padding:5px 9px;background:#faf5f8;border:1px solid #d4bbc9;border-radius:12px}
+  html[data-theme="dark"] .colors-page-bottom .related-lessons a{background:#302534;color:#f1bad5}
+  html[data-theme="dark"] .colors-lesson .darja-theme-toggle{background:#382733;color:#f1bad5;border-color:#9a6582}
+}
