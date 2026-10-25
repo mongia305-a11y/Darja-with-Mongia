@@ -1,0 +1,766 @@
+/* Original: newsletter-popup.css */
+/* Website-owned signup layout; rendering does not depend on Kit's scripts. */
+.darja-newsletter-dialog {
+  box-sizing: border-box; position: fixed; inset: 0;
+  width: min(860px, calc(100% - 32px)); max-width: none;
+  max-height: calc(100dvh - 32px); margin: auto; padding: 0;
+  overflow: auto; overscroll-behavior: contain;
+  color: var(--darja-fg-63, #3f4c4a); background: var(--darja-bg-8, #fff); border: 1px solid var(--darja-line-62, #eadfe7);
+  border-radius: 24px; box-shadow: 0 24px 90px var(--darja-shadow-158, rgba(47,36,48,.24));
+  font-family: "Poppins", Arial, sans-serif;
+}
+.darja-newsletter-dialog:not([open]) { display: none; }
+.darja-newsletter-dialog::backdrop { background: var(--darja-bg-159, rgba(35,45,42,.52)); backdrop-filter: blur(3px); }
+.darja-newsletter-open, .darja-newsletter-open body { overflow: hidden; }
+.darja-newsletter-bar {
+  position: sticky; top: 0; z-index: 2; display: flex;
+  align-items: center; justify-content: space-between; gap: 16px;
+  margin: 0; padding: 12px 20px; border-bottom: 1px solid var(--darja-line-160, #f1e8ed); background: var(--darja-bg-8, #fff);
+}
+.darja-newsletter-bar img { display: block; width: 132px; height: auto; margin: 0; }
+.darja-newsletter-close {
+  display: grid; place-items: center; flex: 0 0 44px;
+  width: 44px; height: 44px; margin: 0; padding: 0;
+  border: 1px solid var(--darja-line-62, #eadfe7); border-radius: 50%; color: var(--darja-fg-161, #46514e); background: var(--darja-bg-162, #faf7f9);
+  font: 400 30px/1 Arial,sans-serif; cursor: pointer;
+}
+.darja-newsletter-close:hover { background: var(--darja-bg-65, #f8dce8); transform: none; opacity: 1; }
+.darja-newsletter-close:focus-visible { outline: 3px solid var(--darja-line-163, #8e526d); outline-offset: 3px; }
+.darja-newsletter-slot { margin: 0; }
+.darja-newsletter-fallback { padding: 28px 32px 8px; }
+.darja-newsletter-fallback[hidden] { display: none; }
+.darja-newsletter-fallback h2 { margin: 0 0 16px; font: 500 30px/1.2 Georgia,serif; }
+.darja-newsletter-fallback p { margin: 0; font-size: 16px; }
+.darja-newsletter-help { margin: 0; padding: 16px 24px; text-align: center; font-size: 14px; }
+.darja-newsletter-help a { color: var(--darja-fg-164, #78465f); text-decoration: underline; }
+.darja-signup, .darja-signup * { box-sizing: border-box; }
+.darja-signup {
+  display: block; width: 100%; max-width: 1000px; margin: 0 auto;
+  overflow: hidden; border: 1px solid var(--darja-line-62, #eadfe7); border-radius: 20px;
+  background: var(--darja-bg-8, #fff); color: var(--darja-fg-63, #3f4c4a); font-family: "Poppins",Arial,sans-serif;
+}
+.darja-newsletter-dialog .darja-signup { border: 0; border-radius: 0; }
+.darja-signup-layout { display: grid; grid-template-columns: .95fr 1.05fr; }
+.darja-signup-picture {
+  min-height: 440px; background: var(--darja-bg-165, #e8f5f0) url("images/newsletter-homepage-new-portrait.webp") center / cover no-repeat;
+}
+.darja-signup-content { min-width: 0; padding: 32px; }
+.darja-signup h2 { margin: 0 0 24px; color: var(--darja-fg-63, #3f4c4a); font: 500 36px/1.15 Georgia,serif; letter-spacing: -.8px; }
+.darja-signup-fields { display: grid; gap: 18px; margin: 0 0 22px; }
+.darja-signup label { display: grid; gap: 8px; text-align: left; font-size: 14px; font-weight: 500; }
+.darja-signup input {
+  display: block; width: 100%; min-width: 0; min-height: 48px;
+  padding: 12px 14px; color: var(--darja-fg-63, #3f4c4a); background: var(--darja-bg-8, #fff);
+  border: 1px solid var(--darja-line-166, #b9c7c1); border-radius: 10px; font: 400 16px/1.4 "Poppins",Arial,sans-serif;
+}
+.darja-signup button {
+  position: relative; display: block; width: 100%; min-height: 48px;
+  padding: 12px 14px; color: var(--darja-fg-167, #382d33); background: var(--darja-bg-70, #e9a6c3);
+  border: 0; border-radius: 10px; font: 600 16px/1.4 "Poppins",Arial,sans-serif; cursor: pointer;
+}
+.darja-signup button:hover { background: var(--darja-bg-168, #e596b8); transform: none; }
+.darja-signup button:disabled { cursor: wait; opacity: .7; }
+.darja-signup button[data-active] span { visibility: hidden; }
+.darja-signup button[data-active]::after { content: "Signing up…"; position: absolute; inset: 0; display: grid; place-items: center; }
+.darja-signup button:focus-visible, .darja-signup input:focus-visible, .darja-signup a:focus-visible { outline: 3px solid var(--darja-line-163, #8e526d); outline-offset: 3px; }
+.darja-signup-content p { margin: 0 0 8px; color: var(--darja-fg-169, #595959); font-size: 14px; line-height: 1.65; }
+.darja-signup-provider { display: block; margin-top: 24px; color: var(--darja-fg-63, #3f4c4a); text-align: center; font-size: 14px; font-weight: 600; }
+.darja-signup-errors { padding: 0; margin: 0 0 16px; list-style: none; color: var(--darja-fg-170, #9c233e); font-size: 14px; line-height: 1.5; }
+.darja-signup-errors:empty { display: none; }
+.darja-signup [data-element="success"] { padding: 18px; margin: 0 0 22px; border-radius: 10px; color: var(--darja-fg-171, #334d43); background: var(--darja-bg-165, #e8f5f0); font-size: 16px; line-height: 1.6; }
+.darja-newsletter-notice {
+  position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 10001;
+  width: max-content; max-width: calc(100% - 32px); padding: 16px 22px; margin: 0;
+  color: var(--darja-fg-171, #334d43); background: var(--darja-bg-165, #e8f5f0); border: 1px solid var(--darja-line-172, #a8c7b9); border-radius: 14px;
+  box-shadow: 0 8px 24px var(--darja-shadow-173, #0002); font: 500 15px/1.5 "Poppins",Arial,sans-serif;
+}
+@media (max-width: 600px) {
+  .darja-newsletter-dialog { width: calc(100% - 24px); max-height: calc(100dvh - 24px); border-radius: 20px; }
+  .darja-newsletter-bar { padding: 10px 16px; }
+  .darja-signup-layout { grid-template-columns: 1fr; }
+  .darja-signup-picture { display: none; }
+  .darja-signup-content { padding: 24px; }
+  .darja-signup h2 { font-size: 30px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .darja-newsletter-dialog *, .darja-signup * { transition: none !important; }
+}
+
+/* Original: book-offer.css */
+/* The book card adds no backdrop and leaves the page usable. */
+.darja-book-offer {
+  position: fixed; right: 22px; bottom: max(22px, env(safe-area-inset-bottom)); z-index: 900;
+  display: grid; grid-template-columns: 82px minmax(0, 1fr); gap: 18px; align-items: center;
+  width: min(390px, calc(100% - 32px)); max-height: calc(100dvh - 32px);
+  box-sizing: border-box; overflow: auto; padding: 24px 22px;
+  color: #342d36; background: #fff; border: 1px solid #eadce5; border-radius: 22px;
+  box-shadow: 0 12px 42px rgba(64,45,67,.18); font: 400 13px/1.5 Poppins, Arial, sans-serif;
+}
+.darja-book-offer[hidden] { display: none !important; }
+.darja-book-offer * { box-sizing: border-box; }
+.darja-book-offer .darja-book-offer-close {
+  position: absolute; top: 2px; right: 2px; display: grid; place-items: center;
+  width: 44px; height: 44px; min-height: 44px; padding: 0; margin: 0; border: 0;
+  border-radius: 50%; color: #655666; background: transparent; font: 28px/1 Arial,sans-serif; cursor: pointer;
+}
+.darja-book-offer .darja-book-offer-cover { display: block; width: 82px; height: auto; border-radius: 3px; box-shadow: 3px 5px 12px #3e2c4320; }
+.darja-book-offer .darja-book-offer-copy { min-width: 0; }
+.darja-book-offer .darja-book-offer-kicker { margin: 0 16px 6px 0; color: #94607a; font-size: 9px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+.darja-book-offer h2 { margin: 0 0 7px; color: inherit; font: 650 17px/1.35 Poppins,Arial,sans-serif; letter-spacing: -.3px; text-align: left; }
+.darja-book-offer .darja-book-offer-format { margin: 0 0 8px; color: #655666; font-size: 11px; }
+.darja-book-offer .darja-book-offer-price { display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px; margin: 0 0 10px; }
+.darja-book-offer-price strong { color: #b65f85; font-size: 24px; line-height: 1.2; }
+.darja-book-offer-price del { color: #655666; font-size: 12px; }
+.darja-book-offer .darja-book-offer-button {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 44px;
+  padding: 9px 13px; border-radius: 999px; background: #e7a6c2; color: #392e36;
+  font-size: 11px; font-weight: 650; line-height: 1.4; text-align: center; text-decoration: none;
+}
+.darja-book-offer .darja-book-offer-button:hover { background: #f0bdd3; }
+.darja-book-offer .darja-book-offer-close:hover { background: #fcf5f8; }
+.darja-book-offer :is(a,button):focus-visible { outline: 3px solid #94607a; outline-offset: 2px; }
+html[data-theme="dark"] .darja-book-offer { color: #f5edf3; background: #24202c; border-color: #59465b; }
+html[data-theme="dark"] .darja-book-offer :is(.darja-book-offer-kicker,.darja-book-offer-price strong) { color: #efaccb; }
+html[data-theme="dark"] .darja-book-offer :is(.darja-book-offer-close,.darja-book-offer-format,.darja-book-offer-price del) { color: #d1c0d0; }
+html[data-theme="dark"] .darja-book-offer .darja-book-offer-close:hover { background: #392b3b; }
+@media(max-width:600px) {
+  .darja-book-offer { right: 12px; bottom: max(12px, env(safe-area-inset-bottom)); width: min(366px, calc(100% - 24px)); gap: 14px; padding: 22px 18px; grid-template-columns: 70px minmax(0,1fr); border-radius: 18px; }
+  .darja-book-offer .darja-book-offer-cover { width: 70px; }
+  .darja-book-offer h2 { font-size: 16px; }
+}
+@media(max-height:500px) { .darja-book-offer { max-height: calc(100dvh - 24px); } }
+
+/* Original: lesson-menu.css */
+/* Shared topic navigation. Keep styles scoped to the Free Lessons disclosure. */
+[data-lesson-menu-nav] {
+  align-items: center !important;
+  overflow: visible !important;
+}
+
+[data-lesson-menu] {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+[data-lesson-menu] .lesson-menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  min-height: 36px;
+  margin: 0;
+  padding: 6px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--darja-fg-199, #69475a);
+  font: inherit;
+  cursor: pointer;
+  box-shadow: none;
+  transform: none;
+  transition: background-color .15s;
+}
+
+[data-lesson-menu].is-ready .lesson-menu-toggle {
+  display: inline-flex;
+}
+
+[data-lesson-menu] .lesson-menu-toggle:hover,
+[data-lesson-menu] .lesson-menu-toggle[aria-expanded="true"] {
+  background: var(--darja-bg-65, #f8dce8);
+  opacity: 1;
+  transform: none;
+}
+
+[data-lesson-menu] .lesson-menu-toggle svg {
+  width: 14px;
+  height: 14px;
+  margin: 0;
+  transition: transform .15s;
+}
+
+[data-lesson-menu] .lesson-menu-toggle[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+[data-lesson-menu] .lesson-menu-list {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 10;
+  width: 232px;
+  max-width: calc(100vw - 36px);
+  margin: 0;
+  padding: 8px;
+  list-style: none;
+  border: 1px solid var(--darja-line-62, #eadfe7);
+  border-radius: 16px;
+  background: var(--darja-bg-8, #fff);
+  box-shadow: 0 12px 32px var(--darja-shadow-252, rgba(70, 62, 77, .14));
+  text-align: left;
+}
+
+[data-lesson-menu] .lesson-menu-list::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 100%;
+  height: 10px;
+}
+
+[data-lesson-menu] .lesson-menu-list[hidden] {
+  display: none !important;
+}
+
+[data-lesson-menu] .lesson-menu-list li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+[data-lesson-menu] .lesson-menu-list a {
+  display: block !important;
+  margin: 0 !important;
+  padding: 11px 14px !important;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--darja-fg-56, #46505b) !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  line-height: 1.5;
+  white-space: normal !important;
+  text-decoration: none !important;
+}
+
+[data-lesson-menu] .lesson-menu-list a:hover,
+[data-lesson-menu] .lesson-menu-list a:focus-visible {
+  background: var(--darja-bg-65, #f8dce8);
+  color: var(--darja-fg-199, #69475a) !important;
+}
+
+[data-lesson-menu] a:focus-visible,
+[data-lesson-menu] .lesson-menu-toggle:focus-visible {
+  outline: 2px solid var(--darja-line-253, #9b5c7c);
+  outline-offset: 3px;
+}
+
+@media (max-width: 760px) {
+  [data-lesson-menu-nav] {
+    align-items: center !important;
+    justify-content: flex-start !important;
+    flex-wrap: wrap !important;
+    gap: 6px 12px !important;
+  }
+
+  [data-lesson-menu] .lesson-menu-toggle {
+    min-width: 36px;
+    min-height: 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-lesson-menu] .lesson-menu-toggle,
+  [data-lesson-menu] .lesson-menu-toggle svg {
+    transition: none;
+  }
+}
+
+/* Original: learning-layout.css */
+/* Shared reading sizes and the beginner path. Arabic practice keeps its own sizing. */
+.home-page .hero-title,
+.vocabulary-lesson .hero h1,
+.grammar-lesson .hero h1,
+.culture-lesson .hero h1,
+.level-test-page #welcome-title {
+  font-size: clamp(32px, 3.5vw, 48px);
+  line-height: 1.18;
+  letter-spacing: -.8px;
+}
+
+.home-page .benefits h2,
+.home-page .section-heading h2,
+.home-page .podcast-heading h2,
+.home-page .section-head h2,
+.home-page .darja-signup h2,
+.home-page .faq > h2,
+.home-page .about h2,
+.vocabulary-lesson .sec-head h2,
+.vocabulary-lesson .free h2,
+.grammar-lesson .section h2,
+.culture-lesson .section h2 {
+  font-size: clamp(25px, 2.5vw, 32px);
+  line-height: 1.3;
+  letter-spacing: -.4px;
+}
+
+.home-page .section-heading h2 em,
+.home-page .podcast-heading h2 em,
+.home-page .section-head h2 em,
+.vocabulary-lesson .sec-head h2 em {
+  font-size: 1em;
+}
+
+.home-page .hero-text p {
+  max-width: 54ch;
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.home-page .hero-start-btn,
+.home-page .hero-test-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  margin: 0;
+  padding: 12px 20px;
+  border: 1px solid var(--darja-line-202, #cf91ae);
+  border-radius: 999px;
+  color: var(--darja-fg-203, #542740);
+  font: 600 15px/1.45 "Poppins", sans-serif;
+  text-align: center;
+  text-decoration: none;
+}
+
+.home-page .hero-start-btn {
+  background: var(--darja-bg-204, #edb6cc);
+}
+
+.home-page .hero-test-btn {
+  background: var(--darja-bg-8, #fff);
+}
+
+.home-page .hero-start-btn:hover,
+.home-page .hero-test-btn:hover {
+  background: var(--darja-bg-205, #f6dce7);
+  color: var(--darja-fg-203, #542740);
+}
+
+.vocabulary-lesson .hero .btn {
+  color: var(--darja-fg-203, #542740);
+}
+
+.home-page .hero-start-btn:focus-visible,
+.home-page .hero-test-btn:focus-visible,
+.beginner-steps a:focus-visible,
+.beginner-all-link:focus-visible {
+  outline: 3px solid var(--darja-line-206, #884565);
+  outline-offset: 4px;
+}
+
+.lesson-library-page .intro h1 {
+  font-size: clamp(30px, 3.3vw, 40px);
+  line-height: 1.25;
+}
+
+.lesson-library-page .section-head h2 {
+  font-size: clamp(24px, 2.4vw, 30px);
+  line-height: 1.3;
+}
+
+.lesson-library-page .card-body h3 {
+  font-size: 22px;
+  line-height: 1.4;
+}
+
+.lesson-library-page .category.active,
+.vocabulary-lesson .btn-primary {
+  color: var(--darja-fg-203, #542740);
+}
+
+.level-test-page #completion-title,
+.level-test-page #result-title {
+  font-size: clamp(30px, 3.5vw, 44px);
+  line-height: 1.25;
+}
+
+.level-test-page #question-title {
+  font-size: clamp(24px, 2.5vw, 32px);
+  line-height: 1.35;
+}
+
+.podcast-page .transcript-hero p,
+.podcast-page .transcript-description {
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.podcast-page .transcript-library-heading p,
+.podcast-page .transcript-included,
+.podcast-page .transcript-listen a {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.podcast-page .transcript-related {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.podcast-page .transcript-related a,
+.home-page .faq a {
+  color: var(--darja-fg-211, #884565);
+  text-underline-offset: 3px;
+}
+
+.conversation-lesson .text-terracotta-400,
+.conversation-lesson .text-terracotta-500 {
+  color: var(--darja-fg-211, #884565);
+}
+
+.beginner-path {
+  width: min(1100px, calc(100% - 40px));
+  margin: 24px auto 40px;
+  padding: 0;
+  scroll-margin-top: 190px;
+  color: var(--darja-fg-63, #3f4c4a);
+}
+
+.beginner-path-heading {
+  max-width: 740px;
+  margin: 0 0 20px;
+}
+
+.beginner-kicker {
+  display: block;
+  margin: 0 0 8px;
+  color: var(--darja-fg-211, #884565);
+  font: 600 13px/1.5 "Poppins", sans-serif;
+}
+
+.beginner-path h2 {
+  margin: 0 0 10px;
+  font: 600 clamp(25px, 2.5vw, 32px)/1.3 Georgia, "Times New Roman", serif;
+  letter-spacing: -.4px;
+}
+
+.beginner-path-heading p {
+  margin: 0;
+  color: var(--darja-fg-254, #59635f);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.beginner-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.beginner-steps li {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.beginner-steps a {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+  margin: 0;
+  padding: 24px;
+  border: 1px solid var(--darja-line-255, #e3d9e3);
+  border-radius: 20px;
+  color: var(--darja-fg-63, #3f4c4a);
+  background: var(--darja-bg-8, #fff);
+  text-decoration: none;
+  transition: border-color .15s, background-color .15s;
+}
+
+.beginner-steps a:hover {
+  border-color: var(--darja-line-202, #cf91ae);
+  background: var(--darja-bg-256, #fffafd);
+}
+
+.learning-step-number {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  margin: 0;
+  border-radius: 50%;
+  background: var(--darja-bg-65, #f8dce8);
+  color: var(--darja-fg-199, #69475a);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.beginner-steps h3 {
+  margin: 0;
+  font-size: 19px;
+  line-height: 1.45;
+  font-weight: 600;
+}
+
+.beginner-steps p {
+  margin: 0;
+  color: var(--darja-fg-254, #59635f);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.learning-step-meta {
+  margin-top: auto;
+  color: var(--darja-fg-199, #69475a);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.learning-step-action,
+.beginner-all-link {
+  color: var(--darja-fg-211, #884565);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.beginner-all-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 18px;
+  text-underline-offset: 4px;
+}
+
+@media (max-width: 760px) {
+  .home-page .hero-title,
+  .vocabulary-lesson .hero h1,
+  .grammar-lesson .hero h1,
+  .culture-lesson .hero h1,
+  .level-test-page #welcome-title {
+    font-size: clamp(30px, 7.5vw, 36px);
+    line-height: 1.22;
+    letter-spacing: -.5px;
+  }
+
+  .beginner-path {
+    width: calc(100% - 36px);
+    margin-top: 20px;
+    scroll-margin-top: 190px;
+  }
+
+  .beginner-steps {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .beginner-steps a {
+    padding: 20px;
+  }
+
+  .hero-actions {
+    align-items: stretch;
+  }
+
+  .home-page .hero-start-btn,
+  .home-page .hero-test-btn {
+    flex: 1 1 220px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .beginner-steps a {
+    transition: none;
+  }
+}
+
+/* Original: site-polish.css */
+/* A shared finishing layer. Keep lesson content, recording players, and practice states intact. */
+:root {
+  --polish-page:#f9f7ff;
+  --polish-paper:#fff;
+  --polish-text:#3f424d;
+  --polish-muted:#626673;
+  --polish-line:#e5dce7;
+  --polish-pink:#edb6cc;
+  --polish-pink-hover:#f6dce7;
+  --polish-pink-ink:#66384f;
+  --polish-tint:#fbf0f6;
+  --polish-shadow:0 8px 26px rgba(64,45,67,.06);
+}
+@media screen {
+  html[data-theme="dark"] {
+    --polish-page:#17151d;
+    --polish-paper:#25212e;
+    --polish-text:#f4eef6;
+    --polish-muted:#c8becf;
+    --polish-line:#4e4056;
+    --polish-pink:#edb6cc;
+    --polish-pink-hover:#f6dce7;
+    --polish-pink-ink:#512c40;
+    --polish-tint:#382733;
+    --polish-shadow:0 8px 26px #0003;
+  }
+  html body { font-family:'Poppins',system-ui,sans-serif; font-size:16px; line-height:1.7; }
+  html .home-page { zoom:1; }
+  html :is(button,input,select,textarea) { font-family:'Poppins',system-ui,sans-serif; }
+  html :is(.ar,.arabic,.font-ar,.font-arabic,.font-arabic-serif) { font-family:'Noto Naskh Arabic',serif; }
+  html :is(h1,h2) { text-wrap:balance; }
+  html :is(p,h3,a) { overflow-wrap:break-word; }
+
+  /* One header rhythm on every page, with a compact switch and clear focus. */
+  html body > :is(.navbar,.site-header) {
+    min-height:78px; padding:8px clamp(18px,3vw,40px); border-bottom:1px solid var(--polish-line);
+    box-shadow:0 3px 16px rgba(40,25,43,.03);
+  }
+  html body > :is(.navbar,.site-header) > [data-lesson-menu-nav] { gap:clamp(12px,2vw,26px); }
+  html body > :is(.navbar,.site-header) > [data-lesson-menu-nav] a {
+    display:inline-flex; align-items:center; min-height:44px; padding:4px 0;
+    font-family:'Poppins',sans-serif; font-size:17px; font-weight:500; line-height:1.4;
+  }
+  html :is(.logo-only,.brand-logo,.brand-link) { min-width:0; }
+  html body > :is(.navbar,.site-header) :is(.logo,.brand-logo,.brand-link) img { width:156px; max-height:58px; object-fit:contain; }
+  html .darja-theme-toggle { min-height:44px; min-width:118px; padding:9px 12px; font-size:14px; }
+  html[data-theme="dark"] :is(.logo,.brand-logo,.brand-link,.footer-brand,.site-footer) > img {
+    box-sizing:border-box; padding:5px 9px; background:#faf5f8; border:1px solid #d4bbc9;
+    border-radius:12px; box-shadow:0 4px 14px #0002;
+  }
+  html[data-theme="dark"] .darja-theme-toggle { background:var(--polish-tint); color:#f1bad5; border-color:#9a6582; }
+
+  /* Visitors reach the first lessons sooner; the portrait stays part of the welcome. */
+  html .home-page .hero {
+    display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr); align-items:center;
+    width:min(1180px,100%); margin:0 auto; padding:32px 28px 26px; gap:42px; text-align:left;
+  }
+  html .home-page .hero-title { max-width:600px; font-size:clamp(34px,3.5vw,48px); line-height:1.2; letter-spacing:-.8px; }
+  html .home-page .hero-text p { margin-top:24px; font-size:17px; line-height:1.8; color:var(--polish-muted); max-width:55ch; }
+  html .home-page .hero-portrait { width:100%; max-width:440px; min-width:0; padding:22px 14px 36px; }
+  html .home-page .portrait-shape { aspect-ratio:1; border-width:5px; }
+  html .home-page .greeting-note { min-width:132px; right:0; padding:12px 14px; border-width:4px; }
+  html .home-page .greeting-note strong { font-size:25px; }
+  html .home-page .teacher-note { min-width:0; width:min(270px,85%); left:-4px; padding:13px 16px; border-radius:18px; }
+  html .home-page .beginner-path { margin-top:8px; margin-bottom:36px; }
+  html .home-page :is(.benefits,.pocket-section,.podcast-section,.newsletter-section,.about,.faq) { padding:56px max(24px,6%); }
+  html .home-page .quotes-band section { padding:56px 0!important; }
+  html .home-page :is(.section-heading,.podcast-heading) { margin-bottom:30px; }
+  html .home-page .benefits h2 { margin-bottom:30px; }
+  html .home-page :is(.benefit-card,.about-box) { padding:28px; }
+  html .home-page .hero-actions { gap:10px; margin-top:22px; }
+  html .home-page .hero-teaching-stat dt { font-size:12px; }
+  html .home-page .hero-teaching-stat dd { font-size:14px; }
+  html .home-page .faq summary { min-height:48px; padding:14px 18px; font-size:16px; }
+  html .home-page :is(.faq p,.about-text p,.benefit-card p) { font-size:16px; line-height:1.8; }
+
+  /* Common cards and readable lesson type, preserving Arabic practice sizes. */
+  html :is(.beginner-steps a,.lesson-card,.transcript-card,.vcard,.phrase-card,.pronoun-card,.intro-panel,.lab,.related-lessons,.ccard) {
+    border-color:var(--polish-line); border-radius:22px; box-shadow:var(--polish-shadow);
+  }
+  html .conversation-lesson { font-family:'Poppins',system-ui,sans-serif; }
+  html .conversation-lesson :is(h1,h2) { font-family:Georgia,'Times New Roman',serif; font-weight:600; }
+  html .conversation-lesson h1 { font-size:clamp(30px,3.3vw,42px); line-height:1.25; }
+  html .conversation-lesson :is(.text-xs,.text-sm) { font-size:14px; line-height:1.7; }
+  html .conversation-lesson .font-sans { font-family:'Poppins',sans-serif; }
+  html :is(.hero-copy,.intro-panel p,.section-head p,.sec-head p,.sentence-meaning,.description,.ex,.ccard p) { font-size:16px; line-height:1.8; }
+  html :is(.vtrans,.word-meaning,.example-trans,.example-meaning,.back-link,.lesson-nav a,.footer-inner p,.footer-inner a,.section-hint) { font-size:14px; line-height:1.65; }
+  html :is(.vbody .ar,.phrase-card .ar,.dialogue-sentence .ar) { line-height:1.5; }
+  html :is(.btn,.hero-start-btn,.hero-test-btn,.category,.lab-tab,.kbtn,.phrase-control,.pdf-download-button,.transcript-view,.transcript-download) {
+    min-height:46px; border-radius:999px; font-size:14px; font-weight:600; line-height:1.5;
+  }
+  html[data-theme] :is(.hero-start-btn,.btn:not(.btn-secondary,.btn-cream,.btn-ghost),.btn-primary,.btn-dark,.btn-peach,.btn-sage,.darja-contact-send,.darja-signup button,.category.active,.open) {
+    background:var(--polish-pink)!important; color:var(--polish-pink-ink)!important; border:1px solid #cc8da9!important;
+  }
+  html[data-theme] :is(.hero-start-btn,.btn:not(.btn-secondary,.btn-cream,.btn-ghost),.btn-primary,.btn-dark,.btn-peach,.btn-sage,.darja-contact-send,.darja-signup button,.category.active,.open):hover {
+    background:var(--polish-pink-hover)!important;
+  }
+  html[data-theme] :is(.hero-test-btn,.btn-secondary,.btn-cream,.btn-ghost) {
+    background:var(--polish-paper)!important; color:var(--polish-text)!important; border:1px solid var(--polish-line)!important;
+  }
+
+  /* Shared audio controls: generous tap targets with a visible playing state. */
+  html :is(.icobtn,.listen-btn) {
+    min-height:44px; min-width:44px; padding:10px 14px; font-size:14px; line-height:1.4;
+    font-weight:500; border:1px solid var(--polish-line); border-radius:999px;
+    color:var(--polish-pink-ink); background:var(--polish-tint); white-space:normal;
+  }
+  html .icobtn:is(.primary,.accent) { background:var(--polish-pink)!important; border-color:#cc8da9!important; color:var(--polish-pink-ink)!important; }
+  html[data-theme="dark"] .listen-btn,html[data-theme="dark"] .icobtn:not(.primary,.accent) { color:#f1bad5; }
+  html :is(.icobtn.playing,.listen-btn[aria-pressed="true"]) { outline:2px solid #b5658d; outline-offset:2px; }
+  html .conversation-lesson :is(button[onclick*="speak"],button[onclick*="play"],button[aria-label^="Listen"],#masterPlayBtn,#masterPlaySlowBtn) {
+    min-width:44px; min-height:44px; padding:10px 14px; border-radius:999px; font-size:14px;
+  }
+  html :is(.darja-contact-dialog,.darja-newsletter-dialog) { border-radius:22px; border-color:var(--polish-line); }
+  html .darja-contact-dialog label { font-size:14px; }
+  html .darja-contact-dialog :is(.darja-contact-intro,.darja-contact-reply-time) { font-size:14px; }
+  html .darja-contact-dialog :is(.darja-contact-note,.darja-contact-email,.darja-contact-word-count) { font-size:13px; }
+  html :is(button,a,input,textarea,select):focus-visible { outline:3px solid #a9567e; outline-offset:3px; }
+
+  /* Persistent privacy access lives at the end, not between navigation and content. */
+  html .cookie-privacy-bar { flex:1 0 100%; width:100%; margin:20px 0 0; padding:12px 0 0; border-top:1px solid var(--polish-line); background:transparent; }
+  html .cookie-privacy-bar .cookie-settings-button { min-height:44px; padding:8px 4px; margin:0; border:0; border-radius:0; box-shadow:none; background:transparent; color:var(--polish-muted); font-size:14px; text-decoration:underline; text-underline-offset:4px; }
+  html .darja-privacy-footer { margin:0; padding:24px; text-align:center; background:var(--polish-paper); border:0; }
+  html .darja-privacy-footer .cookie-privacy-bar { margin:0; border:0; padding:0; }
+  html .home-page .site-footer { padding-top:44px; }
+
+  @media (max-width:1100px) {
+    html body > :is(.navbar,.site-header) > [data-lesson-menu-nav] a { font-size:15px; }
+  }
+  @media (max-width:900px) {
+    html body > :is(.navbar,.site-header) { padding:8px 18px; gap:4px 12px!important; }
+    html body > :is(.navbar,.site-header) > [data-lesson-menu-nav] { gap:4px 16px!important; }
+    html body > :is(.navbar,.site-header) > [data-lesson-menu-nav] a { font-size:14px; min-height:40px; }
+    html body > :is(.navbar,.site-header) :is(.logo,.brand-logo,.brand-link) img { width:140px; }
+    html .home-page .hero { grid-template-columns:1fr; padding:28px 24px 24px; gap:24px; text-align:center; }
+    html .home-page .hero-text p { margin:20px auto 0; }
+    html .home-page .hero-title { margin:0 auto; max-width:650px; }
+    html .home-page .hero-actions { justify-content:center; }
+    html .home-page .hero-portrait { max-width:350px; padding-bottom:45px; }
+    html .home-page .teacher-note { left:50%; transform:translateX(-50%); bottom:0; }
+    html .vactions { flex-wrap:wrap; }
+    html .vactions .icobtn { flex:1 1 110px; }
+  }
+  @media (max-width:600px) {
+    html .home-page .hero { padding:24px 20px; gap:20px; }
+    html .home-page .hero-title { font-size:clamp(31px,7.8vw,38px); letter-spacing:-.5px; }
+    html .home-page .hero-text p { font-size:16px; }
+    html .home-page .hero-portrait { width:min(100%,290px); padding:18px 12px 40px; }
+    html .home-page .hero-actions { display:grid; grid-template-columns:1fr; }
+    html .home-page .hero-actions a { width:100%; }
+    html .home-page :is(.benefits,.pocket-section,.podcast-section,.newsletter-section,.about,.faq) { padding:40px 20px; }
+    html .home-page .quotes-band section { padding:40px 0!important; }
+    html .home-page .beginner-path { width:calc(100% - 40px); margin-top:12px; }
+    html .home-page .about-box { padding:22px; gap:24px; }
+    html :is(.vocabulary-lesson,.grammar-lesson,.culture-lesson) .wrap { width:calc(100% - 32px); padding-inline:0; }
+    html :is(.vocabulary-lesson,.grammar-lesson,.culture-lesson) .hero-grid { gap:26px; }
+    html :is(.vocabulary-lesson,.grammar-lesson,.culture-lesson) .hero { padding:24px 0; }
+    html .vactions .icobtn { flex:1 1 100%; }
+    html .lab-body { padding:18px; }
+    html .darja-contact-dialog { padding:28px 20px 22px; }
+    html .darja-contact-dialog .darja-contact-heading { font-size:28px; }
+    html .darja-contact-dialog .darja-contact-reply-time { margin-bottom:18px; }
+    html .conversation-lesson main { padding-inline:16px; }
+    html .cookie-consent__actions { display:flex; flex-direction:column; }
+  }
+}
+@media (prefers-reduced-motion:reduce) {
+  html { scroll-behavior:auto!important; }
+  .hero-title em::after,.portrait-shape,.greeting-note { animation:none!important; }
+}
+@media print { .cookie-privacy-bar,.darja-privacy-footer { display:none!important; } }
+
+/* Show the full original portrait with a little breathing room. */
+html .home-page .portrait-shape img,
+html .home-page .about-image img {
+  object-fit: contain;
+  object-position: center;
+  padding: 4%;
+  background: #eeecec;
+}
