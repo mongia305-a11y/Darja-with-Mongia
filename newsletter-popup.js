@@ -3,37 +3,45 @@
   if (window.darjaNewsletterReady) return;
   window.darjaNewsletterReady = true;
 
-  const uid = 'bcbed786bc';
   const key = 'darjaNewsletterPreference';
-  const week = 7 * 24 * 60 * 60 * 1000;
   const selector = 'form[data-darja-signup]';
   const signupPage = !!document.querySelector('[data-darja-newsletter-page]');
+  const promotions = window.darjaPromotions;
   // Local markup remains visible even if Kit's scripts are blocked by a browser.
   const formHTML = "<form class=\"darja-signup\" data-darja-signup data-sv-form=\"9978820\" data-uid=\"bcbed786bc\" data-format=\"inline\" data-version=\"5\" data-options='{\"settings\":{\"after_subscribe\":{\"action\":\"message\",\"success_message\":\"Success! Now check your email to confirm your subscription.\"},\"recaptcha\":{\"enabled\":false},\"return_visitor\":{\"action\":\"show\"}}}' action=\"https://app.kit.com/forms/9978820/subscriptions\" method=\"post\">\n  <div class=\"darja-signup-layout\">\n    <div class=\"darja-signup-picture\" aria-hidden=\"true\"></div>\n    <div class=\"darja-signup-content\">\n      <h2>Keep learning Tunisian Arabic!</h2>\n      <ul class=\"darja-signup-errors\" data-element=\"errors\" role=\"alert\"></ul>\n      <div class=\"darja-signup-fields\" data-element=\"fields\">\n        <label>Email Address\n          <input name=\"email_address\" type=\"email\" autocomplete=\"email\" inputmode=\"email\" placeholder=\"Email Address\" required>\n        </label>\n        <button type=\"submit\" data-element=\"submit\"><span>Keep me updated</span></button>\n      </div>\n      <p>Get email updates from Darja with Mongia about new lessons.</p>\n      <p>We respect your privacy. Unsubscribe at any time.</p>\n      <a class=\"darja-signup-provider\" href=\"https://kit.com/\" target=\"_blank\" rel=\"noopener\">Built with Kit</a>\n    </div>\n  </div>\n</form>";
   let clientLoading = false;
   let timer, retry, dialog, slot, fallback, form, origin, nextSibling, previousFocus;
-  let dismissed = false;
+  let shown = false;
   let subscribed = false;
   let elapsed = false;
   let loading = false;
   let loadAttempts = 0;
 
-  function suppressed() {
-    if (dismissed || subscribed) return true;
+  function alreadySubscribed() {
+    if (subscribed) return true;
     try {
       const saved = JSON.parse(localStorage.getItem(key));
-      return !!saved && (saved.subscribed === true || Number(saved.dismissedUntil) > Date.now());
+      return !!saved && saved.subscribed === true;
     } catch (_) { return false; }
   }
 
-  function remember(success) {
-    subscribed = success || subscribed;
-    dismissed = !success;
-    try {
-      localStorage.setItem(key, JSON.stringify(success ? { subscribed: true } : { dismissedUntil: Date.now() + week }));
-    } catch (_) { /* The preference still applies for this page. */ }
+  function canOpenAutomatically() {
+    return !shown && !alreadySubscribed() && (!promotions || promotions.canShow('newsletter'));
+  }
+
+  function stopAutomaticOpening() {
     clearTimeout(timer);
     clearTimeout(retry);
+    elapsed = false;
+    promotions?.setNewsletterPending?.(false);
+  }
+
+  function rememberSubscription() {
+    subscribed = true;
+    try {
+      localStorage.setItem(key, JSON.stringify({ subscribed: true }));
+    } catch (_) { /* The preference still applies for this page. */ }
+    stopAutomaticOpening();
   }
 
   function privacyReady() {
@@ -48,9 +56,8 @@
     return Array.from(document.querySelectorAll('audio, video')).some(media => !media.paused && !media.ended);
   }
 
-  function closePopup(savePreference) {
+  function closePopup() {
     if (!dialog || !dialog.open) return;
-    if (savePreference) remember(false);
     dialog.close();
     document.documentElement.classList.remove('darja-newsletter-open');
     if (form && origin) origin.insertBefore(form, nextSibling && nextSibling.parentNode === origin ? nextSibling : null);
@@ -68,8 +75,8 @@
     // Kit may finish initializing or replace its markup after the dialog opens.
     // Keep a useful signup route visible even when the embed is unavailable.
     new MutationObserver(updateFallback).observe(slot, { childList: true, subtree: true, attributes: true, attributeFilter: ['class', 'style', 'hidden', 'data-format'] });
-    dialog.querySelector('button').addEventListener('click', () => closePopup(true));
-    dialog.addEventListener('cancel', event => { event.preventDefault(); closePopup(true); });
+    dialog.querySelector('button').addEventListener('click', closePopup);
+    dialog.addEventListener('cancel', event => { event.preventDefault(); closePopup(); });
     document.body.appendChild(dialog);
   }
 
@@ -100,7 +107,7 @@
     const observer = new MutationObserver(() => {
       const success = candidate.querySelector('.formkit-alert-success');
       if (!success || !success.textContent.trim() || success.hidden || getComputedStyle(success).display === 'none') return;
-      remember(true);
+      rememberSubscription();
       observer.disconnect();
       // Let the visitor read Kit's confirmation before returning to the page.
       if (dialog && dialog.open) {
@@ -109,7 +116,7 @@
         notice.setAttribute('role', 'status');
         notice.textContent = 'Check your email to confirm your subscription. Thank you!';
         document.body.appendChild(notice);
-        setTimeout(() => closePopup(false), 2500);
+        setTimeout(closePopup, 2500);
         setTimeout(() => notice.remove(), 12000);
       }
     });
@@ -138,11 +145,12 @@
     document.body.appendChild(script);
   }
 
-  function attemptOpen(manual) {
-    if ((!manual && suppressed()) || !privacyReady()) return false;
-    if (!manual && window.darjaPromotions && !window.darjaPromotions.canShow('newsletter')) return false;
+  function attemptOpen(manual = false) {
+    if ((!manual && !canOpenAutomatically()) || !privacyReady() || typeof HTMLDialogElement === 'undefined') {
+      if (!manual) stopAutomaticOpening();
+      return false;
+    }
     if (dialog && dialog.open) return true;
-    if (typeof HTMLDialogElement === 'undefined') return false;
     if (busy()) {
       if (!manual) retry = setTimeout(() => attemptOpen(false), 2000);
       return false;
@@ -160,14 +168,19 @@
     if (form) enhanceForm(form);
     // Do not interrupt a visitor who has already reached the inline signup form.
     const bounds = form && form.getBoundingClientRect();
-    if (!manual && bounds && bounds.height > 0 && bounds.top < window.innerHeight && bounds.bottom > 0) return false;
+    if (!manual && bounds && bounds.height > 0 && bounds.top < window.innerHeight && bounds.bottom > 0) {
+      stopAutomaticOpening();
+      return false;
+    }
     if (!dialog) createDialog();
     origin = form && form.parentNode;
     nextSibling = form && form.nextSibling;
     previousFocus = document.activeElement;
     if (form) slot.appendChild(form);
     dialog.showModal();
-    if (window.darjaPromotions) window.darjaPromotions.markShown('newsletter');
+    shown = true;
+    promotions?.markShown('newsletter');
+    stopAutomaticOpening();
     updateFallback();
     document.documentElement.classList.add('darja-newsletter-open');
     loadClient();
@@ -175,16 +188,20 @@
   }
 
   function schedule() {
-    clearTimeout(timer);
-    clearTimeout(retry);
     if (!privacyReady()) {
-      elapsed = false;
-      closePopup(false);
+      stopAutomaticOpening();
+      closePopup();
       return;
     }
     loadClient();
-    if (signupPage) return;
-    if (suppressed() || /placement-test\.html$/.test(location.pathname)) return;
+    if (signupPage || /placement-test\.html$/.test(location.pathname) || !canOpenAutomatically()) {
+      stopAutomaticOpening();
+      return;
+    }
+    clearTimeout(timer);
+    clearTimeout(retry);
+    elapsed = false;
+    promotions?.setNewsletterPending?.(true);
     timer = setTimeout(() => { elapsed = true; attemptOpen(); }, 15000);
   }
 
@@ -212,7 +229,9 @@
       }
     });
     window.addEventListener('storage', event => {
-      if (event.key === key && suppressed()) closePopup(false);
+      if (event.key !== key || !alreadySubscribed()) return;
+      stopAutomaticOpening();
+      closePopup();
     });
     schedule();
   }

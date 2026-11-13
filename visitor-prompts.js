@@ -6,6 +6,9 @@
   const seenKey = 'darjaPromotionSeen';
   const dismissKey = 'darjaBookOfferDismissedUntil';
   const week = 7 * 24 * 60 * 60 * 1000;
+  const bookOfferAllowed = !/\/(?:survival-guide-audio|placement-test)\.html$/.test(location.pathname);
+  let newsletterPending = false;
+
   function read(storage, key) {
     try { return JSON.parse(window[storage].getItem(key)); } catch (_) { return null; }
   }
@@ -18,29 +21,34 @@
     write('localStorage', seenKey, true);
     write('sessionStorage', visitKey, visit);
   }
-  function claimed() {
-    const saved = read('sessionStorage', visitKey);
-    return visit.shown || saved && saved.shown;
+  function wasShown(kind) {
+    const saved = read('sessionStorage', visitKey) || {};
+    const flag = kind + 'Shown';
+    return visit[flag] === true || visit.shown === kind || saved[flag] === true || saved.shown === kind;
   }
   function bookDismissed() { return Number(read('localStorage', dismissKey)) > Date.now(); }
-  function newsletterSuppressed() {
+  function newsletterSubscribed() {
     const preference = read('localStorage', 'darjaNewsletterPreference');
-    return !!preference && (preference.subscribed === true || Number(preference.dismissedUntil) > Date.now());
+    return !!preference && preference.subscribed === true;
   }
-  // Keep the newsletter first on a new visitor's first visit. A returning
-  // visitor gets the book opportunity when it is not in its dismissal period.
-  function preferBook() { return visit.returning && !bookDismissed(); }
   window.darjaPromotions = {
-    canShow(kind) { return !claimed() && (kind !== 'newsletter' || !preferBook()); },
+    canShow(kind) { return !wasShown(kind); },
     markShown(kind) {
-      visit.shown = kind;
+      // Migrate older tab sessions that recorded a single promotion in `shown`.
+      visit.newsletterShown = kind === 'newsletter' || wasShown('newsletter');
+      visit.bookShown = kind === 'book' || wasShown('book');
+      delete visit.shown;
       write('sessionStorage', visitKey, visit);
-      document.dispatchEvent(new CustomEvent('darja:promotion-shown', { detail: kind }));
+    },
+    setNewsletterPending(pending) {
+      if (newsletterPending === pending) return;
+      newsletterPending = pending;
+      if (!pending && bookOfferAllowed) attempt();
     }
   };
 
   // These pages are tasks or already contain the complete book offer.
-  if (/\/(?:survival-guide-audio|placement-test)\.html$/.test(location.pathname)) return;
+  if (!bookOfferAllowed) return;
   let card, timer, readySince = null, stopped = false;
   function privacyReady() {
     const privacy = document.getElementById('cookieConsent');
@@ -94,12 +102,13 @@
   }
   function attempt() {
     clearTimeout(timer);
-    if (stopped || claimed() || bookDismissed()) return;
+    if (stopped || wasShown('book') || bookDismissed()) return;
     if (!privacyReady()) { readySince = null; return; }
     if (readySince === null) readySince = Date.now();
     const remaining = 30000 - (Date.now() - readySince);
     if (remaining > 0) { timer = setTimeout(attempt, remaining); return; }
-    if ((!visit.returning && !newsletterSuppressed()) || !halfway()) return;
+    if (newsletterPending || !halfway()) return;
+    if (!visit.returning && (wasShown('newsletter') || !newsletterSubscribed())) return;
     if (busy() || inlineOfferVisible()) { timer = setTimeout(attempt, 2000); return; }
     createCard();
   }
@@ -115,7 +124,6 @@
     window.addEventListener('scroll', attempt, { passive: true });
     window.addEventListener('resize', attempt, { passive: true });
     document.addEventListener('visibilitychange', overlayChanged);
-    document.addEventListener('darja:promotion-shown', event => { if (event.detail !== 'book') hide(); });
     window.addEventListener('storage', event => {
       if ((event.key === dismissKey || event.key === null) && bookDismissed()) hide();
     });

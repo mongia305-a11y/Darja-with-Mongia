@@ -40,11 +40,10 @@
   function readConsent() {
     try {
       const saved = JSON.parse(localStorage.getItem(storageKey));
-      if (!saved || !saved.choice || !saved.savedAt) return null;
-      if (Date.now() - saved.savedAt > consentLifetime) {
-        localStorage.removeItem(storageKey);
-        return null;
-      }
+      if (!saved || (saved.choice !== "accepted" && saved.choice !== "rejected")) return null;
+      const savedAt = Number(saved.savedAt);
+      const now = Date.now();
+      if (!(savedAt > 0 && savedAt <= now && now - savedAt <= consentLifetime)) return null;
       return saved.choice;
     } catch (error) {
       return null;
@@ -128,9 +127,21 @@
       event.preventDefault();
     });
     settingsButton.addEventListener("click", showBanner);
+    window.addEventListener("storage", function (event) {
+      if (event.storageArea !== localStorage || (event.key !== storageKey && event.key !== null)) return;
+      if (readConsent() !== "accepted") disableAnalytics();
+    });
+    window.addEventListener("pageshow", function (event) {
+      if (event.persisted && readConsent() !== "accepted") disableAnalytics();
+    });
 
     const consent = readConsent();
-    const openPrivacy = new URLSearchParams(window.location.search).get("privacy") === "open";
+    const url = new URL(window.location.href);
+    const openPrivacy = url.searchParams.get("privacy") === "open";
+    if (openPrivacy) {
+      url.searchParams.delete("privacy");
+      history.replaceState(history.state, "", url);
+    }
     if (consent === "accepted") {
       loadAnalytics();
       settingsButton.hidden = false;
