@@ -1900,9 +1900,9 @@ p {
 @font-face{font-family:"Darja Poppins";src:url('/fonts/performance/font-7d93459d86585bfc.woff2') format('woff2');font-display:swap;font-weight:400}
 @font-face{font-family:"Darja Poppins";src:url('/fonts/performance/font-cd36de204aca2d5f.woff2') format('woff2');font-display:swap;font-weight:500}
 .header{background:#fff; border-bottom:1px solid #e5dce7;box-shadow:0 3px 16px rgba(40,25,43,.03)}
-.header .header-inner{width:100%;max-width:none;height:78px;padding:8px clamp(18px,3vw,40px);gap:20px}
+.header .header-inner{position:relative;width:100%;max-width:none;height:78px;padding:8px clamp(18px,3vw,40px);gap:20px}
 .header .brand img{width:156px;max-height:58px;object-fit:contain}
-.header .desktop-nav{gap:clamp(12px,2vw,26px);margin:0 0 0 auto}
+.header .desktop-nav{position:absolute;left:50%;transform:translateX(-50%);gap:clamp(12px,2vw,26px);margin:0;white-space:nowrap}
 .header .desktop-nav a,.header .desktop-nav .nav-active{font:500 17px/1.4 "Darja Poppins",Poppins,sans-serif;min-height:44px;display:inline-flex;align-items:center;padding:4px 0}
 .header .desktop-nav .nav-active{border:0;border-radius:0;background:none;color:#a9567e}
 .header .header-actions:empty{display:none}
@@ -1921,4 +1921,5 @@ p {
 .guide-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
 .amazon-guide-link{display:flex;width:max-content;margin-top:10px}
 @media(max-width:1100px){.header .desktop-nav a,.header .desktop-nav .nav-active{font-size:15px}}
+@media(min-width:761px) and (max-width:900px){.header .brand img{width:130px}.header .desktop-nav{gap:9px}.header .desktop-nav a,.header .desktop-nav .nav-active{font-size:13px}}
 @media(max-width:760px){.header .header-inner{height:78px;padding:8px 18px}.header .brand img{width:140px}.header .mobile-nav{top:70px}.guide-phrases{grid-template-columns:1fr}}
