@@ -1919,5 +1919,6 @@ p {
 .guide-information details{padding:10px 0;border-bottom:1px solid var(--line)}
 .guide-information summary{cursor:pointer;font-weight:600}
 .guide-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.amazon-guide-link{display:flex;width:max-content;margin-top:10px}
 @media(max-width:1100px){.header .desktop-nav a,.header .desktop-nav .nav-active{font-size:15px}}
 @media(max-width:760px){.header .header-inner{height:78px;padding:8px 18px}.header .brand img{width:140px}.header .mobile-nav{top:70px}.guide-phrases{grid-template-columns:1fr}}

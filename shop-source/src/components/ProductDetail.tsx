@@ -32,6 +32,7 @@ export function ProductDetail({ p }: { p: Product }) {
   const [flipped, flip] = useState(false);
   const Icon = icons[p.category];
   const isGuide = p.id === "survival-guide";
+  const amazonGuideUrl = "https://amzn.eu/d/09VbNQsz";
   const pages = p.details.preview_pages || [];
   const count = pages.length || p.details.samples.length;
   const sample = p.details.samples[page];
@@ -93,6 +94,11 @@ export function ProductDetail({ p }: { p: Product }) {
               <ArrowRight size={16} />
             )}
           </button>
+          {isGuide && (
+            <a className="btn outline amazon-guide-link" href={amazonGuideUrl} target="_blank" rel="noopener noreferrer">
+              Buy on Amazon <ArrowUpRight size={16} />
+            </a>
+          )}
         </div>
       </div>
       <div
@@ -202,6 +208,11 @@ export function ProductDetail({ p }: { p: Product }) {
                   {p.retailer}
                   <ArrowUpRight size={15} />
                 </a>
+                {isGuide && (
+                  <a className="btn outline amazon-guide-link" href={amazonGuideUrl} target="_blank" rel="noopener noreferrer">
+                    Buy on Amazon <ArrowUpRight size={15} />
+                  </a>
+                )}
               </>
             ) : (
               <>
