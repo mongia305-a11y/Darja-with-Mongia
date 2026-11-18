@@ -444,7 +444,7 @@ export default function Shop() {
                         >
                           <img
                             src={asset(p.image)}
-                            alt={p.title + " studio product mockup"}
+                            alt={p.id === "everyday-darja" ? "Published Tunisian Arabic Fruits Flashcards cover" : p.title + " studio product mockup"}
                             loading={p.position < 4 ? "eager" : "lazy"}
                           />
                         </a>

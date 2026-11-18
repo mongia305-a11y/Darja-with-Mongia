@@ -49,42 +49,42 @@
   {
     "id": "everyday-darja",
     "position": 2,
-    "title": "Everyday Darja Flashcards",
+    "title": "Tunisian Arabic Fruits Flashcards",
     "category": "Flashcards",
     "level": "Beginner",
-    "price": 8,
-    "image": "images/everyday-darja.webp",
-    "summary": "Build your vocabulary with illustrated cards for the words you use every day.",
-    "description": "A printable vocabulary set designed for small, regular practice sessions. Pair a familiar word with its Tunisian pronunciation, then turn the card over to check the meaning. Try the interactive preview to see how a few minutes of practice can fit into your day.",
-    "format": "Printable PDF",
+    "price": 2.5,
+    "image": "images/fruits-flashcards-cover.webp",
+    "summary": "16 printable fruit vocabulary cards with Tunisian Arabic, Latin pronunciation, and matching audio.",
+    "description": "Learn 16 everyday fruit names in Tunisian Arabic with illustrated printable flashcards. Each card includes Arabic script and Latin transliteration. The digital pack includes pronunciation recordings, a complete listen-through, and instructions for printing and using the cards.",
+    "format": "Printable PDF + audio",
     "retailer": "Payhip",
-    "purchase_url": null,
-    "published": false,
+    "purchase_url": "https://payhip.com/b/QKukd",
+    "published": true,
     "details": {
       "samples": [
         {
-          "ar": "قارص",
-          "en": "Lemon",
-          "latin": "9ares"
+          "ar": "تفاح",
+          "latin": "Toffe7",
+          "en": "Apple"
         },
         {
-          "ar": "زيتون",
-          "en": "Olives",
-          "latin": "Zitoun"
+          "ar": "دلاع",
+          "latin": "Delle3",
+          "en": "Watermelon"
         },
         {
-          "ar": "خبز",
-          "en": "Bread",
-          "latin": "Khobz"
+          "ar": "خوخ",
+          "latin": "Khoukh",
+          "en": "Peach"
         }
       ],
       "features": [
-        "Illustrated vocabulary prompts",
-        "Print-at-home PDF format",
-        "Arabic and Latin spelling",
-        "Three interactive sample cards"
+        "16 illustrated fruit flashcards",
+        "Arabic script and Latin transliteration",
+        "Individual pronunciation audio plus full-set recording",
+        "A4 landscape PDF with cutting guides"
       ],
-      "subtitle": "Your everyday vocabulary deck"
+      "subtitle": "Print, listen, and learn fruit vocabulary"
     }
   },
   {

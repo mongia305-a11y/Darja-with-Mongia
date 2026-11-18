@@ -32,6 +32,7 @@ export function ProductDetail({ p }: { p: Product }) {
   const [flipped, flip] = useState(false);
   const Icon = icons[p.category];
   const isGuide = p.id === "survival-guide";
+  const isFruits = p.id === "everyday-darja";
   const amazonGuideUrl = "https://amzn.eu/d/09VbNQsz";
   const pages = p.details.preview_pages || [];
   const count = pages.length || p.details.samples.length;
@@ -46,7 +47,7 @@ export function ProductDetail({ p }: { p: Product }) {
     <Modal close={closeView} title={p.title} className="detail-modal">
       <div className="detail-top">
         <div className="detail-art">
-          <img src={asset(p.image)} alt={isGuide ? "Published Tunisian Arabic Survival Guide cover" : p.title + " product mockup"} />
+          <img src={asset(p.image)} alt={isGuide ? "Published Tunisian Arabic Survival Guide cover" : isFruits ? "Published Tunisian Arabic Fruits Flashcards cover" : p.title + " product mockup"} />
         </div>
         <div className="detail-intro">
           <div className="eyebrow">
@@ -141,6 +142,9 @@ export function ProductDetail({ p }: { p: Product }) {
                   illustrative price, not a live listing.
                 </span>
               </div>
+            )}
+            {isFruits && (
+              <p className="fine-print">Digital download: a printable PDF and pronunciation MP3s in a ZIP file. No physical cards are shipped.</p>
             )}
             {isGuide && (
               <div className="guide-information">
