@@ -57,17 +57,18 @@ export default function Shop() {
     setLoading(true);
     setError("");
     try {
+      const catalogUrl = asset("data/catalog-fruits.json");
       let result;
       try {
         const r = await fetch(
-          staticMode ? asset("data/catalog.json") : apiBase + "/api/catalog",
+          staticMode ? catalogUrl : apiBase + "/api/catalog",
           { signal: AbortSignal.timeout(6000) },
         );
         if (!r.ok) throw Error();
         result = await r.json();
         if (!Array.isArray(result)) throw Error();
       } catch {
-        const r = await fetch(asset("data/catalog.json"));
+        const r = await fetch(catalogUrl);
         if (!r.ok) throw Error();
         result = await r.json();
       }

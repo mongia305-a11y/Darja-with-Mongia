@@ -1,0 +1,226 @@
+[
+  {
+    "id": "survival-guide",
+    "position": 1,
+    "title": "Tunisian Arabic Survival Guide",
+    "category": "Books",
+    "level": "Beginner",
+    "price": 5.99,
+    "image": "images/official-cover.webp",
+    "summary": "Practical Tunisian Arabic for your trip. Get the digital PDF guide with downloadable audio, or explore the free preview.",
+    "description": "Practical Tunisian Arabic for your trip to Tunisia. Learn useful expressions for greetings, transport, cafés, restaurants, shopping and getting help—with Arabic script, Latin pronunciation and English meanings. Follow short conversations, discover cultural tips, and listen to the companion audio at your own pace. You can start even if you cannot read Arabic.",
+    "format": "PDF + audio",
+    "retailer": "Payhip",
+    "purchase_url": "https://payhip.com/b/qpQJc",
+    "published": true,
+    "details": {
+      "samples": [
+        {
+          "ar": "سامحني",
+          "latin": "Sama7ni",
+          "en": "Sorry / excuse me"
+        },
+        {
+          "ar": "بقدّاش؟",
+          "latin": "B9addech?",
+          "en": "How much?"
+        },
+        {
+          "ar": "ما فهمتش",
+          "latin": "Ma fhemtch",
+          "en": "I did not understand"
+        }
+      ],
+      "features": [
+        "22 topic-based chapters",
+        "Arabic, Latin spelling, and English",
+        "Native pronunciation recordings",
+        "10-page published preview"
+      ],
+      "subtitle": "Practical Tunisian Arabic for your trip",
+      "preview_pdf": "https://darja-survival-guide-audio.crisptitan32.chatgpt.site/preview/Tunisian_Arabic_Survival_Guide_Free_Preview.pdf?v=preview10",
+      "preview_pages": [
+        "images/sample-1.webp",
+        "images/sample-2.webp",
+        "images/sample-3.webp"
+      ]
+    }
+  },
+  {
+    "id": "everyday-darja",
+    "position": 2,
+    "title": "Tunisian Arabic Fruits Flashcards",
+    "category": "Flashcards",
+    "level": "Beginner",
+    "price": 2.5,
+    "image": "images/fruits-flashcards-cover.webp",
+    "summary": "16 printable fruit vocabulary cards with Tunisian Arabic, Latin pronunciation, and matching audio.",
+    "description": "Learn 16 everyday fruit names in Tunisian Arabic with illustrated printable flashcards. Each card includes Arabic script and Latin transliteration. The digital pack includes pronunciation recordings, a complete listen-through, and instructions for printing and using the cards.",
+    "format": "Printable PDF + audio",
+    "retailer": "Payhip",
+    "purchase_url": "https://payhip.com/b/QKukd",
+    "published": true,
+    "details": {
+      "samples": [
+        {
+          "ar": "تفاح",
+          "latin": "Toffe7",
+          "en": "Apple"
+        },
+        {
+          "ar": "دلاع",
+          "latin": "Delle3",
+          "en": "Watermelon"
+        },
+        {
+          "ar": "خوخ",
+          "latin": "Khoukh",
+          "en": "Peach"
+        }
+      ],
+      "features": [
+        "16 illustrated fruit flashcards",
+        "Arabic script and Latin transliteration",
+        "Individual pronunciation audio plus full-set recording",
+        "A4 landscape PDF with cutting guides"
+      ],
+      "subtitle": "Print, listen, and learn fruit vocabulary"
+    }
+  },
+  {
+    "id": "speak-tunisian",
+    "position": 3,
+    "title": "Speak Tunisian: The Beginner Course",
+    "category": "Courses",
+    "level": "Beginner",
+    "price": 39,
+    "image": "images/speak-tunisian.webp",
+    "summary": "Start speaking with guided video lessons and practical, everyday conversations.",
+    "description": "This concept course introduces the language of everyday Tunisian life through short video lessons. Begin with a greeting, listen closely to native pronunciation, and practice out loud. The included sample lesson teaches three useful expressions using Mongia’s published pronunciation audio.",
+    "format": "Video lessons",
+    "retailer": "Payhip",
+    "purchase_url": null,
+    "published": false,
+    "details": {
+      "video": "media/greetings.mp4",
+      "poster": "images/lesson-poster.jpg",
+      "samples": [],
+      "captions": "media/greetings.vtt",
+      "features": [
+        "A playable greetings mini-lesson",
+        "Native pronunciation examples",
+        "English captions and Latin spelling",
+        "Self-paced listening practice"
+      ],
+      "subtitle": "A confident first conversation",
+      "preview_title": "Greetings & introductions"
+    }
+  },
+  {
+    "id": "stories-from-tunisia",
+    "position": 4,
+    "title": "Stories from Tunisia",
+    "category": "Books",
+    "level": "Intermediate",
+    "price": 16.9,
+    "image": "images/tunisian-stories.webp",
+    "summary": "Discover Tunisian life through short stories, useful phrases, and cultural notes.",
+    "description": "A concept reader for learners ready to move beyond individual words. Follow small moments from a morning in Tunis with Arabic script, Latin spelling, and an English translation. Read the three illustrated-edition sample passages in sequence and practice retelling the morning in your own words.",
+    "format": "Paperback",
+    "retailer": "Amazon",
+    "purchase_url": null,
+    "published": false,
+    "details": {
+      "samples": [
+        {
+          "ar": "الصباح، مشيت للسوق.",
+          "en": "In the morning, I went to the market.",
+          "latin": "Essba7, mchit les-sou9."
+        },
+        {
+          "ar": "شريت خبز وزيتون.",
+          "en": "I bought bread and olives.",
+          "latin": "Chrit khobz w zitoun."
+        },
+        {
+          "ar": "بعد، شربت قهوة مع صاحبي.",
+          "en": "Afterwards, I had a coffee with my friend.",
+          "latin": "Ba3d, chrobt 9ahwa m3a sa7bi."
+        }
+      ],
+      "features": [
+        "Short, connected story passages",
+        "Parallel English translations",
+        "Everyday Tunisian settings",
+        "Three-page reading sample"
+      ],
+      "subtitle": "Short readings for curious learners"
+    }
+  },
+  {
+    "id": "at-the-market",
+    "position": 5,
+    "title": "At the Market Flashcards",
+    "category": "Flashcards",
+    "level": "All levels",
+    "price": 6,
+    "image": "images/at-the-market.webp",
+    "summary": "A taste of the souk, with printable food vocabulary and handy shopping phrases.",
+    "description": "Bring the sounds and flavors of the Tunisian market to your study table. This sample deck introduces everyday food words alongside phrases for asking prices and saying thank you. Explore both sides of each preview card before practicing without the translation.",
+    "format": "Printable PDF",
+    "retailer": "Payhip",
+    "purchase_url": null,
+    "published": false,
+    "details": {
+      "samples": [
+        {
+          "ar": "بقدّاش؟",
+          "en": "How much?",
+          "latin": "B9addech?"
+        },
+        {
+          "ar": "كسكسي",
+          "en": "Couscous",
+          "latin": "Kosksi"
+        },
+        {
+          "ar": "عيّشك",
+          "en": "Thank you.",
+          "latin": "3aychek"
+        }
+      ],
+      "features": [
+        "Market and food vocabulary",
+        "Friendly shopping expressions",
+        "Print-and-cut card format",
+        "Three interactive sample cards"
+      ],
+      "subtitle": "A little language for the local souk"
+    }
+  },
+  {
+    "id": "survival-audio",
+    "position": 6,
+    "title": "Survival Guide Audio Companion",
+    "category": "Audio companions",
+    "level": "All levels",
+    "price": 0,
+    "image": "images/audio-companion.webp",
+    "summary": "Listen to native pronunciation, chapter by chapter, alongside your Survival Guide.",
+    "description": "The official listening companion to Mongia’s Tunisian Arabic Survival Guide. Find the audio code in your book and choose its matching chapter. Each main chapter includes useful expressions, a conversation, and language you might hear. The full library also includes a sound key, quick-reference tracks, and cultural recordings.",
+    "format": "Audio library",
+    "retailer": "Darja with Mongia",
+    "purchase_url": null,
+    "published": true,
+    "details": {
+      "samples": [],
+      "features": [
+        "85 original recordings",
+        "Organized by book chapter",
+        "Adjustable playback speed",
+        "Free access for learners"
+      ],
+      "subtitle": "Listen, repeat, and make it your own"
+    }
+  }
+]
