@@ -93,114 +93,28 @@
     "title": "Speak Tunisian: The Beginner Course",
     "category": "Courses",
     "level": "Beginner",
-    "price": 39,
+    "price": 0,
     "image": "images/speak-tunisian.webp",
     "summary": "Start speaking with guided video lessons and practical, everyday conversations.",
-    "description": "This concept course introduces the language of everyday Tunisian life through short video lessons. Begin with a greeting, listen closely to native pronunciation, and practice out loud. The included sample lesson teaches three useful expressions using Mongia’s published pronunciation audio.",
+    "description": "A beginner course in development to help learners practise everyday Tunisian Arabic through guided speaking and listening. Release date, enrollment details, and price will be announced when the course is ready.",
     "format": "Video lessons",
     "retailer": "Payhip",
     "purchase_url": null,
     "published": false,
     "details": {
-      "video": "media/greetings.mp4",
-      "poster": "images/lesson-poster.jpg",
       "samples": [],
-      "captions": "media/greetings.vtt",
       "features": [
-        "A playable greetings mini-lesson",
-        "Native pronunciation examples",
-        "English captions and Latin spelling",
-        "Self-paced listening practice"
+        "Beginner-focused Tunisian Arabic",
+        "Everyday speaking and listening practice",
+        "Course in development"
       ],
-      "subtitle": "A confident first conversation",
-      "preview_title": "Greetings & introductions"
-    }
-  },
-  {
-    "id": "stories-from-tunisia",
-    "position": 4,
-    "title": "Stories from Tunisia",
-    "category": "Books",
-    "level": "Intermediate",
-    "price": 16.9,
-    "image": "images/tunisian-stories.webp",
-    "summary": "Discover Tunisian life through short stories, useful phrases, and cultural notes.",
-    "description": "A concept reader for learners ready to move beyond individual words. Follow small moments from a morning in Tunis with Arabic script, Latin spelling, and an English translation. Read the three illustrated-edition sample passages in sequence and practice retelling the morning in your own words.",
-    "format": "Paperback",
-    "retailer": "Amazon",
-    "purchase_url": null,
-    "published": false,
-    "details": {
-      "samples": [
-        {
-          "ar": "الصباح، مشيت للسوق.",
-          "en": "In the morning, I went to the market.",
-          "latin": "Essba7, mchit les-sou9."
-        },
-        {
-          "ar": "شريت خبز وزيتون.",
-          "en": "I bought bread and olives.",
-          "latin": "Chrit khobz w zitoun."
-        },
-        {
-          "ar": "بعد، شربت قهوة مع صاحبي.",
-          "en": "Afterwards, I had a coffee with my friend.",
-          "latin": "Ba3d, chrobt 9ahwa m3a sa7bi."
-        }
-      ],
-      "features": [
-        "Short, connected story passages",
-        "Parallel English translations",
-        "Everyday Tunisian settings",
-        "Three-page reading sample"
-      ],
-      "subtitle": "Short readings for curious learners"
-    }
-  },
-  {
-    "id": "at-the-market",
-    "position": 5,
-    "title": "At the Market Flashcards",
-    "category": "Flashcards",
-    "level": "All levels",
-    "price": 6,
-    "image": "images/at-the-market.webp",
-    "summary": "A taste of the souk, with printable food vocabulary and handy shopping phrases.",
-    "description": "Bring the sounds and flavors of the Tunisian market to your study table. This sample deck introduces everyday food words alongside phrases for asking prices and saying thank you. Explore both sides of each preview card before practicing without the translation.",
-    "format": "Printable PDF",
-    "retailer": "Payhip",
-    "purchase_url": null,
-    "published": false,
-    "details": {
-      "samples": [
-        {
-          "ar": "بقدّاش؟",
-          "en": "How much?",
-          "latin": "B9addech?"
-        },
-        {
-          "ar": "كسكسي",
-          "en": "Couscous",
-          "latin": "Kosksi"
-        },
-        {
-          "ar": "عيّشك",
-          "en": "Thank you.",
-          "latin": "3aychek"
-        }
-      ],
-      "features": [
-        "Market and food vocabulary",
-        "Friendly shopping expressions",
-        "Print-and-cut card format",
-        "Three interactive sample cards"
-      ],
-      "subtitle": "A little language for the local souk"
-    }
+      "subtitle": "A beginner course in development"
+    },
+    "coming_soon": true
   },
   {
     "id": "survival-audio",
-    "position": 6,
+    "position": 4,
     "title": "Survival Guide Audio Companion",
     "category": "Audio companions",
     "level": "All levels",

@@ -21,6 +21,7 @@ export type Product = {
   retailer: string;
   purchase_url: string | null;
   published: boolean;
+  coming_soon?: boolean;
   details: {
     features: string[];
     samples: { ar: string; latin: string; en: string }[];

@@ -1,0 +1,140 @@
+[
+  {
+    "id": "survival-guide",
+    "position": 1,
+    "title": "Tunisian Arabic Survival Guide",
+    "category": "Books",
+    "level": "Beginner",
+    "price": 5.99,
+    "image": "images/official-cover.webp",
+    "summary": "Practical Tunisian Arabic for your trip. Get the digital PDF guide with downloadable audio, or explore the free preview.",
+    "description": "Practical Tunisian Arabic for your trip to Tunisia. Learn useful expressions for greetings, transport, cafés, restaurants, shopping and getting help—with Arabic script, Latin pronunciation and English meanings. Follow short conversations, discover cultural tips, and listen to the companion audio at your own pace. You can start even if you cannot read Arabic.",
+    "format": "PDF + audio",
+    "retailer": "Payhip",
+    "purchase_url": "https://payhip.com/b/qpQJc",
+    "published": true,
+    "details": {
+      "samples": [
+        {
+          "ar": "سامحني",
+          "latin": "Sama7ni",
+          "en": "Sorry / excuse me"
+        },
+        {
+          "ar": "بقدّاش؟",
+          "latin": "B9addech?",
+          "en": "How much?"
+        },
+        {
+          "ar": "ما فهمتش",
+          "latin": "Ma fhemtch",
+          "en": "I did not understand"
+        }
+      ],
+      "features": [
+        "22 topic-based chapters",
+        "Arabic, Latin spelling, and English",
+        "Native pronunciation recordings",
+        "10-page published preview"
+      ],
+      "subtitle": "Practical Tunisian Arabic for your trip",
+      "preview_pdf": "https://darja-survival-guide-audio.crisptitan32.chatgpt.site/preview/Tunisian_Arabic_Survival_Guide_Free_Preview.pdf?v=preview10",
+      "preview_pages": [
+        "images/sample-1.webp",
+        "images/sample-2.webp",
+        "images/sample-3.webp"
+      ]
+    }
+  },
+  {
+    "id": "everyday-darja",
+    "position": 2,
+    "title": "Tunisian Arabic Fruits Flashcards",
+    "category": "Flashcards",
+    "level": "Beginner",
+    "price": 2.5,
+    "image": "images/fruits-flashcards-cover.webp",
+    "summary": "16 printable fruit vocabulary cards with Tunisian Arabic, Latin pronunciation, and matching audio.",
+    "description": "Learn 16 everyday fruit names in Tunisian Arabic with illustrated printable flashcards. Each card includes Arabic script and Latin transliteration. The digital pack includes pronunciation recordings, a complete listen-through, and instructions for printing and using the cards.",
+    "format": "Printable PDF + audio",
+    "retailer": "Payhip",
+    "purchase_url": "https://payhip.com/b/QKukd",
+    "published": true,
+    "details": {
+      "samples": [
+        {
+          "ar": "تفاح",
+          "latin": "Toffe7",
+          "en": "Apple"
+        },
+        {
+          "ar": "دلاع",
+          "latin": "Delle3",
+          "en": "Watermelon"
+        },
+        {
+          "ar": "خوخ",
+          "latin": "Khoukh",
+          "en": "Peach"
+        }
+      ],
+      "features": [
+        "16 illustrated fruit flashcards",
+        "Arabic script and Latin transliteration",
+        "Individual pronunciation audio plus full-set recording",
+        "A4 landscape PDF with cutting guides"
+      ],
+      "subtitle": "Print, listen, and learn fruit vocabulary"
+    }
+  },
+  {
+    "id": "speak-tunisian",
+    "position": 3,
+    "title": "Speak Tunisian: The Beginner Course",
+    "category": "Courses",
+    "level": "Beginner",
+    "price": 0,
+    "image": "images/speak-tunisian.webp",
+    "summary": "Start speaking with guided video lessons and practical, everyday conversations.",
+    "description": "A beginner course in development to help learners practise everyday Tunisian Arabic through guided speaking and listening. Release date, enrollment details, and price will be announced when the course is ready.",
+    "format": "Video lessons",
+    "retailer": "Payhip",
+    "purchase_url": null,
+    "published": false,
+    "details": {
+      "samples": [],
+      "features": [
+        "Beginner-focused Tunisian Arabic",
+        "Everyday speaking and listening practice",
+        "Course in development"
+      ],
+      "subtitle": "A beginner course in development"
+    },
+    "coming_soon": true
+  },
+  {
+    "id": "survival-audio",
+    "position": 4,
+    "title": "Survival Guide Audio Companion",
+    "category": "Audio companions",
+    "level": "All levels",
+    "price": 0,
+    "image": "images/audio-companion.webp",
+    "summary": "Listen to native pronunciation, chapter by chapter, alongside your Survival Guide.",
+    "description": "The official listening companion to Mongia’s Tunisian Arabic Survival Guide. Find the audio code in your book and choose its matching chapter. Each main chapter includes useful expressions, a conversation, and language you might hear. The full library also includes a sound key, quick-reference tracks, and cultural recordings.",
+    "format": "Audio library",
+    "retailer": "Darja with Mongia",
+    "purchase_url": null,
+    "published": true,
+    "details": {
+      "samples": [],
+      "features": [
+        "85 original recordings",
+        "Organized by book chapter",
+        "Adjustable playback speed",
+        "Free access for learners"
+      ],
+      "subtitle": "Listen, repeat, and make it your own"
+    }
+  }
+]

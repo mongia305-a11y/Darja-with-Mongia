@@ -57,7 +57,7 @@ export default function Shop() {
     setLoading(true);
     setError("");
     try {
-      const catalogUrl = asset("data/catalog-fruits.json");
+      const catalogUrl = asset("data/catalog-current.json");
       let result;
       try {
         const r = await fetch(
@@ -165,8 +165,10 @@ export default function Shop() {
             .toLowerCase()
             .includes(query.trim().toLowerCase())),
     );
-    if (sort === "price-low") arr.sort((a, b) => a.price - b.price);
-    if (sort === "price-high") arr.sort((a, b) => b.price - a.price);
+    if (sort === "price-low" || sort === "price-high") arr.sort((a, b) =>
+      Number(!!a.coming_soon) - Number(!!b.coming_soon) ||
+      (sort === "price-low" ? a.price - b.price : b.price - a.price),
+    );
     if (sort === "az") arr.sort((a, b) => a.title.localeCompare(b.title));
     return arr;
   }, [items, category, levels, query, sort, saved]);
@@ -503,8 +505,8 @@ export default function Shop() {
                         <p>{p.summary}</p>
                         <div className="card-bottom">
                           <div>
-                            <strong>{money(p.price)}</strong>
-                            {!p.published && <small>Sample price</small>}
+                            <strong>{p.coming_soon ? "Coming soon" : money(p.price)}</strong>
+                            {!p.published && !p.coming_soon && <small>Sample price</small>}
                           </div>
                           <button
                             className="details-btn"
@@ -587,7 +589,7 @@ export default function Shop() {
         <span>© 2026 Darja with Mongia</span>
         <span>
           <Diamond size={10} />
-          Interactive shop preview · Concept product artwork
+          Darja with Mongia shop
         </span>
       </div>
       {filters && (

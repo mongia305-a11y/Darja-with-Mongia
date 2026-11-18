@@ -33,6 +33,10 @@ export function ProductDetail({ p }: { p: Product }) {
   const Icon = icons[p.category];
   const isGuide = p.id === "survival-guide";
   const isFruits = p.id === "everyday-darja";
+  const isComingSoon = !!p.coming_soon;
+  const infoTabs: Array<"About" | "Look inside" | "Purchase options"> = isComingSoon
+    ? ["About", "Purchase options"]
+    : ["About", "Look inside", "Purchase options"];
   const amazonGuideUrl = "https://amzn.eu/d/09VbNQsz";
   const pages = p.details.preview_pages || [];
   const count = pages.length || p.details.samples.length;
@@ -69,16 +73,12 @@ export function ProductDetail({ p }: { p: Product }) {
             <span>{p.format}</span>
           </div>
           <div className="detail-price">
-            {money(p.price)}
-            <small>
-              {!p.published
-                ? "Illustrative price"
-                : p.price
-                  ? "Digital edition"
-                  : "Included companion"}
-            </small>
+            {isComingSoon ? "Coming soon" : money(p.price)}
+            {!isComingSoon && <small>
+              {!p.published ? "Illustrative price" : p.price ? "Digital edition" : "Included companion"}
+            </small>}
           </div>
-          <button className="btn primary" onClick={primary}>
+          {!isComingSoon && <button className="btn primary" onClick={primary}>
             {p.category === "Audio companions"
               ? "Open audio library"
               : p.published
@@ -94,7 +94,7 @@ export function ProductDetail({ p }: { p: Product }) {
             ) : (
               <ArrowRight size={16} />
             )}
-          </button>
+          </button>}
           {isGuide && (
             <a className="btn outline amazon-guide-link" href={amazonGuideUrl} target="_blank" rel="noopener noreferrer">
               Buy on Amazon <ArrowUpRight size={16} />
@@ -107,7 +107,7 @@ export function ProductDetail({ p }: { p: Product }) {
         role="tablist"
         aria-label="Product information"
       >
-        {(["About", "Look inside", "Purchase options"] as const).map((t) => (
+        {infoTabs.map((t) => (
           <button
             key={t}
             role="tab"
@@ -115,8 +115,8 @@ export function ProductDetail({ p }: { p: Product }) {
             onClick={() => setTab(t)}
             className={tab === t ? "active" : ""}
           >
-            {p.category === "Courses" && t === "Purchase options"
-              ? "Enrollment options"
+            {isComingSoon && t === "Purchase options"
+              ? "Availability"
               : t}
           </button>
         ))}
@@ -134,7 +134,7 @@ export function ProductDetail({ p }: { p: Product }) {
                 </span>
               ))}
             </div>
-            {!p.published && (
+            {!p.published && !isComingSoon && (
               <div className="note">
                 <Eye size={16} />
                 <span>
@@ -143,6 +143,7 @@ export function ProductDetail({ p }: { p: Product }) {
                 </span>
               </div>
             )}
+            {isComingSoon && <p className="fine-print">This course is still in development. Enrollment is not open.</p>}
             {isFruits && (
               <p className="fine-print">Digital download: a printable PDF and pronunciation MP3s in a ZIP file. No physical cards are shipped.</p>
             )}
@@ -180,9 +181,11 @@ export function ProductDetail({ p }: { p: Product }) {
         ) : tab === "Purchase options" ? (
           <>
             <h3>
-              {p.published ? "Get this resource" : "Preview purchase options"}
+              {isComingSoon ? "Coming soon" : p.published ? "Get this resource" : "Preview purchase options"}
             </h3>
-            {p.category === "Audio companions" ? (
+            {isComingSoon ? (
+              <p>The course is still in development. Enrollment, release date, and price will be shared when it is ready.</p>
+            ) : p.category === "Audio companions" ? (
               <>
                 <p>
                   The published companion recordings are free to access. Match
