@@ -5,17 +5,18 @@
 
   var measurementId = "G-QS53JJHV3J";
   var consentKey = "darjaAnalyticsConsent";
-  var consentLifetime = 180 * 24 * 60 * 60 * 1000;
   var disableKey = "ga-disable-" + measurementId;
   var ownsAnalytics = false;
-  var hasConsentManager = !!document.querySelector('script[src*="cookie-consent.js"]');
+  var hasConsentManager = !!document.querySelector('script[src*="cookie-consent"][defer]');
+
+  if (!hasConsentManager && performance.getEntriesByType("navigation")[0]?.type === "navigate" &&
+      !document.referrer.startsWith(location.origin + "/")) {
+    try { sessionStorage.removeItem(consentKey); } catch (_) { /* Storage may be unavailable. */ }
+  }
 
   function hasConsent() {
     try {
-      var saved = JSON.parse(localStorage.getItem(consentKey));
-      var savedAt = saved && Number(saved.savedAt);
-      return !!(saved && saved.choice === "accepted" && savedAt > 0 &&
-        Date.now() >= savedAt && Date.now() - savedAt <= consentLifetime);
+      return sessionStorage.getItem(consentKey) === "accepted";
     } catch (_) { return false; }
   }
 
@@ -91,7 +92,7 @@
   }, { passive: true });
 
   window.addEventListener("storage", function (event) {
-    if (event.key !== consentKey && event.key !== null) return;
+    if (event.storageArea !== sessionStorage || (event.key !== consentKey && event.key !== null)) return;
     if (!hasConsent() && ownsAnalytics) {
       window[disableKey] = true;
       if (typeof window.gtag === "function") {

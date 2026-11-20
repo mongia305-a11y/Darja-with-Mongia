@@ -3,33 +3,28 @@
   if (window.darjaPromotions) return;
 
   const visitKey = 'darjaPromotionVisit';
-  const seenKey = 'darjaPromotionSeen';
-  const dismissKey = 'darjaBookOfferDismissedUntil';
-  const week = 7 * 24 * 60 * 60 * 1000;
+  const bookDelay = 5000;
   const bookOfferAllowed = !/\/(?:survival-guide-audio|placement-test)\.html$/.test(location.pathname);
-  let newsletterPending = false;
+  try {
+    localStorage.removeItem('darjaPromotionSeen');
+    localStorage.removeItem('darjaBookOfferDismissedUntil');
+  } catch (_) { /* Storage may be unavailable. */ }
 
-  function read(storage, key) {
-    try { return JSON.parse(window[storage].getItem(key)); } catch (_) { return null; }
+  function readVisit() {
+    try { return JSON.parse(sessionStorage.getItem(visitKey)) || {}; } catch (_) { return {}; }
   }
-  function write(storage, key, value) {
-    try { window[storage].setItem(key, JSON.stringify(value)); } catch (_) { /* Keep the in-page state. */ }
+  function saveVisit() {
+    try { sessionStorage.setItem(visitKey, JSON.stringify(visit)); } catch (_) { /* Keep the in-page state. */ }
   }
-  let visit = read('sessionStorage', visitKey);
-  if (!visit || typeof visit.returning !== 'boolean') {
-    visit = { returning: !!read('localStorage', seenKey), shown: null };
-    write('localStorage', seenKey, true);
-    write('sessionStorage', visitKey, visit);
+  const visit = readVisit();
+  if (performance.getEntriesByType('navigation')[0]?.type === 'navigate' &&
+      !document.referrer.startsWith(location.origin + '/')) {
+    delete visit.bookShown;
+    if (visit.shown === 'book') delete visit.shown;
+    saveVisit();
   }
   function wasShown(kind) {
-    const saved = read('sessionStorage', visitKey) || {};
-    const flag = kind + 'Shown';
-    return visit[flag] === true || visit.shown === kind || saved[flag] === true || saved.shown === kind;
-  }
-  function bookDismissed() { return Number(read('localStorage', dismissKey)) > Date.now(); }
-  function newsletterSubscribed() {
-    const preference = read('localStorage', 'darjaNewsletterPreference');
-    return !!preference && preference.subscribed === true;
+    return visit[kind + 'Shown'] === true || visit.shown === kind;
   }
   window.darjaPromotions = {
     canShow(kind) { return !wasShown(kind); },
@@ -38,12 +33,7 @@
       visit.newsletterShown = kind === 'newsletter' || wasShown('newsletter');
       visit.bookShown = kind === 'book' || wasShown('book');
       delete visit.shown;
-      write('sessionStorage', visitKey, visit);
-    },
-    setNewsletterPending(pending) {
-      if (newsletterPending === pending) return;
-      newsletterPending = pending;
-      if (!pending && bookOfferAllowed) attempt();
+      saveVisit();
     }
   };
 
@@ -58,10 +48,6 @@
     return document.visibilityState === 'hidden' || !!document.querySelector('dialog[open]') ||
       !!(document.activeElement && document.activeElement.matches('input, textarea, select, [contenteditable="true"]')) ||
       Array.from(document.querySelectorAll('audio, video')).some(media => !media.paused && !media.ended);
-  }
-  function halfway() {
-    const length = document.documentElement.scrollHeight - window.innerHeight;
-    return length > 0 && window.scrollY >= length / 2;
   }
   function inlineOfferVisible() {
     const offer = document.getElementById('survival-guide');
@@ -78,10 +64,6 @@
     stopped = true;
     clearTimeout(timer);
   }
-  function dismiss() {
-    write('localStorage', dismissKey, Date.now() + week);
-    hide();
-  }
   function createCard() {
     card = document.createElement('aside');
     card.className = 'darja-book-offer';
@@ -94,21 +76,19 @@
       '<p class="darja-book-offer-format">PDF + downloadable audio</p>' +
       '<p class="darja-book-offer-price"><strong>€5.99</strong> <del aria-label="Previously 10 euros">€10.00</del></p>' +
       '<a class="darja-book-offer-button" href="https://payhip.com/b/qpQJc" target="_blank" rel="noopener noreferrer">Get the PDF + Audio <span aria-hidden="true">↗</span></a></div>';
-    card.querySelector('button').addEventListener('click', dismiss);
-    card.querySelector('a').addEventListener('click', dismiss);
-    document.addEventListener('keydown', event => { if (event.key === 'Escape' && !card.hidden) dismiss(); });
+    card.querySelector('button').addEventListener('click', hide);
+    card.querySelector('a').addEventListener('click', hide);
+    document.addEventListener('keydown', event => { if (event.key === 'Escape' && !card.hidden) hide(); });
     document.body.appendChild(card);
     window.darjaPromotions.markShown('book');
   }
   function attempt() {
     clearTimeout(timer);
-    if (stopped || wasShown('book') || bookDismissed()) return;
+    if (stopped || wasShown('book')) return;
     if (!privacyReady()) { readySince = null; return; }
     if (readySince === null) readySince = Date.now();
-    const remaining = 30000 - (Date.now() - readySince);
+    const remaining = bookDelay - (Date.now() - readySince);
     if (remaining > 0) { timer = setTimeout(attempt, remaining); return; }
-    if (newsletterPending || !halfway()) return;
-    if (!visit.returning && (wasShown('newsletter') || !newsletterSubscribed())) return;
     if (busy() || inlineOfferVisible()) { timer = setTimeout(attempt, 2000); return; }
     createCard();
   }
@@ -124,9 +104,6 @@
     window.addEventListener('scroll', attempt, { passive: true });
     window.addEventListener('resize', attempt, { passive: true });
     document.addEventListener('visibilitychange', overlayChanged);
-    window.addEventListener('storage', event => {
-      if ((event.key === dismissKey || event.key === null) && bookDismissed()) hide();
-    });
     attempt();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);

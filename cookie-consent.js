@@ -3,10 +3,15 @@
 
   const measurementId = "G-QS53JJHV3J";
   const storageKey = "darjaAnalyticsConsent";
-  const consentLifetime = 180 * 24 * 60 * 60 * 1000;
   let analyticsLoaded = false;
 
   window["ga-disable-" + measurementId] = true;
+  try { localStorage.removeItem(storageKey); } catch (_) { /* Storage may be unavailable. */ }
+
+  if (performance.getEntriesByType("navigation")[0]?.type === "navigate" &&
+      !document.referrer.startsWith(location.origin + "/")) {
+    try { sessionStorage.removeItem(storageKey); } catch (_) { /* Storage may be unavailable. */ }
+  }
 
   function loadAnalytics() {
     window["ga-disable-" + measurementId] = false;
@@ -39,12 +44,8 @@
 
   function readConsent() {
     try {
-      const saved = JSON.parse(localStorage.getItem(storageKey));
-      if (!saved || (saved.choice !== "accepted" && saved.choice !== "rejected")) return null;
-      const savedAt = Number(saved.savedAt);
-      const now = Date.now();
-      if (!(savedAt > 0 && savedAt <= now && now - savedAt <= consentLifetime)) return null;
-      return saved.choice;
+      const choice = sessionStorage.getItem(storageKey);
+      return choice === "accepted" || choice === "rejected" ? choice : null;
     } catch (error) {
       return null;
     }
@@ -52,10 +53,7 @@
 
   function saveConsent(choice) {
     try {
-      localStorage.setItem(storageKey, JSON.stringify({
-        choice: choice,
-        savedAt: Date.now()
-      }));
+      sessionStorage.setItem(storageKey, choice);
     } catch (error) {
       // The choice still applies for the current page if storage is unavailable.
     }
@@ -129,7 +127,7 @@
     });
     settingsButton.addEventListener("click", showBanner);
     window.addEventListener("storage", function (event) {
-      if (event.storageArea !== localStorage || (event.key !== storageKey && event.key !== null)) return;
+      if (event.storageArea !== sessionStorage || (event.key !== storageKey && event.key !== null)) return;
       if (readConsent() !== "accepted") disableAnalytics();
     });
     window.addEventListener("pageshow", function (event) {
