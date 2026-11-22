@@ -75,7 +75,7 @@
       '<h2 id="darja-book-offer-title">Tunisian Arabic<br>Survival Guide</h2>' +
       '<p class="darja-book-offer-format">PDF + downloadable audio</p>' +
       '<p class="darja-book-offer-price"><strong>€5.99</strong> <del aria-label="Previously 10 euros">€10.00</del></p>' +
-      '<a class="darja-book-offer-button" href="https://payhip.com/b/qpQJc" target="_blank" rel="noopener noreferrer">Get the PDF + Audio <span aria-hidden="true">↗</span></a></div>';
+      '<a class="darja-book-offer-button" href="/shop/#/product/survival-guide">Get the PDF + Audio <span aria-hidden="true">↗</span></a></div>';
     card.querySelector('button').addEventListener('click', hide);
     card.querySelector('a').addEventListener('click', hide);
     document.addEventListener('keydown', event => { if (event.key === 'Escape' && !card.hidden) hide(); });
