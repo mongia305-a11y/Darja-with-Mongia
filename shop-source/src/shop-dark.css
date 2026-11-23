@@ -1,0 +1,111 @@
+/* The Shop shares the homepage preference and purple-toned dark palette. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  color: #f2ebf4;
+  background: #17151d;
+  --plum: #efb5d0;
+  --plum-dark: #f2ebf4;
+  --muted: #c8becf;
+  --line: #4e4056;
+  --paper: #25212e;
+  --shop-dark-accent: #efb5d0;
+  --shop-dark-raised: #322a39;
+  --shop-dark-selected: #452e41;
+}
+
+[data-theme="dark"] :is(.header, .shop-site-footer, .shop-lesson-topics) {
+  background: var(--paper);
+  border-color: var(--line);
+}
+
+[data-theme="dark"] :is(.header .nav-active, .shop-theme-toggle, .shop-lesson-toggle) {
+  color: var(--shop-dark-accent);
+}
+
+[data-theme="dark"] .shop-theme-toggle {
+  border-color: #9a6582;
+  background: #382733;
+}
+
+[data-theme="dark"] :is(.shop-theme-toggle:hover, .shop-lesson-toggle:hover, .shop-lesson-toggle[aria-expanded="true"], .shop-lesson-topics a:hover, .shop-lesson-topics a:focus-visible) {
+  background: var(--shop-dark-selected);
+  color: var(--shop-dark-accent);
+}
+
+[data-theme="dark"] :is(.header .brand img, .shop-footer-brand img) {
+  padding: 5px 9px;
+  border: 1px solid #d4bbc9;
+  border-radius: 12px;
+  background: #faf5f8;
+}
+
+[data-theme="dark"] :is(.shop-footer-brand p, .shop-footer-column a, .shop-footer-contact p, .shop-footer-bottom) {
+  color: var(--muted);
+  border-color: var(--line);
+}
+
+[data-theme="dark"] .shop-footer-column h3 {
+  color: inherit;
+}
+
+[data-theme="dark"] :is(.shop-footer-contact a, .shop-footer-column a:hover, .shop-footer-bottom span) {
+  color: var(--shop-dark-accent);
+}
+
+[data-theme="dark"] .hero {
+  border-color: var(--line);
+  background: #231e2b;
+}
+
+[data-theme="dark"] .hero-art {
+  mix-blend-mode: normal;
+  mask-image: linear-gradient(to right, transparent, #000 60%);
+  opacity: 0.52;
+}
+
+[data-theme="dark"] .tile-trim {
+  background-color: var(--shop-dark-raised);
+}
+
+[data-theme="dark"] :is(.sidebar, .sort-wrapper, .product-card, .audio-banner, .values-strip, .modal, .close-modal, .skip-link, .mobile-filter) {
+  border-color: var(--line);
+  background: var(--paper);
+}
+
+[data-theme="dark"] :is(.search-box, .hero-chips button, .details-btn, .btn.outline, .nav-active, .banner-icon, .select-wrap, .select-wrap select, .book-strip, .flashcard, .story-page, .purchase-info, .audio-heading, .track-number, .player-tools button, .player-tools select) {
+  border-color: var(--line);
+  background: var(--shop-dark-raised);
+  color: inherit;
+}
+
+[data-theme="dark"] :is(.hero-copy > p, .collection-sub, .sort-wrapper label, .sort-wrapper svg, .sort-wrapper select, .card-body > p, .card-meta, .meta-row, .card-bottom small, .category-row > svg, .category-row small, .saved-row, .saved-row > span, .search-box, .audio-banner p, .values-inner, .detail-intro > p, .detail-content p, .audio-heading p, .book-strip p, .field-label, .fine-print, .player-tools label, .player-tools button small, .track > svg, .track-number, .section-mini > span:last-child, .preview-nav > span, .flashcard small, .empty, .notice) {
+  color: var(--muted);
+}
+
+[data-theme="dark"] :is(.eyebrow, .filter-label, .card-body h3, .audio-banner .eyebrow, .clear-filters, .level-tag, .detail-tabs .active, .text-link, .values-inner svg, .book-strip .eyebrow, .flashcard em, .story-page i, .purchase-info strong) {
+  color: var(--shop-dark-accent);
+}
+
+[data-theme="dark"] :is(.levels, .saved-row, .card-bottom, .detail-tabs, .meta-row > span + span, .track) {
+  border-color: var(--line);
+}
+
+[data-theme="dark"] :is(.category-row.selected, .saved-row.selected, .category-row.selected svg, .category-row.selected small, .category-row:hover:not(.selected), .saved-row:hover, .hero-chips button:hover, .details-btn:hover, .btn.outline:hover, .track.selected, .flashcard.flipped, .note, .error-note) {
+  border-color: var(--line);
+  background: var(--shop-dark-selected);
+  color: var(--shop-dark-accent);
+}
+
+[data-theme="dark"] :is(.btn.primary, .audio-library-btn, .toast) {
+  border-color: #9a6582;
+  background: #5b3350;
+  color: #fff4f9;
+}
+
+[data-theme="dark"] :is(.btn.primary, .audio-library-btn):hover {
+  background: #71435f;
+}
+
+[data-theme="dark"] .skeleton {
+  background: var(--shop-dark-raised);
+}

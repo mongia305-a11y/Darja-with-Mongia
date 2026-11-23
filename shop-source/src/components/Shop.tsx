@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   ArrowRight,
-  ArrowUpRight,
   Bookmark,
   BookOpen,
   Check,
@@ -15,7 +14,6 @@ import {
   X,
   ShoppingBag,
   Flower,
-  Diamond,
   RotateCcw,
 } from "lucide-react";
 import {
@@ -37,6 +35,7 @@ import {
 import { ProductDetail } from "./ProductDetail";
 import { AudioLibrary } from "./AudioLibrary";
 import { Modal } from "./Modal";
+import { LessonMenu, ShopFooter, ThemeToggle } from "./ShopSiteChrome";
 export default function Shop() {
   const [items, setItems] = useState<Product[]>([]),
     [loading, setLoading] = useState(true),
@@ -188,7 +187,7 @@ export default function Shop() {
   const nav = (
     <>
       <a href={site}>Home</a>
-      <a href={site + "free-lessons.html"}>Free lessons</a>
+      <LessonMenu />
       <a href={site + "podcast.html"}>Podcast</a>
       <a href={site + "#about"}>About</a>
       <a href="mailto:contact@darjawithmongia.com">Contact</a>
@@ -298,9 +297,10 @@ export default function Shop() {
             {nav}
           </nav>
           <div className="header-actions">
+            <ThemeToggle />
             <button
               className="mobile-menu icon-btn"
-              aria-label="Open navigation"
+              aria-label={menu ? "Close navigation" : "Open navigation"}
               aria-expanded={menu}
               onClick={() => setMenu(!menu)}
             >
@@ -557,41 +557,7 @@ export default function Shop() {
           </div>
         </section>
       </main>
-      <footer className="shell footer">
-        <div className="footer-brand">
-          <img src={asset("images/brand.webp")} alt="Darja with Mongia" />
-          <p>A little more Darja, every day.</p>
-        </div>
-        <div>
-          <span className="eyebrow">KEEP EXPLORING</span>
-          <a href={site + "free-lessons.html"}>
-            Free lessons
-            <ArrowUpRight size={12} />
-          </a>
-          <a href={site + "podcast.html"}>
-            Listen to the podcast
-            <ArrowUpRight size={12} />
-          </a>
-        </div>
-        <div>
-          <span className="eyebrow">SAY ASSLEMA</span>
-          <a href="mailto:contact@darjawithmongia.com">
-            Contact Mongia
-            <ArrowUpRight size={12} />
-          </a>
-          <a href={site + "#about"}>
-            About Darja with Mongia
-            <ArrowUpRight size={12} />
-          </a>
-        </div>
-      </footer>
-      <div className="copyright shell">
-        <span>© 2026 Darja with Mongia</span>
-        <span>
-          <Diamond size={10} />
-          Darja with Mongia shop
-        </span>
-      </div>
+      <ShopFooter />
       {filters && (
         <Modal
           close={() => setFilters(false)}

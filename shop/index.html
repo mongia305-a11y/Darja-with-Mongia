@@ -2,6 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      try {
+        document.documentElement.dataset.theme =
+          localStorage.getItem("darja-color-theme") === "dark" ? "dark" : "light";
+      } catch {
+        document.documentElement.dataset.theme = "light";
+      }
+    </script>
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#432840" />
@@ -10,8 +18,8 @@
     <title>The Darja Shop · Darja with Mongia</title>
     
   
-  <script type="module" crossorigin src="./assets/index-DpeSgGV3.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-D3ZZRDNp.css">
+  <script type="module" crossorigin src="./assets/index-Cgv54mNk.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-Huv0L7d5.css">
 </head>
   <body>
     <div id="root"></div>
